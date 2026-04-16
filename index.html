@@ -420,6 +420,175 @@
             letter-spacing: 0.5px;
         }
 
+        /* TRANSITION SECTION - Puente entre hacks y programa */
+        .transition-section {
+            text-align: center;
+            padding: 72px 24px 56px;
+            position: relative;
+        }
+        .transition-eyebrow {
+            display: inline-block;
+            color: var(--earth-carrot);
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            padding: 6px 16px;
+            border: 1.5px solid var(--earth-carrot);
+            border-radius: 100px;
+        }
+        .transition-headline {
+            font-size: clamp(30px, 5.5vw, 52px);
+            line-height: 1.05;
+            font-weight: 900;
+            color: var(--black-seed);
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .transition-accent {
+            color: var(--oxygen-blue);
+            position: relative;
+            display: inline-block;
+        }
+        .transition-accent::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 4px;
+            height: 10px;
+            background: rgba(118,211,209,0.25);
+            z-index: -1;
+        }
+        .transition-sub {
+            font-size: clamp(20px, 3vw, 26px);
+            color: var(--text);
+            font-weight: 500;
+            margin-bottom: 36px;
+            line-height: 1.3;
+        }
+        .transition-sub strong {
+            color: var(--earth-carrot);
+            font-weight: 900;
+            font-size: 1.2em;
+        }
+        .transition-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--black-seed);
+            color: var(--arie-yellow);
+            animation: float-down 2s ease-in-out infinite;
+        }
+        @keyframes float-down {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* SHARE CARD */
+        .share-card {
+            background: white;
+            border-radius: 20px;
+            padding: 44px 32px;
+            text-align: center;
+            margin-bottom: 56px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        .share-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--arie-yellow);
+            border-radius: 0 0 4px 4px;
+        }
+        .share-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            background: rgba(118,211,209,0.1);
+            border: 1px solid rgba(118,211,209,0.3);
+            border-radius: 16px;
+            color: var(--oxygen-blue);
+            margin-bottom: 20px;
+        }
+        .share-title {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--black-seed);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+        .share-subtitle {
+            color: var(--text-light);
+            font-size: 15px;
+            max-width: 420px;
+            margin: 0 auto 28px;
+            line-height: 1.55;
+        }
+        .share-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 22px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            font-family: inherit;
+        }
+        .share-wa {
+            background: #25D366;
+            color: white;
+            box-shadow: 0 6px 18px rgba(37,211,102,0.3);
+        }
+        .share-wa:hover {
+            transform: translateY(-2px);
+            background: #1ebe5a;
+            box-shadow: 0 10px 24px rgba(37,211,102,0.4);
+        }
+        .share-copy {
+            background: var(--pure-reset);
+            color: var(--black-seed);
+            border: 1.5px solid var(--border);
+        }
+        .share-copy:hover {
+            background: var(--black-seed);
+            color: white;
+            border-color: var(--black-seed);
+        }
+        .share-copy.copied {
+            background: var(--oxygen-blue);
+            color: var(--black-seed);
+            border-color: var(--oxygen-blue);
+        }
+
         /* FOLLOW CARD */
         .follow-card {
             background: white;
@@ -556,6 +725,20 @@
             </div>
         </div>
 
+        <!-- SECCIÓN DE TRANSICIÓN - Gancho fuerte entre hacks y programa -->
+        <div class="transition-section">
+            <div class="transition-eyebrow">No pares aquí</div>
+            <h2 class="transition-headline">
+                Si estos <span class="transition-accent">3 hacks</span> te abrieron los ojos...
+            </h2>
+            <p class="transition-sub">
+                ¿Qué pasaría si te enseño los otros <strong>30</strong>?
+            </p>
+            <div class="transition-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+            </div>
+        </div>
+
         <div class="cta-section">
             <div class="cta-content">
                 <div class="cta-eyebrow">Reboot 30 · Programa de 30 días</div>
@@ -634,6 +817,27 @@
             <a href="https://instagram.com/ariereboot" class="follow-link">Acompáñame en @ariereboot →</a>
         </div>
 
+        <!-- SECCIÓN DE COMPARTIR -->
+        <div class="share-card">
+            <div class="share-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            </div>
+            <h3 class="share-title">¿Conoces a alguien a quien le sirva?</h3>
+            <p class="share-subtitle">
+                Comparte este recurso. Puede ser el empujón que alguien cercano necesitaba.
+            </p>
+            <div class="share-buttons">
+                <a href="https://wa.me/?text=Mira%20este%20recurso%20que%20me%20encontré%2C%20te%20va%20a%20servir%3A%20Los%203%20errores%20del%20café%20que%20te%20roban%20energía%20%F0%9F%91%80%20https%3A%2F%2Fariereboot.github.io%2Freboot-lifestyle%2Fcafe.html" target="_blank" rel="noopener" class="share-btn share-wa">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    Compartir por WhatsApp
+                </a>
+                <button class="share-btn share-copy" onclick="copyLink(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span class="copy-text">Copiar link</span>
+                </button>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -642,6 +846,67 @@
         <span class="brand">ReBoot Lifestyle</span><span class="separator">·</span>by Arie Reboot<span class="separator">·</span>Panamá
     </div>
 </footer>
+
+<!-- ============================================= -->
+<!-- TRACKING PIXELS (pendiente de configurar)    -->
+<!-- ============================================= -->
+<!-- Meta/Facebook Pixel: pega aquí tu código cuando tengas pixel ID -->
+<!-- <script>
+!function(f,b,e,v,n,t,s){...}
+fbq('init', 'TU_PIXEL_ID');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {content_name: 'Recurso Cafe', content_category: 'Lead Magnet'});
+</script> -->
+<!-- ============================================= -->
+<!-- Google Analytics / GTM: pega aquí cuando tengas GA4 ID -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> -->
+<!-- ============================================= -->
+
+<script>
+    // COPIAR LINK AL PORTAPAPELES
+    function copyLink(btn) {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            const span = btn.querySelector('.copy-text');
+            const original = span.textContent;
+            span.textContent = '¡Copiado!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                span.textContent = original;
+                btn.classList.remove('copied');
+            }, 2000);
+        }).catch(() => {
+            // Fallback para navegadores viejos
+            const textarea = document.createElement('textarea');
+            textarea.value = url;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            const span = btn.querySelector('.copy-text');
+            span.textContent = '¡Copiado!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                span.textContent = 'Copiar link';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    }
+
+    // TRACKING EVENTS - Preparado para Meta Pixel/GA4 cuando se agreguen
+    document.querySelectorAll('.cta-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // if (typeof fbq !== 'undefined') fbq('track', 'Lead', {content_name: 'Guardar Cupo Cafe'});
+            console.log('CTA click: Guardar mi cupo');
+        });
+    });
+    document.querySelectorAll('.share-wa').forEach(btn => {
+        btn.addEventListener('click', () => {
+            // if (typeof fbq !== 'undefined') fbq('track', 'Share', {method: 'whatsapp'});
+            console.log('Share: WhatsApp');
+        });
+    });
+</script>
 
 </body>
 </html>
