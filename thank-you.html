@@ -220,6 +220,42 @@
             font-style: italic;
         }
 
+        /* FIRMA PERSONAL DE ARIE */
+        .signature-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .signature-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(250,230,43,0.6);
+            filter: grayscale(100%) contrast(1.05);
+        }
+        .signature-text {
+            text-align: left;
+        }
+        .signature-quote {
+            font-size: 14px;
+            color: rgba(255,255,255,0.85);
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+        .signature-name {
+            font-size: 11px;
+            color: var(--arie-yellow);
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
         /* Footer con marca */
         .brand-bar {
             position: absolute;
@@ -307,6 +343,15 @@
         </a>
 
         <p class="wa-hint">Tu cupo se confirma cuando entres al grupo</p>
+
+        <!-- Firma personal de Arie -->
+        <div class="signature-block">
+            <img src="arie-bw.jpg" alt="Arie" class="signature-avatar" />
+            <div class="signature-text">
+                <div class="signature-quote">Nos vemos adentro.</div>
+                <div class="signature-name">— Arie Reboot</div>
+            </div>
+        </div>
 
     </div>
 
