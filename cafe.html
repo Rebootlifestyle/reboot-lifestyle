@@ -366,10 +366,19 @@
             padding: 4px 0;
         }
         .benefit-icon {
-            font-size: 28px;
-            line-height: 1;
+            width: 40px;
+            height: 40px;
             flex-shrink: 0;
-            filter: drop-shadow(0 2px 8px rgba(118,211,209,0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(118,211,209,0.08);
+            border: 1px solid rgba(118,211,209,0.2);
+            border-radius: 10px;
+            color: var(--oxygen-blue);
+        }
+        .benefit-icon svg {
+            display: block;
         }
         .benefit-text {
             font-size: 14px;
@@ -513,13 +522,13 @@
 
         <div class="error-card">
             <div class="error-number">1</div>
-            <div class="error-title">Le metes azúcar, cremora o leche condensada</div>
+            <div class="error-title">Le pones azúcar morena, crema para café o leche condensada</div>
             <p class="error-desc">
                 Creas un pico de glucosa a las 8 de la mañana que te deja sin energía a las 11. El café dejó de ser café y se convirtió en un postre.
             </p>
             <div class="hack-box">
                 <strong>El hack</strong>
-                <div class="hack-content">Café negro con canela y una pizca de sal. La canela estabiliza la glucosa. La sal potencia el sabor sin endulzar.</div>
+                <div class="hack-content">Acostúmbrate a tomarlo 7 días sin nada, aunque te sepa mal. Tus papilas gustativas se reinician en una semana y vas a empezar a disfrutar el sabor real. Si después de los 7 días sigue costándote, agrégale canela y una pizca de sal.</div>
             </div>
         </div>
 
@@ -549,7 +558,7 @@
 
         <div class="cta-section">
             <div class="cta-content">
-                <div class="cta-eyebrow">Edición gratuita · Arranca el 4 de mayo</div>
+                <div class="cta-eyebrow">Reboot 30 · Programa de 30 días</div>
                 <h2>En 30 días vas a sentir<br>que vives en <span class="cta-highlight">otro cuerpo</span></h2>
                 <p class="cta-subhead">
                     No es dieta. No es contar calorías. Es aprender a comer diferente para siempre.
@@ -557,42 +566,54 @@
 
                 <div class="benefits-list">
                     <div class="benefit-item">
-                        <div class="benefit-icon">⚡</div>
+                        <div class="benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                        </div>
                         <div class="benefit-text">
                             <strong>Energía estable todo el día</strong>
                             Sin bajones, sin depender del café
                         </div>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">😴</div>
+                        <div class="benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+                        </div>
                         <div class="benefit-text">
                             <strong>Sueño profundo de verdad</strong>
                             Dormir toda la noche sin despertarte
                         </div>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">🧠</div>
+                        <div class="benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v1.5M12 19.5V21M4.5 12H3m18 0h-1.5M18.364 5.636l-1.06 1.06M6.697 17.303l-1.06 1.06M18.364 18.364l-1.06-1.06M6.697 6.697 5.636 5.636"></path><circle cx="12" cy="12" r="4"></circle></svg>
+                        </div>
                         <div class="benefit-text">
                             <strong>Claridad mental y mejor humor</strong>
                             La niebla mental desaparece
                         </div>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">🍽️</div>
+                        <div class="benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                        </div>
                         <div class="benefit-text">
                             <strong>Comer sin antojos ni culpa</strong>
                             Liberación real de la adicción al azúcar
                         </div>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">💪</div>
+                        <div class="benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        </div>
                         <div class="benefit-text">
                             <strong>Cuerpo liviano y desinflamado</strong>
-                            Ropa que te queda diferente en 30 días
+                            Tu ropa te va a quedar diferente
                         </div>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">🔥</div>
+                        <div class="benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.22-8.56"></path><path d="m9 11 3 3L22 4"></path></svg>
+                        </div>
                         <div class="benefit-text">
                             <strong>Nueva relación con la comida</strong>
                             Para siempre, no solo 30 días
@@ -600,17 +621,17 @@
                     </div>
                 </div>
 
-                <a href="#" class="cta-button">Quiero empezar el 4 de mayo →</a>
-                <span class="cta-small">100% gratuito · Cupos limitados · Comunidad exclusiva</span>
+                <a href="#" class="cta-button">Guardar mi cupo →</a>
+                <span class="cta-small">100% gratuito · Cupos limitados · Arranca el 4 de mayo</span>
             </div>
         </div>
 
         <div class="follow-card">
-            <h3>Si este hack te sirvió</h3>
+            <h3>Tu cuerpo lleva años esperando este cambio</h3>
             <p>
-                Sígueme en Instagram que cada semana saco un hack nuevo para cambiarte la relación con la comida.
+                No importa cuántas dietas hayas intentado antes. Lo que hoy aprendiste ya te cambió algo por dentro. El próximo paso es tuyo.
             </p>
-            <a href="https://instagram.com/ariereboot" class="follow-link">@ariereboot en Instagram →</a>
+            <a href="https://instagram.com/ariereboot" class="follow-link">Acompáñame en @ariereboot →</a>
         </div>
 
     </div>
