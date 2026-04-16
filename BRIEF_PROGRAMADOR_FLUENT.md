@@ -22,7 +22,7 @@ Crear el sistema completo de registro para el Programa Reboot 30. Debe capturar 
 |---|-------|-------------------|------------|-------------|
 | 1 | Nombre completo | Name Fields (First Name) | Required, min 2 chars | "¿Cómo te llamas?" |
 | 2 | Teléfono WhatsApp | Phone Field | Required, default country Panamá (+507) | "Tu número con código de país" |
-| 3 | Ciudad | Dropdown | Required | "Elige tu ciudad" |
+| 3 | País | Dropdown | Required | "¿Desde dónde nos acompañas?" |
 | 4 | Reto principal | Radio | Required | "¿Cuál es tu reto principal hoy?" |
 
 **OPCIONAL (pero recomendado):**
@@ -33,16 +33,12 @@ Crear el sistema completo de registro para el Programa Reboot 30. Debe capturar 
 
 | 6 | Checkbox consentimiento | Checkbox | Required | "Acepto recibir comunicaciones por WhatsApp y email sobre el programa" |
 
-### Opciones exactas para el dropdown "Ciudad"
+### Opciones exactas para el dropdown "País"
 
-- Ciudad de Panamá
-- Panamá Oeste (Arraiján, La Chorrera, Capira)
-- Colón
-- David / Chiriquí
-- Chitré / Herrera / Los Santos
-- Santiago / Veraguas
-- Otra ciudad de Panamá
+- Panamá
 - Fuera de Panamá
+
+**Nota:** Simplificamos a solo 2 opciones. Los grupos de WhatsApp son solo 2: uno para Panamá, uno internacional.
 
 ### Opciones exactas para "¿Cuál es tu reto principal hoy?"
 
@@ -208,16 +204,14 @@ En el `<head>` o en un bloque HTML custom:
     const nombre = params.get('nombre') || '';
     const ciudad = params.get('ciudad') || '';
 
-    // Mapeo de ciudad a link de WhatsApp (actualizar con links reales de cada grupo)
+    // Solo 2 grupos: Panamá + Internacional
+    const GRUPO_PANAMA = 'https://chat.whatsapp.com/REEMPLAZAR_GRUPO_PANAMA';
+    const GRUPO_INTERNACIONAL = 'https://chat.whatsapp.com/REEMPLAZAR_GRUPO_INTERNACIONAL';
+
+    // Si dice "Fuera de Panamá" → internacional. Todo lo demás → Panamá.
+    const esFueraDePanama = (ciudad || '').toLowerCase().includes('fuera');
     const grupos = {
-        'Ciudad de Panamá': 'https://chat.whatsapp.com/LINK_GRUPO_1',
-        'Panamá Oeste (Arraiján, La Chorrera, Capira)': 'https://chat.whatsapp.com/LINK_GRUPO_2',
-        'Colón': 'https://chat.whatsapp.com/LINK_GRUPO_3',
-        'David / Chiriquí': 'https://chat.whatsapp.com/LINK_GRUPO_3',
-        'Chitré / Herrera / Los Santos': 'https://chat.whatsapp.com/LINK_GRUPO_3',
-        'Santiago / Veraguas': 'https://chat.whatsapp.com/LINK_GRUPO_3',
-        'Otra ciudad de Panamá': 'https://chat.whatsapp.com/LINK_GRUPO_3',
-        'Fuera de Panamá': 'https://chat.whatsapp.com/LINK_GRUPO_4'
+        'default': esFueraDePanama ? GRUPO_INTERNACIONAL : GRUPO_PANAMA
     };
 
     // Personalizar nombre en la página
@@ -248,19 +242,18 @@ En el HTML:
 
 ---
 
-## PARTE 6: Crear los 5 grupos de WhatsApp
+## PARTE 6: Crear los 2 grupos de WhatsApp
 
-Arie necesita crear manualmente en WhatsApp estos grupos:
+Arie crea solo 2 grupos:
 
-1. **Reboot 30 · Ciudad de Panamá**
-2. **Reboot 30 · Panamá Oeste**
-3. **Reboot 30 · Interior** (Colón, David, Chitré, Santiago)
-4. **Reboot 30 · Internacional** (fuera de Panamá)
-5. **Reboot 30 · General** (overflow)
+1. **Reboot 30 · Panamá** — Para todos los que se registran desde Panamá
+2. **Reboot 30 · Internacional** — Para los de otros países
 
 De cada grupo sacar el **link de invitación** (chat.whatsapp.com/XXXXX).
 
-Esos 5 links se insertan en el JavaScript de la página de bienvenida (ver arriba).
+Esos 2 links se insertan en el JavaScript de la página de bienvenida (ver arriba).
+
+**Nota:** Si un grupo llega al límite de 1024 personas, crear un segundo grupo con mismo nombre + número (ej. "Reboot 30 · Panamá 2") y actualizar el link.
 
 ---
 

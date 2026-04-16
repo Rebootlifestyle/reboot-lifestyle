@@ -261,20 +261,17 @@ Todos los botones "Guardar mi cupo →" en las landings de recursos apuntan a:
 
 ---
 
-## 6. Grupos de WhatsApp a crear (según ciudad)
+## 6. Grupos de WhatsApp a crear (simplificado)
 
-Con 5000+ personas esperadas, planear 5-6 grupos:
+**Decisión actualizada:** Solo 2 grupos en total.
 
-| # | Grupo | Ciudad target | Capacidad |
-|---|-------|---------------|-----------|
-| 1 | Reboot 30 · Ciudad de Panamá 1 | Ciudad de Panamá | 1024 |
-| 2 | Reboot 30 · Ciudad de Panamá 2 | Ciudad de Panamá (cuando el 1 se llene) | 1024 |
-| 3 | Reboot 30 · Panamá Oeste | Panamá Oeste | 1024 |
-| 4 | Reboot 30 · Interior | Colón, David, Chitré, Santiago | 1024 |
-| 5 | Reboot 30 · Internacional | Fuera de Panamá | 1024 |
-| 6 | Reboot 30 · General | Overflow | 1024 |
+| # | Grupo | Target | Capacidad |
+|---|-------|--------|-----------|
+| 1 | Reboot 30 · Panamá | Todos los de Panamá | 1024 |
+| 2 | Reboot 30 · Internacional | Fuera de Panamá | 1024 |
 
-**Nombres descriptivos:** Los nombres del grupo ayudan a que la gente se sienta parte de una comunidad específica.
+**Si llegan al límite:**
+Cuando un grupo llegue a 1024 personas, crear un segundo con el mismo nombre + "2" (ej. `Reboot 30 · Panamá 2`) y actualizar el link en el script.
 
 **Moderación:** Cada grupo necesita al menos 1 moderador (un coach tuyo o miembro del equipo) para filtrar dudas.
 
