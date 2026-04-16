@@ -127,6 +127,18 @@ Con botón visible de WhatsApp abajo.
 
 ---
 
+## DISCLAIMER LEGAL - Incluir SIEMPRE al final de cada PDF
+
+**Texto exacto, en letra pequeña (10-11px):**
+
+> Contenido educativo con fines informativos. No sustituye diagnóstico, tratamiento ni consejo médico profesional. Consulta a tu médico antes de hacer cambios en tu alimentación o estilo de vida, especialmente si tienes condiciones de salud. Los resultados varían según cada persona.
+>
+> © 2026 ReBoot Lifestyle · Arie Schwartz. Todos los derechos reservados. Prohibida la reproducción total o parcial del contenido, imágenes, metodología o material por cualquier medio sin autorización escrita previa.
+
+**Ubicación:** Última página del PDF, en color gris (#888 o similar), letra chica pero legible.
+
+---
+
 ## Timeline
 
 - **Sábado 19 abril:** Briefing con Arie
