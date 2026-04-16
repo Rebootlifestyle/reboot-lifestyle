@@ -477,6 +477,55 @@
             font-weight: 900;
             font-size: 1.2em;
         }
+        /* FECHA GRANDE */
+        .transition-date {
+            display: inline-block;
+            padding: 24px 40px;
+            margin-bottom: 36px;
+            background: var(--black-seed);
+            border-radius: 20px;
+            border: 2px solid var(--arie-yellow);
+            position: relative;
+            text-align: center;
+        }
+        .transition-date::before {
+            content: "";
+            position: absolute;
+            inset: -8px;
+            border-radius: 26px;
+            background: linear-gradient(135deg, rgba(250,230,43,0.3), rgba(118,211,209,0.2));
+            z-index: -1;
+            filter: blur(20px);
+        }
+        .date-label {
+            color: var(--oxygen-blue);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .date-big {
+            color: var(--arie-yellow);
+            font-size: clamp(44px, 8vw, 76px);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+        }
+        .date-sep {
+            margin: 0 6px;
+            opacity: 0.5;
+            font-weight: 300;
+        }
+        .date-year {
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-top: 6px;
+        }
+
         .transition-arrow {
             display: inline-flex;
             align-items: center;
@@ -746,8 +795,13 @@
                 Si estos <span class="transition-accent">3 hacks</span> te abrieron los ojos...
             </h2>
             <p class="transition-sub">
-                Creé un programa para enseñarte <strong>todos mis hacks en 30 días</strong>.<br>Gratis.
+                Creé un programa para enseñarte <strong>todos mis hacks en 30 días</strong>. Gratis.
             </p>
+            <div class="transition-date">
+                <div class="date-label">Arranca</div>
+                <div class="date-big">4<span class="date-sep">·</span>MAYO</div>
+                <div class="date-year">2026</div>
+            </div>
             <div class="transition-arrow">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
             </div>
