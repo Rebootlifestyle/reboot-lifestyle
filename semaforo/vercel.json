@@ -3,9 +3,6 @@
   "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/", "destination": "/public/index.html" }
-  ],
   "functions": {
     "api/analyze.js": {
       "maxDuration": 30
@@ -13,7 +10,7 @@
   },
   "headers": [
     {
-      "source": "/public/(.*)",
+      "source": "/(.*\\.(css|js|svg|jpg|jpeg|png|webp|ico))",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=300, must-revalidate" }
       ]
