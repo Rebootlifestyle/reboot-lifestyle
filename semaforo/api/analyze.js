@@ -59,6 +59,7 @@ export default async function handler(req, res) {
     return res.status(500).json({
       error: 'internal_error',
       message: 'Algo falló del lado nuestro. Intenta de nuevo en un minuto.',
+      _debug: { name: err?.name, message: err?.message, status: err?.status, hasKey: !!process.env.ANTHROPIC_API_KEY },
     });
   }
 }
