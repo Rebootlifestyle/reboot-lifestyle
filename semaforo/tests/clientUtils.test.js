@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { describe, it, expect } from 'vitest';
-import { renderResult, verdictLabel, verdictColor, escapeHtml } from '../clientUtils.js';
+import { renderResult, renderAttribution, verdictLabel, verdictColor, escapeHtml } from '../clientUtils.js';
 
 describe('escapeHtml', () => {
   it('escapes angle brackets and quotes', () => {
@@ -58,5 +58,26 @@ describe('renderResult', () => {
     const html = renderResult(withXss);
     expect(html).not.toContain('<img src=x');
     expect(html).toContain('&lt;img');
+  });
+});
+
+describe('renderAttribution', () => {
+  it('renders the attribution card with location + name buttons', () => {
+    const html = renderAttribution();
+    expect(html).toContain('attribution-card');
+    expect(html).toContain('attr-location-btn');
+    expect(html).toContain('attr-name-btn');
+    expect(html).toContain('attr-name-form');
+  });
+
+  it('includes the transparent disclaimer about anonymous storage', () => {
+    const html = renderAttribution();
+    expect(html).toContain('anónima');
+    expect(html).toContain('biblioteca');
+  });
+
+  it('renders a status element with aria-live for screen readers', () => {
+    const html = renderAttribution();
+    expect(html).toMatch(/id="attr-status"[^>]*aria-live="polite"/);
   });
 });

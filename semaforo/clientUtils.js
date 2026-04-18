@@ -61,6 +61,36 @@ export function renderResult(data) {
   return `${summaryHtml}<ul class="result-items">${itemsHtml}</ul>${notesHtml}`;
 }
 
+/**
+ * Renders the restaurant attribution card shown after the analysis result.
+ * Users can optionally share the restaurant's name or their current location
+ * to help build the public Reboot menu library.
+ */
+export function renderAttribution() {
+  return `
+    <section class="attribution-card" aria-label="Atribución del restaurante">
+      <h3 class="attribution-card__title">📍 Ayúdanos a crecer la biblioteca</h3>
+      <p class="attribution-card__copy">Si nos dices dónde estás, el próximo que venga a este restaurante ya no tiene que subir foto.</p>
+
+      <div class="attribution-actions">
+        <button type="button" id="attr-location-btn" class="attr-btn">Usar mi ubicación</button>
+        <button type="button" id="attr-name-btn" class="attr-btn">Escribir nombre</button>
+      </div>
+
+      <form id="attr-name-form" class="attribution-form" hidden>
+        <input type="text" id="attr-name-input" placeholder="Ej: Maito, Fonda Lo Que Hay, Market..." maxlength="200" />
+        <button type="submit" class="attr-btn attr-btn--primary">Guardar</button>
+      </form>
+
+      <p id="attr-status" class="attribution-status" role="status" aria-live="polite"></p>
+
+      <p class="attribution-disclaimer">
+        Tu análisis se guarda de forma anónima para construir la biblioteca pública de menús Reboot.
+      </p>
+    </section>
+  `;
+}
+
 // Resize and compress an image File to max 1600px long side, JPEG 85%.
 // Returns { base64: string (no data: prefix), mediaType: string }.
 export async function compressImage(file) {

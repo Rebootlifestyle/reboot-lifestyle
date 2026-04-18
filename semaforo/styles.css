@@ -270,6 +270,101 @@ h1 {
   color: var(--c-muted);
   font-style: italic;
 }
+
+/* --- Attribution card (crowdsourced restaurant data) --- */
+.attribution-card {
+  margin: 24px 0 16px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  text-align: left;
+}
+.attribution-card__title {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--c-text);
+}
+.attribution-card__copy {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: var(--c-muted);
+  line-height: 1.5;
+}
+.attribution-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.attr-btn {
+  flex: 1 1 140px;
+  min-height: 44px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  border: 1.5px solid var(--c-turquoise);
+  color: var(--c-deep);
+  background: transparent;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.attr-btn:hover:not(:disabled) {
+  background: var(--c-turquoise);
+  color: var(--c-black);
+}
+.attr-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.attr-btn--primary {
+  background: var(--c-deep);
+  color: #fff;
+  border-color: var(--c-deep);
+}
+.attr-btn--primary:hover:not(:disabled) {
+  background: var(--c-black);
+  color: #fff;
+}
+.attribution-form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.attribution-form input[type="text"] {
+  flex: 1 1 200px;
+  min-height: 44px;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--r-sm);
+  background: #fff;
+  color: var(--c-text);
+}
+.attribution-form input[type="text"]:focus {
+  outline: none;
+  border-color: var(--c-turquoise);
+}
+.attribution-status {
+  margin: 4px 0 12px;
+  font-size: 13px;
+  font-weight: 600;
+  min-height: 18px;
+}
+.attribution-status[data-kind="success"] { color: var(--c-green); }
+.attribution-status[data-kind="error"] { color: var(--c-red); }
+.attribution-disclaimer {
+  margin: 0;
+  font-size: 12px;
+  color: #888;
+  line-height: 1.5;
+  font-style: italic;
+}
 .result-actions {
   display: flex;
   gap: 12px;

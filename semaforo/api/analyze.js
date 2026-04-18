@@ -1,7 +1,9 @@
 import { analyzeMenu } from '../lib/analyzeMenu.js';
 import { checkRateLimit } from '../lib/rateLimit.js';
+import { logAnalysis, sha256Hex } from '../lib/supabase.js';
 
 const ACCEPTED_MEDIA = new Set(['image/jpeg', 'image/png', 'image/webp']);
+const IP_HASH_SALT = process.env.IP_HASH_SALT || 'reboot-salt-fallback';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -47,7 +49,22 @@ export default async function handler(req, res) {
       mediaType,
       apiKey: process.env.ANTHROPIC_API_KEY,
     });
-    return res.status(200).json(result);
+
+    // Fire-and-note: log to Supabase for the Reboot menu library.
+    // If Supabase is not configured (no env vars), this returns null and we skip.
+    let analysisId = null;
+    if (process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      const logged = await logAnalysis({
+        analysisJson: result,
+        imageHash: sha256Hex(imageBase64),
+        imageBytes: Math.round(imageBase64.length * 0.75), // approx bytes from base64
+        userAgent: req.headers['user-agent']?.slice(0, 300) || null,
+        ipHash: sha256Hex(ip + IP_HASH_SALT),
+      });
+      analysisId = logged?.id || null;
+    }
+
+    return res.status(200).json({ ...result, analysisId });
   } catch (err) {
     console.error('analyze error:', err);
     if (err.code === 'INVALID_RESPONSE') {

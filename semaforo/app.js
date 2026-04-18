@@ -1,4 +1,6 @@
-import { renderResult, compressImage } from '/clientUtils.js';
+import { renderResult, renderAttribution, compressImage } from '/clientUtils.js';
+
+let currentAnalysisId = null;
 
 const loadingMessages = [
   'Leyendo el menú…',
@@ -75,7 +77,11 @@ async function handleFile(file) {
     }
 
     const data = await response.json();
-    resultContainer.innerHTML = renderResult(data);
+    currentAnalysisId = data.analysisId || null;
+    const resultHtml = renderResult(data);
+    const attributionHtml = currentAnalysisId && !data.error ? renderAttribution() : '';
+    resultContainer.innerHTML = resultHtml + attributionHtml;
+    if (currentAnalysisId && !data.error) wireAttribution();
     showSection(resultSection);
     trackEvent('analysis_completed', { total: data.summary?.total ?? 0 });
   } catch (err) {
@@ -111,3 +117,69 @@ shareBtn.addEventListener('click', async () => {
 });
 
 ctaBtn?.addEventListener('click', () => trackEvent('cta_reboot30_clicked'));
+
+// --- Attribution (restaurant name / geolocation) ---
+function wireAttribution() {
+  const locBtn = document.getElementById('attr-location-btn');
+  const nameBtn = document.getElementById('attr-name-btn');
+  const nameForm = document.getElementById('attr-name-form');
+  const nameInput = document.getElementById('attr-name-input');
+  const statusEl = document.getElementById('attr-status');
+
+  const setStatus = (msg, kind = 'info') => {
+    if (!statusEl) return;
+    statusEl.textContent = msg;
+    statusEl.dataset.kind = kind;
+  };
+
+  const lock = () => {
+    [locBtn, nameBtn].forEach((b) => b && (b.disabled = true));
+    if (nameForm) nameForm.hidden = true;
+  };
+
+  async function postAttribution(body) {
+    try {
+      const res = await fetch('/api/attribute', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ analysisId: currentAnalysisId, ...body }),
+      });
+      if (!res.ok) throw new Error('server');
+      setStatus('✓ Gracias, quedó guardado.', 'success');
+      lock();
+      trackEvent('attribution_saved', { hasName: !!body.restaurantName, hasLoc: typeof body.lat === 'number' });
+    } catch {
+      setStatus('No pudimos guardar. Intenta de nuevo en un momento.', 'error');
+    }
+  }
+
+  locBtn?.addEventListener('click', () => {
+    if (!navigator.geolocation) {
+      setStatus('Tu navegador no soporta ubicación.', 'error');
+      return;
+    }
+    setStatus('Pidiendo permiso de ubicación…');
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const { latitude, longitude, accuracy } = pos.coords;
+        postAttribution({ lat: latitude, lng: longitude, accuracyM: accuracy });
+      },
+      () => setStatus('No pudimos obtener tu ubicación.', 'error'),
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 }
+    );
+  });
+
+  nameBtn?.addEventListener('click', () => {
+    if (nameForm) {
+      nameForm.hidden = false;
+      nameInput?.focus();
+    }
+  });
+
+  nameForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const val = nameInput?.value?.trim();
+    if (!val) return;
+    postAttribution({ restaurantName: val });
+  });
+}
