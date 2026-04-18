@@ -163,14 +163,21 @@ function wireAttribution() {
       setStatus('Tu navegador no soporta ubicación.', 'error');
       return;
     }
-    setStatus('Pidiendo permiso de ubicación…');
+    setStatus('Buscando tu ubicación…');
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const { latitude, longitude, accuracy } = pos.coords;
         postAttribution({ lat: latitude, lng: longitude, accuracyM: accuracy });
       },
-      () => setStatus('No pudimos obtener tu ubicación.', 'error'),
-      { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 }
+      (err) => {
+        const msg = err.code === 1
+          ? 'Permiso de ubicación denegado. Escribe el nombre del restaurante.'
+          : err.code === 3
+          ? 'La ubicación tardó demasiado. Escribe el nombre del restaurante.'
+          : 'No pudimos obtener tu ubicación (¿estás indoor?). Escribe el nombre del restaurante.';
+        setStatus(msg, 'error');
+      },
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
     );
   });
 

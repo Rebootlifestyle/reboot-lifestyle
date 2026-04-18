@@ -70,12 +70,13 @@ export function renderAttribution() {
   return `
     <section class="attribution-card" aria-label="Atribución del restaurante">
       <h3 class="attribution-card__title">📍 Ayúdanos a crecer la biblioteca</h3>
-      <p class="attribution-card__copy">Si nos dices dónde estás, el próximo que venga a este restaurante ya no tiene que subir foto.</p>
+      <p class="attribution-card__copy">Si nos dices qué restaurante es, el próximo que lo busque ya no tiene que subir foto.</p>
 
       <div class="attribution-actions">
-        <button type="button" id="attr-location-btn" class="attr-btn">Usar mi ubicación</button>
         <button type="button" id="attr-name-btn" class="attr-btn">Escribir nombre</button>
+        <button type="button" id="attr-location-btn" class="attr-btn" title="Solo si estás físicamente en el restaurante">Usar mi ubicación</button>
       </div>
+      <p class="attribution-hint">La ubicación funciona solo si estás en el restaurante ahora mismo.</p>
 
       <form id="attr-name-form" class="attribution-form" hidden>
         <input type="text" id="attr-name-input" placeholder="Ej: Maito, Fonda Lo Que Hay, Market..." maxlength="200" />

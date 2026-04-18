@@ -2,7 +2,9 @@ import Anthropic from '@anthropic-ai/sdk';
 import { SEMAFORO_SYSTEM_PROMPT } from './prompt.js';
 
 const MODEL = 'claude-sonnet-4-6';
-const MAX_TOKENS = 2048;
+// 8192 is enough for ~50 dishes with full explanations + substitutions.
+// Most Panamanian menus fit well below this.
+const MAX_TOKENS = 8192;
 
 const IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
 const PDF_TYPE = 'application/pdf';
