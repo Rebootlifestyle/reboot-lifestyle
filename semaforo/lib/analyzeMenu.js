@@ -4,13 +4,36 @@ import { SEMAFORO_SYSTEM_PROMPT } from './prompt.js';
 const MODEL = 'claude-sonnet-4-6';
 const MAX_TOKENS = 2048;
 
+const IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
+const PDF_TYPE = 'application/pdf';
+
 /**
- * Analyze a menu image via Claude multimodal.
- * @param {{imageBase64: string, mediaType: 'image/jpeg'|'image/png'|'image/webp', apiKey: string}} params
+ * Analyze a menu (image or PDF) via Claude multimodal.
+ * Images use the `image` content block; PDFs use the `document` block.
+ * @param {{fileBase64: string, mediaType: string, apiKey: string}} params
  * @returns {Promise<object>} parsed JSON matching the schema defined in the system prompt
  */
-export async function analyzeMenu({ imageBase64, mediaType, apiKey }) {
+export async function analyzeMenu({ fileBase64, mediaType, apiKey, imageBase64 }) {
+  // Backward compat: old callers pass imageBase64 instead of fileBase64.
+  const data = fileBase64 ?? imageBase64;
   const client = new Anthropic({ apiKey });
+
+  let primaryBlock;
+  if (IMAGE_TYPES.has(mediaType)) {
+    primaryBlock = {
+      type: 'image',
+      source: { type: 'base64', media_type: mediaType, data },
+    };
+  } else if (mediaType === PDF_TYPE) {
+    primaryBlock = {
+      type: 'document',
+      source: { type: 'base64', media_type: mediaType, data },
+    };
+  } else {
+    const err = new Error(`UNSUPPORTED_MEDIA_TYPE: ${mediaType}`);
+    err.code = 'UNSUPPORTED_MEDIA_TYPE';
+    throw err;
+  }
 
   const response = await client.messages.create({
     model: MODEL,
@@ -26,14 +49,8 @@ export async function analyzeMenu({ imageBase64, mediaType, apiKey }) {
       {
         role: 'user',
         content: [
-          {
-            type: 'image',
-            source: { type: 'base64', media_type: mediaType, data: imageBase64 },
-          },
-          {
-            type: 'text',
-            text: 'Analiza este menú.',
-          },
+          primaryBlock,
+          { type: 'text', text: 'Analiza este menú.' },
         ],
       },
     ],

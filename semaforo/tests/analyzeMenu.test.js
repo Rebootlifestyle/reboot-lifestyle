@@ -39,7 +39,7 @@ describe('analyzeMenu', () => {
     });
 
     const result = await analyzeMenu({
-      imageBase64: 'fake-base64',
+      fileBase64: 'fake-base64',
       mediaType: 'image/jpeg',
       apiKey: 'sk-ant-test',
     });
@@ -48,6 +48,41 @@ describe('analyzeMenu', () => {
     expect(result.items).toHaveLength(2);
     expect(result.items[0].verdict).toBe('yellow');
     expect(result.items[0].substitution).toContain('aceite de oliva');
+  });
+
+  it('accepts legacy imageBase64 parameter for backward compatibility', async () => {
+    mockCreate.mockResolvedValueOnce({
+      content: [{ type: 'text', text: JSON.stringify({ summary: { total: 0, green: 0, yellow: 0, red: 0 }, items: [], notes: null }) }],
+    });
+    const result = await analyzeMenu({
+      imageBase64: 'legacy-data',
+      mediaType: 'image/jpeg',
+      apiKey: 'sk-ant-test',
+    });
+    expect(result).toBeDefined();
+    expect(mockCreate.mock.calls[0][0].messages[0].content[0].source.data).toBe('legacy-data');
+  });
+
+  it('sends PDFs as a document content block (not image)', async () => {
+    mockCreate.mockResolvedValueOnce({
+      content: [{ type: 'text', text: JSON.stringify({ summary: { total: 0, green: 0, yellow: 0, red: 0 }, items: [], notes: null }) }],
+    });
+    await analyzeMenu({
+      fileBase64: 'pdf-bytes',
+      mediaType: 'application/pdf',
+      apiKey: 'sk-ant-test',
+    });
+    const call = mockCreate.mock.calls[0][0];
+    expect(call.messages[0].content[0]).toEqual({
+      type: 'document',
+      source: { type: 'base64', media_type: 'application/pdf', data: 'pdf-bytes' },
+    });
+  });
+
+  it('throws UNSUPPORTED_MEDIA_TYPE for non image/pdf types', async () => {
+    await expect(
+      analyzeMenu({ fileBase64: 'x', mediaType: 'text/plain', apiKey: 'sk-ant-test' })
+    ).rejects.toThrow('UNSUPPORTED_MEDIA_TYPE');
   });
 
   it('returns the error object when Claude reports no_menu_detected', async () => {
@@ -64,7 +99,7 @@ describe('analyzeMenu', () => {
     });
 
     const result = await analyzeMenu({
-      imageBase64: 'fake',
+      fileBase64: 'fake',
       mediaType: 'image/jpeg',
       apiKey: 'sk-ant-test',
     });
@@ -78,7 +113,7 @@ describe('analyzeMenu', () => {
     });
 
     await expect(
-      analyzeMenu({ imageBase64: 'fake', mediaType: 'image/jpeg', apiKey: 'sk-ant-test' })
+      analyzeMenu({ fileBase64: 'fake', mediaType: 'image/jpeg', apiKey: 'sk-ant-test' })
     ).rejects.toThrow('INVALID_RESPONSE');
   });
 
@@ -87,7 +122,7 @@ describe('analyzeMenu', () => {
       content: [{ type: 'text', text: JSON.stringify({ summary: { total: 0, green: 0, yellow: 0, red: 0 }, items: [], notes: null }) }],
     });
 
-    await analyzeMenu({ imageBase64: 'abc123', mediaType: 'image/png', apiKey: 'sk-ant-test' });
+    await analyzeMenu({ fileBase64: 'abc123', mediaType: 'image/png', apiKey: 'sk-ant-test' });
 
     const call = mockCreate.mock.calls[0][0];
     expect(call.model).toBe('claude-sonnet-4-6');

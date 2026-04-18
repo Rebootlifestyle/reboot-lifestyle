@@ -2,8 +2,14 @@ import { analyzeMenu } from '../lib/analyzeMenu.js';
 import { checkRateLimit } from '../lib/rateLimit.js';
 import { logAnalysis, sha256Hex } from '../lib/supabase.js';
 
-const ACCEPTED_MEDIA = new Set(['image/jpeg', 'image/png', 'image/webp']);
+const ACCEPTED_MEDIA = new Set([
+  'image/jpeg',
+  'image/png',
+  'image/webp',
+  'application/pdf',
+]);
 const IP_HASH_SALT = process.env.IP_HASH_SALT || 'reboot-salt-fallback';
+const MAX_PAYLOAD_B64 = 6_500_000; // ~5MB actual bytes; PDFs need a bit more headroom than photos
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -23,41 +29,42 @@ export default async function handler(req, res) {
     });
   }
 
-  const { imageBase64, mediaType } = req.body || {};
+  // Accept either the new field name (fileBase64) or the legacy one (imageBase64).
+  const { fileBase64, imageBase64, mediaType } = req.body || {};
+  const dataB64 = fileBase64 ?? imageBase64;
 
-  if (!imageBase64 || typeof imageBase64 !== 'string') {
-    return res.status(400).json({ error: 'bad_request', message: 'Falta la imagen.' });
+  if (!dataB64 || typeof dataB64 !== 'string') {
+    return res.status(400).json({ error: 'bad_request', message: 'Falta el archivo.' });
   }
 
   if (!ACCEPTED_MEDIA.has(mediaType)) {
     return res.status(400).json({
       error: 'unsupported_media_type',
-      message: 'Formato no soportado. Usa JPG, PNG o WebP.',
+      message: 'Formato no soportado. Sube una foto (JPG, PNG, WebP) o un PDF del menú.',
     });
   }
 
-  if (imageBase64.length > 4_500_000) {
+  if (dataB64.length > MAX_PAYLOAD_B64) {
     return res.status(413).json({
       error: 'payload_too_large',
-      message: 'La imagen es muy grande. Prueba con una más pequeña.',
+      message: 'El archivo es muy grande. Si es PDF, usa uno más pequeño o toma foto.',
     });
   }
 
   try {
     const result = await analyzeMenu({
-      imageBase64,
+      fileBase64: dataB64,
       mediaType,
       apiKey: process.env.ANTHROPIC_API_KEY,
     });
 
-    // Fire-and-note: log to Supabase for the Reboot menu library.
-    // If Supabase is not configured (no env vars), this returns null and we skip.
+    // Silent log to Supabase (skipped if env vars absent).
     let analysisId = null;
     if (process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
       const logged = await logAnalysis({
         analysisJson: result,
-        imageHash: sha256Hex(imageBase64),
-        imageBytes: Math.round(imageBase64.length * 0.75), // approx bytes from base64
+        imageHash: sha256Hex(dataB64),
+        imageBytes: Math.round(dataB64.length * 0.75),
         userAgent: req.headers['user-agent']?.slice(0, 300) || null,
         ipHash: sha256Hex(ip + IP_HASH_SALT),
       });
@@ -70,7 +77,7 @@ export default async function handler(req, res) {
     if (err.code === 'INVALID_RESPONSE') {
       return res.status(502).json({
         error: 'invalid_model_response',
-        message: 'El modelo devolvió algo inesperado. Intenta con otra foto.',
+        message: 'El modelo devolvió algo inesperado. Intenta con otra foto o PDF.',
       });
     }
     return res.status(500).json({
@@ -80,7 +87,7 @@ export default async function handler(req, res) {
   }
 }
 
-// Vercel Node.js body parser supports JSON up to ~5MB by default
+// Vercel Node.js body parser supports JSON up to ~5MB by default; we bump it for PDFs.
 export const config = {
-  api: { bodyParser: { sizeLimit: '5mb' } },
+  api: { bodyParser: { sizeLimit: '10mb' } },
 };

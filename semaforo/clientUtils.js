@@ -91,6 +91,29 @@ export function renderAttribution() {
   `;
 }
 
+/**
+ * Reads a File and returns its base64 (without data: prefix) plus mediaType.
+ * PDFs are passed through unchanged. Images are resized to max 1600px and
+ * re-encoded as JPEG 85% to keep payloads small.
+ */
+export async function prepareFile(file) {
+  if (file.type === 'application/pdf') {
+    const base64 = await fileToBase64(file);
+    return { base64, mediaType: 'application/pdf' };
+  }
+  return compressImage(file);
+}
+
+async function fileToBase64(file) {
+  const dataUrl = await new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+  return dataUrl.split(',')[1];
+}
+
 // Resize and compress an image File to max 1600px long side, JPEG 85%.
 // Returns { base64: string (no data: prefix), mediaType: string }.
 export async function compressImage(file) {

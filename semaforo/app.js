@@ -1,4 +1,4 @@
-import { renderResult, renderAttribution, compressImage } from '/clientUtils.js';
+import { renderResult, renderAttribution, prepareFile } from '/clientUtils.js';
 
 let currentAnalysisId = null;
 
@@ -45,26 +45,31 @@ function trackEvent(name, data = {}) {
 }
 
 async function handleFile(file) {
-  if (!file || !file.type.startsWith('image/')) {
-    showError('Eso no parece una imagen. Prueba con una foto del menú.');
+  if (!file) return;
+  const isImage = file.type.startsWith('image/');
+  const isPdf = file.type === 'application/pdf';
+  if (!isImage && !isPdf) {
+    showError('Archivo no soportado. Sube una foto (JPG/PNG) o un PDF del menú.');
     return;
   }
   if (file.size > 10 * 1024 * 1024) {
-    showError('La imagen pesa más de 10MB. Tómale otra foto más pequeña.');
+    showError(isPdf
+      ? 'El PDF pesa más de 10MB. Prueba con un PDF más pequeño o toma foto de las páginas.'
+      : 'La imagen pesa más de 10MB. Tómale otra foto más pequeña.');
     return;
   }
 
   showSection(loadingSection);
   const loadingInterval = cycleLoadingMessages();
-  trackEvent('analysis_started');
+  trackEvent('analysis_started', { kind: isPdf ? 'pdf' : 'image' });
 
   try {
-    const { base64, mediaType } = await compressImage(file);
+    const { base64, mediaType } = await prepareFile(file);
 
     const response = await fetch('/api/analyze', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ imageBase64: base64, mediaType }),
+      body: JSON.stringify({ fileBase64: base64, mediaType }),
     });
 
     clearInterval(loadingInterval);
