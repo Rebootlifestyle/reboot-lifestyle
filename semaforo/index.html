@@ -46,24 +46,24 @@
     </div>
   </header>
 
+  <!-- SECTION 1: Upload / Hero (full-width, fondo negro) -->
+  <section id="upload-section" class="hero-screen">
+    <div class="hero-screen__inner">
+      <span class="badge">NUEVO · BETA</span>
+      <h1>Sube el menú y te digo <span class="hl">qué pedir</span></h1>
+      <p class="subtitle">Escanea el menú de cualquier restaurante y recibe el análisis Reboot en segundos. Cada plato con su semáforo: verde, amarillo o rojo.</p>
+
+      <label for="file-input" class="upload-btn" id="upload-btn">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+        <span>Subir foto del menú</span>
+      </label>
+      <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp,image/heic" hidden />
+
+      <p class="hint">Tip: asegúrate de que el menú se lea bien y haya buena luz.</p>
+    </div>
+  </section>
+
   <main>
-    <!-- SECTION 1: Upload / Hero -->
-    <section id="upload-section" class="section section--hero">
-      <div class="hero">
-        <span class="badge">NUEVO · BETA</span>
-        <h1>Sube el menú y te digo <span class="hl">qué pedir</span></h1>
-        <p class="subtitle">Escanea el menú de cualquier restaurante y recibe el análisis Reboot en segundos. Cada plato con su semáforo: verde, amarillo o rojo.</p>
-
-        <label for="file-input" class="upload-btn" id="upload-btn">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
-          <span>Subir foto del menú</span>
-        </label>
-        <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp,image/heic" capture="environment" hidden />
-
-        <p class="hint">Tip: asegúrate de que el menú se lea bien y haya buena luz.</p>
-      </div>
-    </section>
-
     <!-- SECTION 2: Loading -->
     <section id="loading-section" class="section section--loading" hidden>
       <div class="loading">
