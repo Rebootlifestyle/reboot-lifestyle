@@ -50,20 +50,22 @@
   <section id="upload-section" class="hero-screen">
     <div class="hero-screen__inner">
       <span class="badge">NUEVO · BETA</span>
-      <h1>Sube el menú y te digo <span class="hl">qué pedir</span></h1>
+      <h1>Te ayudo a elegir <span class="hl">qué pedir</span></h1>
       <p class="subtitle">Escanea el menú de cualquier restaurante y recibe el análisis Reboot en segundos. Cada plato con su semáforo: verde, amarillo o rojo.</p>
 
-      <label for="camera-input" class="upload-btn">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
-        <span>Tomar foto del menú</span>
-      </label>
-      <input id="camera-input" type="file" accept="image/jpeg,image/png,image/webp,image/heic" capture="environment" hidden />
+      <div class="upload-row">
+        <label for="camera-input" class="upload-btn upload-btn--primary">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+          <span>Tomar foto</span>
+        </label>
+        <input id="camera-input" type="file" accept="image/jpeg,image/png,image/webp,image/heic" capture="environment" hidden />
 
-      <label for="gallery-input" class="upload-btn-secondary">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>o elegir de la galería</span>
-      </label>
-      <input id="gallery-input" type="file" accept="image/jpeg,image/png,image/webp,image/heic" hidden />
+        <label for="gallery-input" class="upload-btn upload-btn--ghost">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>De galería</span>
+        </label>
+        <input id="gallery-input" type="file" accept="image/jpeg,image/png,image/webp,image/heic" hidden />
+      </div>
 
       <p class="hint">Tip: asegúrate de que el menú se lea bien y haya buena luz.</p>
     </div>
