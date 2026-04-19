@@ -8,13 +8,13 @@
 
 ## 🎯 ESTRATEGIA DEL POST
 
-Dar valor MASIVO en el carrusel (que la gente lo guarde y comparta), pero dejar un "curiosity gap" fuerte para que comenten la keyword. La landing entrega MUCHO MÁS: productos específicos de super panameño, swaps diarios, test de etiquetas de 15 seg, y bonus. El CTA final es al programa Reboot 30 gratis.
+Dar valor MASIVO en el carrusel (que la gente lo guarde y comparta), pero dejar un "curiosity gap" fuerte para que comenten la keyword. La landing entrega MUCHO MÁS: los 10 nombres disfrazados, dónde se esconden, 3 "saludables" trampa, test de etiqueta de 15 seg y 3 swaps reales. El CTA final es al programa Reboot 30 gratis.
 
 ---
 
 ## 📱 CAPTION (para pegar al subir)
 
-> El panameño promedio se come **35 cucharadas de azúcar al día** sin darse cuenta.
+> El adulto promedio se come hasta **35 cucharadas de azúcar al día** sin darse cuenta.
 >
 > La OMS recomienda máximo 6.
 >
@@ -26,7 +26,7 @@ Dar valor MASIVO en el carrusel (que la gente lo guarde y comparta), pero dejar 
 >
 > 👉 **Comenta "AZÚCAR"** y te mando todo por DM. Gratis. Es el primero de una serie que estoy soltando antes del Programa Reboot 30 que arranca el 4 de mayo.
 >
-> #ReBootLifestyle #SaludPanamá #AzucarOculta #LeerEtiquetas #EnergíaEstable #HabitosSaludables #ComidaRealPanamá
+> #ReBootLifestyle #AzucarOculta #LeerEtiquetas #EnergíaEstable #HabitosSaludables #ComidaReal #SaludConsciente
 
 ---
 
@@ -46,10 +46,10 @@ Dar valor MASIVO en el carrusel (que la gente lo guarde y comparta), pero dejar 
 
 ### SLIDE 2 — EL DATO QUE DUELE
 **Texto:**
-> 🇵🇦 El panameño promedio:
+> El adulto promedio:
 > **35 cucharadas / día**
 >
-> 🌍 Lo que recomienda la OMS:
+> Lo que recomienda la OMS:
 > **6 cucharadas / día**
 
 **Subtexto:**
@@ -121,7 +121,7 @@ Dar valor MASIVO en el carrusel (que la gente lo guarde y comparta), pero dejar 
 > Hay **7 nombres más**
 > que son igual de disfrazados.
 >
-> + los productos específicos del super panameño donde los encuentras.
+> + los productos del super donde se esconden (spoiler: muchos "saludables").
 >
 > + 3 swaps que usas desde mañana.
 
