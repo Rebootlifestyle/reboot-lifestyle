@@ -161,6 +161,6 @@ Dar valor MASIVO en el carrusel (que la gente lo guarde y comparta), pero dejar 
 ## 🔄 FOLLOW-UP STORIES (mismo día)
 
 - **Story 1 (AM):** Captura del post con sticker "comenta AZÚCAR"
-- **Story 2 (mediodía):** Foto de una etiqueta real del super panameño (ej: Yoplait, Special K, Milo) con las palabras tramposas marcadas
+- **Story 2 (mediodía):** Foto genérica de una etiqueta del super (tapando la marca o en primer plano solo la lista de ingredientes) con las palabras tramposas marcadas con círculo
 - **Story 3 (PM):** Screenshot anónimo de un DM agradeciendo + "ya van X comentarios"
 - **Story 4 (noche):** Recordatorio del programa 4 de mayo con link en bio
