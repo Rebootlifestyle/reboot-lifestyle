@@ -6,6 +6,14 @@
       "title": "Semana 1 · Arranque",
       "subtitle": "Rompes con el azúcar, estabilizas energía, sientes el cambio.",
       "unlocks_on_day": 1,
+      "days": [],
+      "coming_soon": true
+    },
+    {
+      "week": 2,
+      "title": "Semana 2 · Profundización",
+      "subtitle": "Incorporas nuevos hábitos, varían los sabores.",
+      "unlocks_on_day": 8,
       "days": [
         {
           "day": 1,
@@ -148,14 +156,6 @@
           }
         }
       ]
-    },
-    {
-      "week": 2,
-      "title": "Semana 2 · Profundización",
-      "subtitle": "Incorporas nuevos hábitos, varían los sabores.",
-      "unlocks_on_day": 8,
-      "days": [],
-      "coming_soon": true
     },
     {
       "week": 3,
