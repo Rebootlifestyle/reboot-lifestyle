@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reboot Lab · Mi Programa de 30 días</title>
+<meta name="description" content="Tu programa personal Reboot 30. Meal plans, tracking, recetas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black-seed: #0f0f0f;
+    --deep-neural: #02251f;
+    --oxygen-blue: #76d3d1;
+    --earth-carrot: #e85c26;
+    --pure-reset: #f3f6fb;
+    --arie-yellow: #fae62b;
+    --text-muted: #6b6b6b;
+    --border-subtle: #e5e8ec;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--black-seed);
+    color: #fff;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .gateway {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .gateway::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(118,211,209,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .gateway::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(250,230,43,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .brand {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  .brand-mark {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--oxygen-blue);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .brand-name {
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    color: #fff;
+  }
+  .brand-name span { color: var(--arie-yellow); }
+  .brand-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .card {
+    background: #1a1a1a;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    padding: 40px 32px;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 40px 80px -40px rgba(0,0,0,0.8);
+  }
+  .card h1 {
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+    margin-bottom: 10px;
+  }
+  .card h1 span { color: var(--oxygen-blue); }
+  .card .lead {
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    margin-bottom: 28px;
+    line-height: 1.55;
+  }
+
+  .step { display: none; }
+  .step.active { display: block; }
+
+  .choice-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .choice-btn {
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    color: #fff;
+    padding: 18px 20px;
+    border-radius: 14px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .choice-btn:hover {
+    border-color: var(--oxygen-blue);
+    background: rgba(118,211,209,0.08);
+    transform: translateY(-1px);
+  }
+  .choice-btn.primary {
+    background: var(--oxygen-blue);
+    color: var(--black-seed);
+    border-color: var(--oxygen-blue);
+  }
+  .choice-btn.primary:hover {
+    background: #5cbdbb;
+    border-color: #5cbdbb;
+  }
+  .choice-btn-title { font-size: 15px; }
+  .choice-btn-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+    font-weight: 500;
+  }
+  .choice-btn.primary .choice-btn-desc { color: rgba(15,15,15,0.6); }
+  .choice-btn .arrow {
+    font-size: 20px;
+    color: var(--oxygen-blue);
+    flex-shrink: 0;
+  }
+  .choice-btn.primary .arrow { color: var(--black-seed); }
+
+  label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--oxygen-blue);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  input[type="text"],
+  input[type="date"],
+  input[type="email"] {
+    width: 100%;
+    padding: 16px 18px;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    outline: none;
+    transition: all 0.2s;
+  }
+  input:focus {
+    border-color: var(--oxygen-blue);
+    background: rgba(118,211,209,0.05);
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 18px 20px;
+    background: var(--earth-carrot);
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 12px 30px -8px rgba(232,92,38,0.5);
+  }
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px -6px rgba(232,92,38,0.6);
+  }
+
+  .back-link {
+    background: transparent;
+    border: none;
+    color: var(--oxygen-blue);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 16px;
+    text-decoration: underline;
+  }
+
+  footer {
+    padding: 24px;
+    text-align: center;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.3px;
+  }
+  footer a { color: var(--oxygen-blue); text-decoration: none; }
+
+  @media (max-width: 640px) {
+    .card { padding: 32px 22px; border-radius: 20px; }
+    .card h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<main class="gateway">
+
+  <div class="brand">
+    <div class="brand-mark">Reboot Lab</div>
+    <div class="brand-name">Reboot <span>30</span></div>
+    <div class="brand-sub">by @ariereboot</div>
+  </div>
+
+  <div class="card">
+
+    <!-- STEP 1: Ya empecé? -->
+    <div class="step active" id="step-start">
+      <h1>Bienvenido a tu <span>programa personal</span>.</h1>
+      <p class="lead">Meal plans diarios, tracking de tus 30 días, recetas ajustadas a ti. Todo en un solo lugar.</p>
+
+      <div class="choice-group">
+        <button class="choice-btn primary" onclick="goToStep('new')">
+          <div>
+            <div class="choice-btn-title">Empezar mi Reboot 30</div>
+            <div class="choice-btn-desc">Configuramos tu fecha de inicio en 20 segundos</div>
+          </div>
+          <span class="arrow">→</span>
+        </button>
+        <button class="choice-btn" onclick="goToStep('returning')">
+          <div>
+            <div class="choice-btn-title">Ya estoy en el programa</div>
+            <div class="choice-btn-desc">Ir a mi dashboard</div>
+          </div>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Nuevo -->
+    <div class="step" id="step-new">
+      <h1>Configurá tu <span>Reboot</span>.</h1>
+      <p class="lead">Con tu nombre y tu fecha de inicio, el sistema sabe qué día del programa estás y te muestra las comidas correctas.</p>
+
+      <form onsubmit="saveAndStart(event)">
+        <label for="name">Tu nombre</label>
+        <input type="text" id="name" placeholder="Así te saludamos cada día" required>
+
+        <label for="startDate">Fecha de inicio de tu Reboot 30</label>
+        <input type="date" id="startDate" required>
+
+        <button class="submit-btn" type="submit">Activar mi programa →</button>
+      </form>
+
+      <button class="back-link" onclick="goToStep('start')">← Volver</button>
+    </div>
+
+    <!-- STEP 3: Returning -->
+    <div class="step" id="step-returning">
+      <h1>Bienvenido <span>de vuelta</span>.</h1>
+      <p class="lead" id="returningLead">Buscando tu información…</p>
+
+      <div id="returningActions"></div>
+
+      <button class="back-link" onclick="goToStep('start')">← Volver</button>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2026 Reboot Lifestyle · <a href="../">Volver al sitio</a></p>
+</footer>
+
+<script>
+  function goToStep(name) {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById(`step-${name}`).classList.add('active');
+
+    if (name === 'returning') {
+      checkReturning();
+    }
+  }
+
+  function checkReturning() {
+    const saved = localStorage.getItem('reboot30_user');
+    const actionsDiv = document.getElementById('returningActions');
+    const lead = document.getElementById('returningLead');
+
+    if (!saved) {
+      lead.textContent = 'No encontramos tu programa en este dispositivo. Configuralo abajo.';
+      actionsDiv.innerHTML = `
+        <button class="choice-btn primary" onclick="goToStep('new')" style="width:100%;">
+          <div><div class="choice-btn-title">Empezar mi Reboot 30</div></div>
+          <span class="arrow">→</span>
+        </button>
+      `;
+      return;
+    }
+
+    const data = JSON.parse(saved);
+    const today = new Date();
+    const start = new Date(data.startDate);
+    const diffMs = today.setHours(0,0,0,0) - start.setHours(0,0,0,0);
+    const dayNum = Math.floor(diffMs / (1000 * 60 * 60 * 24)) + 1;
+
+    let msg = '';
+    if (dayNum < 1) {
+      msg = `Tu programa arranca en ${-dayNum + 1} día(s). ¡Preparándote!`;
+    } else if (dayNum > 30) {
+      msg = `Completaste tus 30 días 🎉. ¿Querés repetir o ajustar?`;
+    } else {
+      msg = `Estás en el <strong>día ${dayNum}</strong> de tu Reboot 30, ${data.name}.`;
+    }
+
+    lead.innerHTML = msg;
+    actionsDiv.innerHTML = `
+      <button class="choice-btn primary" onclick="location.href='./dashboard.html'" style="width:100%; margin-bottom:10px;">
+        <div><div class="choice-btn-title">Ir a mi dashboard</div></div>
+        <span class="arrow">→</span>
+      </button>
+      <button class="choice-btn" onclick="resetProfile()" style="width:100%;">
+        <div><div class="choice-btn-title">Empezar de nuevo</div><div class="choice-btn-desc">Borra mis datos y reinicia</div></div>
+        <span class="arrow">→</span>
+      </button>
+    `;
+  }
+
+  function resetProfile() {
+    if (!confirm('¿Querés borrar tu progreso y empezar de cero?')) return;
+    localStorage.removeItem('reboot30_user');
+    goToStep('new');
+  }
+
+  function saveAndStart(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const startDate = document.getElementById('startDate').value;
+
+    if (!name || !startDate) return;
+
+    const data = {
+      name: name,
+      startDate: startDate,
+      createdAt: new Date().toISOString()
+    };
+    localStorage.setItem('reboot30_user', JSON.stringify(data));
+    location.href = './dashboard.html';
+  }
+
+  // Set default date to next Monday
+  window.addEventListener('DOMContentLoaded', () => {
+    const dateInput = document.getElementById('startDate');
+    if (!dateInput) return;
+    const today = new Date();
+    const nextMonday = new Date(today);
+    nextMonday.setDate(today.getDate() + ((1 - today.getDay() + 7) % 7 || 7));
+    dateInput.value = nextMonday.toISOString().slice(0, 10);
+    dateInput.min = today.toISOString().slice(0, 10);
+  });
+
+  // If already registered, jump directly
+  const existing = localStorage.getItem('reboot30_user');
+  if (existing) {
+    // No auto-redirect — let them see the gateway, but show "returning" as default
+    setTimeout(() => {
+      goToStep('returning');
+    }, 200);
+  }
+</script>
+
+</body>
+</html>

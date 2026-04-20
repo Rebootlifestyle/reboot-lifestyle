@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Semana · Reboot Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black-seed: #0f0f0f;
+    --deep-neural: #02251f;
+    --oxygen-blue: #76d3d1;
+    --earth-carrot: #e85c26;
+    --pure-reset: #f3f6fb;
+    --arie-yellow: #fae62b;
+    --text-muted: #6b6b6b;
+    --border-subtle: #e5e8ec;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--pure-reset);
+    color: var(--black-seed);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .topbar {
+    background: var(--black-seed);
+    color: #fff;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: -0.3px;
+  }
+  .topbar-brand .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--oxygen-blue);
+    box-shadow: 0 0 12px var(--oxygen-blue);
+  }
+  .topbar-brand span { color: var(--arie-yellow); font-weight: 900; }
+  .topbar-back {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 7px 14px;
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .topbar-back:hover { border-color: var(--oxygen-blue); }
+
+  .hero {
+    background: linear-gradient(180deg, var(--black-seed) 0%, #1a1a1a 100%);
+    color: #fff;
+    padding: 40px 20px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(118,211,209,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--arie-yellow);
+    font-weight: 700;
+    margin-bottom: 8px;
+    position: relative; z-index: 1;
+  }
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    position: relative; z-index: 1;
+  }
+  .hero h1 span { color: var(--oxygen-blue); }
+  .hero p {
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative; z-index: 1;
+  }
+
+  .week-nav {
+    max-width: 1000px;
+    margin: 24px auto 0;
+    padding: 0 20px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .week-nav::-webkit-scrollbar { display: none; }
+  .week-chip {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    padding: 10px 18px;
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--black-seed);
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .week-chip.active {
+    background: var(--black-seed);
+    color: #fff;
+    border-color: var(--black-seed);
+  }
+  .week-chip.locked {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .week-chip.locked::before {
+    content: '🔒';
+    font-size: 11px;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+
+  .day-block {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  }
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .day-badge {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: var(--black-seed);
+    color: var(--arie-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+  .day-badge-label {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .day-badge-num {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .day-title { font-size: 16px; font-weight: 800; letter-spacing: -0.3px; }
+  .day-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .day-today-tag {
+    display: inline-block;
+    background: var(--oxygen-blue);
+    color: var(--black-seed);
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .meals-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 640px) {
+    .meals-row { grid-template-columns: 1fr; }
+  }
+
+  .meal-card {
+    background: var(--pure-reset);
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid transparent;
+  }
+  .meal-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -14px rgba(0,0,0,0.2);
+    border-color: var(--oxygen-blue);
+  }
+  .meal-photo {
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--deep-neural);
+    position: relative;
+  }
+  .meal-tag {
+    position: absolute;
+    top: 10px; left: 10px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 800;
+    z-index: 2;
+  }
+  .meal-tag.desayuno { background: var(--arie-yellow); color: var(--black-seed); }
+  .meal-tag.almuerzo { background: var(--oxygen-blue); color: var(--black-seed); }
+  .meal-tag.cena { background: var(--earth-carrot); color: #fff; }
+  .meal-info { padding: 12px 14px; }
+  .meal-name {
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: -0.1px;
+  }
+
+  .big-notice {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 28px;
+    text-align: center;
+    border: 1px solid var(--border-subtle);
+  }
+  .big-notice h3 { font-size: 20px; font-weight: 900; margin-bottom: 10px; }
+  .big-notice p { color: var(--text-muted); font-size: 14px; }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 28px; }
+    .container { padding: 22px 14px 40px; }
+    .day-block { padding: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-brand"><span class="dot"></span>Reboot <span>30</span></div>
+  <a href="./dashboard.html" class="topbar-back">← Dashboard</a>
+</header>
+
+<section class="hero">
+  <div class="hero-label" id="heroLabel">Semana —</div>
+  <h1 id="heroTitle">Mi semana</h1>
+  <p id="heroSub"></p>
+</section>
+
+<nav class="week-nav" id="weekNav"></nav>
+
+<main class="container">
+  <div id="daysContainer"></div>
+</main>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const weekParam = parseInt(urlParams.get('n')) || 1;
+
+  const saved = localStorage.getItem('reboot30_user');
+  if (!saved) location.href = './index.html';
+  const user = JSON.parse(saved);
+
+  const today = new Date();
+  const start = new Date(user.startDate);
+  const diffMs = today.setHours(0,0,0,0) - start.setHours(0,0,0,0);
+  const currentDay = Math.floor(diffMs / (1000 * 60 * 60 * 24)) + 1;
+  const currentWeek = currentDay > 0 ? Math.ceil(currentDay / 7) : 0;
+
+  fetch('./meal-plan.json')
+    .then(r => r.json())
+    .then(data => {
+      renderWeekNav(data.weeks);
+      const week = data.weeks.find(w => w.week === weekParam);
+      if (!week) return;
+      renderHero(week);
+      renderDays(week);
+    });
+
+  function renderHero(week) {
+    document.getElementById('heroLabel').textContent = `Semana ${week.week}`;
+    document.getElementById('heroTitle').innerHTML = week.title.replace(`Semana ${week.week} · `, '<span>') + '</span>';
+    document.getElementById('heroSub').textContent = week.subtitle;
+  }
+
+  function renderWeekNav(weeks) {
+    const nav = document.getElementById('weekNav');
+    nav.innerHTML = weeks.map(w => {
+      const isCurrent = w.week === weekParam;
+      const isLocked = currentDay < w.unlocks_on_day && !(w.week === 1);
+      const cls = `week-chip ${isCurrent ? 'active' : ''} ${isLocked ? 'locked' : ''}`;
+      const onClick = isLocked ? 'onclick="event.preventDefault(); alert(\'Esta semana se desbloquea el día ' + w.unlocks_on_day + ' de tu programa.\')"' : '';
+      return `<a href="?n=${w.week}" class="${cls}" ${onClick}>Semana ${w.week}</a>`;
+    }).join('');
+  }
+
+  function renderDays(week) {
+    const container = document.getElementById('daysContainer');
+
+    if (week.coming_soon || !week.days || week.days.length === 0) {
+      container.innerHTML = `
+        <div class="big-notice">
+          <h3>Semana ${week.week} en producción</h3>
+          <p>Estamos curando las comidas. Volvé pronto o explorá otras semanas.</p>
+        </div>
+      `;
+      return;
+    }
+
+    const startDayOfWeek = week.unlocks_on_day;
+
+    container.innerHTML = week.days.map(d => {
+      const globalDay = startDayOfWeek + d.day - 1;
+      const isToday = globalDay === currentDay;
+      const meals = d.meals;
+
+      return `
+        <div class="day-block">
+          <div class="day-header">
+            <div class="day-badge">
+              <div class="day-badge-label">Día</div>
+              <div class="day-badge-num">${globalDay}</div>
+            </div>
+            <div>
+              <div class="day-title">Día ${globalDay} del programa${isToday ? '<span class="day-today-tag">Hoy</span>' : ''}</div>
+              <div class="day-sub">3 comidas balanceadas · compatibles mes 1</div>
+            </div>
+          </div>
+          <div class="meals-row">
+            ${renderMealCard(meals.desayuno, 'desayuno')}
+            ${renderMealCard(meals.almuerzo, 'almuerzo')}
+            ${renderMealCard(meals.cena, 'cena')}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function renderMealCard(meal, type) {
+    if (!meal) return '';
+    const photo = photoFor(meal);
+    return `
+      <a href="javascript:void(0)" class="meal-card" onclick="openMeal('${meal.slug}')">
+        <div class="meal-photo" style="background-image: url('${photo}')">
+          <span class="meal-tag ${type}">${type}</span>
+        </div>
+        <div class="meal-info">
+          <div class="meal-name">${meal.name}</div>
+        </div>
+      </a>
+    `;
+  }
+
+  function photoFor(meal) {
+    const prompt = encodeURIComponent(meal.photo_prompt || meal.name);
+    const seed = Math.abs(hashCode(meal.slug)) % 10000;
+    return `https://image.pollinations.ai/prompt/${prompt}?width=800&height=600&seed=${seed}&nologo=true&model=flux`;
+  }
+
+  function hashCode(str) {
+    let h = 0;
+    for (let i = 0; i < str.length; i++) {
+      h = ((h << 5) - h) + str.charCodeAt(i);
+      h |= 0;
+    }
+    return h;
+  }
+
+  function openMeal(slug) {
+    const mapping = {
+      'bowl-pollo-quinoa': '../receta-preview.html'
+    };
+    if (mapping[slug]) {
+      location.href = mapping[slug];
+    } else {
+      alert('Esta receta va a tener su página completa pronto. Mientras podés ver el Bowl de Pollo como ejemplo del formato.');
+    }
+  }
+</script>
+
+</body>
+</html>

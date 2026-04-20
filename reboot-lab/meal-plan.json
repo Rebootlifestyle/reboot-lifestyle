@@ -1,0 +1,177 @@
+{
+  "program_days": 30,
+  "weeks": [
+    {
+      "week": 1,
+      "title": "Semana 1 · Arranque",
+      "subtitle": "Rompes con el azúcar, estabilizas energía, sientes el cambio.",
+      "unlocks_on_day": 1,
+      "days": [
+        {
+          "day": 1,
+          "meals": {
+            "desayuno": {
+              "slug": "omelette-caprese",
+              "name": "Omelette caprese",
+              "photo_prompt": "overhead close-up photo of Italian caprese omelette on white ceramic plate with cherry tomatoes fresh mozzarella basil leaves, natural window light, wooden kitchen table, casual iPhone style home cooking photography"
+            },
+            "almuerzo": {
+              "slug": "pollo-espinacas-crema-coliflor",
+              "name": "Pollo con espinacas a la crema y puré de coliflor",
+              "photo_prompt": "chicken breast fillet with creamed spinach sauce next to cauliflower mash puree on white plate, natural lunch light, home cooking photography iPhone style"
+            },
+            "cena": {
+              "slug": "wrap-lechuga-lomo",
+              "name": "Wrap de lechuga con lomo salteado",
+              "photo_prompt": "lettuce leaf wraps filled with sauteed beef strips and vegetables on white plate, dinner natural light, casual home cooking photography"
+            }
+          }
+        },
+        {
+          "day": 2,
+          "meals": {
+            "desayuno": {
+              "slug": "waffles-huevos-poche",
+              "name": "Waffles con huevos poché",
+              "photo_prompt": "almond flour waffles topped with poached eggs and fresh herbs, morning natural light on wooden breakfast table, casual food photography iPhone style"
+            },
+            "almuerzo": {
+              "slug": "berenjenas-rellenas-carne",
+              "name": "Berenjenas rellenas de carne",
+              "photo_prompt": "baked eggplant halves stuffed with ground beef and melted cheese and herbs on baking sheet, home cooking natural light, rustic food photography"
+            },
+            "cena": {
+              "slug": "ensalada-cesar-pollo",
+              "name": "Ensalada césar con pollo",
+              "photo_prompt": "caesar salad with grilled chicken strips, romaine lettuce, shaved parmesan, light dressing no croutons on white plate, natural dinner light, casual food photography"
+            }
+          }
+        },
+        {
+          "day": 3,
+          "meals": {
+            "desayuno": {
+              "slug": "huevos-cremosos-tostada-avena",
+              "name": "Huevos cremosos con tostada de avena",
+              "photo_prompt": "soft creamy scrambled eggs on oat bread toast garnished with fresh chives and cracked pepper, morning light, simple white plate, amateur iPhone food photography"
+            },
+            "almuerzo": {
+              "slug": "poke-bowl-salmon",
+              "name": "Poke bowl de salmón",
+              "photo_prompt": "poke bowl with raw cubed salmon avocado cucumber edamame sesame seeds on base of cauliflower rice, wooden surface top-down view, natural light"
+            },
+            "cena": {
+              "slug": "pasta-zucchini-bolognesa",
+              "name": "Pasta de zucchini con salsa bolognesa",
+              "photo_prompt": "zucchini noodles zoodles topped with meat bolognese sauce garnished with fresh basil and parmesan, white plate, natural dinner light"
+            }
+          }
+        },
+        {
+          "day": 4,
+          "meals": {
+            "desayuno": {
+              "slug": "pancakes-fresas",
+              "name": "Pancakes con fresas",
+              "photo_prompt": "stack of almond flour pancakes topped with fresh sliced strawberries and a drizzle of natural syrup, white plate on wooden breakfast table, morning light"
+            },
+            "almuerzo": {
+              "slug": "pollo-ajillo-calabaza",
+              "name": "Pollo al ajillo con ensalada y crema de calabaza",
+              "photo_prompt": "garlic chicken pieces with fresh green salad and creamy butternut squash puree on white plate, natural lunch light home cooking"
+            },
+            "cena": {
+              "slug": "ensalada-atun",
+              "name": "Ensalada de atún",
+              "photo_prompt": "tuna salad with leafy mixed greens cherry tomatoes avocado olives hard boiled egg in large ceramic bowl, natural light casual dinner"
+            }
+          }
+        },
+        {
+          "day": 5,
+          "meals": {
+            "desayuno": {
+              "slug": "muffins-huevo-aguacate",
+              "name": "Muffins de huevo y aguacate",
+              "photo_prompt": "savory egg muffins baked in silicone cups with spinach and cheese served with sliced avocado on wooden cutting board, natural morning light"
+            },
+            "almuerzo": {
+              "slug": "pimiento-relleno-carne",
+              "name": "Pimiento relleno de carne y crema de vegetales",
+              "photo_prompt": "red bell peppers stuffed with seasoned ground meat served next to creamy vegetable soup in white bowl, home cooking natural light"
+            },
+            "cena": {
+              "slug": "pizza-pollo-champinones",
+              "name": "Pizza de pollo y champiñones",
+              "photo_prompt": "healthy pizza with chicken crust topped with mushrooms mozzarella cheese herbs and tomato sauce on rustic wooden board, natural light"
+            }
+          }
+        },
+        {
+          "day": 6,
+          "meals": {
+            "desayuno": {
+              "slug": "avena-trasnochada-yogurt-frutos-rojos",
+              "name": "Avena trasnochada con yogurt y frutos rojos",
+              "photo_prompt": "overnight oats in glass mason jar topped with greek yogurt and mixed fresh berries strawberries blueberries raspberries, wooden surface morning light top-down view"
+            },
+            "almuerzo": {
+              "slug": "quinoa-pollo-vegetales",
+              "name": "Quinoa con pollo y vegetales",
+              "photo_prompt": "quinoa bowl with grilled chicken pieces and roasted colorful vegetables broccoli bell peppers zucchini on white plate natural light"
+            },
+            "cena": {
+              "slug": "ceviche-pescado",
+              "name": "Ceviche de pescado",
+              "photo_prompt": "fresh peruvian ceviche with diced white fish lime juice red onion cilantro sweet potato in glass bowl natural light"
+            }
+          }
+        },
+        {
+          "day": 7,
+          "meals": {
+            "desayuno": {
+              "slug": "arepa-zanahoria-huevos-aguacate",
+              "name": "Arepa de zanahoria con huevos revueltos y aguacate",
+              "photo_prompt": "orange carrot arepa with scrambled eggs and sliced avocado on top on white plate weekend breakfast natural morning light"
+            },
+            "almuerzo": {
+              "slug": "frijoles-carne",
+              "name": "Frijoles con carne",
+              "photo_prompt": "rustic black beans with ground beef stew in ceramic bowl garnished with fresh cilantro and avocado on wooden table natural light"
+            },
+            "cena": {
+              "slug": "carne-asada-vegetales-horneados",
+              "name": "Carne asada con vegetales horneados",
+              "photo_prompt": "sliced grilled beef steak served with roasted vegetables zucchini bell peppers carrots on white plate dinner natural light casual photography"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "Semana 2 · Profundización",
+      "subtitle": "Incorporas nuevos hábitos, varían los sabores.",
+      "unlocks_on_day": 8,
+      "days": [],
+      "coming_soon": true
+    },
+    {
+      "week": 3,
+      "title": "Semana 3 · Aceleración",
+      "subtitle": "Tu cuerpo ya lo entiende, subimos el nivel.",
+      "unlocks_on_day": 15,
+      "days": [],
+      "coming_soon": true
+    },
+    {
+      "week": 4,
+      "title": "Semana 4 · Consolidación",
+      "subtitle": "Lo que aprendiste se vuelve parte de ti.",
+      "unlocks_on_day": 22,
+      "days": [],
+      "coming_soon": true
+    }
+  ]
+}

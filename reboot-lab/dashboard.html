@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Dashboard · Reboot Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black-seed: #0f0f0f;
+    --deep-neural: #02251f;
+    --oxygen-blue: #76d3d1;
+    --earth-carrot: #e85c26;
+    --pure-reset: #f3f6fb;
+    --arie-yellow: #fae62b;
+    --text-muted: #6b6b6b;
+    --border-subtle: #e5e8ec;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--pure-reset);
+    color: var(--black-seed);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Topbar */
+  .topbar {
+    background: var(--black-seed);
+    color: #fff;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: -0.3px;
+  }
+  .topbar-brand .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--oxygen-blue);
+    box-shadow: 0 0 12px var(--oxygen-blue);
+  }
+  .topbar-brand span {
+    color: var(--arie-yellow);
+    font-weight: 900;
+  }
+  .topbar-menu {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    padding: 7px 14px;
+    border-radius: 100px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .topbar-menu:hover { border-color: var(--oxygen-blue); }
+
+  /* Hero / Day marker */
+  .hero {
+    background: linear-gradient(180deg, var(--black-seed) 0%, #1a1a1a 100%);
+    color: #fff;
+    padding: 40px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(118,211,209,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-greeting {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-name {
+    font-size: 15px;
+    color: var(--oxygen-blue);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+  }
+  .day-mark {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    z-index: 1;
+  }
+  .day-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--arie-yellow);
+    font-weight: 700;
+  }
+  .day-number {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -3px;
+    color: #fff;
+  }
+  .day-total {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .progress-bar {
+    max-width: 400px;
+    margin: 26px auto 0;
+    position: relative;
+    z-index: 1;
+  }
+  .progress-track {
+    height: 6px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--oxygen-blue) 0%, var(--arie-yellow) 100%);
+    border-radius: 3px;
+    transition: width 0.6s ease;
+  }
+  .progress-text {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Today's meals */
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .section-title h2 {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+  }
+  .section-title a {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--oxygen-blue);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .section-title a:hover { text-decoration: underline; }
+
+  .meals-today {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .meal-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  .meal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,0.25);
+    border-color: var(--oxygen-blue);
+  }
+  .meal-photo {
+    aspect-ratio: 16/10;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--deep-neural);
+    position: relative;
+  }
+  .meal-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.5) 100%);
+    pointer-events: none;
+  }
+  .meal-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(255,255,255,0.95);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--black-seed);
+    z-index: 2;
+  }
+  .meal-tag.desayuno { background: var(--arie-yellow); }
+  .meal-tag.almuerzo { background: var(--oxygen-blue); }
+  .meal-tag.cena { background: var(--earth-carrot); color: #fff; }
+  .meal-info {
+    padding: 16px 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .meal-name {
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+    margin-bottom: 6px;
+  }
+  .meal-cta {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--oxygen-blue);
+    font-weight: 700;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* Quick links */
+  .quick-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  .quick-link {
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s;
+  }
+  .quick-link:hover {
+    border-color: var(--oxygen-blue);
+    transform: translateY(-1px);
+  }
+  .quick-link-title {
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .quick-link-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    font-weight: 500;
+  }
+  .quick-link-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(118,211,209,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--oxygen-blue);
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  /* Empty / not started state */
+  .big-notice {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 28px;
+    text-align: center;
+    border: 1px solid var(--border-subtle);
+  }
+  .big-notice h3 {
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+  .big-notice p { color: var(--text-muted); font-size: 14px; margin-bottom: 20px; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 30px 16px 50px; }
+    .day-number { font-size: 60px; }
+    .container { padding: 22px 16px 40px; }
+    .section-title h2 { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-brand"><span class="dot"></span>Reboot <span>30</span></div>
+  <button class="topbar-menu" onclick="location.href='./index.html'">Ajustes</button>
+</header>
+
+<section class="hero">
+  <div class="hero-greeting">Hola de nuevo,</div>
+  <div class="hero-name" id="userName">—</div>
+
+  <div class="day-mark" id="dayMark">
+    <div class="day-label">Tu día</div>
+    <div class="day-number" id="dayNumber">—</div>
+    <div class="day-total">de 30</div>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width: 0%"></div></div>
+    <div class="progress-text" id="progressText">—</div>
+  </div>
+</section>
+
+<main class="container">
+
+  <div id="mainContent">
+    <!-- Rendered by JS -->
+  </div>
+
+</main>
+
+<script>
+  const saved = localStorage.getItem('reboot30_user');
+  if (!saved) {
+    location.href = './index.html';
+  }
+
+  const user = JSON.parse(saved);
+  const today = new Date();
+  const start = new Date(user.startDate);
+
+  const diffMs = today.setHours(0,0,0,0) - start.setHours(0,0,0,0);
+  const dayNum = Math.floor(diffMs / (1000 * 60 * 60 * 24)) + 1;
+  const currentWeek = Math.ceil(dayNum / 7);
+
+  document.getElementById('userName').textContent = user.name;
+
+  const main = document.getElementById('mainContent');
+
+  if (dayNum < 1) {
+    // Not started yet
+    document.getElementById('dayNumber').textContent = '—';
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('progressText').textContent = `Tu Reboot 30 arranca el ${formatDate(start)}`;
+
+    main.innerHTML = `
+      <div class="big-notice">
+        <h3>Tu programa arranca en ${-dayNum + 1} día${-dayNum + 1 === 1 ? '' : 's'}</h3>
+        <p>Fecha de inicio: <strong>${formatDate(start)}</strong>. Mientras tanto podés ojear el recetario y prepararte.</p>
+        <a href="../recetario/" class="quick-link" style="display:inline-flex; border-color: var(--oxygen-blue);">
+          <div class="quick-link-icon">◆</div>
+          <div>
+            <div class="quick-link-title">Ir al recetario</div>
+            <div class="quick-link-sub">Recetas compatibles con mes 1</div>
+          </div>
+          <span style="color: var(--oxygen-blue); font-size: 20px;">→</span>
+        </a>
+      </div>
+    `;
+  } else if (dayNum > 30) {
+    // Completed
+    document.getElementById('dayNumber').innerHTML = '30<span style="font-size:40px; color:var(--arie-yellow);">✓</span>';
+    document.getElementById('progressFill').style.width = '100%';
+    document.getElementById('progressText').textContent = `Programa completado 🎉`;
+
+    main.innerHTML = `
+      <div class="big-notice">
+        <h3>Completaste los 30 días 🎉</h3>
+        <p>Felicidades, ${user.name}. Tu cuerpo agradece cada decisión. ¿Querés repasar las recetas o empezar otro ciclo?</p>
+      </div>
+    `;
+  } else {
+    // Active
+    document.getElementById('dayNumber').textContent = dayNum;
+    const pct = (dayNum / 30) * 100;
+    document.getElementById('progressFill').style.width = `${pct}%`;
+    document.getElementById('progressText').textContent = `${Math.round(pct)}% completado · semana ${currentWeek} de 4`;
+
+    loadTodayMeals(dayNum);
+  }
+
+  async function loadTodayMeals(dayNum) {
+    try {
+      const res = await fetch('./meal-plan.json');
+      const data = await res.json();
+
+      const week = data.weeks.find(w => dayNum >= w.unlocks_on_day && dayNum < w.unlocks_on_day + 7);
+      if (!week || week.coming_soon) {
+        renderComingSoonWeek(dayNum);
+        return;
+      }
+
+      const dayInWeek = ((dayNum - 1) % 7) + 1;
+      const dayData = week.days.find(d => d.day === dayInWeek);
+
+      if (!dayData) {
+        renderComingSoonWeek(dayNum);
+        return;
+      }
+
+      renderTodayMeals(dayData, week.week);
+    } catch (e) {
+      console.error(e);
+      main.innerHTML = `<div class="big-notice"><h3>Error cargando el plan</h3><p>Revisá la consola.</p></div>`;
+    }
+  }
+
+  function renderTodayMeals(dayData, weekNum) {
+    const m = dayData.meals;
+    const cards = ['desayuno', 'almuerzo', 'cena'].map(type => {
+      const meal = m[type];
+      if (!meal) return '';
+      const photoUrl = photoFor(meal);
+      return `
+        <a href="javascript:void(0)" class="meal-card" onclick="openMeal('${meal.slug}')">
+          <div class="meal-photo" style="background-image: url('${photoUrl}')">
+            <span class="meal-tag ${type}">${type}</span>
+          </div>
+          <div class="meal-info">
+            <div class="meal-name">${meal.name}</div>
+            <div class="meal-cta">Ver receta →</div>
+          </div>
+        </a>
+      `;
+    }).join('');
+
+    main.innerHTML = `
+      <div class="section-title">
+        <h2>Las comidas de hoy</h2>
+        <a href="./semana.html?n=${weekNum}">Ver semana completa →</a>
+      </div>
+      <div class="meals-today">${cards}</div>
+
+      <div class="section-title"><h2>Accesos rápidos</h2></div>
+      <div class="quick-links">
+        <a href="./semana.html?n=${weekNum}" class="quick-link">
+          <div class="quick-link-icon">☰</div>
+          <div>
+            <div class="quick-link-title">Mi semana ${weekNum}</div>
+            <div class="quick-link-sub">Los 7 días completos</div>
+          </div>
+          <span style="color: var(--oxygen-blue); font-size: 20px;">→</span>
+        </a>
+        <a href="../recetario/" class="quick-link">
+          <div class="quick-link-icon">◆</div>
+          <div>
+            <div class="quick-link-title">Casa de Recetas</div>
+            <div class="quick-link-sub">Todas las recetas libres</div>
+          </div>
+          <span style="color: var(--oxygen-blue); font-size: 20px;">→</span>
+        </a>
+      </div>
+    `;
+  }
+
+  function renderComingSoonWeek(dayNum) {
+    const weekNum = Math.ceil(dayNum / 7);
+    main.innerHTML = `
+      <div class="big-notice">
+        <h3>Semana ${weekNum} en producción</h3>
+        <p>Estamos terminando de curar las comidas de esta semana. Mientras tanto, podés ojear la semana anterior o el recetario.</p>
+        <a href="./semana.html?n=1" class="quick-link" style="display:inline-flex; border-color: var(--oxygen-blue);">
+          <div class="quick-link-icon">☰</div>
+          <div>
+            <div class="quick-link-title">Ver semana 1</div>
+          </div>
+          <span style="color: var(--oxygen-blue); font-size: 20px;">→</span>
+        </a>
+      </div>
+    `;
+  }
+
+  function photoFor(meal) {
+    // Pollinations AI image generation from prompt
+    const prompt = encodeURIComponent(meal.photo_prompt || meal.name);
+    const seed = Math.abs(hashCode(meal.slug)) % 10000;
+    return `https://image.pollinations.ai/prompt/${prompt}?width=1200&height=750&seed=${seed}&nologo=true&model=flux`;
+  }
+
+  function hashCode(str) {
+    let h = 0;
+    for (let i = 0; i < str.length; i++) {
+      h = ((h << 5) - h) + str.charCodeAt(i);
+      h |= 0;
+    }
+    return h;
+  }
+
+  function openMeal(slug) {
+    // For now, open the recetario or show "coming soon" based on whether recipe page exists
+    const mapping = {
+      'bowl-pollo-quinoa': '../receta-preview.html'
+    };
+    if (mapping[slug]) {
+      location.href = mapping[slug];
+    } else {
+      alert('Esta receta va a tener su página completa pronto. Mientras podés ver el Bowl de Pollo como ejemplo del formato.');
+    }
+  }
+
+  function formatDate(d) {
+    const opts = { day: 'numeric', month: 'long', year: 'numeric' };
+    return d.toLocaleDateString('es-PA', opts);
+  }
+</script>
+
+</body>
+</html>
