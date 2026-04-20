@@ -87,13 +87,6 @@ export default async function handler(req, res) {
       message: isTimeout
         ? 'El menú es muy grande y el análisis tardó más de lo esperado. Intenta con una parte del menú o una foto más corta.'
         : 'Algo falló del lado nuestro. Intenta de nuevo en un minuto.',
-      _debug: {
-        name: err?.name,
-        message: err?.message?.slice(0, 500),
-        status: err?.status,
-        type: err?.type,
-        code: err?.code,
-      },
     });
   }
 }
