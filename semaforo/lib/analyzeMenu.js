@@ -66,11 +66,106 @@ export async function analyzeMenu({ fileBase64, mediaType, apiKey, imageBase64 }
     throw err;
   }
 
-  try {
-    return JSON.parse(textBlock.text);
-  } catch {
-    const err = new Error('INVALID_RESPONSE: text was not valid JSON');
+  const raw = textBlock.text;
+  return parseModelJson(raw, response.stop_reason);
+}
+
+/**
+ * Extracts a JSON object from a model response that may include:
+ * - Pure JSON (happy path)
+ * - JSON inside ```json fenced blocks
+ * - JSON preceded/followed by explanatory text
+ * - Truncated JSON (when stop_reason === "max_tokens") — we try to repair
+ */
+export function parseModelJson(raw, stopReason = null) {
+  if (typeof raw !== 'string' || raw.length === 0) {
+    const err = new Error('INVALID_RESPONSE: empty text');
     err.code = 'INVALID_RESPONSE';
     throw err;
   }
+
+  // Fast path: parse as-is
+  try {
+    return JSON.parse(raw);
+  } catch {}
+
+  // Strip markdown fences if present
+  let cleaned = raw.trim();
+  const fenceMatch = cleaned.match(/```(?:json)?\s*([\s\S]*?)```/);
+  if (fenceMatch) cleaned = fenceMatch[1].trim();
+
+  // Extract the outermost {...} span
+  const firstBrace = cleaned.indexOf('{');
+  const lastBrace = cleaned.lastIndexOf('}');
+  if (firstBrace !== -1 && lastBrace > firstBrace) {
+    const span = cleaned.slice(firstBrace, lastBrace + 1);
+    try {
+      return JSON.parse(span);
+    } catch {}
+
+    // Try repairing truncation: close open arrays/objects based on stack
+    if (stopReason === 'max_tokens') {
+      const repaired = attemptRepair(cleaned.slice(firstBrace));
+      if (repaired) {
+        try {
+          const parsed = JSON.parse(repaired);
+          parsed._truncated = true; // flag so UI can mention it
+          return parsed;
+        } catch {}
+      }
+    }
+  }
+
+  // All strategies failed
+  const preview = raw.slice(0, 300).replace(/\s+/g, ' ');
+  const err = new Error(`INVALID_RESPONSE: could not parse JSON (stop_reason=${stopReason}, preview="${preview}")`);
+  err.code = 'INVALID_RESPONSE';
+  throw err;
+}
+
+/**
+ * Best-effort: close dangling brackets in a truncated JSON string.
+ * Returns repaired string or null.
+ */
+function attemptRepair(text) {
+  // Truncate after the last complete item in items[] if detectable
+  const itemsIdx = text.indexOf('"items"');
+  if (itemsIdx === -1) return null;
+
+  // Walk the string counting braces/brackets; cut at last boundary that
+  // gives balanced structure when we add closers.
+  let depth = 0;
+  let inString = false;
+  let escape = false;
+  let lastSafeCut = -1;
+  const stack = [];
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (escape) { escape = false; continue; }
+    if (c === '\\') { escape = true; continue; }
+    if (c === '"') { inString = !inString; continue; }
+    if (inString) continue;
+    if (c === '{' || c === '[') { stack.push(c === '{' ? '}' : ']'); depth++; }
+    else if (c === '}' || c === ']') { stack.pop(); depth--; }
+    // mark a safe cut right after commas at depth 2 (inside items array)
+    if (c === ',' && depth === 2) lastSafeCut = i;
+  }
+
+  if (lastSafeCut === -1) return null;
+  const truncated = text.slice(0, lastSafeCut);
+  // Rebuild closers for whatever is still open
+  const prefix = truncated;
+  const stillOpen = [];
+  let d = 0, inStr = false, esc = false;
+  for (let i = 0; i < prefix.length; i++) {
+    const c = prefix[i];
+    if (esc) { esc = false; continue; }
+    if (c === '\\') { esc = true; continue; }
+    if (c === '"') { inStr = !inStr; continue; }
+    if (inStr) continue;
+    if (c === '{') stillOpen.push('}');
+    else if (c === '[') stillOpen.push(']');
+    else if (c === '}' || c === ']') stillOpen.pop();
+  }
+  return prefix + stillOpen.reverse().join('');
 }
