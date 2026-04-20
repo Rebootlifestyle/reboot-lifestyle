@@ -125,11 +125,12 @@ export async function findCachedByHash(imageHash) {
   if (!imageHash) return null;
   try {
     const client = getSupabase();
+    // Cache any prior analysis with this exact image, including
+    // 'no_menu_detected' — re-analyzing the same bytes wastes tokens.
     const { data, error } = await client
       .from('menu_analyses')
       .select('id, analysis_json')
       .eq('image_hash', imageHash)
-      .eq('is_menu', true)
       .order('created_at', { ascending: false })
       .limit(1)
       .maybeSingle();
