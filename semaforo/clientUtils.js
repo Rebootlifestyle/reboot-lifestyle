@@ -93,6 +93,43 @@ export function renderAttribution() {
 }
 
 /**
+ * Renders the beta-limit banner shown after a successful analysis when the user
+ * is in beta mode. Soft nudge to join Reboot 30 before the quota runs out.
+ */
+export function renderBetaBanner(beta) {
+  if (!beta || typeof beta.remaining !== 'number') return '';
+  const r = beta.remaining;
+  let msg;
+  if (r > 1) msg = `Beta: te quedan <strong>${r} análisis</strong> antes del 4 de mayo.`;
+  else if (r === 1) msg = `Beta: te queda <strong>1 análisis</strong>. El 4 de mayo arranca Reboot 30 y se libera todo.`;
+  else msg = `Beta: usaste tus 3 análisis. El 4 de mayo arranca Reboot 30 y se libera el acceso completo.`;
+  return `
+    <div class="beta-banner" role="note">
+      <span class="beta-banner__dot" aria-hidden="true"></span>
+      <span class="beta-banner__text">${msg}</span>
+    </div>
+  `;
+}
+
+/**
+ * Renders the full-screen view shown when the beta quota is exhausted.
+ * Single clear CTA: join Reboot 30.
+ */
+export function renderBetaLimitReached(betaInfo) {
+  const ctaUrl = (betaInfo && betaInfo.ctaUrl) ||
+    'https://rebootlifestyle.github.io/reboot-lifestyle/reboot30.html?utm_source=semaforo&utm_medium=beta_limit&utm_campaign=reboot30';
+  return `
+    <section class="beta-gate" aria-live="polite">
+      <p class="beta-gate__eyebrow">BETA · GRACIAS POR PROBAR</p>
+      <h2 class="beta-gate__title">Usaste tus <span class="hl">3 análisis</span></h2>
+      <p class="beta-gate__copy">El 4 de mayo arranca <strong>Reboot 30</strong> — 30 días gratis para cambiar tu relación con la comida. Al entrar se libera el acceso completo al Semáforo, sin límite de consultas.</p>
+      <a class="btn-primary beta-gate__cta" href="${escapeHtml(ctaUrl)}" target="_blank" rel="noopener">Guardar mi cupo →</a>
+      <p class="beta-gate__date">4 · MAYO · 2026</p>
+    </section>
+  `;
+}
+
+/**
  * Reads a File and returns its base64 (without data: prefix) plus mediaType.
  * PDFs are passed through unchanged. Images are resized to max 1600px and
  * re-encoded as JPEG 85% to keep payloads small.

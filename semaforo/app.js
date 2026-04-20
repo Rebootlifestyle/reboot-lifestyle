@@ -1,4 +1,4 @@
-import { renderResult, renderAttribution, prepareFile, escapeHtml } from '/clientUtils.js';
+import { renderResult, renderAttribution, renderBetaBanner, renderBetaLimitReached, prepareFile, escapeHtml } from '/clientUtils.js';
 
 let currentAnalysisId = null;
 let loadingTimerInterval = null;
@@ -98,6 +98,13 @@ async function handleFile(file) {
 
     if (!response.ok) {
       const errBody = await response.json().catch(() => ({}));
+      // Beta quota exhausted → dedicated gate with Reboot 30 CTA
+      if (errBody.error === 'beta_limit_reached') {
+        resultContainer.innerHTML = renderBetaLimitReached(errBody.beta);
+        showSection(resultSection);
+        trackEvent('beta_limit_reached');
+        return;
+      }
       const msg = errBody.message || 'Algo falló del lado nuestro. Intenta de nuevo en un minuto.';
       const kind = errBody.error || 'unknown';
       const dbg = errBody._debug ? '\n\n[DEBUG]\n' + JSON.stringify(errBody._debug, null, 2) : '';
@@ -107,12 +114,13 @@ async function handleFile(file) {
 
     const data = await response.json();
     currentAnalysisId = data.analysisId || null;
+    const betaBannerHtml = data.beta ? renderBetaBanner(data.beta) : '';
     const resultHtml = renderResult(data);
     const attributionHtml = currentAnalysisId && !data.error ? renderAttribution() : '';
-    resultContainer.innerHTML = resultHtml + attributionHtml;
+    resultContainer.innerHTML = betaBannerHtml + resultHtml + attributionHtml;
     if (currentAnalysisId && !data.error) wireAttribution();
     showSection(resultSection);
-    trackEvent('analysis_completed', { total: data.summary?.total ?? 0 });
+    trackEvent('analysis_completed', { total: data.summary?.total ?? 0, betaRemaining: data.beta?.remaining });
   } catch (err) {
     clearInterval(loadingInterval);
     stopLoadingTimer();

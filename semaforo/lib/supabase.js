@@ -117,6 +117,28 @@ export function sha256Hex(input) {
 }
 
 /**
+ * Counts fresh analyses attributed to this ip_hash since `since` timestamp.
+ * Used for beta-mode limiting (3 analyses per IP until launch date).
+ * Returns 0 on any error — we prefer letting a user through over blocking.
+ */
+export async function countAnalysesByIp(ipHash, sinceIso) {
+  if (!ipHash) return 0;
+  try {
+    const client = getSupabase();
+    let query = client
+      .from('menu_analyses')
+      .select('*', { count: 'exact', head: true })
+      .eq('ip_hash', ipHash);
+    if (sinceIso) query = query.gte('created_at', sinceIso);
+    const { count, error } = await query;
+    if (error) return 0;
+    return count || 0;
+  } catch {
+    return 0;
+  }
+}
+
+/**
  * Looks up the most recent successful analysis for this exact image hash.
  * Returns { id, analysis_json } or null. Never throws — caller should treat
  * null as "no cache, proceed with new analysis".

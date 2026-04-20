@@ -323,6 +323,77 @@ h1 {
   position: relative;
 }
 
+/* --- Beta banner (shown with each analysis while quota remains) --- */
+.beta-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  background: rgba(250, 230, 43, 0.12);
+  border-left: 3px solid var(--c-yellow);
+  border-radius: var(--r-sm);
+  font-size: 13px;
+  color: var(--c-deep);
+  line-height: 1.45;
+}
+.beta-banner__dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--c-yellow);
+  border-radius: 50%;
+  animation: soft-pulse 2s infinite;
+}
+@keyframes soft-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+.beta-banner__text strong { color: var(--c-text); }
+
+/* --- Beta gate (shown when quota is 0) --- */
+.beta-gate {
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--c-black);
+  color: #fff;
+  border-radius: var(--r-lg);
+  margin: 12px 0;
+}
+.beta-gate__eyebrow {
+  color: var(--c-yellow);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  margin: 0 0 16px;
+}
+.beta-gate__title {
+  font-size: clamp(26px, 6vw, 36px);
+  font-weight: 900;
+  margin: 0 0 16px;
+  line-height: 1.15;
+  color: #fff;
+}
+.beta-gate__title .hl { color: var(--c-turquoise); }
+.beta-gate__copy {
+  color: #ccc;
+  font-size: 15px;
+  margin: 0 auto 28px;
+  max-width: 420px;
+  line-height: 1.55;
+}
+.beta-gate__cta {
+  display: inline-block;
+  text-decoration: none;
+}
+.beta-gate__date {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--c-turquoise);
+}
+
 /* --- Saved (from library) banner --- */
 .saved-banner {
   margin-bottom: 16px;
