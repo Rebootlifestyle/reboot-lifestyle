@@ -302,9 +302,17 @@
   const urlParams = new URLSearchParams(window.location.search);
   const weekParam = parseInt(urlParams.get('n')) || 1;
 
+  const PROGRAM_START_DATE = '2026-05-04';
+
   const saved = localStorage.getItem('reboot30_user');
   if (!saved) location.href = './index.html';
   const user = JSON.parse(saved);
+
+  // Migration
+  if (user.startDate !== PROGRAM_START_DATE) {
+    user.startDate = PROGRAM_START_DATE;
+    localStorage.setItem('reboot30_user', JSON.stringify(user));
+  }
 
   const today = new Date();
   const start = new Date(user.startDate);

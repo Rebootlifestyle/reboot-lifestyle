@@ -284,14 +284,17 @@
     <!-- STEP 2: Nuevo -->
     <div class="step" id="step-new">
       <h1>Configurá tu <span>Reboot</span>.</h1>
-      <p class="lead">Con tu nombre y tu fecha de inicio, el sistema sabe qué día del programa estás y te muestra las comidas correctas.</p>
+      <p class="lead">Todos arrancamos juntos el <strong style="color:var(--arie-yellow);">4 de mayo de 2026</strong>. Solo necesito tu nombre para saludarte bien cada día.</p>
 
       <form onsubmit="saveAndStart(event)">
         <label for="name">Tu nombre</label>
         <input type="text" id="name" placeholder="Así te saludamos cada día" required>
 
-        <label for="startDate">Fecha de inicio de tu Reboot 30</label>
-        <input type="date" id="startDate" required>
+        <div style="background: rgba(118,211,209,0.08); border: 1px solid rgba(118,211,209,0.2); border-radius: 12px; padding: 14px 16px; margin-bottom: 20px;">
+          <div style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--oxygen-blue); font-weight: 700; margin-bottom: 4px;">Fecha de inicio</div>
+          <div style="font-size: 16px; font-weight: 800; color: #fff;">4 de mayo de 2026</div>
+          <div style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px;">Lunes · arrancamos todos juntos</div>
+        </div>
 
         <button class="submit-btn" type="submit">Activar mi programa →</button>
       </form>
@@ -377,37 +380,32 @@
     goToStep('new');
   }
 
+  // FECHA DE INICIO FIJA PARA TODOS
+  const PROGRAM_START_DATE = '2026-05-04';
+
   function saveAndStart(e) {
     e.preventDefault();
     const name = document.getElementById('name').value.trim();
-    const startDate = document.getElementById('startDate').value;
-
-    if (!name || !startDate) return;
+    if (!name) return;
 
     const data = {
       name: name,
-      startDate: startDate,
+      startDate: PROGRAM_START_DATE,
       createdAt: new Date().toISOString()
     };
     localStorage.setItem('reboot30_user', JSON.stringify(data));
     location.href = './dashboard.html';
   }
 
-  // Set default date to next Monday
-  window.addEventListener('DOMContentLoaded', () => {
-    const dateInput = document.getElementById('startDate');
-    if (!dateInput) return;
-    const today = new Date();
-    const nextMonday = new Date(today);
-    nextMonday.setDate(today.getDate() + ((1 - today.getDay() + 7) % 7 || 7));
-    dateInput.value = nextMonday.toISOString().slice(0, 10);
-    dateInput.min = today.toISOString().slice(0, 10);
-  });
-
-  // If already registered, jump directly
+  // Migration: si el usuario ya tenía otra fecha guardada, la corregimos
   const existing = localStorage.getItem('reboot30_user');
   if (existing) {
-    // No auto-redirect — let them see the gateway, but show "returning" as default
+    const data = JSON.parse(existing);
+    if (data.startDate !== PROGRAM_START_DATE) {
+      data.startDate = PROGRAM_START_DATE;
+      localStorage.setItem('reboot30_user', JSON.stringify(data));
+    }
+    // Mostrar step returning por default
     setTimeout(() => {
       goToStep('returning');
     }, 200);

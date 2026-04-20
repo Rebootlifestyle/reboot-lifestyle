@@ -472,8 +472,157 @@
       "title": "Semana 4 · Consolidación",
       "subtitle": "Lo que aprendiste se vuelve parte de ti.",
       "unlocks_on_day": 22,
-      "days": [],
-      "coming_soon": true
+      "generated_by": "claude",
+      "generated_note": "Propuesta generada con los criterios Reboot mes 1, sin repetir platos de semanas 1-3, sin cerdo. Para revisión.",
+      "days": [
+        {
+          "day": 1,
+          "day_label": "Lunes",
+          "meals": {
+            "desayuno": {
+              "slug": "tortitas-zanahoria-huevos",
+              "name": "Tortitas de zanahoria con huevos revueltos",
+              "photo_prompt": "savory carrot fritters pancakes topped with scrambled eggs on white plate morning natural light home cooking iPhone photography"
+            },
+            "almuerzo": {
+              "slug": "bowl-falafel-tabbouleh",
+              "name": "Bowl de falafel con tabbouleh de quinoa",
+              "photo_prompt": "mediterranean bowl with baked falafel balls served with quinoa tabbouleh fresh parsley tomato cucumber and tahini sauce natural light"
+            },
+            "cena": {
+              "slug": "sopa-calabaza-pollo",
+              "name": "Sopa crema de calabaza con pollo",
+              "photo_prompt": "creamy pumpkin butternut squash soup in white bowl topped with shredded chicken pumpkin seeds and fresh herbs natural dinner light"
+            }
+          }
+        },
+        {
+          "day": 2,
+          "day_label": "Martes",
+          "meals": {
+            "desayuno": {
+              "slug": "yogurt-griego-granola-casera",
+              "name": "Yogurt griego con granola casera y frutos rojos",
+              "photo_prompt": "greek yogurt parfait in glass bowl topped with homemade oat granola fresh berries strawberries blueberries and honey drizzle morning natural light"
+            },
+            "almuerzo": {
+              "slug": "pad-thai-zucchini-camarones",
+              "name": "Pad thai de zucchini con camarones",
+              "photo_prompt": "zucchini noodles pad thai with cooked shrimp peanuts lime wedges fresh cilantro and sesame seeds on white plate asian home cooking natural light"
+            },
+            "cena": {
+              "slug": "ensalada-tibia-quinoa-atun",
+              "name": "Ensalada tibia de quinoa con atún",
+              "photo_prompt": "warm quinoa salad bowl with seared tuna chunks roasted vegetables mixed greens cherry tomatoes and lemon vinaigrette natural dinner light"
+            }
+          }
+        },
+        {
+          "day": 3,
+          "day_label": "Miércoles",
+          "meals": {
+            "desayuno": {
+              "slug": "frittata-coliflor-espinaca-queso",
+              "name": "Frittata de coliflor, espinaca y queso",
+              "photo_prompt": "baked frittata with cauliflower florets spinach and parmesan cheese sliced showing eggs and vegetables on white plate morning natural light"
+            },
+            "almuerzo": {
+              "slug": "taco-bowl-pollo-coliflor",
+              "name": "Taco bowl de pollo con arroz de coliflor",
+              "photo_prompt": "mexican taco bowl with seasoned shredded chicken cauliflower rice black beans avocado pico de gallo cilantro lime on white bowl natural light"
+            },
+            "cena": {
+              "slug": "pescado-sal-vegetales-vapor",
+              "name": "Pescado a la sal con vegetales al vapor",
+              "photo_prompt": "whole baked white fish in salt crust broken open served with steamed broccoli carrots and green beans on large white plate rustic natural light"
+            }
+          }
+        },
+        {
+          "day": 4,
+          "day_label": "Jueves",
+          "meals": {
+            "desayuno": {
+              "slug": "crepes-avena-ricotta-arandanos",
+              "name": "Crepes de avena con ricotta y arándanos",
+              "photo_prompt": "thin oat flour crepes rolled up filled with ricotta cheese and fresh blueberries dusted with cinnamon on white plate morning natural light"
+            },
+            "almuerzo": {
+              "slug": "pollo-curry-coco-coliflor",
+              "name": "Pollo al curry con crema de coco y arroz de coliflor",
+              "photo_prompt": "chicken curry in coconut cream sauce with spices served over cauliflower rice garnished with cilantro on white plate natural lunch light"
+            },
+            "cena": {
+              "slug": "kebabs-res-tzatziki",
+              "name": "Kebabs de res con tzatziki",
+              "photo_prompt": "grilled beef kebab skewers with vegetables served with greek tzatziki yogurt cucumber sauce and pita on white plate mediterranean natural light"
+            }
+          }
+        },
+        {
+          "day": 5,
+          "day_label": "Viernes",
+          "meals": {
+            "desayuno": {
+              "slug": "avocado-toast-huevo-poche",
+              "name": "Avocado toast con huevo escalfado",
+              "photo_prompt": "smashed avocado on oat bread toast topped with perfectly poached egg runny yolk chili flakes and microgreens on white plate morning natural light"
+            },
+            "almuerzo": {
+              "slug": "tartar-salmon-aguacate",
+              "name": "Tartar de salmón con aguacate",
+              "photo_prompt": "salmon tartare with diced avocado lime sesame oil scallions plated in ring mold on white plate with microgreens natural lunch light"
+            },
+            "cena": {
+              "slug": "rollos-pepino-atun",
+              "name": "Rollos de pepino con atún (estilo sushi sin arroz)",
+              "photo_prompt": "cucumber sushi rolls wrapped with nori and filled with tuna salad avocado sesame seeds on bamboo mat natural dinner light"
+            }
+          }
+        },
+        {
+          "day": 6,
+          "day_label": "Sábado",
+          "meals": {
+            "desayuno": {
+              "slug": "chia-pudding-coco-fresas",
+              "name": "Chía pudding de coco con fresas y almendras",
+              "photo_prompt": "chia seed pudding in glass jar with coconut milk topped with fresh sliced strawberries and slivered almonds morning natural light top-down view"
+            },
+            "almuerzo": {
+              "slug": "pastel-carne-pure-brocoli",
+              "name": "Pastel de carne con puré de brócoli",
+              "photo_prompt": "sliced meatloaf served with creamy broccoli puree and roasted vegetables on white plate natural lunch light home cooking"
+            },
+            "cena": {
+              "slug": "salmon-teriyaki-casero",
+              "name": "Bowl de salmón teriyaki casero",
+              "photo_prompt": "glazed teriyaki salmon fillet on cauliflower rice with steamed broccoli sesame seeds and spring onions asian bowl natural dinner light"
+            }
+          }
+        },
+        {
+          "day": 7,
+          "day_label": "Domingo",
+          "meals": {
+            "desayuno": {
+              "slug": "shakshuka",
+              "name": "Shakshuka (huevos en salsa de tomate especiada)",
+              "photo_prompt": "shakshuka cast iron pan with poached eggs in spiced tomato sauce with bell peppers cilantro and feta cheese served with bread weekend brunch natural light"
+            },
+            "almuerzo": {
+              "slug": "risotto-coliflor-pollo",
+              "name": "Risotto de coliflor con pollo y parmesano",
+              "photo_prompt": "creamy cauliflower risotto with grilled chicken slices parmesan shavings fresh thyme and black pepper in white bowl natural lunch light"
+            },
+            "cena": {
+              "slug": "estofado-pollo-vegetales",
+              "name": "Estofado de pollo con vegetales",
+              "photo_prompt": "slow cooked chicken stew with carrots celery onions and herbs in rustic dutch oven garnished with parsley natural dinner light home cooking"
+            }
+          }
+        }
+      ]
     }
   ]
 }
