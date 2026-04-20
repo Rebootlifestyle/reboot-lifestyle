@@ -292,6 +292,58 @@
     background-position: center;
     position: relative;
   }
+  .card-image.placeholder {
+    background: linear-gradient(135deg, var(--deep-neural) 0%, #0a3e34 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    text-align: center;
+  }
+  .card-image.placeholder::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(118,211,209,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .placeholder-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(118, 211, 209, 0.2);
+    border: 1.5px solid var(--oxygen-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .placeholder-text {
+    color: rgba(255,255,255,0.85);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+    max-width: 200px;
+  }
+  .placeholder-note {
+    margin-top: 10px;
+    color: rgba(118,211,209,0.7);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+  }
   .card-badges {
     position: absolute;
     top: 12px;
@@ -618,16 +670,33 @@
       `<span class="card-tag">${t.replace(/-/g, ' ')}</span>`
     ).join('');
 
+    // Si la foto está verificada, muestra imagen. Si no, placeholder elegante.
+    const imageBlock = r.foto_verificada
+      ? `<div class="card-image" style="background-image: url('${r.imagen}')">
+           <div class="card-badges">
+             <span class="card-badge">${r.categoria}</span>
+             <span class="card-badge ${faseClass}">${faseLabel}</span>
+           </div>
+           ${comingSoon}
+           <div class="card-time">${r.tiempo_min} min</div>
+         </div>`
+      : `<div class="card-image placeholder">
+           <div class="card-badges">
+             <span class="card-badge">${r.categoria}</span>
+             <span class="card-badge ${faseClass}">${faseLabel}</span>
+           </div>
+           ${comingSoon}
+           <div class="card-time">${r.tiempo_min} min</div>
+           <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%;">
+             <div class="placeholder-icon">${iconForCategory(r.categoria)}</div>
+             <div class="placeholder-text">${r.nombre}</div>
+             <div class="placeholder-note">Foto próximamente</div>
+           </div>
+         </div>`;
+
     return `
       <a href="${href}" class="recipe-card" ${onClick}>
-        <div class="card-image" style="background-image: url('${r.imagen}')">
-          <div class="card-badges">
-            <span class="card-badge">${r.categoria}</span>
-            <span class="card-badge ${faseClass}">${faseLabel}</span>
-          </div>
-          ${comingSoon}
-          <div class="card-time">${r.tiempo_min} min</div>
-        </div>
+        ${imageBlock}
         <div class="card-body">
           <div class="card-title">${r.nombre}</div>
           <div class="card-subtitle">${r.subtitulo}</div>
@@ -653,6 +722,19 @@
         </div>
       </a>
     `;
+  }
+
+  function iconForCategory(cat) {
+    const icons = {
+      'desayuno': '☀',
+      'almuerzo': '◉',
+      'cena': '☾',
+      'snack': '◆',
+      'postre': '♥',
+      'aderezo': '◎',
+      'bebida': '⊚'
+    };
+    return icons[cat] || '●';
   }
 
   function setupFilters() {

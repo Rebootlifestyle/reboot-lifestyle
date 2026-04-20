@@ -11,6 +11,7 @@
     "etiquetas": ["alta-proteína", "alta-fibra", "meal-prep", "balanceado", "sin-gluten"],
     "macros": {"kcal": 525, "prot": 42, "fiber": 9, "fat": 21, "carbs": 45},
     "imagen": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1400&q=85",
+    "foto_verificada": true,
     "tiene_pagina": true,
     "url": "../receta-preview.html"
   },
