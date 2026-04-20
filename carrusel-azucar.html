@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrusel Azúcar · @ariereboot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,900&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --cream: #FAF6EE;
+        --cream-dark: #F2EBDC;
+        --primary: #0F0E0D;
+        --accent: #D4A574;
+        --accent-dark: #B8894E;
+        --danger: #C94A3B;
+        --good: #2F8A5C;
+        --text-light: #5B564D;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body { background: #2A2A2A; font-family: 'Inter', sans-serif; color: var(--primary); }
+
+    /* Stack of slides + swipe on mobile */
+    .deck { display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 32px 16px 80px; }
+    .nav-bar { position: sticky; top: 0; background: rgba(15,14,13,0.92); backdrop-filter: blur(10px); color: white; padding: 14px 20px; z-index: 100; display: flex; justify-content: space-between; align-items: center; font-size: 14px; border-bottom: 1px solid rgba(212,165,116,0.2); }
+    .nav-bar .title { font-weight: 700; color: var(--accent); }
+    .nav-bar .count { color: rgba(255,255,255,0.6); }
+
+    /* SLIDE FRAME — exact 1080x1350, scaled to fit viewport */
+    .slide {
+        width: 1080px; height: 1350px;
+        position: relative; overflow: hidden;
+        border-radius: 28px;
+        box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        transform-origin: top center;
+    }
+    @media (max-width: 1160px) { .slide { transform: scale(calc((100vw - 32px) / 1080)); margin-bottom: calc(1350px * ((100vw - 32px) / 1080) - 1350px + 24px); } }
+
+    /* Shared layout */
+    .slide-inner { position: absolute; inset: 0; padding: 80px 80px; display: flex; flex-direction: column; }
+    .brand-tag { display: flex; align-items: center; gap: 14px; font-size: 22px; font-weight: 800; }
+    .brand-dot { width: 44px; height: 44px; border-radius: 50%; background: var(--primary); color: var(--accent); display: grid; place-items: center; font-weight: 900; font-size: 18px; }
+    .slide-num { position: absolute; bottom: 56px; right: 80px; font-size: 16px; font-weight: 700; opacity: 0.35; letter-spacing: 2px; }
+    .center { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+    /* ============ SLIDE 1 — HOOK ============ */
+    .s1 { background: var(--cream); }
+    .s1::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212,165,116,0.25), transparent 65%); }
+    .s1::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,74,59,0.08), transparent 70%); }
+    .s1 .brand-tag { color: var(--primary); }
+    .s1 .hook {
+        font-family: 'Playfair Display', serif;
+        font-size: 132px; line-height: 0.98; font-weight: 900;
+        letter-spacing: -0.03em;
+        color: var(--primary);
+        position: relative;
+    }
+    .s1 .hook em { color: var(--accent-dark); font-style: italic; font-weight: 900; }
+    .s1 .subhook {
+        margin-top: 40px;
+        font-size: 32px; font-weight: 500; color: var(--text-light);
+        max-width: 720px; line-height: 1.35;
+        position: relative;
+    }
+    .s1 .arrow-hint { position: absolute; bottom: 56px; left: 80px; font-size: 20px; font-weight: 700; color: var(--accent-dark); letter-spacing: 1px; text-transform: uppercase; }
+
+    /* ============ SLIDE 2 — STAT SHOCK ============ */
+    .s2 { background: var(--primary); color: white; }
+    .s2 .brand-tag { color: white; }
+    .s2 .brand-dot { background: var(--accent); color: var(--primary); }
+    .s2 .stat-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; position: relative; }
+    .s2 .stat-wrap::before { content: 'VS'; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-family: 'Playfair Display', serif; font-weight: 900; font-size: 40px; background: var(--accent); color: var(--primary); width: 90px; height: 90px; border-radius: 50%; display: grid; place-items: center; }
+    .stat-block { text-align: center; padding: 40px 20px; }
+    .stat-label { font-size: 20px; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 20px; opacity: 0.7; }
+    .stat-big { font-family: 'Playfair Display', serif; font-size: 280px; font-weight: 900; line-height: 0.9; }
+    .stat-unit { font-size: 22px; margin-top: 16px; opacity: 0.7; font-weight: 500; line-height: 1.3; }
+    .s2 .stat-red .stat-big { color: var(--danger); }
+    .s2 .stat-green .stat-big { color: #5FC98B; }
+    .s2 .closing { margin-top: 80px; text-align: center; font-size: 34px; font-weight: 600; font-family: 'Playfair Display', serif; font-style: italic; }
+    .s2 .closing strong { color: var(--accent); font-style: normal; }
+
+    /* ============ SLIDE 3 — THE TRICK ============ */
+    .s3 { background: var(--cream); }
+    .s3 .quote-mark { font-family: 'Playfair Display', serif; font-size: 240px; color: var(--accent); line-height: 0.7; margin-bottom: 20px; font-weight: 900; }
+    .s3 .fake-claim { font-family: 'Playfair Display', serif; font-size: 72px; font-weight: 900; letter-spacing: -0.02em; line-height: 1; margin-bottom: 12px; position: relative; display: inline-block; }
+    .s3 .fake-claim::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 6px; background: var(--danger); transform: translateY(-50%) rotate(-1.5deg); }
+    .s3 .reveal { margin-top: 60px; font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; }
+    .s3 .reveal em { font-style: italic; color: var(--accent-dark); }
+    .s3 .next-hint { margin-top: 60px; font-size: 24px; font-weight: 700; color: var(--accent-dark); letter-spacing: 0.5px; }
+
+    /* ============ SLIDES 4/5/6 — DISFRAZADOS ============ */
+    .s-trap { background: var(--cream); }
+    .s-trap .label-bar { display: inline-block; background: var(--primary); color: var(--accent); padding: 14px 28px; border-radius: 100px; font-size: 20px; font-weight: 800; letter-spacing: 2px; margin-bottom: 40px; }
+    .s-trap .trap-name { font-family: 'Playfair Display', serif; font-size: 108px; font-weight: 900; line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 48px; }
+    .s-trap .trap-body { font-size: 34px; line-height: 1.35; color: var(--primary); font-weight: 500; max-width: 860px; }
+    .s-trap .trap-body strong { background: linear-gradient(180deg, transparent 62%, var(--accent) 62%); padding: 0 4px; font-weight: 800; }
+    .s-trap .esconde-box { margin-top: auto; padding: 36px 40px; background: white; border-left: 6px solid var(--accent); border-radius: 14px; }
+    .s-trap .esconde-title { font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-dark); margin-bottom: 12px; }
+    .s-trap .esconde-text { font-size: 28px; font-weight: 600; line-height: 1.3; }
+
+    /* ============ SLIDE 7 — RULE ============ */
+    .s7 { background: var(--primary); color: white; }
+    .s7 .brand-tag { color: white; }
+    .s7 .brand-dot { background: var(--accent); color: var(--primary); }
+    .s7 .rule-label { font-size: 22px; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 700; margin-bottom: 40px; }
+    .s7 .rule { font-family: 'Playfair Display', serif; font-size: 68px; font-weight: 900; line-height: 1.05; margin-bottom: 60px; }
+    .s7 .osa-pill { display: inline-block; font-family: 'Playfair Display', serif; font-size: 220px; font-weight: 900; color: var(--accent); letter-spacing: -0.03em; background: rgba(212,165,116,0.1); padding: 0 40px; border: 3px solid var(--accent); border-radius: 30px; line-height: 1.1; }
+    .s7 .osa-list { margin-top: 60px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 920px; }
+    .s7 .osa-list span { background: rgba(255,255,255,0.06); border: 1px solid rgba(212,165,116,0.3); padding: 18px; text-align: center; border-radius: 12px; font-weight: 700; font-size: 24px; }
+    .s7 .footer-note { position: absolute; bottom: 56px; left: 80px; right: 80px; font-size: 22px; opacity: 0.6; font-style: italic; max-width: 800px; }
+
+    /* ============ SLIDE 8 — CURIOSITY GAP ============ */
+    .s8 { background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%); }
+    .s8 .big-num { font-family: 'Playfair Display', serif; font-size: 360px; font-weight: 900; line-height: 0.85; color: var(--accent-dark); letter-spacing: -0.04em; }
+    .s8 .big-label { font-family: 'Playfair Display', serif; font-size: 78px; font-weight: 900; line-height: 1; margin-top: 10px; }
+    .s8 .plus-list { margin-top: 60px; display: grid; gap: 18px; }
+    .s8 .plus-list li { list-style: none; font-size: 30px; font-weight: 600; padding: 20px 24px; background: white; border-radius: 14px; display: flex; align-items: center; gap: 18px; border-left: 4px solid var(--accent); }
+    .s8 .plus-list li .plus { color: var(--accent-dark); font-weight: 900; font-size: 38px; }
+
+    /* ============ SLIDE 9 — CTA ============ */
+    .s9 { background: var(--primary); color: white; }
+    .s9 .brand-tag { color: white; }
+    .s9 .brand-dot { background: var(--accent); color: var(--primary); }
+    .s9::before { content: ''; position: absolute; top: -30%; right: -20%; width: 900px; height: 900px; background: radial-gradient(circle, rgba(212,165,116,0.22), transparent 60%); }
+    .s9 .cta-top { font-size: 28px; font-weight: 600; text-transform: uppercase; letter-spacing: 4px; color: var(--accent); margin-bottom: 32px; }
+    .s9 .cta-action { font-family: 'Playfair Display', serif; font-size: 68px; font-weight: 900; line-height: 1; margin-bottom: 30px; }
+    .s9 .keyword {
+        display: inline-block;
+        font-family: 'Playfair Display', serif;
+        font-size: 200px; font-weight: 900;
+        color: var(--primary); background: var(--accent);
+        padding: 8px 56px; border-radius: 30px;
+        letter-spacing: -0.02em;
+        transform: rotate(-2deg);
+        box-shadow: 0 20px 50px rgba(212,165,116,0.3);
+    }
+    .s9 .below-keyword { margin-top: 40px; font-size: 30px; font-weight: 700; }
+    .s9 .benefits { margin-top: 50px; padding: 30px; background: rgba(255,255,255,0.04); border: 1px solid rgba(212,165,116,0.3); border-radius: 18px; max-width: 760px; }
+    .s9 .benefits li { list-style: none; padding: 12px 0 12px 44px; font-size: 26px; font-weight: 500; position: relative; }
+    .s9 .benefits li::before { content: '✓'; position: absolute; left: 0; top: 10px; color: var(--accent); font-size: 32px; font-weight: 900; }
+    .s9 .program-pill { margin-top: 50px; display: inline-block; padding: 14px 28px; border: 1.5px solid var(--accent); border-radius: 100px; font-size: 22px; font-weight: 600; color: var(--accent); }
+    .s9 .program-pill strong { color: white; }
+
+    /* Export helpers */
+    @media print {
+        body { background: white; }
+        .nav-bar, .export-btn { display: none; }
+        .slide { box-shadow: none; border-radius: 0; page-break-after: always; transform: none !important; margin: 0 !important; }
+    }
+    .export-btn { position: fixed; bottom: 24px; right: 24px; background: var(--accent); color: var(--primary); padding: 16px 26px; border-radius: 100px; font-weight: 800; text-decoration: none; font-size: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); cursor: pointer; border: none; font-family: inherit; z-index: 200; }
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+    <div class="title">Carrusel · AZÚCAR DISFRAZADA</div>
+    <div class="count">9 slides · 1080×1350</div>
+</div>
+
+<div class="deck">
+
+<!-- ========= SLIDE 1 ========= -->
+<div class="slide s1">
+    <div class="slide-inner">
+        <div class="brand-tag"><div class="brand-dot">AR</div>@ariereboot</div>
+        <div class="center">
+            <div class="hook">Hoy vas<br>a comer<br>azúcar<br><em>sin saberlo.</em></div>
+            <div class="subhook">Y no es tu culpa. Te la escondieron bajo 10 nombres distintos.</div>
+        </div>
+        <div class="arrow-hint">Desliza →</div>
+        <div class="slide-num">01 / 09</div>
+    </div>
+</div>
+
+<!-- ========= SLIDE 2 ========= -->
+<div class="slide s2">
+    <div class="slide-inner">
+        <div class="brand-tag"><div class="brand-dot">AR</div>@ariereboot</div>
+        <div class="center">
+            <div class="stat-wrap">
+                <div class="stat-block stat-red">
+                    <div class="stat-label">Adulto promedio</div>
+                    <div class="stat-big">35</div>
+                    <div class="stat-unit">cucharadas<br>al día</div>
+                </div>
+                <div class="stat-block stat-green">
+                    <div class="stat-label">OMS recomienda</div>
+                    <div class="stat-big">6</div>
+                    <div class="stat-unit">cucharadas<br>al día</div>
+                </div>
+            </div>
+            <div class="closing">Casi <strong>6 veces más.</strong><br>Todos los días.</div>
+        </div>
+        <div class="slide-num" style="color:white">02 / 09</div>
+    </div>
+</div>
+
+<!-- ========= SLIDE 3 ========= -->
+<div class="slide s3">
+    <div class="slide-inner">
+        <div class="brand-tag"><div class="brand-dot">AR</div>@ariereboot</div>
+        <div class="center">
+            <div class="quote-mark">"</div>
+            <div class="fake-claim">Sin azúcar añadida</div>
+            <div class="reveal">No significa sin azúcar.<br>Significa que le <em>cambiaron el nombre.</em></div>
+            <div class="next-hint">Te muestro los 3 más disfrazados →</div>
+        </div>
+        <div class="slide-num">03 / 09</div>
+    </div>
+</div>
+
+<!-- ========= SLIDE 4 — JARABE DE AGAVE ========= -->
+<div class="slide s-trap">
+    <div class="slide-inner">
+        <div class="brand-tag"><div class="brand-dot">AR</div>@ariereboot</div>
+        <div class="center">
+            <div class="label-bar">DISFRAZADO #1</div>
+            <div class="trap-name">Jarabe<br>de agave</div>
+            <div class="trap-body">
+                Te lo venden como "natural". Tiene <strong>85% de fructosa</strong>. Peor que el azúcar de mesa para tu hígado.
+            </div>
+        </div>
+        <div class="esconde-box">
+            <div class="esconde-title">Dónde se esconde</div>
+            <div class="esconde-text">Yogures "fit", barras de granola, jugos "sin azúcar"</div>
+        </div>
+        <div class="slide-num">04 / 09</div>
+    </div>
+</div>
+
+<!-- ========= SLIDE 5 — MALTODEXTRINA ========= -->
+<div class="slide s-trap">
+    <div class="slide-inner">
+        <div class="brand-tag"><div class="brand-dot">AR</div>@ariereboot</div>
+        <div class="center">
+            <div class="label-bar">DISFRAZADO #2</div>
+            <div class="trap-name">Malto-<br>dextrina</div>
+            <div class="trap-body">
+                Dispara tu glucosa <strong>más rápido que el azúcar puro</strong>. Índice glucémico: 110 (azúcar de mesa = 65).
+            </div>
+        </div>
+        <div class="esconde-box">
+            <div class="esconde-title">Dónde se esconde</div>
+            <div class="esconde-text">Proteínas, suplementos "fitness", cereales, salsas light</div>
+        </div>
+        <div class="slide-num">05 / 09</div>
+    </div>
+</div>
+
+<!-- ========= SLIDE 6 — CONCENTRADO JUGO ========= -->
+<div class="slide s-trap">
+    <div class="slide-inner">
+        <div class="brand-tag"><div class="brand-dot">AR</div>@ariereboot</div>
+        <div class="center">
+            <div class="label-bar">DISFRAZADO #3</div>
+            <div class="trap-name">Concentrado<br>de jugo<br>de fruta</div>
+            <div class="trap-body">
+                "Endulzado con fruta" = marketing. Es <strong>azúcar concentrada sin la fibra</strong> que la frena.
+            </div>
+        </div>
+        <div class="esconde-box">
+            <div class="esconde-title">Dónde se esconde</div>
+            <div class="esconde-text">Yogures de niños, cereales "saludables", jugos "naturales" de caja</div>
+        </div>
+        <div class="slide-num">06 / 09</div>
+    </div>
+</div>
+
+<!-- ========= SLIDE 7 — RULE ========= -->
+<div class="slide s7">
+    <div class="slide-inner">
+        <div class="brand-tag"><div class="brand-dot">AR</div>@ariereboot</div>
+        <div class="center">
+            <div class="rule-label">La regla que te salva</div>
+            <div class="rule">Si un ingrediente<br>termina en</div>
+            <div style="text-align: center; margin: 40px 0;"><span class="osa-pill">-OSA</span></div>
+            <div class="rule" style="margin-top: 40px;">es azúcar.</div>
+            <div class="osa-list">
+                <span>Glucosa</span>
+                <span>Fructosa</span>
+                <span>Sacarosa</span>
+                <span>Dextrosa</span>
+                <span>Maltosa</span>
+                <span>Lactosa</span>
+            </div>
+        </div>
+        <div class="footer-note">Sin importar cómo lo llamen en la etiqueta de adelante.</div>
+        <div class="slide-num" style="color:white">07 / 09</div>
+    </div>
+</div>
+
+<!-- ========= SLIDE 8 — CURIOSITY GAP ========= -->
+<div class="slide s8">
+    <div class="slide-inner">
+        <div class="brand-tag"><div class="brand-dot">AR</div>@ariereboot</div>
+        <div class="center">
+            <div style="display: flex; align-items: baseline; gap: 40px;">
+                <div class="big-num">+7</div>
+                <div>
+                    <div class="big-label">nombres más,<br>igual de<br>disfrazados.</div>
+                </div>
+            </div>
+            <ul class="plus-list">
+                <li><span class="plus">+</span>Dónde se esconden en el super (spoiler: muchos "saludables")</li>
+                <li><span class="plus">+</span>Test de etiqueta en 15 segundos</li>
+                <li><span class="plus">+</span>3 swaps que usas desde mañana</li>
+            </ul>
+        </div>
+        <div class="slide-num">08 / 09</div>
+    </div>
+</div>
+
+<!-- ========= SLIDE 9 — CTA ========= -->
+<div class="slide s9">
+    <div class="slide-inner">
+        <div class="brand-tag"><div class="brand-dot">AR</div>@ariereboot</div>
+        <div class="center" style="text-align: center; align-items: center;">
+            <div class="cta-top">Gratis · Por DM</div>
+            <div class="cta-action">Comenta la palabra</div>
+            <div><span class="keyword">AZÚCAR</span></div>
+            <div class="below-keyword">aquí abajo 👇 y te lo mando</div>
+            <ul class="benefits">
+                <li>Los 10 nombres disfrazados (PDF)</li>
+                <li>Guía: leer etiquetas en 15 seg</li>
+                <li>3 swaps para tu día</li>
+            </ul>
+            <div class="program-pill">Primer drop antes de <strong>Reboot 30</strong> · 4 de mayo</div>
+        </div>
+        <div class="slide-num" style="color:white">09 / 09</div>
+    </div>
+</div>
+
+</div>
+
+<button class="export-btn" onclick="window.print()">🖨️ Imprimir / PDF</button>
+
+</body>
+</html>
