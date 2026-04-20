@@ -51,12 +51,15 @@ export default async function handler(req, res) {
     });
   }
 
+  const t0 = Date.now();
+  const payloadKB = Math.round(dataB64.length / 1024);
   try {
     const result = await analyzeMenu({
       fileBase64: dataB64,
       mediaType,
       apiKey: process.env.ANTHROPIC_API_KEY,
     });
+    const tClaude = Date.now() - t0;
 
     // Silent log to Supabase (skipped if env vars absent).
     let analysisId = null;
@@ -71,22 +74,36 @@ export default async function handler(req, res) {
       analysisId = logged?.id || null;
     }
 
-    return res.status(200).json({ ...result, analysisId });
+    return res.status(200).json({
+      ...result,
+      analysisId,
+      _timing: { claudeMs: tClaude, totalMs: Date.now() - t0, payloadKB, mediaType },
+    });
   } catch (err) {
+    const elapsed = Date.now() - t0;
     console.error('analyze error:', err);
     if (err.code === 'INVALID_RESPONSE') {
       return res.status(502).json({
         error: 'invalid_model_response',
         message: 'El modelo devolvió algo inesperado. Intenta con otra foto o PDF.',
+        _debug: { elapsedMs: elapsed, payloadKB, mediaType, errName: err?.name, errMessage: err?.message?.slice(0, 300) },
       });
     }
-    // Distinguish timeout from other errors
     const isTimeout = err?.name === 'AbortError' || /timeout|timed out/i.test(err?.message || '');
     return res.status(500).json({
       error: isTimeout ? 'timeout' : 'internal_error',
       message: isTimeout
         ? 'El menú es muy grande y el análisis tardó más de lo esperado. Intenta con una parte del menú o una foto más corta.'
         : 'Algo falló del lado nuestro. Intenta de nuevo en un minuto.',
+      _debug: {
+        elapsedMs: elapsed,
+        payloadKB,
+        mediaType,
+        errName: err?.name,
+        errMessage: err?.message?.slice(0, 500),
+        errCode: err?.code,
+        errStatus: err?.status,
+      },
     });
   }
 }

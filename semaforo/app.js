@@ -77,7 +77,9 @@ async function handleFile(file) {
     if (!response.ok) {
       const errBody = await response.json().catch(() => ({}));
       const msg = errBody.message || 'Algo falló del lado nuestro. Intenta de nuevo en un minuto.';
-      showError(msg);
+      const kind = errBody.error || 'unknown';
+      const dbg = errBody._debug ? '\n\n[DEBUG]\n' + JSON.stringify(errBody._debug, null, 2) : '';
+      showError(`${msg}\n\n[status: ${response.status}] [kind: ${kind}]${dbg}`);
       return;
     }
 
