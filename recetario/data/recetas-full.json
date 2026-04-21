@@ -94,8 +94,8 @@
   },
   "huevos-revueltos-aguacate": {
     "id": "huevos-revueltos-aguacate",
-    "nombre": "Huevos Revueltos con Aguacate y Espinacas",
-    "subtitulo": "El desayuno que no te deja tirado a las 10am.",
+    "nombre": "Huevos con Aguacate y Espinacas",
+    "subtitulo": "El desayuno que no te deja sin energía a las 10am.",
     "categoria": "desayuno",
     "fase": "mes_1",
     "tiempo_min": 10,
@@ -110,18 +110,16 @@
       {"slot": "greens", "amount_base": 1, "unit": "taza", "descripcion": "de espinacas frescas", "macros": {"kcal": 7, "prot": 1, "fiber": 1, "fat": 0, "carbs": 1}},
       {"slot": "fat", "amount_base": 0.5, "unit": "", "descripcion": "aguacate maduro", "macros": {"kcal": 120, "prot": 1.5, "fiber": 5, "fat": 11, "carbs": 6}},
       {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva extra virgen"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina y pimienta al gusto"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal y pimienta al gusto"},
       {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de semillas de sésamo (opcional)"},
       {"slot": null, "amount_base": 0, "unit": "", "descripcion": "hojas de cilantro fresco"}
     ],
     "pasos": [
-      {"step_slot": "protein-prep", "texto": "Rompe los <strong>huevos</strong> en un bowl, agrega la sal ANTES de batirlos (queda más esponjoso)."},
-      {"texto": "Bate con un tenedor hasta que el color sea uniforme."},
       {"step_slot": "greens", "texto": "Calienta el aceite en una sartén a fuego medio-bajo. Echa las <strong>espinacas</strong> y mueve 30 segundos hasta que bajen."},
-      {"step_slot": "protein-cook", "texto": "Añade los <strong>huevos</strong> encima. Mueve en círculos grandes y lentos. Retira cuando aún se vean húmedos — siguen cocinándose fuera del fuego."},
-      {"step_slot": "final", "texto": "Sirve, corta el <strong class='final-fat'>aguacate</strong> en cubos encima, termina con pimienta, sésamo y cilantro."}
+      {"step_slot": "protein-cook", "texto": "Cocina los <strong>huevos</strong> al gusto: revueltos (cremosos), estrellados (con yema líquida) o poché. Agrega sal y pimienta al final."},
+      {"step_slot": "final", "texto": "Sirve los huevos sobre las espinacas, corta el <strong class='final-fat'>aguacate</strong> en cubos al lado, termina con pimienta, sésamo y cilantro."}
     ],
-    "hack": "La sal va ANTES de batir, no después. Parece detalle pero cambia la textura completa. Si los sacas cuando todavía se ven 'medio crudos', llegan al plato perfectos.",
+    "hack": "Si haces revueltos, fuego medio-bajo y saca cuando todavía se vean húmedos — siguen cocinándose fuera del fuego. Si haces estrellados, tapa la sartén 30 segundos al final para cuajar la clara sin romper la yema.",
     "por_que_funciona": "Proteína (huevos), fibra (espinacas), grasa buena (aguacate + aceite). Sin carbos refinados. Estabilizas el azúcar en sangre y llegas al almuerzo sin saboteando la alacena a las 10am.",
     "sustituciones": [
       {
@@ -172,7 +170,7 @@
       {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de semillas de chía"},
       {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de coco derretido"},
       {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de extracto de vainilla"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "pizca de sal marina"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "pizca de sal"},
       {"slot": null, "amount_base": 0, "unit": "", "descripcion": "coco rallado sin azúcar, para rebozar (opcional)"},
       {"slot": "endulzante", "amount_base": 0, "unit": "", "descripcion": "opcional: endulzante extra", "macros": {"kcal": 30, "prot": 0, "fiber": 0, "fat": 0, "carbs": 1}}
     ],
@@ -223,7 +221,7 @@
       {"slot": "carb", "amount_base": 1, "unit": "taza", "descripcion": "de calabaza (zapallo) rallada cruda", "macros": {"kcal": 30, "prot": 1, "fiber": 2, "fat": 0, "carbs": 7}},
       {"slot": "flour", "amount_base": 0.5, "unit": "taza", "descripcion": "de harina de avena integral", "macros": {"kcal": 190, "prot": 7, "fiber": 5, "fat": 3.5, "carbs": 32}},
       {"slot": null, "amount_base": 1, "unit": "", "descripcion": "huevo (para unir la masa)"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina al gusto"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal al gusto"},
       {"slot": "protein", "amount_base": 200, "unit": "g", "descripcion": "de pollo cocido desmenuzado", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}},
       {"slot": "fat", "amount_base": 0.5, "unit": "", "descripcion": "aguacate maduro triturado", "macros": {"kcal": 60, "prot": 0.8, "fiber": 2.5, "fat": 5.5, "carbs": 3}},
       {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de yogurt griego natural"},
@@ -347,7 +345,7 @@
       {"slot": "protein", "amount_base": 3, "unit": "", "descripcion": "huevos grandes", "macros": {"kcal": 210, "prot": 18, "fiber": 0, "fat": 15, "carbs": 2}},
       {"slot": "dairy", "amount_base": 0.5, "unit": "taza", "descripcion": "de queso cottage bajo en grasa", "macros": {"kcal": 80, "prot": 11, "fiber": 0, "fat": 2, "carbs": 3}},
       {"slot": "carb", "amount_base": 1, "unit": "rebanada", "descripcion": "de pan de avena integral", "macros": {"kcal": 90, "prot": 4, "fiber": 3, "fat": 1.5, "carbs": 15}},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina y pimienta al gusto"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal y pimienta al gusto"},
       {"slot": null, "amount_base": 0, "unit": "", "descripcion": "cebollín o hierbas frescas"}
     ],
     "pasos": [
@@ -383,7 +381,7 @@
       {"slot": null, "amount_base": 2, "unit": "dientes", "descripcion": "de ajo picados"},
       {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva"},
       {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de yogurt griego natural (para el puré)"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina, pimienta, romero fresco"}
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, romero fresco"}
     ],
     "pasos": [
       {"texto": "Cocina la <strong>coliflor</strong> al vapor 10 min hasta tierna. Tritura con el yogurt griego, 1 cda de aceite, sal y pimienta hasta cremoso."},
@@ -453,7 +451,7 @@
       {"slot": "protein", "amount_base": 3, "unit": "", "descripcion": "huevos grandes", "macros": {"kcal": 210, "prot": 18, "fiber": 0, "fat": 15, "carbs": 2}},
       {"slot": "greens", "amount_base": 1, "unit": "taza", "descripcion": "de espinaca fresca", "macros": {"kcal": 7, "prot": 1, "fiber": 1, "fat": 0, "carbs": 1}},
       {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina y pimienta"}
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal y pimienta"}
     ],
     "pasos": [
       {"step_slot": "protein-prep", "texto": "Rompe los <strong>huevos</strong> en un bowl, agrega sal ANTES de batirlos (queda más esponjoso)."},
@@ -644,7 +642,7 @@
       {"slot": null, "amount_base": 1, "unit": "", "descripcion": "ají dulce o chile habanero (opcional, con cuidado)"},
       {"slot": null, "amount_base": 0, "unit": "", "descripcion": "cilantro fresco abundante picado"},
       {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina y pimienta"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal y pimienta"},
       {"slot": "acompanamiento", "amount_base": 0.5, "unit": "", "descripcion": "aguacate en cubos (opcional)", "macros": {"kcal": 120, "prot": 1.5, "fiber": 5, "fat": 11, "carbs": 6}}
     ],
     "pasos": [
@@ -833,7 +831,7 @@
       {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo y ralladura)"},
       {"slot": null, "amount_base": 1, "unit": "diente", "descripcion": "de ajo picado"},
       {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina en escamas y pimienta"}
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal en escamas y pimienta"}
     ],
     "pasos": [
       {"texto": "Mezcla la <strong>mantequilla</strong> a temperatura ambiente con hierbas, ajo, ralladura de limón, sal y pimienta. Reserva."},
@@ -1031,7 +1029,7 @@
       {"slot": null, "amount_base": 5, "unit": "", "descripcion": "tomates cherry partidos a la mitad"},
       {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva"},
       {"slot": null, "amount_base": 0, "unit": "", "descripcion": "hojas de albahaca fresca"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina, pimienta negra, orégano"}
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta negra, orégano"}
     ],
     "pasos": [
       {"step_slot": "protein-prep", "texto": "Bate los <strong>huevos</strong> con sal, pimienta y orégano."},
@@ -1254,7 +1252,7 @@
       {"slot": "carb", "amount_base": 1, "unit": "rebanada", "descripcion": "de pan de avena integral", "macros": {"kcal": 90, "prot": 4, "fiber": 3, "fat": 1.5, "carbs": 15}},
       {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de mantequilla de pastoreo"},
       {"slot": null, "amount_base": 0, "unit": "", "descripcion": "cebollín picado finito"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina y pimienta negra recién molida"}
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal y pimienta negra recién molida"}
     ],
     "pasos": [
       {"step_slot": "protein-prep", "texto": "Bate los <strong>huevos</strong> con sal y pimienta."},
@@ -1669,7 +1667,7 @@
       {"slot": null, "amount_base": 0, "unit": "", "descripcion": "cilantro fresco abundante"},
       {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva"},
       {"slot": "fat", "amount_base": 0.5, "unit": "", "descripcion": "aguacate en cubos", "macros": {"kcal": 120, "prot": 1.5, "fiber": 5, "fat": 11, "carbs": 6}},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina, pimienta"}
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta"}
     ],
     "pasos": [
       {"texto": "Corta el <strong>pescado</strong> en cubos de 1 cm. Que sea fresco — pídele al pescadero que lo prepare para ceviche."},
@@ -1779,7 +1777,7 @@
       {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo para marinar)"},
       {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de salsa de soya baja en sodio"},
       {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de comino, orégano, paprika"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina y pimienta negra, cilantro fresco"}
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal y pimienta negra, cilantro fresco"}
     ],
     "pasos": [
       {"step_slot": "protein-prep", "texto": "Marina la <strong>carne</strong> con 1 cda de aceite, ajo, jugo de limón, salsa de soya, comino, orégano, paprika, sal y pimienta. Deja 15 min mínimo."},
@@ -1807,7 +1805,7 @@
       {"slot": "greens", "amount_base": 1, "unit": "taza", "descripcion": "de espinaca fresca", "macros": {"kcal": 7, "prot": 1, "fiber": 1, "fat": 0, "carbs": 1}},
       {"slot": "cheese", "amount_base": 2, "unit": "cdas", "descripcion": "de queso feta desmenuzado", "macros": {"kcal": 55, "prot": 3, "fiber": 0, "fat": 4.5, "carbs": 1}},
       {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de aceite de oliva o ghee"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina, pimienta negra, orégano o nuez moscada"}
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta negra, orégano o nuez moscada"}
     ],
     "pasos": [
       {"texto": "Saltea la <strong>espinaca</strong> por 1-2 minutos."},
@@ -1837,7 +1835,7 @@
       {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo y ralladura)"},
       {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva extra virgen"},
       {"slot": null, "amount_base": 1, "unit": "diente", "descripcion": "de ajo finamente picado"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina, pimienta, hierbas frescas (tomillo, perejil o eneldo)"}
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, hierbas frescas (tomillo, perejil o eneldo)"}
     ],
     "pasos": [
       {"texto": "Precalienta el horno a <strong>200°C</strong>."},
@@ -1894,7 +1892,7 @@
     "etiquetas": ["alta proteína", "mexicano", "brunch"],
     "macros_fijos": {"kcal": 80, "prot": 0.5, "fiber": 0.5, "fat": 8, "carbs": 3},
     "ingredientes": [
-      {"slot": "protein", "amount_base": 2, "unit": "", "descripcion": "huevos orgánicos o de pastoreo", "macros": {"kcal": 140, "prot": 12, "fiber": 0, "fat": 10, "carbs": 1}},
+      {"slot": "protein", "amount_base": 2, "unit": "", "descripcion": "huevos", "macros": {"kcal": 140, "prot": 12, "fiber": 0, "fat": 10, "carbs": 1}},
       {"slot": "carb", "amount_base": 1, "unit": "", "descripcion": "tortilla 100% maíz (sin harinas refinadas ni aditivos)", "macros": {"kcal": 60, "prot": 2, "fiber": 2, "fat": 1, "carbs": 13}},
       {"slot": "fat", "amount_base": 0.5, "unit": "", "descripcion": "aguacate en rodajas o machacado", "macros": {"kcal": 120, "prot": 1.5, "fiber": 5, "fat": 11, "carbs": 6}},
       {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de aceite de oliva o de coco"},
@@ -2345,7 +2343,7 @@
       {"slot": "veg", "amount_base": 1, "unit": "", "descripcion": "calabacín mediano en medias lunas finas", "macros": {"kcal": 15, "prot": 1, "fiber": 1, "fat": 0.1, "carbs": 3}},
       {"slot": null, "amount_base": 0.5, "unit": "", "descripcion": "cebolla blanca o morada en julianas finas"},
       {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva extra virgen"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina y pimienta al gusto"}
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal y pimienta al gusto"}
     ],
     "pasos": [
       {"texto": "Hierve las <strong>papas</strong> con cáscara hasta tiernas pero firmes. Enfría y corta en cubos finos. (Las papas mes 1 son excepción aquí — si eres estricta, reemplaza con calabaza o coliflor)."},
@@ -2409,7 +2407,7 @@
       {"slot": null, "amount_base": 0.25, "unit": "", "descripcion": "cebolla morada finamente picada"},
       {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo) o media lima"},
       {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva extra virgen"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina, pimienta negra, cilantro o hierbas frescas"}
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta negra, cilantro o hierbas frescas"}
     ],
     "pasos": [
       {"step_slot": "protein-prep", "texto": "Si los <strong>camarones</strong> están crudos, cocínalos en agua con sal <strong>2-3 min</strong> hasta rosados. Enfría en agua con hielo y escurre bien."},
@@ -2432,7 +2430,7 @@
     "etiquetas": ["alta proteína", "sin gluten"],
     "macros_fijos": {"kcal": 90, "prot": 0, "fiber": 0, "fat": 9, "carbs": 1},
     "ingredientes": [
-      {"slot": "carb", "amount_base": 2, "unit": "", "descripcion": "zanahorias medianas ralladas", "macros": {"kcal": 50, "prot": 1.2, "fiber": 3.4, "fat": 0.2, "carbs": 12}},
+      {"slot": "carb", "amount_base": 1, "unit": "", "descripcion": "zanahoria mediana rallada", "macros": {"kcal": 25, "prot": 0.6, "fiber": 1.7, "fat": 0.1, "carbs": 6}},
       {"slot": "flour", "amount_base": 2, "unit": "cdas", "descripcion": "de harina de almendra", "macros": {"kcal": 80, "prot": 3, "fiber": 1.5, "fat": 7, "carbs": 3}},
       {"slot": null, "amount_base": 1, "unit": "", "descripcion": "huevo (para la masa)"},
       {"slot": "protein", "amount_base": 3, "unit": "", "descripcion": "huevos revueltos para acompañar", "macros": {"kcal": 210, "prot": 18, "fiber": 0, "fat": 15, "carbs": 2}},
@@ -2761,13 +2759,13 @@
       {"slot": "fat", "amount_base": 0.5, "unit": "", "descripcion": "aguacate machacado", "macros": {"kcal": 120, "prot": 1.5, "fiber": 5, "fat": 11, "carbs": 6}},
       {"slot": "protein", "amount_base": 2, "unit": "", "descripcion": "huevos para poché", "macros": {"kcal": 140, "prot": 12, "fiber": 0, "fat": 10, "carbs": 1}},
       {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de vinagre blanco (para el agua)"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal en escamas, pimienta negra, chile en hojuelas, microgreens"}
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta negra, chile en hojuelas, microgreens"}
     ],
     "pasos": [
       {"texto": "Tuesta el <strong>pan de avena</strong> hasta dorado."},
       {"texto": "Machaca el <strong>aguacate</strong> con sal, pimienta y un chorrito de limón."},
       {"step_slot": "protein-cook", "texto": "Hierve agua con vinagre. Rompe cada huevo en taza, viértelo suave al agua. Cocina <strong>3 min</strong> para yema líquida. Retira con espumadera."},
-      {"step_slot": "final", "texto": "Unta el pan con <strong class='final-fat'>aguacate</strong>. Coloca los <strong class='final-protein'>huevos poché</strong> encima. Termina con sal en escamas, pimienta, chile y microgreens."}
+      {"step_slot": "final", "texto": "Unta el pan con <strong class='final-fat'>aguacate</strong>. Coloca los <strong class='final-protein'>huevos poché</strong> encima. Termina con sal, pimienta, chile y microgreens."}
     ],
     "hack": "Para yema líquida perfecta: 3 min cronometrados. Si quieres más cuajada, 4. Si se pasa de 5 min ya es huevo duro a medias.",
     "por_que_funciona": "Pan de avena (sin trigo), aguacate (grasa buena + fibra), huevos poché (proteína con yema intacta). Brunch icónico dentro de mes 1.",

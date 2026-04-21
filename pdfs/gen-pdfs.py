@@ -54,9 +54,9 @@ LEAD_MAGNETS = [
             'huevos-revueltos-aguacate',
             'omelette-caprese',
             'tortitas-zanahoria-huevos',
-            'huevos-revueltos-espinaca',
+            'tostada-hummus-champinones',
             'muffins-huevo-aguacate',
-            'aguacate-relleno-atun',
+            'omelette-espinaca-feta',
             'shakshuka',
             'frittata-coliflor-espinaca-queso',
             'avocado-toast-huevo-poche',
@@ -129,6 +129,36 @@ LEAD_MAGNETS = [
 # ==============================================================
 # DRAWING HELPERS
 # ==============================================================
+
+def format_amount(n):
+    """Convierte decimales a fracciones unicode legibles. 0.5 -> ½, 0.25 -> ¼, etc."""
+    try:
+        n = float(n)
+    except (TypeError, ValueError):
+        return str(n)
+    if n == 0:
+        return 'al gusto'
+    # Si es entero, devolver como entero
+    if n == int(n):
+        return str(int(n))
+    # Fracciones comunes
+    fractions = {
+        0.25: '¼', 0.5: '½', 0.75: '¾',
+        0.333: '⅓', 0.667: '⅔',
+        0.125: '⅛', 0.375: '⅜', 0.625: '⅝', 0.875: '⅞',
+    }
+    whole = int(n)
+    frac = round(n - whole, 3)
+    frac_char = fractions.get(frac)
+    if frac_char is None:
+        # Redondear a 1/4 más cercano
+        rounded = round((n - whole) * 4) / 4
+        frac_char = fractions.get(rounded, '')
+    if not frac_char:
+        # Último recurso: decimal
+        return str(n).rstrip('0').rstrip('.')
+    return f'{whole} {frac_char}' if whole > 0 else frac_char
+
 
 def wrap_text(c, text, max_width, font_name, font_size):
     """Split text into lines that fit in max_width."""
@@ -384,7 +414,8 @@ def draw_recipe(c, recipe, number, total, magnet_title):
         if amt == 0 or amt == '0':
             label = f"· {desc}"
         else:
-            label = f"· {amt}{' ' + unit if unit else ''} {desc}"
+            amt_str = format_amount(amt)
+            label = f"· {amt_str}{' ' + unit if unit else ''} {desc}"
         lines = wrap_text(c, label, col_w - 10, 'Helvetica', 9)
         c.setFont('Helvetica', 9)
         for line in lines:
@@ -449,57 +480,82 @@ def draw_recipe(c, recipe, number, total, magnet_title):
 # ==============================================================
 
 def draw_cta(c, data):
-    # Black bg
+    # Full black bg
     c.setFillColor(BLACK)
     c.rect(0, 0, W, H, fill=1, stroke=0)
 
-    # Yellow highlight area
-    c.setFillColor(ARIE_YELLOW)
-    c.rect(50, H - 260, W - 100, 180, fill=1, stroke=0)
+    # ========== TOP: YELLOW HIGHLIGHT BOX ==========
+    # Box que contiene: eyebrow + título + subtitle (sin botón dentro para evitar overlap)
+    BOX_TOP = H - 80
+    BOX_H = 240
+    BOX_BOTTOM = BOX_TOP - BOX_H
 
+    c.setFillColor(ARIE_YELLOW)
+    c.rect(50, BOX_BOTTOM, W - 100, BOX_H, fill=1, stroke=0)
+
+    # Eyebrow
     c.setFillColor(BLACK)
     c.setFont('Helvetica-Bold', 11)
-    c.drawString(66, H - 110, 'REBOOT 30 · PROGRAMA DE 30 DÍAS')
+    c.drawString(72, BOX_TOP - 38, 'REBOOT 30  ·  PROGRAMA DE 30 DÍAS')
 
-    c.setFont('Helvetica-Bold', 32)
-    c.drawString(66, H - 150, 'En 30 días vas a sentir')
-    c.drawString(66, H - 184, 'que vives en otro cuerpo.')
+    # Title (2 lines)
+    c.setFont('Helvetica-Bold', 30)
+    c.drawString(72, BOX_TOP - 80, 'En 30 días vas a sentir')
+    c.drawString(72, BOX_TOP - 112, 'que vives en otro cuerpo.')
 
-    c.setFont('Helvetica', 12)
-    c.drawString(66, H - 214, 'Lo que acabas de aprender es solo el principio.')
+    # Subtitle
+    c.setFont('Helvetica', 13)
+    c.drawString(72, BOX_TOP - 150, 'Lo que acabas de aprender es solo el principio.')
 
-    # CTA text
+    # CTA small label inside box (no button — button goes OUTSIDE)
+    c.setFont('Helvetica-Bold', 10)
+    c.setFillColor(HexColor('#333333'))
+    c.drawString(72, BOX_TOP - 185, '100% GRATUITO · CUPOS LIMITADOS · INICIA 4 MAYO 2026')
+
+    # ========== CTA BUTTON (outside/below the yellow box) ==========
+    btn_w = 260
+    btn_h = 48
+    btn_x = 50
+    btn_y = BOX_BOTTOM - 60
+
     c.setFillColor(EARTH_CARROT)
-    c.roundRect(66, H - 248, 220, 36, 18, fill=1, stroke=0)
+    c.roundRect(btn_x, btn_y, btn_w, btn_h, 24, fill=1, stroke=0)
     c.setFillColor(white)
-    c.setFont('Helvetica-Bold', 12)
-    c.drawString(94, H - 231, 'GUARDAR MI CUPO →')
+    c.setFont('Helvetica-Bold', 14)
+    c.drawString(btn_x + 32, btn_y + 17, 'GUARDAR MI CUPO →')
 
-    # Info
-    c.setFillColor(white)
-    c.setFont('Helvetica', 11)
-    c.drawString(50, H - 310, '100% gratuito · Cupos limitados · Inicia el 4 de mayo 2026')
+    # ========== COMO INSCRIBIRTE ==========
+    instr_y = btn_y - 50
 
-    # Instructions
     c.setFillColor(OXYGEN)
     c.setFont('Helvetica-Bold', 10)
-    c.drawString(50, H - 360, 'CÓMO INSCRIBIRTE')
+    c.drawString(50, instr_y, 'CÓMO INSCRIBIRTE')
 
-    c.setFillColor(HexColor('#cccccc'))
-    c.setFont('Helvetica', 11)
-    lines = [
-        '1. Entra a rebootlifestyle.github.io/reboot-lifestyle/reboot30.html',
-        '2. Completa el formulario en 30 segundos',
-        '3. Te llegará el link al WhatsApp de la comunidad',
-        '4. El 4 de mayo arrancamos todos juntos',
+    # Linea bajo el título
+    c.setStrokeColor(OXYGEN)
+    c.setLineWidth(1.5)
+    c.line(50, instr_y - 4, 50 + 100, instr_y - 4)
+
+    # Pasos
+    c.setFillColor(HexColor('#e5e5e5'))
+    c.setFont('Helvetica', 12)
+    steps = [
+        '1.  Entra a rebootlifestyle.github.io/reboot-lifestyle/reboot30.html',
+        '2.  Completa el formulario en 30 segundos',
+        '3.  Te llegará el link al WhatsApp de la comunidad',
+        '4.  El 4 de mayo arrancamos todos juntos',
     ]
-    y = H - 390
-    for line in lines:
+    y = instr_y - 30
+    for line in steps:
         c.drawString(50, y, line)
-        y -= 18
+        y -= 22
 
-    # Disclaimer at bottom
-    c.setFillColor(HexColor('#555555'))
+    # ========== DISCLAIMER (bottom, con línea separadora) ==========
+    c.setStrokeColor(HexColor('#333333'))
+    c.setLineWidth(0.5)
+    c.line(50, 120, W - 50, 120)
+
+    c.setFillColor(HexColor('#888888'))
     c.setFont('Helvetica', 7)
     disclaimer = (
         'Contenido educativo con fines informativos. No sustituye diagnóstico, '
@@ -508,14 +564,15 @@ def draw_cta(c, data):
         'condiciones de salud. Los resultados varían según cada persona.'
     )
     d_lines = wrap_text(c, disclaimer, W - 100, 'Helvetica', 7)
-    dy = 90
+    dy = 100
     for line in d_lines:
         c.drawString(50, dy, line)
         dy -= 10
 
-    c.setFillColor(HexColor('#777777'))
+    c.setFillColor(HexColor('#666666'))
     c.setFont('Helvetica', 7)
     c.drawString(50, 44, '© 2026 ReBoot Lifestyle · Arie Schwartz. Todos los derechos reservados.')
+    c.drawRightString(W - 50, 44, 'by @ariereboot')
 
     c.showPage()
 
