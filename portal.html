@@ -636,7 +636,7 @@ async function loadDashboard(session) {
 
     if (status === 404) {
         // User authenticated but no profile — create it from any matching lead
-        const complete = await apiCall('/api/onboarding/complete', {
+        const complete = await apiCall('/api/onboarding-complete', {
             method: 'POST',
             token: session.access_token,
             body: {},
