@@ -1795,5 +1795,1199 @@
         {"name": "Pollo", "descripcion": "muslos de pollo con hueso", "amount": 400, "unit": "g", "macros": {"kcal": 175, "prot": 25, "fiber": 0, "fat": 8, "carbs": 0}, "protein_name": "pollo"}
       ]}
     ]
+  },
+
+  "omelette-espinaca-feta": {
+    "id": "omelette-espinaca-feta", "nombre": "Omelette de 3 huevos con espinaca y queso feta", "subtitulo": "Mediterráneo en 10 minutos.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 10, "dificultad": "fácil", "porciones_base": 1,
+    "etiquetas": ["alta proteína", "sin gluten", "mediterráneo"],
+    "macros_fijos": {"kcal": 130, "prot": 0, "fiber": 0, "fat": 14, "carbs": 1},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 3, "unit": "", "descripcion": "huevos grandes", "macros": {"kcal": 210, "prot": 18, "fiber": 0, "fat": 15, "carbs": 2}},
+      {"slot": "greens", "amount_base": 1, "unit": "taza", "descripcion": "de espinaca fresca", "macros": {"kcal": 7, "prot": 1, "fiber": 1, "fat": 0, "carbs": 1}},
+      {"slot": "cheese", "amount_base": 2, "unit": "cdas", "descripcion": "de queso feta desmenuzado", "macros": {"kcal": 55, "prot": 3, "fiber": 0, "fat": 4.5, "carbs": 1}},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de aceite de oliva o ghee"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina, pimienta negra, orégano o nuez moscada"}
+    ],
+    "pasos": [
+      {"texto": "Saltea la <strong>espinaca</strong> por 1-2 minutos."},
+      {"step_slot": "protein-prep", "texto": "Bate los <strong>huevos</strong> con sal, pimienta y orégano o nuez moscada."},
+      {"step_slot": "protein-cook", "texto": "Vierte los huevos en sartén con aceite. Cocina a fuego medio-bajo 2 min."},
+      {"texto": "Agrega espinaca salteada y <strong>queso feta</strong> en una mitad. Dobla con cuidado y cocina 1 min más."},
+      {"step_slot": "final", "texto": "Sirve caliente con ensalada verde o rodajas de tomate y aguacate."}
+    ],
+    "hack": "La nuez moscada con el huevo batido es un truco clásico francés — sumale 1 pizca y el sabor cambia completo.",
+    "por_que_funciona": "Proteína alta de huevos + queso, fibra de la espinaca, grasa buena del aceite. Desayuno salado clásico mediterráneo mes 1.",
+    "sustituciones": [
+      {"from_label": "queso feta", "slot": "cheese", "options": [
+        {"name": "Queso de cabra", "descripcion": "queso de cabra", "amount": 2, "unit": "cdas", "macros": {"kcal": 65, "prot": 4.5, "fiber": 0, "fat": 5, "carbs": 0}},
+        {"name": "Parmesano", "descripcion": "parmesano rallado", "amount": 2, "unit": "cdas", "macros": {"kcal": 60, "prot": 5, "fiber": 0, "fat": 4, "carbs": 0.5}}
+      ]}
+    ]
+  },
+
+  "pescado-asado-esparragos": {
+    "id": "pescado-asado-esparragos", "nombre": "Pescado asado con espárragos", "subtitulo": "Una bandeja, 15 minutos, plato completo.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 25, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "mediterráneo", "sin gluten", "one-pan"],
+    "macros_fijos": {"kcal": 120, "prot": 1, "fiber": 0.5, "fat": 12, "carbs": 3},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 350, "unit": "g", "descripcion": "de filetes de pescado blanco (2 filetes)", "macros": {"kcal": 110, "prot": 22, "fiber": 0, "fat": 2, "carbs": 0}},
+      {"slot": "veg", "amount_base": 1, "unit": "manojo", "descripcion": "de espárragos frescos", "macros": {"kcal": 30, "prot": 3.5, "fiber": 3, "fat": 0.2, "carbs": 6}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo y ralladura)"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva extra virgen"},
+      {"slot": null, "amount_base": 1, "unit": "diente", "descripcion": "de ajo finamente picado"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina, pimienta, hierbas frescas (tomillo, perejil o eneldo)"}
+    ],
+    "pasos": [
+      {"texto": "Precalienta el horno a <strong>200°C</strong>."},
+      {"texto": "Lava los <strong>espárragos</strong>, corta la base dura. Ponlos en bandeja con 1 cda de aceite, sal y pimienta."},
+      {"step_slot": "protein-prep", "texto": "Coloca los <strong>filetes</strong> al lado de los espárragos. Rocía con 1 cda de aceite, el ajo, ralladura y jugo de medio limón, sal, pimienta y hierbas."},
+      {"step_slot": "protein-cook", "texto": "Hornea todo junto <strong>12-15 minutos</strong>, hasta que el pescado esté cocido y los espárragos tiernos pero firmes."},
+      {"step_slot": "final", "texto": "Sirve con jugo de limón fresco encima."}
+    ],
+    "hack": "La ralladura de limón SIEMPRE va antes de hornear — el aceite que saca al rallarla es donde está el aroma. Si la pones al final queda plana.",
+    "por_que_funciona": "Proteína magra + omega-3 (pescado), fibra y folatos (espárragos), grasa buena (aceite). Plato en una sola bandeja, mínimo trasteo.",
+    "sustituciones": [
+      {"from_label": "pescado", "slot": "protein", "options": [
+        {"name": "Salmón", "descripcion": "filete de salmón", "amount": 300, "unit": "g", "macros": {"kcal": 208, "prot": 20, "fiber": 0, "fat": 13, "carbs": 0}, "protein_name": "salmón"}
+      ]}
+    ]
+  },
+
+  "brochetas-pollo-vegetales": {
+    "id": "brochetas-pollo-vegetales", "nombre": "Brochetas de pollo con vegetales", "subtitulo": "Parrilla casera sin complicarse.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 45, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "sin gluten", "parrilla"],
+    "macros_fijos": {"kcal": 110, "prot": 1, "fiber": 1, "fat": 11, "carbs": 4},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 350, "unit": "g", "descripcion": "de pechuga de pollo en cubos", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}},
+      {"slot": "veg", "amount_base": 1, "unit": "", "descripcion": "zucchini en rodajas gruesas", "macros": {"kcal": 33, "prot": 2, "fiber": 2, "fat": 0.3, "carbs": 6}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "pimentón rojo en cubos"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "cebolla morada en gajos"},
+      {"slot": null, "amount_base": 1, "unit": "taza", "descripcion": "de champiñones enteros"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo)"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 2, "unit": "dientes", "descripcion": "de ajo rallados"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de mostaza dijon"},
+      {"slot": null, "amount_base": 0.5, "unit": "cdta", "descripcion": "de comino o paprika"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "palitos para brochetas, sal y pimienta"}
+    ],
+    "pasos": [
+      {"step_slot": "protein-prep", "texto": "Marina el <strong>pollo</strong> con limón, aceite, ajo, mostaza, comino, sal y pimienta. Refrigera mínimo 30 min (ideal 2 horas)."},
+      {"texto": "Arma las brochetas alternando pollo, zucchini, pimentón, cebolla y champiñones."},
+      {"step_slot": "protein-cook", "texto": "En parrilla o sartén grill, cocina <strong>10-12 min</strong> girando para dorar parejo. En horno a 200°C: 20-25 min volteando a la mitad."},
+      {"step_slot": "final", "texto": "Acompaña con quinoa, arroz de coliflor o ensalada fresca."}
+    ],
+    "hack": "Remoja los palitos de madera 30 min en agua antes de armar las brochetas — así no se queman en la parrilla.",
+    "por_que_funciona": "Proteína magra, 4 vegetales diferentes para variedad de micronutrientes, marinada que da sabor sin azúcar. Se puede hacer en parrilla, horno o air fryer.",
+    "sustituciones": [
+      {"from_label": "pollo", "slot": "protein", "options": [
+        {"name": "Camarones", "descripcion": "camarones pelados grandes", "amount": 300, "unit": "g", "macros": {"kcal": 85, "prot": 20, "fiber": 0, "fat": 1, "carbs": 0}, "protein_name": "camarones", "cook_time": "4-5 min por lado"}
+      ]}
+    ]
+  },
+
+  "huevos-rancheros": {
+    "id": "huevos-rancheros", "nombre": "Huevos rancheros", "subtitulo": "Brunch mexicano versión mes 1.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 20, "dificultad": "fácil", "porciones_base": 1,
+    "etiquetas": ["alta proteína", "mexicano", "brunch"],
+    "macros_fijos": {"kcal": 80, "prot": 0.5, "fiber": 0.5, "fat": 8, "carbs": 3},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 2, "unit": "", "descripcion": "huevos orgánicos o de pastoreo", "macros": {"kcal": 140, "prot": 12, "fiber": 0, "fat": 10, "carbs": 1}},
+      {"slot": "carb", "amount_base": 1, "unit": "", "descripcion": "tortilla 100% maíz (sin harinas refinadas ni aditivos)", "macros": {"kcal": 60, "prot": 2, "fiber": 2, "fat": 1, "carbs": 13}},
+      {"slot": "fat", "amount_base": 0.5, "unit": "", "descripcion": "aguacate en rodajas o machacado", "macros": {"kcal": 120, "prot": 1.5, "fiber": 5, "fat": 11, "carbs": 6}},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de aceite de oliva o de coco"},
+      {"slot": null, "amount_base": 0.5, "unit": "taza", "descripcion": "de salsa ranchera casera"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "cilantro, cebolla morada picada, limón, sal, pimienta"}
+    ],
+    "pasos": [
+      {"texto": "Calienta la <strong>tortilla</strong> en sartén antiadherente hasta dorada. Reserva."},
+      {"step_slot": "protein-cook", "texto": "Fríe los <strong>huevos</strong> en la misma sartén con un poco de aceite, al gusto (yema líquida es lo ideal)."},
+      {"texto": "Monta: tortilla de base, huevos encima, baña con salsa ranchera caliente."},
+      {"step_slot": "final", "texto": "Termina con <strong class='final-fat'>aguacate</strong>, cilantro, cebolla morada y un chorrito de limón."}
+    ],
+    "hack": "Salsa ranchera casera en 10 min: asa 2 tomates, 1 jalapeño/ají, 1 ajo, 1/4 cebolla. Licúa con 1 cdta aceite, 1/2 cdta comino, sal, pimienta, orégano. Cero azúcar escondida como en las salsas comerciales.",
+    "por_que_funciona": "Huevos = proteína completa, tortilla de maíz 100% (verificada mes 1), salsa casera sin azúcar, aguacate como grasa buena. Brunch mexicano auténtico.",
+    "sustituciones": [
+      {"from_label": "huevos", "slot": "protein", "options": [
+        {"name": "Huevos revueltos", "descripcion": "huevos revueltos cremosos", "amount": 2, "unit": "", "macros": {"kcal": 140, "prot": 12, "fiber": 0, "fat": 10, "carbs": 1}, "protein_name": "huevos revueltos"}
+      ]}
+    ]
+  },
+
+  "milanesa-pollo-ensalada": {
+    "id": "milanesa-pollo-ensalada", "nombre": "Milanesa de pollo con ensalada verde", "subtitulo": "Clásico argentino reconvertido.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 30, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "sin gluten", "kid-friendly"],
+    "macros_fijos": {"kcal": 90, "prot": 2, "fiber": 1, "fat": 9, "carbs": 3},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 350, "unit": "g", "descripcion": "de pechugas de pollo (2 filetes)", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}},
+      {"slot": "breading", "amount_base": 100, "unit": "g", "descripcion": "de harina de almendra (reemplaza pan rallado)", "macros": {"kcal": 320, "prot": 12, "fiber": 6, "fat": 28, "carbs": 12}},
+      {"slot": null, "amount_base": 2, "unit": "", "descripcion": "huevos batidos"},
+      {"slot": null, "amount_base": 1, "unit": "diente", "descripcion": "de ajo picado"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "orégano, sal, pimienta"},
+      {"slot": "greens", "amount_base": 3, "unit": "tazas", "descripcion": "de lechuga y tomates cherry", "macros": {"kcal": 30, "prot": 2, "fiber": 2, "fat": 0.3, "carbs": 6}},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva (para la ensalada)"},
+      {"slot": null, "amount_base": 0.5, "unit": "", "descripcion": "limón (jugo)"}
+    ],
+    "pasos": [
+      {"texto": "Precalienta horno a <strong>180°C</strong>."},
+      {"step_slot": "protein-prep", "texto": "Sazona el <strong>pollo</strong> con sal, pimienta, ajo y orégano. Pásalo por huevo batido y luego por la harina de almendra."},
+      {"step_slot": "protein-cook", "texto": "Coloca en bandeja con papel pergamino. Hornea <strong>25 min</strong> volteando a la mitad, hasta dorado y crujiente."},
+      {"texto": "Mientras, pica la lechuga y los tomates cherry. Aliña con aceite, limón, sal y pimienta."},
+      {"step_slot": "final", "texto": "Sirve la <strong class='final-protein'>milanesa</strong> con la ensalada al lado."}
+    ],
+    "hack": "Harina de almendra en lugar de pan rallado = misma textura crujiente, cero harina de trigo. Aire fryer funciona genial si la tienes: 180°C por 12-15 min.",
+    "por_que_funciona": "Empanizado sin gluten, proteína magra del pollo, fibra de las hojas verdes. Milanesa clásica 100% mes 1.",
+    "sustituciones": [
+      {"from_label": "pollo", "slot": "protein", "options": [
+        {"name": "Pescado", "descripcion": "filetes de pescado blanco", "amount": 350, "unit": "g", "macros": {"kcal": 110, "prot": 22, "fiber": 0, "fat": 2, "carbs": 0}, "protein_name": "pescado"}
+      ]}
+    ]
+  },
+
+  "sufle-atun-brocoli": {
+    "id": "sufle-atun-brocoli", "nombre": "Suflé de atún con brócoli", "subtitulo": "Plato elegante con ingredientes de alacena.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 45, "dificultad": "intermedia", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "sin gluten", "elegante"],
+    "macros_fijos": {"kcal": 80, "prot": 1, "fiber": 0.5, "fat": 6, "carbs": 5},
+    "ingredientes": [
+      {"slot": "veg", "amount_base": 1, "unit": "taza", "descripcion": "de brócoli cocido al vapor (picado)", "macros": {"kcal": 30, "prot": 2.5, "fiber": 2.5, "fat": 0.4, "carbs": 6}},
+      {"slot": "protein", "amount_base": 140, "unit": "g", "descripcion": "de atún en agua (1 lata escurrida)", "macros": {"kcal": 116, "prot": 26, "fiber": 0, "fat": 1, "carbs": 0}},
+      {"slot": null, "amount_base": 3, "unit": "", "descripcion": "huevos (claras y yemas separadas)"},
+      {"slot": null, "amount_base": 0.25, "unit": "taza", "descripcion": "de leche vegetal sin azúcar"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de harina de avena o garbanzo"},
+      {"slot": "cheese", "amount_base": 2, "unit": "cdas", "descripcion": "de queso parmesano rallado (opcional)", "macros": {"kcal": 60, "prot": 5, "fiber": 0, "fat": 4, "carbs": 0.5}},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, nuez moscada"}
+    ],
+    "pasos": [
+      {"texto": "Precalienta horno a <strong>180°C</strong>. Engrasa un molde para hornear."},
+      {"texto": "En un bol, mezcla <strong>yemas</strong>, atún, brócoli, leche vegetal, harina, queso, sal, pimienta y nuez moscada."},
+      {"texto": "En otro bol, bate las <strong>claras a punto de nieve</strong> hasta firmes."},
+      {"texto": "Incorpora las claras batidas a la mezcla con movimientos envolventes (sin batir fuerte)."},
+      {"step_slot": "protein-cook", "texto": "Vierte en el molde engrasado. Hornea <strong>25-30 min</strong> hasta dorado y subido."},
+      {"step_slot": "final", "texto": "Sirve caliente con ensalada fresca o arroz de coliflor."}
+    ],
+    "hack": "Las claras batidas son el secreto — dan toda la elevación. No abras el horno los primeros 20 min o se baja como globo pinchado.",
+    "por_que_funciona": "Proteína alta triple (atún + huevos + queso), fibra del brócoli, sin pasta ni harina de trigo. Elegante sin esfuerzo.",
+    "sustituciones": [
+      {"from_label": "atún", "slot": "protein", "options": [
+        {"name": "Salmón", "descripcion": "salmón en lata escurrido", "amount": 140, "unit": "g", "macros": {"kcal": 155, "prot": 22, "fiber": 0, "fat": 7, "carbs": 0}, "protein_name": "salmón"},
+        {"name": "Pollo", "descripcion": "pollo cocido desmenuzado", "amount": 150, "unit": "g", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}, "protein_name": "pollo"}
+      ]}
+    ]
+  },
+
+  "overnight-oats-week3": {
+    "id": "overnight-oats-week3", "nombre": "Overnight oats", "subtitulo": "Desayuno del futuro — se prepara la noche anterior.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 5, "dificultad": "fácil", "porciones_base": 1,
+    "etiquetas": ["alta fibra", "meal-prep", "sin cocción"],
+    "macros_fijos": {"kcal": 40, "prot": 0, "fiber": 0, "fat": 4, "carbs": 0},
+    "ingredientes": [
+      {"slot": "carb", "amount_base": 0.5, "unit": "taza", "descripcion": "de avena en hojuelas (sin gluten si necesario)", "macros": {"kcal": 150, "prot": 5, "fiber": 4, "fat": 3, "carbs": 27}},
+      {"slot": null, "amount_base": 0.75, "unit": "taza", "descripcion": "de bebida vegetal sin azúcar (almendra, coco, etc)"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de semillas de chía"},
+      {"slot": null, "amount_base": 0.25, "unit": "cdta", "descripcion": "de canela"},
+      {"slot": "fruit", "amount_base": 0.5, "unit": "taza", "descripcion": "de frutos rojos (fresas, arándanos) o 1/2 manzana", "macros": {"kcal": 35, "prot": 0.7, "fiber": 2.5, "fat": 0.3, "carbs": 8}},
+      {"slot": "fat", "amount_base": 1, "unit": "cdta", "descripcion": "de mantequilla de nuez", "macros": {"kcal": 100, "prot": 3.5, "fiber": 1.5, "fat": 9, "carbs": 3}}
+    ],
+    "pasos": [
+      {"texto": "En un frasco de vidrio, mezcla la <strong>avena</strong>, bebida vegetal, chía y canela. Mezcla bien."},
+      {"texto": "Agrega las <strong>frutas</strong> encima o mezcladas, y la mantequilla de nuez."},
+      {"texto": "Tapa y refrigera <strong>mínimo 4 horas</strong>, idealmente toda la noche."},
+      {"step_slot": "final", "texto": "Al día siguiente, mezcla y disfruta frío. Puedes agregar más frutas, nueces, coco rallado o un toque de yogur griego natural."}
+    ],
+    "hack": "Haz 3 frascos el domingo — te resuelve desayunos de L-M-X sin pensar. La canela realmente mejora el sabor, no la saltes.",
+    "por_que_funciona": "Carbo lento (avena), fibra altísima (chía + frutos rojos), proteína moderada (chía + bebida vegetal), grasa buena (mantequilla de nuez). Desayuno cero fuego.",
+    "sustituciones": [
+      {"from_label": "frutos rojos", "slot": "fruit", "options": [
+        {"name": "Manzana", "descripcion": "media manzana picada con canela", "amount": 0.5, "unit": "", "macros": {"kcal": 45, "prot": 0.2, "fiber": 2, "fat": 0, "carbs": 12}},
+        {"name": "Pera", "descripcion": "media pera picada", "amount": 0.5, "unit": "", "macros": {"kcal": 50, "prot": 0.3, "fiber": 3, "fat": 0, "carbs": 13}}
+      ]}
+    ]
+  },
+
+  "hamburguesas-lentejas-w3": {
+    "id": "hamburguesas-lentejas-w3", "nombre": "Hamburguesas de lentejas", "subtitulo": "Plant-based con sabor y estructura.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 30, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["vegano", "alta fibra", "alta proteína vegetal"],
+    "macros_fijos": {"kcal": 90, "prot": 1, "fiber": 1, "fat": 9, "carbs": 3},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 1, "unit": "taza", "descripcion": "de lentejas cocidas y escurridas", "macros": {"kcal": 230, "prot": 18, "fiber": 16, "fat": 0.8, "carbs": 40}},
+      {"slot": "binder", "amount_base": 0.25, "unit": "taza", "descripcion": "de avena en hojuelas (o harina de avena)", "macros": {"kcal": 75, "prot": 2.5, "fiber": 2, "fat": 1.5, "carbs": 13}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "zanahoria pequeña rallada"},
+      {"slot": null, "amount_base": 0.25, "unit": "taza", "descripcion": "de cebolla morada picada finita"},
+      {"slot": null, "amount_base": 1, "unit": "diente", "descripcion": "de ajo picado"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de perejil fresco o cilantro picado"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de comino"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de pimentón dulce o ahumado"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, hojas de lechuga para servir"}
+    ],
+    "pasos": [
+      {"texto": "En procesador, pulsa <strong>lentejas</strong>, avena, ajo, comino, pimentón, sal y pimienta hasta mezcla pegajosa con textura (no puré total)."},
+      {"texto": "Pasa a un bol y añade zanahoria, cebolla y perejil. Mezcla con manos o cuchara."},
+      {"texto": "Forma 4 hamburguesas con manos húmedas. Si están muy suaves, refrigera 20 min para compactar."},
+      {"step_slot": "protein-cook", "texto": "Cocina en sartén antiadherente con aceite de oliva <strong>4-5 min por lado</strong> hasta dorar."},
+      {"step_slot": "final", "texto": "Sirve en hojas de lechuga, o con ensalada fresca y tu aderezo favorito."}
+    ],
+    "hack": "No proceses TODAS las lentejas a puré — deja textura con algunos pedazos enteros. Así las hamburguesas no quedan como papilla.",
+    "por_que_funciona": "Lentejas = proteína vegetal + fibra récord, avena como binder sin gluten, especias para carácter. Meal-prep friendly, se congelan crudas.",
+    "sustituciones": [
+      {"from_label": "lentejas", "slot": "protein", "options": [
+        {"name": "Garbanzos", "descripcion": "garbanzos cocidos", "amount": 1, "unit": "taza", "macros": {"kcal": 270, "prot": 15, "fiber": 13, "fat": 4, "carbs": 45}, "protein_name": "garbanzos"}
+      ]}
+    ]
+  },
+
+  "ensalada-garbanzo": {
+    "id": "ensalada-garbanzo", "nombre": "Ensalada de garbanzo", "subtitulo": "Fresca, mediterránea, sin cocinar nada.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 10, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["vegano", "alta fibra", "sin cocción", "mediterráneo"],
+    "macros_fijos": {"kcal": 140, "prot": 1, "fiber": 2, "fat": 13, "carbs": 6},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 200, "unit": "g", "descripcion": "de garbanzos cocidos", "macros": {"kcal": 164, "prot": 9, "fiber": 7.6, "fat": 2.6, "carbs": 27}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "pepino picado"},
+      {"slot": null, "amount_base": 10, "unit": "", "descripcion": "tomates cherry partidos"},
+      {"slot": null, "amount_base": 0.5, "unit": "", "descripcion": "cebolla morada en cubos"},
+      {"slot": null, "amount_base": 10, "unit": "", "descripcion": "aceitunas kalamata"},
+      {"slot": "greens", "amount_base": 2, "unit": "tazas", "descripcion": "de hojas verdes (rúgula, espinaca baby)", "macros": {"kcal": 15, "prot": 2, "fiber": 1, "fat": 0.2, "carbs": 2}},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de tahini"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo)"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, sumac u orégano (opcional)"}
+    ],
+    "pasos": [
+      {"texto": "Escurre y enjuaga los <strong>garbanzos</strong>."},
+      {"texto": "En un bowl grande, combina garbanzos, pepino, tomates cherry, cebolla, aceitunas y hojas verdes."},
+      {"step_slot": "final", "texto": "Aliña con tahini, jugo de limón, sal y pimienta. Mezcla bien y ajusta sazón."}
+    ],
+    "hack": "El tahini se espesa con el limón — para un aderezo más líquido, agrega 1 cdta de agua tibia. Queda cremoso y untable.",
+    "por_que_funciona": "Proteína vegetal (garbanzos), fibra abundante, grasa buena del tahini y las aceitunas. Plato mediterráneo clásico, listo en 10 min.",
+    "sustituciones": [
+      {"from_label": "garbanzos", "slot": "protein", "options": [
+        {"name": "Frijoles blancos", "descripcion": "frijoles blancos cocidos (cannellini)", "amount": 200, "unit": "g", "macros": {"kcal": 130, "prot": 9, "fiber": 8, "fat": 0.5, "carbs": 23}, "protein_name": "frijoles"}
+      ]}
+    ]
+  },
+
+  "arepa-avena-pollo-desmechado": {
+    "id": "arepa-avena-pollo-desmechado", "nombre": "Arepa de avena con pollo desmechado", "subtitulo": "Latinoamericano sin harina de maíz refinada.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 20, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "sin gluten", "latino"],
+    "macros_fijos": {"kcal": 30, "prot": 0, "fiber": 0, "fat": 3, "carbs": 0},
+    "ingredientes": [
+      {"slot": "flour", "amount_base": 100, "unit": "g", "descripcion": "de harina de avena integral", "macros": {"kcal": 190, "prot": 7, "fiber": 5, "fat": 3.5, "carbs": 32}},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de semillas de chía"},
+      {"slot": null, "amount_base": 150, "unit": "ml", "descripcion": "de agua tibia"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal al gusto"},
+      {"slot": "protein", "amount_base": 150, "unit": "g", "descripcion": "de pollo desmechado al ajillo", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}}
+    ],
+    "pasos": [
+      {"texto": "Mezcla <strong>harina de avena</strong>, chía, sal y agua tibia hasta formar masa."},
+      {"texto": "Forma arepas del tamaño que prefieras (1.5 cm de grosor)."},
+      {"texto": "Cocina en sartén antiadherente <strong>4 min por lado</strong> hasta doradas."},
+      {"step_slot": "final", "texto": "Abre cada arepa y rellena con el <strong class='final-protein'>pollo</strong> desmechado al ajillo."}
+    ],
+    "hack": "La chía hidratada funciona como aglutinante — deja que la masa repose 5 min antes de formar las arepas y se compacta mejor.",
+    "por_que_funciona": "Avena en lugar de harina de maíz refinada (aporta fibra y proteína), pollo desmechado como proteína principal. Arepa 100% mes 1.",
+    "sustituciones": [
+      {"from_label": "pollo", "slot": "protein", "options": [
+        {"name": "Huevos revueltos", "descripcion": "huevos revueltos", "amount": 3, "unit": "", "macros": {"kcal": 210, "prot": 18, "fiber": 0, "fat": 15, "carbs": 2}, "protein_name": "huevos"}
+      ]}
+    ]
+  },
+
+  "lomo-trapo-pure-calabaza": {
+    "id": "lomo-trapo-pure-calabaza", "nombre": "Lomo de res al trapo con puré de calabaza", "subtitulo": "Técnica argentina de parrilla sin humo.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 40, "dificultad": "intermedia", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "sin gluten", "especial"],
+    "macros_fijos": {"kcal": 80, "prot": 0, "fiber": 1, "fat": 8, "carbs": 5},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 500, "unit": "g", "descripcion": "de lomo de res (una pieza entera)", "macros": {"kcal": 165, "prot": 26, "fiber": 0, "fat": 6, "carbs": 0}},
+      {"slot": null, "amount_base": 2, "unit": "tazas", "descripcion": "de sal gruesa (abundante, para el trapo)"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "trapo limpio de cocina o manta de cielo"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "hilo de cocina"},
+      {"slot": "carb", "amount_base": 2, "unit": "tazas", "descripcion": "de calabaza (zapallo) cocida", "macros": {"kcal": 50, "prot": 2, "fiber": 2, "fat": 0.2, "carbs": 12}},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de aceite de oliva o mantequilla"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, nuez moscada al gusto"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "opcional: chorrito de bebida vegetal para el puré"}
+    ],
+    "pasos": [
+      {"step_slot": "protein-prep", "texto": "Cubre el <strong>lomo</strong> con sal gruesa abundante, envuélvelo en el trapo y amarra bien con hilo."},
+      {"step_slot": "protein-cook", "texto": "Cocina directo sobre brasas calientes <strong>10-15 min por lado</strong>. Retira, quita el trapo, limpia el exceso de sal y corta en rodajas."},
+      {"texto": "Para el puré, tritura la <strong>calabaza cocida</strong> con aceite, sal, pimienta y nuez moscada. Añade bebida vegetal si quieres más cremoso."},
+      {"step_slot": "final", "texto": "Sirve el <strong class='final-protein'>lomo</strong> jugoso con el puré suave y caliente al lado."}
+    ],
+    "hack": "La sal gruesa sella la superficie y atrapa los jugos por dentro — técnica argentina clásica. No le da sabor salado, solo la costra.",
+    "por_que_funciona": "Proteína muy magra, carbo lento de la calabaza (permitido mes 1), sin un gramo de almidón refinado. Plato de ocasión especial.",
+    "sustituciones": [
+      {"from_label": "calabaza", "slot": "carb", "options": [
+        {"name": "Puré de coliflor", "descripcion": "puré de coliflor", "amount": 2, "unit": "tazas", "macros": {"kcal": 30, "prot": 2.5, "fiber": 2.5, "fat": 0.4, "carbs": 6}, "carb_name": "coliflor"}
+      ]}
+    ]
+  },
+
+  "wrap-linaza-atun": {
+    "id": "wrap-linaza-atun", "nombre": "Wrap de linaza con atún", "subtitulo": "Almuerzo portátil sin tortilla de trigo.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 10, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "portable", "sin gluten"],
+    "macros_fijos": {"kcal": 60, "prot": 0.5, "fiber": 1, "fat": 6, "carbs": 2},
+    "ingredientes": [
+      {"slot": "carb", "amount_base": 2, "unit": "", "descripcion": "tortillas integrales o de linaza (sin harinas refinadas)", "macros": {"kcal": 120, "prot": 6, "fiber": 4, "fat": 5, "carbs": 15}},
+      {"slot": "protein", "amount_base": 140, "unit": "g", "descripcion": "de atún en agua (1 lata escurrida)", "macros": {"kcal": 116, "prot": 26, "fiber": 0, "fat": 1, "carbs": 0}},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de yogur griego natural"},
+      {"slot": null, "amount_base": 0.5, "unit": "", "descripcion": "zanahoria rallada"},
+      {"slot": null, "amount_base": 0.25, "unit": "", "descripcion": "cebolla morada picada"},
+      {"slot": "fat", "amount_base": 0.5, "unit": "", "descripcion": "aguacate en rodajas", "macros": {"kcal": 120, "prot": 1.5, "fiber": 5, "fat": 11, "carbs": 6}},
+      {"slot": null, "amount_base": 2, "unit": "tazas", "descripcion": "de hojas verdes (espinaca, lechuga o rúgula)"},
+      {"slot": null, "amount_base": 0.5, "unit": "", "descripcion": "limón"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, linaza molida al gusto"}
+    ],
+    "pasos": [
+      {"step_slot": "protein-prep", "texto": "Mezcla el <strong>atún</strong> con yogur, zanahoria rallada, cebolla, jugo de limón, sal y pimienta."},
+      {"texto": "Calienta las <strong>tortillas</strong> en sartén 30 seg por lado (quedan más flexibles)."},
+      {"step_slot": "final", "texto": "Rellena cada tortilla con hojas verdes, mezcla de atún y aguacate. Enrolla firme, corta a la mitad."}
+    ],
+    "hack": "Tibia las tortillas ANTES de rellenar — frías se quiebran al enrollar. El vapor las hace flexibles.",
+    "por_que_funciona": "Proteína alta y rápida (atún + yogur), grasa buena (aguacate), fibra (tortilla linaza + hojas). Almuerzo portable y limpio.",
+    "sustituciones": [
+      {"from_label": "atún", "slot": "protein", "options": [
+        {"name": "Pollo", "descripcion": "pollo desmechado", "amount": 150, "unit": "g", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}, "protein_name": "pollo"}
+      ]}
+    ]
+  },
+
+  "waffles-avena-salados-poche": {
+    "id": "waffles-avena-salados-poche", "nombre": "Waffles de avena salados con huevos poché", "subtitulo": "Brunch versión power.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 20, "dificultad": "intermedia", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "sin gluten", "brunch"],
+    "macros_fijos": {"kcal": 30, "prot": 0, "fiber": 0, "fat": 3, "carbs": 0},
+    "ingredientes": [
+      {"slot": "carb", "amount_base": 1, "unit": "taza", "descripcion": "de avena en hojuelas", "macros": {"kcal": 150, "prot": 5, "fiber": 4, "fat": 3, "carbs": 27}},
+      {"slot": null, "amount_base": 2, "unit": "", "descripcion": "huevos para la masa"},
+      {"slot": null, "amount_base": 0.5, "unit": "taza", "descripcion": "de bebida vegetal sin azúcar o agua"},
+      {"slot": null, "amount_base": 0.25, "unit": "cdta", "descripcion": "de sal y cúrcuma"},
+      {"slot": null, "amount_base": 0.5, "unit": "cdta", "descripcion": "de polvo de hornear"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de aceite de oliva"},
+      {"slot": "protein", "amount_base": 2, "unit": "", "descripcion": "huevos para poché", "macros": {"kcal": 140, "prot": 12, "fiber": 0, "fat": 10, "carbs": 1}},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de vinagre blanco para el agua"},
+      {"slot": null, "amount_base": 0.5, "unit": "", "descripcion": "aguacate en rodajas para terminar"}
+    ],
+    "pasos": [
+      {"texto": "Licúa <strong>avena</strong>, huevos para la masa, bebida vegetal, sal, cúrcuma, polvo de hornear y aceite hasta masa homogénea."},
+      {"texto": "Calienta la wafflera y engrásala. Cocina los waffles hasta dorados y crujientes."},
+      {"step_slot": "protein-cook", "texto": "Para los <strong>poché</strong>: hierve agua con vinagre. Rompe cada huevo en taza, viértelo suave al agua. Cocina <strong>3-4 min</strong> y retira con espumadera."},
+      {"step_slot": "final", "texto": "Sirve los waffles calientes con <strong class='final-protein'>huevo poché</strong> encima. Agrega aguacate, hojas verdes o tomates cherry."}
+    ],
+    "hack": "Para poché estable: agua a fuego bajo (no burbujeante), vinagre siempre, y pones el huevo en la 'boca' de un remolino que creas con cuchara. La clara se envuelve sola.",
+    "por_que_funciona": "Avena como carbo lento, doble huevo = proteína completa, aguacate como grasa buena. Brunch con todo sin harina de trigo.",
+    "sustituciones": []
+  },
+
+  "goulash-arroz-coliflor": {
+    "id": "goulash-arroz-coliflor", "nombre": "Goulash de res con arroz de coliflor", "subtitulo": "Plato húngaro sin harina ni almidón.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 35, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "reconfortante", "sin gluten"],
+    "macros_fijos": {"kcal": 130, "prot": 1.5, "fiber": 2, "fat": 12, "carbs": 5},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 250, "unit": "g", "descripcion": "de carne magra de res en cubos", "macros": {"kcal": 165, "prot": 26, "fiber": 0, "fat": 6, "carbs": 0}},
+      {"slot": null, "amount_base": 0.5, "unit": "", "descripcion": "cebolla blanca en cubitos"},
+      {"slot": null, "amount_base": 0.5, "unit": "", "descripcion": "pimentón rojo en cubitos"},
+      {"slot": null, "amount_base": 2, "unit": "dientes", "descripcion": "de ajo picado"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "tomate grande maduro en cubos"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de paprika"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de orégano seco"},
+      {"slot": null, "amount_base": 0.5, "unit": "cdta", "descripcion": "de comino"},
+      {"slot": null, "amount_base": 1, "unit": "taza", "descripcion": "de caldo de vegetales o agua"},
+      {"slot": "carb", "amount_base": 2, "unit": "tazas", "descripcion": "de coliflor rallada (arroz de coliflor)", "macros": {"kcal": 30, "prot": 2.8, "fiber": 3, "fat": 0.2, "carbs": 6}},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, cúrcuma o perejil fresco"}
+    ],
+    "pasos": [
+      {"texto": "Sofríe cebolla, ajo y pimentón en 1 cda de aceite <strong>3-4 min</strong>."},
+      {"step_slot": "protein-cook", "texto": "Agrega la <strong>carne</strong> y cocina hasta dorar. Suma tomate, paprika, orégano, comino, sal, pimienta y caldo."},
+      {"texto": "Tapa y cocina a fuego bajo <strong>15-20 min</strong> hasta que la salsa espese y la carne esté tierna."},
+      {"step_slot": "carb", "texto": "Saltea la <strong>coliflor rallada</strong> en sartén con 1 cda de aceite, sal y especias <strong>5-7 min</strong> hasta suave pero firme. Añade cúrcuma o perejil."},
+      {"step_slot": "final", "texto": "Sirve la <strong class='final-carb'>coliflor</strong> de base y el <strong class='final-protein'>goulash</strong> caliente encima. Decora con hojas frescas o semillas."}
+    ],
+    "hack": "La paprika se 'activa' con grasa caliente — tuéstala 30 seg con el aceite ANTES de agregar los tomates. Saca todo su sabor.",
+    "por_que_funciona": "Proteína roja magra, arroz de coliflor reemplaza arroz blanco, cero harina. Plato húngaro clásico 100% mes 1.",
+    "sustituciones": [
+      {"from_label": "carne de res", "slot": "protein", "options": [
+        {"name": "Pollo", "descripcion": "pollo en cubos", "amount": 300, "unit": "g", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}, "protein_name": "pollo"}
+      ]}
+    ]
+  },
+
+  "pollo-cacerola-vegetales": {
+    "id": "pollo-cacerola-vegetales", "nombre": "Pollo a la cacerola con vegetales", "subtitulo": "Cocción lenta que enamora.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 50, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "reconfortante", "sin gluten"],
+    "macros_fijos": {"kcal": 80, "prot": 1, "fiber": 2, "fat": 8, "carbs": 5},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 4, "unit": "", "descripcion": "muslos de pollo (con o sin hueso)", "macros": {"kcal": 175, "prot": 25, "fiber": 0, "fat": 8, "carbs": 0}},
+      {"slot": "carb", "amount_base": 150, "unit": "g", "descripcion": "de arroz integral o coliflor rallada", "macros": {"kcal": 110, "prot": 3, "fiber": 1.5, "fat": 1, "carbs": 23}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "zanahoria picada"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "pimiento picado"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "cebolla picada"},
+      {"slot": null, "amount_base": 2, "unit": "dientes", "descripcion": "de ajo picados"},
+      {"slot": null, "amount_base": 2, "unit": "tazas", "descripcion": "de caldo de pollo natural"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, laurel, tomillo"}
+    ],
+    "pasos": [
+      {"texto": "Sofríe cebolla, ajo, zanahoria y pimiento en aceite 4-5 min."},
+      {"step_slot": "protein-cook", "texto": "Agrega los <strong>muslos</strong> y dora por todos lados. Añade caldo, laurel, tomillo, sal y pimienta."},
+      {"texto": "Tapa y cocina a fuego bajo <strong>25-30 min</strong> hasta que el pollo esté tierno."},
+      {"step_slot": "carb", "texto": "Agrega el <strong>arroz integral</strong> (o coliflor rallada) y cocina 15 min más (si es coliflor, solo 8 min)."},
+      {"step_slot": "final", "texto": "Ajusta sazón y sirve caliente."}
+    ],
+    "hack": "Si usas muslos con hueso, el hueso da sabor extra al caldo. Al final puedes deshuesarlos y deshebrar la carne — queda todavía más tierno.",
+    "por_que_funciona": "Proteína alta (muslos), cocción lenta concentra sabores de los vegetales, el caldo hidrata sin grasas extras. Mes 1 compatible si usas arroz de coliflor.",
+    "sustituciones": [
+      {"from_label": "arroz", "slot": "carb", "options": [
+        {"name": "Arroz de coliflor", "descripcion": "coliflor rallada", "amount": 2, "unit": "tazas", "macros": {"kcal": 30, "prot": 2.8, "fiber": 3, "fat": 0.2, "carbs": 6}, "carb_name": "coliflor", "phase_hint": "mes 1"}
+      ]}
+    ]
+  },
+
+  "wrap-linaza-huevos-aguacate": {
+    "id": "wrap-linaza-huevos-aguacate", "nombre": "Wrap de linaza con huevos y aguacate", "subtitulo": "Desayuno portable sin gluten.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 10, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "portable", "sin gluten"],
+    "macros_fijos": {"kcal": 40, "prot": 0, "fiber": 0, "fat": 4, "carbs": 1},
+    "ingredientes": [
+      {"slot": "carb", "amount_base": 2, "unit": "", "descripcion": "tortillas integrales o de linaza", "macros": {"kcal": 120, "prot": 6, "fiber": 4, "fat": 5, "carbs": 15}},
+      {"slot": "protein", "amount_base": 2, "unit": "", "descripcion": "huevos cocidos (duros o revueltos)", "macros": {"kcal": 140, "prot": 12, "fiber": 0, "fat": 10, "carbs": 1}},
+      {"slot": "fat", "amount_base": 0.5, "unit": "", "descripcion": "aguacate en rodajas o triturado", "macros": {"kcal": 120, "prot": 1.5, "fiber": 5, "fat": 11, "carbs": 6}},
+      {"slot": "greens", "amount_base": 2, "unit": "tazas", "descripcion": "de hojas verdes (espinaca o lechuga)", "macros": {"kcal": 15, "prot": 2, "fiber": 1, "fat": 0.2, "carbs": 2}},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de linaza molida (opcional)"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, limón"}
+    ],
+    "pasos": [
+      {"step_slot": "protein-cook", "texto": "Cocina los <strong>huevos</strong> al gusto (duros o revueltos)."},
+      {"texto": "Calienta las tortillas si las prefieres tibias."},
+      {"step_slot": "final", "texto": "Unta o coloca el <strong class='final-fat'>aguacate</strong>, añade los <strong class='final-protein'>huevos</strong>, hojas verdes y condimenta. Espolvorea linaza molida, enrolla y sirve."}
+    ],
+    "hack": "Si vas a llevarlo al trabajo: arma el wrap con las hojas verdes contra el aguacate y envuelve en papel encerado. Evita que se aguade por dentro.",
+    "por_que_funciona": "Huevo cocido como proteína portable, aguacate como grasa, linaza extra para omega-3. Wrap que funciona para desayuno o almuerzo.",
+    "sustituciones": []
+  },
+
+  "pasta-garbanzo-albondigas": {
+    "id": "pasta-garbanzo-albondigas", "nombre": "Pasta de garbanzo con albóndigas en salsa napolitana", "subtitulo": "Pasta con proteína doble.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 35, "dificultad": "intermedia", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "italiano", "sin gluten"],
+    "macros_fijos": {"kcal": 120, "prot": 1, "fiber": 1, "fat": 11, "carbs": 5},
+    "ingredientes": [
+      {"slot": "carb", "amount_base": 200, "unit": "g", "descripcion": "de pasta de garbanzo", "macros": {"kcal": 190, "prot": 14, "fiber": 7, "fat": 3, "carbs": 30}},
+      {"slot": null, "amount_base": 1, "unit": "taza", "descripcion": "de salsa napolitana natural (tomate, ajo, cebolla, albahaca)"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal y pimienta al gusto"},
+      {"slot": "protein", "amount_base": 300, "unit": "g", "descripcion": "de carne molida (res, pollo o pavo)", "macros": {"kcal": 165, "prot": 26, "fiber": 0, "fat": 6, "carbs": 0}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "huevo"},
+      {"slot": null, "amount_base": 0.25, "unit": "taza", "descripcion": "de avena en hojuelas (como binder, no pan rallado)"},
+      {"slot": null, "amount_base": 2, "unit": "dientes", "descripcion": "de ajo picados"},
+      {"slot": null, "amount_base": 0.25, "unit": "", "descripcion": "cebolla picada"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "perejil, sal, pimienta"}
+    ],
+    "pasos": [
+      {"step_slot": "protein-prep", "texto": "Para las <strong>albóndigas</strong>: mezcla carne molida, huevo, avena, ajo, cebolla, perejil, sal y pimienta. Forma bolitas."},
+      {"step_slot": "protein-cook", "texto": "Hornea a 200°C <strong>15 min</strong> o dora en sartén con aceite hasta que estén cocidas por dentro."},
+      {"texto": "Calienta la <strong>salsa napolitana</strong> en una olla con aceite, agrega las albóndigas y cocina <strong>10 min</strong>."},
+      {"step_slot": "carb", "texto": "Cocina la <strong>pasta de garbanzo</strong> según el paquete (suele ser 6-8 min). Escurre."},
+      {"step_slot": "final", "texto": "Mezcla pasta con salsa y <strong class='final-protein'>albóndigas</strong>. Decora con albahaca o queso rallado."}
+    ],
+    "hack": "La pasta de garbanzo tiene más fibra que la de trigo — cocínala 1 min MENOS de lo que dice el paquete, queda al dente. Si la dejas mucho, se deshace.",
+    "por_que_funciona": "Doble proteína (garbanzo + carne), salsa natural sin azúcar añadido, cero gluten. Italiano clásico reinventado.",
+    "sustituciones": [
+      {"from_label": "carne molida", "slot": "protein", "options": [
+        {"name": "Pavo molido", "descripcion": "pavo molido magro", "amount": 300, "unit": "g", "macros": {"kcal": 143, "prot": 27, "fiber": 0, "fat": 3, "carbs": 0}, "protein_name": "pavo"},
+        {"name": "Lentejas", "descripcion": "albóndigas de lentejas (vegetariano)", "amount": 2, "unit": "tazas", "macros": {"kcal": 230, "prot": 18, "fiber": 16, "fat": 0.8, "carbs": 40}, "protein_name": "lentejas"}
+      ]}
+    ]
+  },
+
+  "pollo-ajillo-ensalada": {
+    "id": "pollo-ajillo-ensalada", "nombre": "Pechuga de pollo al ajillo con ensalada", "subtitulo": "Cena express con sabor español.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 20, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "mediterráneo", "rápido"],
+    "macros_fijos": {"kcal": 110, "prot": 1, "fiber": 1, "fat": 11, "carbs": 3},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 350, "unit": "g", "descripcion": "de pechugas de pollo (2 filetes)", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}},
+      {"slot": null, "amount_base": 3, "unit": "dientes", "descripcion": "de ajo picados"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo)"},
+      {"slot": "greens", "amount_base": 3, "unit": "tazas", "descripcion": "de lechuga romana y tomate", "macros": {"kcal": 25, "prot": 2, "fiber": 2, "fat": 0.3, "carbs": 5}},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal y pimienta al gusto"}
+    ],
+    "pasos": [
+      {"step_slot": "protein-prep", "texto": "Marina el <strong>pollo</strong> con ajo, limón, sal y pimienta."},
+      {"step_slot": "protein-cook", "texto": "Cocina en sartén con aceite a fuego medio-alto <strong>5-6 min por lado</strong> hasta dorar y cocinar por dentro."},
+      {"step_slot": "protein-rest", "texto": "Deja reposar 3 min y desmecha (o sirve entero)."},
+      {"texto": "Mezcla los vegetales de la ensalada y aliña con aceite, limón, sal."},
+      {"step_slot": "final", "texto": "Sirve el <strong class='final-protein'>pollo</strong> caliente con la ensalada fresca al lado."}
+    ],
+    "hack": "Si el pollo es grueso, aplánalo un poco con rodillo ANTES de cocinar — se cuece parejo y más rápido.",
+    "por_que_funciona": "Proteína magra alta, fibra de las hojas, grasa buena del aceite, sin carbos refinados. Cena en 20 minutos.",
+    "sustituciones": []
+  },
+
+  "torta-espanola-calabacin": {
+    "id": "torta-espanola-calabacin", "nombre": "Torta española con calabacín y cebolla", "subtitulo": "La tortilla española ligera.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 30, "dificultad": "intermedia", "porciones_base": 3,
+    "etiquetas": ["alta proteína", "sin gluten", "brunch", "español"],
+    "macros_fijos": {"kcal": 140, "prot": 0, "fiber": 1, "fat": 14, "carbs": 2},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 4, "unit": "", "descripcion": "huevos grandes", "macros": {"kcal": 70, "prot": 6, "fiber": 0, "fat": 5, "carbs": 1}},
+      {"slot": "carb", "amount_base": 2, "unit": "", "descripcion": "papas medianas cocidas (en rodajas finas o cubitos)", "macros": {"kcal": 55, "prot": 1.5, "fiber": 1.5, "fat": 0, "carbs": 13}},
+      {"slot": "veg", "amount_base": 1, "unit": "", "descripcion": "calabacín mediano en medias lunas finas", "macros": {"kcal": 15, "prot": 1, "fiber": 1, "fat": 0.1, "carbs": 3}},
+      {"slot": null, "amount_base": 0.5, "unit": "", "descripcion": "cebolla blanca o morada en julianas finas"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva extra virgen"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina y pimienta al gusto"}
+    ],
+    "pasos": [
+      {"texto": "Hierve las <strong>papas</strong> con cáscara hasta tiernas pero firmes. Enfría y corta en cubos finos. (Las papas mes 1 son excepción aquí — si eres estricta, reemplaza con calabaza o coliflor)."},
+      {"texto": "En sartén grande, calienta el aceite. Sofríe la cebolla hasta suave."},
+      {"texto": "Agrega <strong>calabacín</strong> y cocina hasta tierno. Incorpora las papas y saltea 2-3 min."},
+      {"step_slot": "protein-prep", "texto": "Bate los <strong>huevos</strong> con sal. Agrega los vegetales salteados y mezcla con cuidado."},
+      {"step_slot": "protein-cook", "texto": "Vierte en sartén antiadherente y cocina a fuego bajo tapada <strong>6-8 min</strong>."},
+      {"step_slot": "final", "texto": "Voltea con ayuda de un plato y cocina 3-4 min por el otro lado hasta cuajar completamente."}
+    ],
+    "hack": "Nota importante mes 1: las papas están restringidas. Si tu cuerpo todavía no está listo, reemplaza con <strong>calabaza cocida</strong> en cubos — la textura es similar y mantiene el plato dentro del programa.",
+    "por_que_funciona": "Proteína alta de los huevos, vegetales (calabacín y cebolla), grasa buena del aceite. La versión con calabaza es 100% mes 1.",
+    "sustituciones": [
+      {"from_label": "papa", "slot": "carb", "options": [
+        {"name": "Calabaza", "descripcion": "calabaza cocida en cubos", "amount": 2, "unit": "tazas", "macros": {"kcal": 50, "prot": 2, "fiber": 2, "fat": 0.2, "carbs": 12}, "carb_name": "calabaza", "phase_hint": "mes 1 estricto"}
+      ]}
+    ]
+  },
+
+  "lasana-palmito-carne": {
+    "id": "lasana-palmito-carne", "nombre": "Lasaña de palmito natural con carne molida", "subtitulo": "Lasaña sin pasta, gratinada.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 45, "dificultad": "intermedia", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "baja en carbos", "sin gluten"],
+    "macros_fijos": {"kcal": 120, "prot": 0.5, "fiber": 1, "fat": 12, "carbs": 4},
+    "ingredientes": [
+      {"slot": "pasta", "amount_base": 3, "unit": "", "descripcion": "palmitos frescos cocidos, cortados en láminas finas", "macros": {"kcal": 30, "prot": 2, "fiber": 2, "fat": 0.6, "carbs": 6}},
+      {"slot": "protein", "amount_base": 300, "unit": "g", "descripcion": "de carne molida (res, pollo o pavo)", "macros": {"kcal": 165, "prot": 26, "fiber": 0, "fat": 6, "carbs": 0}},
+      {"slot": null, "amount_base": 1, "unit": "taza", "descripcion": "de salsa de tomate natural"},
+      {"slot": null, "amount_base": 0.5, "unit": "", "descripcion": "cebolla picada"},
+      {"slot": null, "amount_base": 1, "unit": "diente", "descripcion": "de ajo picado"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva"},
+      {"slot": "cheese", "amount_base": 0.5, "unit": "taza", "descripcion": "de queso rallado (opcional, mozzarella o parmesano)", "macros": {"kcal": 150, "prot": 11, "fiber": 0, "fat": 11, "carbs": 2}},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, orégano, albahaca"}
+    ],
+    "pasos": [
+      {"texto": "Pela y corta los <strong>palmitos</strong> en láminas finas tipo pasta. Hiérvelos en agua con sal 10-15 min hasta suaves. Escurre."},
+      {"texto": "Sofríe cebolla y ajo en aceite. Agrega la <strong>carne</strong>, condimenta con sal, pimienta, orégano. Cocina hasta dorar."},
+      {"texto": "Añade la salsa de tomate y cocina 5 min más."},
+      {"texto": "En un molde, coloca capas: palmito, carne con salsa, queso. Repite hasta terminar."},
+      {"step_slot": "protein-cook", "texto": "Hornea a <strong>180°C por 20-25 min</strong>. Deja reposar 5 min antes de servir."},
+      {"step_slot": "final", "texto": "Termina con albahaca fresca y sirve caliente."}
+    ],
+    "hack": "Los palmitos frescos son la clave — los enlatados vienen muy suaves y la lasaña se deshace. Si solo tienes enlatados, escúrrelos bien y no los hiervas más.",
+    "por_que_funciona": "Proteína completa (carne + queso), 'pasta' de palmito aporta fibra sin carbos, sin gluten, sin harina. Italiano reinventado.",
+    "sustituciones": [
+      {"from_label": "carne", "slot": "protein", "options": [
+        {"name": "Pollo molido", "descripcion": "pollo molido", "amount": 300, "unit": "g", "macros": {"kcal": 143, "prot": 27, "fiber": 0, "fat": 3, "carbs": 0}, "protein_name": "pollo"},
+        {"name": "Pavo molido", "descripcion": "pavo molido", "amount": 300, "unit": "g", "macros": {"kcal": 143, "prot": 27, "fiber": 0, "fat": 3, "carbs": 0}, "protein_name": "pavo"}
+      ]}
+    ]
+  },
+
+  "ensalada-camarones-aguacate": {
+    "id": "ensalada-camarones-aguacate", "nombre": "Ensalada de camarones con aguacate, tomate y cebolla", "subtitulo": "Cena veraniega fresca.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 15, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "sin cocción", "fresco", "bajo en carbos"],
+    "macros_fijos": {"kcal": 100, "prot": 0.5, "fiber": 0.5, "fat": 10, "carbs": 3},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 200, "unit": "g", "descripcion": "de camarones cocidos y pelados", "macros": {"kcal": 85, "prot": 20, "fiber": 0, "fat": 1, "carbs": 0}},
+      {"slot": "fat", "amount_base": 1, "unit": "", "descripcion": "aguacate maduro pero firme, en cubos", "macros": {"kcal": 240, "prot": 3, "fiber": 10, "fat": 22, "carbs": 12}},
+      {"slot": null, "amount_base": 1, "unit": "taza", "descripcion": "de tomates cherry en mitades (o 1 tomate grande en cubos)"},
+      {"slot": null, "amount_base": 0.25, "unit": "", "descripcion": "cebolla morada finamente picada"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo) o media lima"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva extra virgen"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal marina, pimienta negra, cilantro o hierbas frescas"}
+    ],
+    "pasos": [
+      {"step_slot": "protein-prep", "texto": "Si los <strong>camarones</strong> están crudos, cocínalos en agua con sal <strong>2-3 min</strong> hasta rosados. Enfría en agua con hielo y escurre bien."},
+      {"texto": "En un bowl grande, combina camarones, aguacate, tomate y cebolla morada."},
+      {"step_slot": "final", "texto": "Aliña con jugo de limón, aceite de oliva, sal, pimienta y hierbas frescas. Mezcla suavemente para no romper el <strong class='final-fat'>aguacate</strong>."}
+    ],
+    "hack": "Sirve en barquitas de lechuga o pepino para un efecto mas elegante — queda como entrada de restaurante, pero es tu cena de martes.",
+    "por_que_funciona": "Proteína magra sin procesar (camarones), grasa buena premium (aguacate + aceite de oliva), fibra y antioxidantes (tomate, cebolla morada). Fresco y saciante.",
+    "sustituciones": [
+      {"from_label": "camarones", "slot": "protein", "options": [
+        {"name": "Pulpo", "descripcion": "pulpo cocido cortado", "amount": 200, "unit": "g", "macros": {"kcal": 82, "prot": 15, "fiber": 0, "fat": 1, "carbs": 2}, "protein_name": "pulpo"},
+        {"name": "Pollo", "descripcion": "pollo cocido frío desmenuzado", "amount": 200, "unit": "g", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}, "protein_name": "pollo"}
+      ]}
+    ]
+  },
+
+  "tortitas-zanahoria-huevos": {
+    "id": "tortitas-zanahoria-huevos", "nombre": "Tortitas de zanahoria con huevos revueltos", "subtitulo": "Desayuno colorido y crujiente.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 20, "dificultad": "fácil", "porciones_base": 1,
+    "etiquetas": ["alta proteína", "sin gluten"],
+    "macros_fijos": {"kcal": 90, "prot": 0, "fiber": 0, "fat": 9, "carbs": 1},
+    "ingredientes": [
+      {"slot": "carb", "amount_base": 2, "unit": "", "descripcion": "zanahorias medianas ralladas", "macros": {"kcal": 50, "prot": 1.2, "fiber": 3.4, "fat": 0.2, "carbs": 12}},
+      {"slot": "flour", "amount_base": 2, "unit": "cdas", "descripcion": "de harina de almendra", "macros": {"kcal": 80, "prot": 3, "fiber": 1.5, "fat": 7, "carbs": 3}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "huevo (para la masa)"},
+      {"slot": "protein", "amount_base": 3, "unit": "", "descripcion": "huevos revueltos para acompañar", "macros": {"kcal": 210, "prot": 18, "fiber": 0, "fat": 15, "carbs": 2}},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, cilantro fresco"}
+    ],
+    "pasos": [
+      {"texto": "Mezcla <strong>zanahoria rallada</strong>, harina de almendra, huevo para la masa, sal y pimienta."},
+      {"texto": "Forma tortitas pequeñas y cocina en sartén con aceite <strong>3 min por lado</strong> hasta doradas."},
+      {"step_slot": "protein-cook", "texto": "En otra sartén, revuelve los <strong>huevos</strong> con sal a fuego medio-bajo."},
+      {"step_slot": "final", "texto": "Sirve las tortitas con los <strong class='final-protein'>huevos revueltos</strong> y cilantro."}
+    ],
+    "hack": "Ralla fino pero no muy fino — si usas procesador, pulsa brevemente. Muy fina y la tortita se rompe.",
+    "por_que_funciona": "Zanahoria aporta beta-caroteno y fibra, almendra da proteína vegetal + grasa buena, huevos cierran con proteína completa.",
+    "sustituciones": []
+  },
+
+  "bowl-falafel-tabbouleh": {
+    "id": "bowl-falafel-tabbouleh", "nombre": "Bowl de falafel con tabbouleh de quinoa", "subtitulo": "Mediterráneo completo plant-based.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 35, "dificultad": "intermedia", "porciones_base": 2,
+    "etiquetas": ["vegano", "alta fibra", "mediterráneo", "alta proteína vegetal"],
+    "macros_fijos": {"kcal": 120, "prot": 1, "fiber": 2, "fat": 12, "carbs": 5},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 1.5, "unit": "tazas", "descripcion": "de garbanzos cocidos", "macros": {"kcal": 246, "prot": 14, "fiber": 11, "fat": 4, "carbs": 40}},
+      {"slot": null, "amount_base": 0.25, "unit": "taza", "descripcion": "de cebolla picada"},
+      {"slot": null, "amount_base": 3, "unit": "dientes", "descripcion": "de ajo picados"},
+      {"slot": null, "amount_base": 0.5, "unit": "taza", "descripcion": "de perejil y cilantro fresco"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de comino"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de harina de garbanzo (para unir)"},
+      {"slot": "carb", "amount_base": 0.5, "unit": "taza", "descripcion": "de quinoa cocida (para tabbouleh)", "macros": {"kcal": 110, "prot": 4, "fiber": 2.5, "fat": 2, "carbs": 20}},
+      {"slot": null, "amount_base": 0.5, "unit": "", "descripcion": "pepino en cubos pequeños"},
+      {"slot": null, "amount_base": 1, "unit": "taza", "descripcion": "de tomates cherry partidos"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo)"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de tahini (aderezo)"}
+    ],
+    "pasos": [
+      {"texto": "En procesador, pulsa <strong>garbanzos</strong>, cebolla, ajo, perejil, cilantro, comino, sal, pimienta y harina de garbanzo hasta masa pegajosa con textura."},
+      {"texto": "Forma bolitas (falafels) del tamaño de una nuez. Refrigera 15 min para compactar."},
+      {"step_slot": "protein-cook", "texto": "Hornea a 200°C <strong>18-20 min</strong> con un chorrito de aceite, volteando a la mitad hasta doradas."},
+      {"texto": "Para el tabbouleh: mezcla <strong>quinoa cocida</strong>, pepino, tomates, perejil, aceite, limón, sal y pimienta."},
+      {"step_slot": "final", "texto": "Arma el bowl: tabbouleh de base, <strong class='final-protein'>falafels</strong>, chorrito de tahini diluido con limón."}
+    ],
+    "hack": "Si la masa de falafel está muy húmeda, agrega más harina de garbanzo. Si está muy seca, un poco de agua. La consistencia correcta se moldea sin pegarse mucho.",
+    "por_que_funciona": "Doble proteína vegetal (garbanzos + quinoa), fibra muy alta, grasa buena (tahini, aceite). Plato mediterráneo completo sin proteína animal.",
+    "sustituciones": []
+  },
+
+  "sopa-calabaza-pollo": {
+    "id": "sopa-calabaza-pollo", "nombre": "Sopa crema de calabaza con pollo", "subtitulo": "Reconfortante, cremosa, llena sin pesar.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 30, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "cremoso", "sin gluten", "reconfortante"],
+    "macros_fijos": {"kcal": 140, "prot": 1, "fiber": 1, "fat": 13, "carbs": 4},
+    "ingredientes": [
+      {"slot": "carb", "amount_base": 3, "unit": "tazas", "descripcion": "de calabaza en cubos", "macros": {"kcal": 75, "prot": 3, "fiber": 3, "fat": 0.3, "carbs": 18}},
+      {"slot": "protein", "amount_base": 200, "unit": "g", "descripcion": "de pollo cocido desmenuzado", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "cebolla picada"},
+      {"slot": null, "amount_base": 2, "unit": "dientes", "descripcion": "de ajo picados"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de jengibre rallado"},
+      {"slot": null, "amount_base": 3, "unit": "tazas", "descripcion": "de caldo de pollo o vegetal"},
+      {"slot": null, "amount_base": 0.25, "unit": "taza", "descripcion": "de leche de coco espesa"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, nuez moscada, semillas de calabaza para terminar"}
+    ],
+    "pasos": [
+      {"texto": "Saltea cebolla, ajo y jengibre en aceite <strong>3 min</strong>."},
+      {"texto": "Agrega la <strong>calabaza</strong>, sal, pimienta, nuez moscada y el caldo. Cocina a fuego bajo <strong>20 min</strong> hasta que la calabaza esté tierna."},
+      {"texto": "Tritura todo con licuadora de mano hasta cremoso. Agrega la leche de coco y mezcla."},
+      {"step_slot": "final", "texto": "Sirve con <strong class='final-protein'>pollo</strong> desmenuzado encima, semillas de calabaza y un hilo de aceite."}
+    ],
+    "hack": "Si tu calabaza es poco dulce, agrega un toque de canela al final — saca el dulzor natural sin añadir azúcar.",
+    "por_que_funciona": "Calabaza = carbo lento + beta-carotenos, pollo aporta proteína, leche de coco da cremosidad sin lácteo. Cena que calienta por dentro.",
+    "sustituciones": []
+  },
+
+  "yogurt-griego-granola-casera": {
+    "id": "yogurt-griego-granola-casera", "nombre": "Yogurt griego con granola casera y frutos rojos", "subtitulo": "Bowl dulce sin azúcar refinado.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 8, "dificultad": "fácil", "porciones_base": 1,
+    "etiquetas": ["alta proteína", "meal-prep", "sin cocción"],
+    "macros_fijos": {"kcal": 20, "prot": 0, "fiber": 0, "fat": 2, "carbs": 0},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 1, "unit": "taza", "descripcion": "de yogurt griego natural sin azúcar", "macros": {"kcal": 130, "prot": 22, "fiber": 0, "fat": 1, "carbs": 9}},
+      {"slot": "carb", "amount_base": 0.3, "unit": "taza", "descripcion": "de granola casera de avena", "macros": {"kcal": 130, "prot": 4, "fiber": 3, "fat": 5, "carbs": 18}},
+      {"slot": "fruit", "amount_base": 0.5, "unit": "taza", "descripcion": "de mix de frutos rojos", "macros": {"kcal": 35, "prot": 0.7, "fiber": 2.5, "fat": 0.3, "carbs": 8}},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de nueces picadas"},
+      {"slot": null, "amount_base": 0.5, "unit": "cdta", "descripcion": "de canela"}
+    ],
+    "pasos": [
+      {"texto": "En un bowl, sirve el <strong>yogurt griego</strong>."},
+      {"texto": "Agrega la <strong>granola casera</strong> y los frutos rojos encima."},
+      {"step_slot": "final", "texto": "Termina con nueces picadas y canela."}
+    ],
+    "hack": "Granola casera en 20 min: avena + nueces + coco + aceite coco + alulosa + canela + vainilla, hornea a 160°C 20 min revolviendo. Dura 2 semanas en frasco. Cero azúcar comercial.",
+    "por_que_funciona": "Proteína altísima (yogurt griego = 22g por taza), fibra (granola + frutos rojos), grasa buena (nueces). Sin azúcar refinado.",
+    "sustituciones": []
+  },
+
+  "pad-thai-zucchini-camarones": {
+    "id": "pad-thai-zucchini-camarones", "nombre": "Pad thai de zucchini con camarones", "subtitulo": "Thai clásico sin un gramo de fideo de trigo.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 25, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "asiático", "sin gluten"],
+    "macros_fijos": {"kcal": 140, "prot": 2, "fiber": 1, "fat": 12, "carbs": 6},
+    "ingredientes": [
+      {"slot": "veg", "amount_base": 3, "unit": "", "descripcion": "zucchinis medianos en fideos (espiralizados)", "macros": {"kcal": 50, "prot": 3.6, "fiber": 3, "fat": 0.6, "carbs": 9}},
+      {"slot": "protein", "amount_base": 300, "unit": "g", "descripcion": "de camarones pelados", "macros": {"kcal": 85, "prot": 20, "fiber": 0, "fat": 1, "carbs": 0}},
+      {"slot": null, "amount_base": 2, "unit": "", "descripcion": "huevos batidos"},
+      {"slot": null, "amount_base": 0.25, "unit": "taza", "descripcion": "de maní o almendras picadas"},
+      {"slot": null, "amount_base": 2, "unit": "dientes", "descripcion": "de ajo picados"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de salsa de soya baja en sodio"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de salsa de pescado (opcional)"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo)"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de ajonjolí"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "cilantro, cebollín, hojuelas de chile"}
+    ],
+    "pasos": [
+      {"texto": "Espiraliza los <strong>zucchinis</strong>. Salea y deja escurrir 10 min."},
+      {"step_slot": "protein-cook", "texto": "Calienta wok o sartén con 1 cda de aceite. Saltea los <strong>camarones</strong> 2 min por lado. Reserva."},
+      {"texto": "En la misma sartén, saltea el ajo. Agrega los huevos batidos, revuelve hasta cuajar."},
+      {"texto": "Suma los zoodles, salsa de soya, salsa de pescado, jugo de limón. Saltea 2-3 min."},
+      {"step_slot": "final", "texto": "Devuelve los <strong class='final-protein'>camarones</strong>, agrega maní picado, cilantro y cebollín."}
+    ],
+    "hack": "Saltea a fuego ALTO todo el tiempo — es la clave del wok. Si bajas el fuego, se suelta agua y pasa de stir-fry a estofado.",
+    "por_que_funciona": "Zoodles reemplazan fideo de trigo, proteína doble (camarones + huevos), grasa buena (maní, aceite). Asiático sin gluten.",
+    "sustituciones": []
+  },
+
+  "ensalada-tibia-quinoa-atun": {
+    "id": "ensalada-tibia-quinoa-atun", "nombre": "Ensalada tibia de quinoa con atún", "subtitulo": "Contraste de temperaturas que sorprende.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 20, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "sin gluten", "balanceada"],
+    "macros_fijos": {"kcal": 120, "prot": 1, "fiber": 1, "fat": 12, "carbs": 5},
+    "ingredientes": [
+      {"slot": "carb", "amount_base": 0.75, "unit": "taza", "descripcion": "de quinoa cruda", "macros": {"kcal": 155, "prot": 6, "fiber": 3, "fat": 2.5, "carbs": 27}},
+      {"slot": "protein", "amount_base": 280, "unit": "g", "descripcion": "de atún fresco (medalón) o en lata", "macros": {"kcal": 144, "prot": 30, "fiber": 0, "fat": 1, "carbs": 0}},
+      {"slot": "greens", "amount_base": 3, "unit": "tazas", "descripcion": "de hojas verdes mixtas", "macros": {"kcal": 20, "prot": 2, "fiber": 1.5, "fat": 0.2, "carbs": 3}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "pimentón rojo asado en tiras"},
+      {"slot": null, "amount_base": 10, "unit": "", "descripcion": "tomates cherry"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo)"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, orégano"}
+    ],
+    "pasos": [
+      {"step_slot": "carb", "texto": "Cocina la <strong>quinoa</strong> con 1.5 tazas de agua y sal, 15 min a fuego bajo."},
+      {"step_slot": "protein-cook", "texto": "Si el <strong>atún</strong> es fresco: sazona y sella en sartén <strong>2 min por lado</strong> (rosado por dentro). Si es en lata, solo escurre."},
+      {"texto": "Mezcla la quinoa tibia con hojas verdes, pimentón y tomates cherry."},
+      {"step_slot": "final", "texto": "Aliña con aceite, limón, sal, pimienta y orégano. Coloca el <strong class='final-protein'>atún</strong> encima."}
+    ],
+    "hack": "La quinoa TIBIA sobre las hojas verdes las marchita ligeramente — es el efecto buscado. Si la quieres fría del todo, déjala enfriar antes.",
+    "por_que_funciona": "Proteína alta (atún), quinoa como carbo completo, fibra de hojas verdes. Balance total en plato único.",
+    "sustituciones": []
+  },
+
+  "frittata-coliflor-espinaca-queso": {
+    "id": "frittata-coliflor-espinaca-queso", "nombre": "Frittata de coliflor, espinaca y queso", "subtitulo": "Meal-prep de desayuno en una bandeja.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 30, "dificultad": "fácil", "porciones_base": 4,
+    "etiquetas": ["alta proteína", "meal-prep", "sin gluten"],
+    "macros_fijos": {"kcal": 60, "prot": 0.5, "fiber": 0.5, "fat": 6, "carbs": 1},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 8, "unit": "", "descripcion": "huevos grandes", "macros": {"kcal": 70, "prot": 6, "fiber": 0, "fat": 5, "carbs": 1}},
+      {"slot": "veg", "amount_base": 2, "unit": "tazas", "descripcion": "de coliflor en floretes pequeños", "macros": {"kcal": 25, "prot": 2, "fiber": 2, "fat": 0.3, "carbs": 5}},
+      {"slot": "greens", "amount_base": 2, "unit": "tazas", "descripcion": "de espinaca fresca", "macros": {"kcal": 15, "prot": 2, "fiber": 2, "fat": 0, "carbs": 2}},
+      {"slot": "cheese", "amount_base": 0.5, "unit": "taza", "descripcion": "de queso parmesano o feta", "macros": {"kcal": 120, "prot": 10, "fiber": 0, "fat": 8, "carbs": 1}},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 2, "unit": "dientes", "descripcion": "de ajo picados"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, tomillo"}
+    ],
+    "pasos": [
+      {"texto": "Precalienta horno a <strong>180°C</strong>."},
+      {"texto": "Saltea la <strong>coliflor</strong> con ajo y aceite <strong>6 min</strong>. Agrega espinaca hasta que baje."},
+      {"step_slot": "protein-prep", "texto": "Bate los <strong>huevos</strong> con sal, pimienta y tomillo."},
+      {"texto": "En un molde engrasado, distribuye los vegetales y queso. Vierte los huevos."},
+      {"step_slot": "protein-cook", "texto": "Hornea <strong>20 min</strong> hasta cuajar."},
+      {"step_slot": "final", "texto": "Corta en 4 porciones. Dura 4 días en nevera."}
+    ],
+    "hack": "Frittata = meal prep heroico. 4 porciones = 4 desayunos resueltos. Las recalientas 30 seg en microondas y quedan como recién hechas.",
+    "por_que_funciona": "Proteína muy alta (8 huevos + queso), fibra de vegetales, sin gluten. Una bandeja = 4 desayunos.",
+    "sustituciones": []
+  },
+
+  "taco-bowl-pollo-coliflor": {
+    "id": "taco-bowl-pollo-coliflor", "nombre": "Taco bowl de pollo con arroz de coliflor", "subtitulo": "Mexicano sin tortilla ni arroz.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 25, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "mexicano", "sin gluten"],
+    "macros_fijos": {"kcal": 170, "prot": 2, "fiber": 2, "fat": 15, "carbs": 6},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 300, "unit": "g", "descripcion": "de pechuga de pollo en cubos", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}},
+      {"slot": "carb", "amount_base": 2, "unit": "tazas", "descripcion": "de arroz de coliflor", "macros": {"kcal": 30, "prot": 2.8, "fiber": 3, "fat": 0.2, "carbs": 6}},
+      {"slot": null, "amount_base": 0.5, "unit": "taza", "descripcion": "de frijoles negros cocidos"},
+      {"slot": "fat", "amount_base": 0.5, "unit": "", "descripcion": "aguacate en cubos", "macros": {"kcal": 120, "prot": 1.5, "fiber": 5, "fat": 11, "carbs": 6}},
+      {"slot": null, "amount_base": 0.5, "unit": "taza", "descripcion": "de pico de gallo (tomate, cebolla, cilantro, limón)"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de comino y chile en polvo"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, cilantro, limón"}
+    ],
+    "pasos": [
+      {"step_slot": "protein-prep", "texto": "Sazona el <strong>pollo</strong> con comino, chile en polvo, sal."},
+      {"step_slot": "protein-cook", "texto": "Saltea en sartén con 1 cda de aceite <strong>6-7 min</strong> hasta dorado."},
+      {"step_slot": "carb", "texto": "Saltea el <strong>arroz de coliflor</strong> con 1 cda de aceite y sal <strong>5 min</strong>."},
+      {"step_slot": "final", "texto": "Arma el bowl: arroz de coliflor de base, <strong class='final-protein'>pollo</strong>, frijoles, aguacate, pico de gallo. Termina con cilantro y limón."}
+    ],
+    "hack": "Pico de gallo en 3 min: tomate + cebolla + cilantro + limón + sal. Guárdalo en frasco de vidrio — dura 3 días y es 10x mejor que cualquier salsa comprada.",
+    "por_que_funciona": "Arroz de coliflor reemplaza arroz blanco, frijoles + pollo = proteína doble, aguacate cierra con grasa buena. Taco bowl completo mes 1.",
+    "sustituciones": []
+  },
+
+  "pescado-sal-vegetales-vapor": {
+    "id": "pescado-sal-vegetales-vapor", "nombre": "Pescado a la sal con vegetales al vapor", "subtitulo": "Técnica costera que realza el pescado.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 30, "dificultad": "intermedia", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "técnica especial", "bajo en carbos"],
+    "macros_fijos": {"kcal": 110, "prot": 1, "fiber": 2, "fat": 10, "carbs": 5},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 500, "unit": "g", "descripcion": "de pescado entero (corvina, pargo) limpio", "macros": {"kcal": 110, "prot": 22, "fiber": 0, "fat": 2, "carbs": 0}},
+      {"slot": null, "amount_base": 2, "unit": "tazas", "descripcion": "de sal gruesa (costra)"},
+      {"slot": "veg", "amount_base": 3, "unit": "tazas", "descripcion": "de vegetales (brócoli, zanahoria, ejotes)", "macros": {"kcal": 50, "prot": 3, "fiber": 4, "fat": 0.3, "carbs": 11}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "perejil, ajo, sal fina"}
+    ],
+    "pasos": [
+      {"texto": "Precalienta horno a <strong>220°C</strong>."},
+      {"texto": "En bandeja, haz cama de sal gruesa. Coloca el <strong>pescado</strong> encima. Cúbrelo completamente con más sal."},
+      {"step_slot": "protein-cook", "texto": "Hornea <strong>20-25 min</strong>. La sal forma una costra dura."},
+      {"texto": "Mientras, cocina los <strong>vegetales</strong> al vapor 8 min hasta tiernos pero firmes."},
+      {"step_slot": "final", "texto": "Rompe la costra de sal con cuidado, retira el pescado, sirve con vegetales, limón y aceite de oliva."}
+    ],
+    "hack": "La costra de sal SIEMPRE se retira — no te comes la sal, es solo para sellar el pescado mientras se cuece. El resultado es carne jugosa y no salada.",
+    "por_que_funciona": "Técnica ancestral, proteína magra sin grasa añadida, vegetales al vapor conservan nutrientes. Cena de restaurante en casa.",
+    "sustituciones": []
+  },
+
+  "crepes-avena-ricotta-arandanos": {
+    "id": "crepes-avena-ricotta-arandanos", "nombre": "Crepes de avena con ricotta y arándanos", "subtitulo": "Brunch dulce sin harina de trigo.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 20, "dificultad": "intermedia", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "sin gluten", "brunch"],
+    "macros_fijos": {"kcal": 80, "prot": 0.5, "fiber": 0.5, "fat": 7, "carbs": 3},
+    "ingredientes": [
+      {"slot": "flour", "amount_base": 0.5, "unit": "taza", "descripcion": "de harina de avena", "macros": {"kcal": 190, "prot": 7, "fiber": 5, "fat": 3.5, "carbs": 32}},
+      {"slot": null, "amount_base": 2, "unit": "", "descripcion": "huevos"},
+      {"slot": null, "amount_base": 0.5, "unit": "taza", "descripcion": "de bebida vegetal sin azúcar"},
+      {"slot": null, "amount_base": 0.5, "unit": "cdta", "descripcion": "de extracto de vainilla"},
+      {"slot": null, "amount_base": 1, "unit": "pizca", "descripcion": "de sal"},
+      {"slot": "protein", "amount_base": 0.5, "unit": "taza", "descripcion": "de ricotta fresca", "macros": {"kcal": 170, "prot": 14, "fiber": 0, "fat": 12, "carbs": 3}},
+      {"slot": "fruit", "amount_base": 0.5, "unit": "taza", "descripcion": "de arándanos frescos", "macros": {"kcal": 40, "prot": 0.5, "fiber": 2, "fat": 0.2, "carbs": 10}},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de alulosa (opcional)"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "canela, ralladura de limón"}
+    ],
+    "pasos": [
+      {"texto": "Licúa <strong>harina de avena</strong>, huevos, bebida vegetal, vainilla y sal hasta masa líquida sin grumos."},
+      {"texto": "Calienta sartén antiadherente a fuego medio con gotita de aceite. Vierte un poco de masa, gira la sartén para esparcir en capa fina."},
+      {"texto": "Cocina <strong>1-2 min por lado</strong> hasta dorar ligeramente. Repite hasta terminar la masa."},
+      {"texto": "Mezcla la <strong>ricotta</strong> con alulosa (si la usas), canela y ralladura de limón."},
+      {"step_slot": "final", "texto": "Rellena cada crepe con ricotta y <strong>arándanos</strong>. Enrolla o dobla. Termina con más arándanos encima."}
+    ],
+    "hack": "La sartén tiene que estar JUSTO caliente — si la masa chisporrotea mucho, se queman los bordes antes de cuajar el centro. Fuego medio firme.",
+    "por_que_funciona": "Harina de avena sin gluten, ricotta da proteína cremosa, arándanos aportan antioxidantes sin azúcar. Brunch dulce dentro del programa.",
+    "sustituciones": []
+  },
+
+  "pollo-curry-coco-coliflor": {
+    "id": "pollo-curry-coco-coliflor", "nombre": "Pollo al curry con crema de coco y arroz de coliflor", "subtitulo": "India en tu cocina, sin arroz basmati.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 30, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "especiado", "sin gluten"],
+    "macros_fijos": {"kcal": 180, "prot": 1.5, "fiber": 2, "fat": 17, "carbs": 6},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 350, "unit": "g", "descripcion": "de pechuga de pollo en cubos", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}},
+      {"slot": "carb", "amount_base": 2, "unit": "tazas", "descripcion": "de arroz de coliflor", "macros": {"kcal": 30, "prot": 2.8, "fiber": 3, "fat": 0.2, "carbs": 6}},
+      {"slot": null, "amount_base": 0.5, "unit": "taza", "descripcion": "de leche de coco espesa"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "cebolla picada"},
+      {"slot": null, "amount_base": 3, "unit": "dientes", "descripcion": "de ajo picados"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de jengibre rallado"},
+      {"slot": null, "amount_base": 2, "unit": "cdtas", "descripcion": "de curry en polvo"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de cúrcuma"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de coco"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, cilantro fresco"}
+    ],
+    "pasos": [
+      {"texto": "Saltea cebolla, ajo y jengibre en aceite de coco <strong>3 min</strong>."},
+      {"texto": "Agrega curry y cúrcuma, tuesta <strong>30 seg</strong>."},
+      {"step_slot": "protein-cook", "texto": "Suma el <strong>pollo</strong> en cubos. Saltea <strong>5 min</strong> hasta dorar."},
+      {"texto": "Añade la leche de coco, sal y pimienta. Cocina a fuego bajo <strong>10 min</strong> hasta que espese."},
+      {"step_slot": "carb", "texto": "Saltea el <strong>arroz de coliflor</strong> con 1 cda de aceite y sal <strong>5 min</strong>."},
+      {"step_slot": "final", "texto": "Sirve <strong class='final-carb'>coliflor</strong> de base y <strong class='final-protein'>curry</strong> encima. Termina con cilantro."}
+    ],
+    "hack": "Tuesta las especias 30 seg en el aceite antes de agregar líquidos — libera todos los aceites esenciales. Si saltas ese paso, el curry queda plano.",
+    "por_que_funciona": "Proteína (pollo), grasa buena (coco), carbo lento (coliflor), antiinflamatorios naturales (cúrcuma, jengibre, curry). Plato completo asiático.",
+    "sustituciones": []
+  },
+
+  "kebabs-res-tzatziki": {
+    "id": "kebabs-res-tzatziki", "nombre": "Kebabs de res con tzatziki", "subtitulo": "Calle griega en tu plato.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 30, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "mediterráneo", "sin gluten"],
+    "macros_fijos": {"kcal": 130, "prot": 1, "fiber": 1, "fat": 13, "carbs": 3},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 400, "unit": "g", "descripcion": "de lomo o pulpa de res en cubos", "macros": {"kcal": 165, "prot": 26, "fiber": 0, "fat": 6, "carbs": 0}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "pimentón rojo en cubos"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "cebolla morada en gajos"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 2, "unit": "dientes", "descripcion": "de ajo picados"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de comino, orégano"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo)"},
+      {"slot": "dip", "amount_base": 0.5, "unit": "taza", "descripcion": "de yogurt griego (para tzatziki)", "macros": {"kcal": 60, "prot": 10, "fiber": 0, "fat": 0.5, "carbs": 4}},
+      {"slot": null, "amount_base": 0.5, "unit": "", "descripcion": "pepino rallado y escurrido"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de eneldo fresco"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta"}
+    ],
+    "pasos": [
+      {"step_slot": "protein-prep", "texto": "Marina la <strong>carne</strong> con aceite, ajo, comino, orégano, limón, sal y pimienta. 15 min mínimo."},
+      {"texto": "Arma brochetas alternando carne, pimentón y cebolla."},
+      {"step_slot": "protein-cook", "texto": "Cocina en parrilla o sartén grill <strong>3-4 min por lado</strong> (término medio)."},
+      {"texto": "Para el <strong>tzatziki</strong>: mezcla yogurt, pepino rallado escurrido, ajo picado (1 diente), eneldo, sal y pimienta."},
+      {"step_slot": "final", "texto": "Sirve los <strong class='final-protein'>kebabs</strong> con el tzatziki y una ensalada fresca."}
+    ],
+    "hack": "El pepino para tzatziki va SIEMPRE escurrido — sala y deja 10 min, luego aprieta con paño. Sin ese paso, el yogur queda líquido.",
+    "por_que_funciona": "Proteína roja magra, grasa buena (aceite), yogurt griego como proteína extra, vegetales como fibra. Mediterráneo completo.",
+    "sustituciones": []
+  },
+
+  "avocado-toast-huevo-poche": {
+    "id": "avocado-toast-huevo-poche", "nombre": "Avocado toast con huevo poché", "subtitulo": "El brunch más fotografiado, versión Reboot.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 10, "dificultad": "fácil", "porciones_base": 1,
+    "etiquetas": ["alta proteína", "brunch", "rápido"],
+    "macros_fijos": {"kcal": 30, "prot": 0, "fiber": 0, "fat": 3, "carbs": 0},
+    "ingredientes": [
+      {"slot": "carb", "amount_base": 1, "unit": "rebanada", "descripcion": "de pan de avena integral", "macros": {"kcal": 90, "prot": 4, "fiber": 3, "fat": 1.5, "carbs": 15}},
+      {"slot": "fat", "amount_base": 0.5, "unit": "", "descripcion": "aguacate machacado", "macros": {"kcal": 120, "prot": 1.5, "fiber": 5, "fat": 11, "carbs": 6}},
+      {"slot": "protein", "amount_base": 2, "unit": "", "descripcion": "huevos para poché", "macros": {"kcal": 140, "prot": 12, "fiber": 0, "fat": 10, "carbs": 1}},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de vinagre blanco (para el agua)"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal en escamas, pimienta negra, chile en hojuelas, microgreens"}
+    ],
+    "pasos": [
+      {"texto": "Tuesta el <strong>pan de avena</strong> hasta dorado."},
+      {"texto": "Machaca el <strong>aguacate</strong> con sal, pimienta y un chorrito de limón."},
+      {"step_slot": "protein-cook", "texto": "Hierve agua con vinagre. Rompe cada huevo en taza, viértelo suave al agua. Cocina <strong>3 min</strong> para yema líquida. Retira con espumadera."},
+      {"step_slot": "final", "texto": "Unta el pan con <strong class='final-fat'>aguacate</strong>. Coloca los <strong class='final-protein'>huevos poché</strong> encima. Termina con sal en escamas, pimienta, chile y microgreens."}
+    ],
+    "hack": "Para yema líquida perfecta: 3 min cronometrados. Si quieres más cuajada, 4. Si se pasa de 5 min ya es huevo duro a medias.",
+    "por_que_funciona": "Pan de avena (sin trigo), aguacate (grasa buena + fibra), huevos poché (proteína con yema intacta). Brunch icónico dentro de mes 1.",
+    "sustituciones": []
+  },
+
+  "tartar-salmon-aguacate": {
+    "id": "tartar-salmon-aguacate", "nombre": "Tartar de salmón con aguacate", "subtitulo": "Elegante, crudo, rico en omega-3.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 15, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "omega-3", "sin cocción", "elegante"],
+    "macros_fijos": {"kcal": 80, "prot": 0.5, "fiber": 0.5, "fat": 8, "carbs": 2},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 300, "unit": "g", "descripcion": "de salmón fresco grado sushi en cubos pequeños", "macros": {"kcal": 208, "prot": 20, "fiber": 0, "fat": 13, "carbs": 0}},
+      {"slot": "fat", "amount_base": 1, "unit": "", "descripcion": "aguacate maduro en cubos", "macros": {"kcal": 240, "prot": 3, "fiber": 10, "fat": 22, "carbs": 12}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo)"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de aceite de sésamo"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de salsa de soya baja en sodio"},
+      {"slot": null, "amount_base": 2, "unit": "cebollines", "descripcion": "finamente picados"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de semillas de sésamo"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "microgreens, jengibre encurtido (opcional)"}
+    ],
+    "pasos": [
+      {"texto": "Corta el <strong>salmón</strong> fresco en cubos muy pequeños (3-4 mm)."},
+      {"texto": "Mezcla con jugo de limón, aceite de sésamo, salsa de soya y cebollín."},
+      {"step_slot": "final", "texto": "Plátalo usando un molde redondo: capa de <strong class='final-fat'>aguacate</strong> debajo, <strong class='final-protein'>salmón</strong> encima. Termina con sésamo y microgreens."}
+    ],
+    "hack": "Usa un anillo metálico (o cortador) para emplatar — se ve de restaurante. Si no tienes, una lata vacía funciona como molde improvisado.",
+    "por_que_funciona": "Omega-3 intacto (salmón crudo), grasa buena premium (aguacate), sabor umami (soya, sésamo). Plato elegante, cero cocción.",
+    "sustituciones": []
+  },
+
+  "rollos-pepino-atun": {
+    "id": "rollos-pepino-atun", "nombre": "Rollos de pepino con atún (estilo sushi sin arroz)", "subtitulo": "Sushi sin arroz, puro frescor.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 20, "dificultad": "intermedia", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "baja en carbos", "sin cocción", "asiático"],
+    "macros_fijos": {"kcal": 40, "prot": 0, "fiber": 0, "fat": 4, "carbs": 1},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 140, "unit": "g", "descripcion": "de atún en agua escurrido", "macros": {"kcal": 116, "prot": 26, "fiber": 0, "fat": 1, "carbs": 0}},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de yogurt griego o mayonesa light"},
+      {"slot": "veg", "amount_base": 1, "unit": "", "descripcion": "pepino grande (para láminas largas)", "macros": {"kcal": 30, "prot": 1, "fiber": 1, "fat": 0, "carbs": 7}},
+      {"slot": "fat", "amount_base": 0.5, "unit": "", "descripcion": "aguacate en tiras", "macros": {"kcal": 120, "prot": 1.5, "fiber": 5, "fat": 11, "carbs": 6}},
+      {"slot": null, "amount_base": 2, "unit": "hojas", "descripcion": "de nori (alga)"},
+      {"slot": null, "amount_base": 0.25, "unit": "", "descripcion": "zanahoria en juliana"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de salsa de soya baja en sodio"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de aceite de sésamo"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de semillas de sésamo"}
+    ],
+    "pasos": [
+      {"texto": "Corta el <strong>pepino</strong> en láminas largas y delgadas con pelador (tipo fideos planos)."},
+      {"texto": "Mezcla el <strong>atún</strong> con yogurt, sésamo, sal y pimienta."},
+      {"texto": "Coloca una lámina de pepino, una tira de nori. Rellena con atún, aguacate, zanahoria. Enrolla firme."},
+      {"step_slot": "final", "texto": "Corta cada rollo a la mitad. Sirve con salsa de soya y aceite de sésamo mezclados."}
+    ],
+    "hack": "El pepino funciona mejor cortado A LO LARGO con pelador que en láminas finas — quedan tiras flexibles que enrollan sin romperse.",
+    "por_que_funciona": "Sushi sin arroz = cero carbo refinado. Atún como proteína, aguacate grasa buena, pepino fibra. Ligero y fresco.",
+    "sustituciones": []
+  },
+
+  "chia-pudding-coco-fresas": {
+    "id": "chia-pudding-coco-fresas", "nombre": "Chía pudding de coco con fresas y almendras", "subtitulo": "Pudín que se hace solo.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 5, "dificultad": "fácil", "porciones_base": 1,
+    "etiquetas": ["alta fibra", "meal-prep", "sin cocción", "vegano"],
+    "macros_fijos": {"kcal": 30, "prot": 0, "fiber": 0, "fat": 3, "carbs": 0},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 3, "unit": "cdas", "descripcion": "de semillas de chía", "macros": {"kcal": 140, "prot": 5, "fiber": 10, "fat": 9, "carbs": 12}},
+      {"slot": null, "amount_base": 1, "unit": "taza", "descripcion": "de leche de coco sin azúcar"},
+      {"slot": null, "amount_base": 0.5, "unit": "cdta", "descripcion": "de extracto de vainilla"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de alulosa o estevia pura (opcional)"},
+      {"slot": "fruit", "amount_base": 0.5, "unit": "taza", "descripcion": "de fresas frescas en rodajas", "macros": {"kcal": 25, "prot": 0.5, "fiber": 1.5, "fat": 0.2, "carbs": 6}},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de almendras fileteadas"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de coco rallado sin azúcar"}
+    ],
+    "pasos": [
+      {"texto": "En un frasco, mezcla <strong>chía</strong>, leche de coco, vainilla y alulosa."},
+      {"texto": "Tapa y refrigera <strong>mínimo 4 horas</strong> (ideal toda la noche). La chía absorbe el líquido y se espesa."},
+      {"step_slot": "final", "texto": "Al servir, corona con <strong>fresas</strong>, almendras y coco rallado."}
+    ],
+    "hack": "La proporción mágica es 1 cda de chía por cada 4 cdas de leche. Si queda muy líquido, agrega 1 cda más de chía y espera 1 hora más.",
+    "por_que_funciona": "Chía = récord de fibra + omega-3 + proteína, leche de coco grasa saturada saludable, fresas antioxidantes. Desayuno plant-based completo.",
+    "sustituciones": []
+  },
+
+  "pastel-carne-pure-brocoli": {
+    "id": "pastel-carne-pure-brocoli", "nombre": "Pastel de carne con puré de brócoli", "subtitulo": "Meatloaf con acompañamiento verde.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 60, "dificultad": "fácil", "porciones_base": 4,
+    "etiquetas": ["alta proteína", "meal-prep", "sin gluten"],
+    "macros_fijos": {"kcal": 90, "prot": 0.5, "fiber": 1, "fat": 9, "carbs": 3},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 600, "unit": "g", "descripcion": "de carne molida de res", "macros": {"kcal": 165, "prot": 26, "fiber": 0, "fat": 6, "carbs": 0}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "huevo"},
+      {"slot": null, "amount_base": 0.25, "unit": "taza", "descripcion": "de avena en hojuelas"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "cebolla picada"},
+      {"slot": null, "amount_base": 2, "unit": "dientes", "descripcion": "de ajo picados"},
+      {"slot": null, "amount_base": 0.25, "unit": "taza", "descripcion": "de salsa de tomate natural"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de orégano, paprika, tomillo"},
+      {"slot": "veg", "amount_base": 1, "unit": "", "descripcion": "brócoli grande en floretes (para puré)", "macros": {"kcal": 55, "prot": 4, "fiber": 4, "fat": 0.6, "carbs": 11}},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta"}
+    ],
+    "pasos": [
+      {"texto": "Precalienta horno a <strong>180°C</strong>."},
+      {"step_slot": "protein-prep", "texto": "Mezcla <strong>carne</strong>, huevo, avena, cebolla, ajo, orégano, paprika, tomillo, sal y pimienta. Compacta en un molde alargado."},
+      {"texto": "Unta con salsa de tomate encima."},
+      {"step_slot": "protein-cook", "texto": "Hornea <strong>40-45 min</strong> hasta cocido por dentro (85°C interno)."},
+      {"texto": "Mientras, cocina <strong>brócoli</strong> al vapor 10 min. Tritura con 2 cdas de aceite, sal y pimienta."},
+      {"step_slot": "final", "texto": "Deja reposar el <strong class='final-protein'>pastel</strong> 10 min antes de cortar. Sirve con el puré de brócoli."}
+    ],
+    "hack": "El reposo de 10 min ANTES de cortar es clave — si lo cortas caliente, se desarma. Déjalo asentarse y quedan rebanadas perfectas.",
+    "por_que_funciona": "4 porciones = almuerzo resuelto. Proteína alta, avena como binder sin gluten, fibra del brócoli, grasa buena del aceite. Meal-prep clásico.",
+    "sustituciones": []
+  },
+
+  "salmon-teriyaki-casero": {
+    "id": "salmon-teriyaki-casero", "nombre": "Salmón teriyaki casero con arroz de coliflor", "subtitulo": "Asian flavors sin azúcar escondida.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 20, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "omega-3", "asiático", "sin gluten"],
+    "macros_fijos": {"kcal": 140, "prot": 1, "fiber": 1, "fat": 13, "carbs": 5},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 350, "unit": "g", "descripcion": "de filete de salmón (2 porciones)", "macros": {"kcal": 208, "prot": 20, "fiber": 0, "fat": 13, "carbs": 0}},
+      {"slot": "carb", "amount_base": 2, "unit": "tazas", "descripcion": "de arroz de coliflor", "macros": {"kcal": 30, "prot": 2.8, "fiber": 3, "fat": 0.2, "carbs": 6}},
+      {"slot": "veg", "amount_base": 2, "unit": "tazas", "descripcion": "de brócoli al vapor", "macros": {"kcal": 55, "prot": 5, "fiber": 5, "fat": 0.6, "carbs": 11}},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de salsa de soya baja en sodio"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de alulosa o 1 dátil licuado (para dulzor)"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de jengibre rallado"},
+      {"slot": null, "amount_base": 1, "unit": "diente", "descripcion": "de ajo picado"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de aceite de sésamo"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sésamo, cebollín verde"}
+    ],
+    "pasos": [
+      {"texto": "Para la <strong>salsa teriyaki casera</strong>: mezcla salsa de soya, alulosa (o dátil licuado), jengibre, ajo. Cocina 3 min hasta espesar."},
+      {"step_slot": "protein-cook", "texto": "Dora el <strong>salmón</strong> en sartén con aceite de sésamo <strong>4 min por lado</strong> (lado piel primero si la tiene)."},
+      {"texto": "Baña el salmón con la salsa teriyaki, cocina 1 min más."},
+      {"step_slot": "carb", "texto": "Saltea el <strong>arroz de coliflor</strong> con sal y cebollín <strong>5 min</strong>."},
+      {"step_slot": "final", "texto": "Sirve <strong class='final-carb'>coliflor</strong> de base, <strong class='final-protein'>salmón</strong> encima, brócoli al vapor al lado. Termina con sésamo."}
+    ],
+    "hack": "Teriyaki comercial tiene mucha azúcar. Con alulosa o 1 dátil licuado consigues el mismo dulzor glassé sin romper mes 1.",
+    "por_que_funciona": "Salmón (omega-3 alto), coliflor (carbo lento), brócoli (fibra), salsa casera sin azúcar. Asiático que sacia.",
+    "sustituciones": []
+  },
+
+  "shakshuka": {
+    "id": "shakshuka", "nombre": "Shakshuka (huevos en salsa de tomate especiada)", "subtitulo": "Medio Oriente para un domingo lento.",
+    "categoria": "desayuno", "fase": "mes_1", "tiempo_min": 25, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "sin gluten", "brunch", "medio oriente"],
+    "macros_fijos": {"kcal": 120, "prot": 1, "fiber": 2, "fat": 11, "carbs": 7},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 4, "unit": "", "descripcion": "huevos grandes", "macros": {"kcal": 70, "prot": 6, "fiber": 0, "fat": 5, "carbs": 1}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "cebolla picada"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "pimentón rojo en cubos"},
+      {"slot": null, "amount_base": 3, "unit": "dientes", "descripcion": "de ajo picados"},
+      {"slot": null, "amount_base": 2, "unit": "tazas", "descripcion": "de tomate triturado natural"},
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de paprika, comino, cilantro molido"},
+      {"slot": "cheese", "amount_base": 0.25, "unit": "taza", "descripcion": "de queso feta desmenuzado (opcional)", "macros": {"kcal": 65, "prot": 4, "fiber": 0, "fat": 5, "carbs": 1}},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, cilantro fresco"}
+    ],
+    "pasos": [
+      {"texto": "En sartén (idealmente de hierro), saltea cebolla, pimentón y ajo en aceite <strong>5 min</strong>."},
+      {"texto": "Agrega especias y tomates triturados. Cocina <strong>10 min</strong> hasta que espese."},
+      {"texto": "Haz 4 huecos en la salsa con una cuchara."},
+      {"step_slot": "protein-cook", "texto": "Rompe los <strong>huevos</strong> en cada hueco. Tapa y cocina a fuego bajo <strong>5-7 min</strong> hasta que las claras cuajen y las yemas estén al gusto."},
+      {"step_slot": "final", "texto": "Espolvorea feta si lo usas, cilantro fresco. Sirve directo de la sartén."}
+    ],
+    "hack": "Tapa la sartén apenas metas los huevos — el vapor cocina las claras de forma pareja mientras las yemas siguen líquidas. Si no tapas, las yemas se cuecen antes que las claras.",
+    "por_que_funciona": "Proteína alta (huevos + feta), vegetales (tomate, pimentón, cebolla), especias antiinflamatorias. Brunch completo en una sola sartén.",
+    "sustituciones": []
+  },
+
+  "risotto-coliflor-pollo": {
+    "id": "risotto-coliflor-pollo", "nombre": "Risotto de coliflor con pollo y parmesano", "subtitulo": "Risotto italiano sin arroz arborio.",
+    "categoria": "almuerzo", "fase": "mes_1", "tiempo_min": 30, "dificultad": "fácil", "porciones_base": 2,
+    "etiquetas": ["alta proteína", "cremoso", "sin gluten"],
+    "macros_fijos": {"kcal": 140, "prot": 1, "fiber": 1, "fat": 13, "carbs": 4},
+    "ingredientes": [
+      {"slot": "carb", "amount_base": 1, "unit": "", "descripcion": "coliflor grande rallada (arroz)", "macros": {"kcal": 60, "prot": 5, "fiber": 5, "fat": 0.6, "carbs": 11}},
+      {"slot": "protein", "amount_base": 300, "unit": "g", "descripcion": "de pechuga de pollo en tiras", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "cebolla picada fina"},
+      {"slot": null, "amount_base": 2, "unit": "dientes", "descripcion": "de ajo picados"},
+      {"slot": null, "amount_base": 1, "unit": "taza", "descripcion": "de caldo de pollo"},
+      {"slot": "cheese", "amount_base": 0.25, "unit": "taza", "descripcion": "de parmesano rallado", "macros": {"kcal": 110, "prot": 10, "fiber": 0, "fat": 7, "carbs": 1}},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de mantequilla o aceite de oliva"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal, pimienta, tomillo fresco"}
+    ],
+    "pasos": [
+      {"texto": "Saltea cebolla y ajo en mantequilla <strong>3 min</strong>."},
+      {"step_slot": "protein-cook", "texto": "Agrega el <strong>pollo</strong> en tiras. Saltea <strong>6 min</strong> hasta dorar."},
+      {"step_slot": "carb", "texto": "Suma la <strong>coliflor rallada</strong>. Saltea 3 min."},
+      {"texto": "Agrega caldo de a poco (1/4 taza a la vez) como un risotto tradicional, dejando que absorba antes del siguiente. Total <strong>8 min</strong>."},
+      {"step_slot": "final", "texto": "Fuera del fuego, incorpora el <strong>parmesano</strong>. Sirve con tomillo fresco."}
+    ],
+    "hack": "La técnica de agregar caldo de a poco es la MISMA del risotto tradicional — lo que da la cremosidad. No agregues todo de una vez.",
+    "por_que_funciona": "Cremoso sin arroz (coliflor), proteína (pollo + parmesano), grasa buena (mantequilla). Italian classic 100% mes 1.",
+    "sustituciones": []
+  },
+
+  "estofado-pollo-vegetales": {
+    "id": "estofado-pollo-vegetales", "nombre": "Estofado de pollo con vegetales", "subtitulo": "Cocción lenta de domingo, sabor concentrado.",
+    "categoria": "cena", "fase": "mes_1", "tiempo_min": 50, "dificultad": "fácil", "porciones_base": 4,
+    "etiquetas": ["alta proteína", "reconfortante", "meal-prep"],
+    "macros_fijos": {"kcal": 90, "prot": 1, "fiber": 2, "fat": 9, "carbs": 5},
+    "ingredientes": [
+      {"slot": "protein", "amount_base": 6, "unit": "", "descripcion": "muslos de pollo con hueso", "macros": {"kcal": 175, "prot": 25, "fiber": 0, "fat": 8, "carbs": 0}},
+      {"slot": null, "amount_base": 3, "unit": "", "descripcion": "zanahorias en rodajas"},
+      {"slot": null, "amount_base": 2, "unit": "", "descripcion": "tallos de apio en cubos"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "cebolla grande picada"},
+      {"slot": null, "amount_base": 4, "unit": "dientes", "descripcion": "de ajo picados"},
+      {"slot": null, "amount_base": 3, "unit": "tazas", "descripcion": "de caldo de pollo natural"},
+      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "hoja de laurel"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "tomillo, romero, sal, pimienta, perejil fresco"}
+    ],
+    "pasos": [
+      {"step_slot": "protein-prep", "texto": "Sazona los <strong>muslos</strong> con sal, pimienta, tomillo y romero."},
+      {"step_slot": "protein-cook", "texto": "Dora en olla pesada con aceite, <strong>4 min por lado</strong>. Retira."},
+      {"texto": "En la misma olla, saltea cebolla, zanahoria, apio y ajo <strong>5 min</strong>."},
+      {"texto": "Devuelve el pollo, agrega caldo y laurel. Lleva a hervor, baja a fuego bajo y tapa."},
+      {"step_slot": "final", "texto": "Cocina <strong>35-40 min</strong> hasta que el pollo esté tierno. Termina con perejil fresco."}
+    ],
+    "hack": "Cocción lenta + tapada = la carne se desprende sola del hueso. Si abres la tapa constantemente, pierdes vapor y tarda más.",
+    "por_que_funciona": "4 porciones = 4 cenas. Proteína alta, vegetales concentrados, caldo nutritivo. Cena invernal reconfortante.",
+    "sustituciones": []
   }
 }
