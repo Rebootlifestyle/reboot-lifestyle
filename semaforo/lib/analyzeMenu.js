@@ -2,10 +2,12 @@ import Anthropic from '@anthropic-ai/sdk';
 import { SEMAFORO_SYSTEM_PROMPT } from './prompt.js';
 
 // Haiku 4.5: 3-5x faster than Sonnet for image-based menu analysis.
-// Quality is more than sufficient for our 20-dish coach-tone task.
+// Quality is more than sufficient for our 40-dish coach-tone task.
 // If we ever need Sonnet's nuance back, flip this constant.
 const MODEL = 'claude-haiku-4-5';
-const MAX_TOKENS = 4096;
+// 8192 tokens cover ~40 dishes with full explanations + substitutions.
+// Haiku generates these in ~17-25s, well within Vercel Hobby's 60s cap.
+const MAX_TOKENS = 8192;
 
 const IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
 const PDF_TYPE = 'application/pdf';

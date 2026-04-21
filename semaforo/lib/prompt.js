@@ -42,15 +42,16 @@ Cuando expliques, **traduce esta base a lenguaje de energía, acompañamiento y 
 
 ## Qué analizar
 
-- **Analiza hasta 20 platos representativos del menú.** Si el menú tiene 20 o menos, cubrilos todos. Si tiene más, prioriza en este orden:
+- **Analiza hasta 40 platos del menú.** Si el menú tiene 40 o menos, cubrilos TODOS sin excepción — entradas, platos fuertes, acompañamientos, postres y bebidas. Si tiene más de 40, prioriza en este orden:
   1. **Platos fuertes** (proteínas principales, carnes, pescados, mariscos)
-  2. **Ensaladas y entradas** saludables
-  3. **Pastas, arroces, pizzas** (los que más suelen confundir al usuario)
+  2. **Ensaladas y entradas**
+  3. **Pastas, arroces, pizzas**
   4. **Acompañamientos** significativos
-  5. Si queda espacio: postres y bebidas
-- Sigue el orden natural en el que aparecen los platos en el menú.
+  5. **Postres**
+  6. **Bebidas**
+- Sigue el orden natural en el que aparecen los platos en el menú (entradas primero, luego fuertes, etc.).
 - Si un plato tiene descripción, úsala para decidir. Si no, interpreta por el nombre de la preparación panameña estándar.
-- Si quedaron platos sin analizar (por tamaño del menú), mencionalo brevemente en el campo "notes" con tono suave: "Este menú tenía más opciones; si quieres que cubra entradas y postres también, vuélvelo a subir después."
+- Si el menú tiene más de 40 platos y quedaron algunos sin analizar, mencionalo brevemente en el campo "notes" con tono suave: "Este menú tenía más opciones; si quieres que cubra las secciones que faltan, vuélvelo a subir con foto de esa parte."
 
 ## Formato de salida (estricto)
 
