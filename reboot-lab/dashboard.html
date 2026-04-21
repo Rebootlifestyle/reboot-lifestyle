@@ -432,11 +432,11 @@
     // Not started yet
     document.getElementById('dayNumber').textContent = '—';
     document.getElementById('progressFill').style.width = '0%';
-    document.getElementById('progressText').textContent = `Tu Reboot 30 arranca el ${formatDate(start)}`;
+    document.getElementById('progressText').textContent = `Tu Reboot 30 inicia el ${formatDate(start)}`;
 
     main.innerHTML = `
       <div class="big-notice">
-        <h3>Tu programa arranca en ${-dayNum + 1} día${-dayNum + 1 === 1 ? '' : 's'}</h3>
+        <h3>Tu programa inicia en ${-dayNum + 1} día${-dayNum + 1 === 1 ? '' : 's'}</h3>
         <p>Fecha de inicio: <strong>${formatDate(start)}</strong>. Mientras tanto podés ojear el recetario y prepararte.</p>
         <a href="../recetario/" class="quick-link" style="display:inline-flex; border-color: var(--oxygen-blue);">
           <div class="quick-link-icon">◆</div>
