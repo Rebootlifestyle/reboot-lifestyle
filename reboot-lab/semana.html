@@ -235,11 +235,49 @@
   }
   .meal-photo {
     aspect-ratio: 4/3;
-    background-size: cover;
-    background-position: center;
-    background-color: var(--deep-neural);
+    background: linear-gradient(135deg, var(--deep-neural) 0%, #0a3e34 100%);
     position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
   }
+  .meal-photo::before {
+    content: '';
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 80px; height: 80px;
+    background: radial-gradient(circle, rgba(118,211,209,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .meal-photo-icon {
+    font-size: 34px;
+    margin-bottom: 6px;
+    opacity: 0.85;
+    z-index: 1;
+  }
+  .meal-photo-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    text-align: center;
+    line-height: 1.3;
+    letter-spacing: 0.2px;
+    z-index: 1;
+    max-width: 90%;
+  }
+  .meal-photo-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+  }
+  .meal-photo-img.loaded { opacity: 1; }
   .meal-tag {
     position: absolute;
     top: 10px; left: 10px;
@@ -249,7 +287,7 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
     font-weight: 800;
-    z-index: 2;
+    z-index: 3;
   }
   .meal-tag.desayuno { background: var(--arie-yellow); color: var(--black-seed); }
   .meal-tag.almuerzo { background: var(--oxygen-blue); color: var(--black-seed); }
@@ -392,16 +430,24 @@
   function renderMealCard(meal, type) {
     if (!meal) return '';
     const photo = photoFor(meal);
+    const icon = categoryIcon(type);
     return `
       <a href="javascript:void(0)" class="meal-card" onclick="openMeal('${meal.slug}')">
-        <div class="meal-photo" style="background-image: url('${photo}')">
+        <div class="meal-photo">
           <span class="meal-tag ${type}">${type}</span>
+          <div class="meal-photo-icon">${icon}</div>
+          <div class="meal-photo-label">${meal.name}</div>
+          <img class="meal-photo-img" loading="lazy" src="${photo}" alt="${meal.name}" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
         </div>
         <div class="meal-info">
           <div class="meal-name">${meal.name}</div>
         </div>
       </a>
     `;
+  }
+
+  function categoryIcon(type) {
+    return { desayuno: '☀', almuerzo: '◉', cena: '☾', snack: '◆' }[type] || '●';
   }
 
   function photoFor(meal) {
