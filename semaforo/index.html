@@ -53,9 +53,81 @@
     </div>
   </header>
 
+  <!-- AUTH: login (email input, sends magic link) -->
+  <section id="auth-login" class="hero-screen" hidden>
+    <div class="hero-screen__inner auth-inner">
+      <span class="badge">BETA PRIVADA</span>
+      <h1>Te ayudo a elegir <span class="hl">qué pedir</span></h1>
+      <p class="subtitle">Entra con tu email. Te mandamos un link mágico — sin contraseñas.</p>
+      <form id="auth-login-form" class="auth-form" novalidate>
+        <label for="auth-email" class="auth-label">Tu email</label>
+        <input id="auth-email" type="email" inputmode="email" autocomplete="email" placeholder="tu@correo.com" required />
+        <button type="submit" class="btn-primary auth-submit" id="auth-login-submit">Continuar →</button>
+        <p class="auth-note" id="auth-login-status" aria-live="polite"></p>
+      </form>
+      <p class="auth-footer">El 4 de mayo arranca <strong>Reboot 30</strong> · 30 días gratis para cambiar tu relación con la comida.</p>
+    </div>
+  </section>
+
+  <!-- AUTH: finish signup (city + optional ref, after magic link click) -->
+  <section id="auth-signup" class="hero-screen" hidden>
+    <div class="hero-screen__inner auth-inner">
+      <span class="badge">ÚLTIMO PASO</span>
+      <h1>¿En qué <span class="hl">ciudad</span> estás?</h1>
+      <p class="subtitle">Tu biblioteca de restaurantes se arma por ciudad — así solo ves lo relevante para ti.</p>
+      <form id="auth-signup-form" class="auth-form" novalidate>
+        <label for="auth-city" class="auth-label">Ciudad</label>
+        <select id="auth-city" required>
+          <option value="">Elige tu ciudad…</option>
+          <optgroup label="Panamá">
+            <option value="panama_city">Ciudad de Panamá</option>
+            <option value="david">David</option>
+          </optgroup>
+          <optgroup label="Colombia">
+            <option value="bogota">Bogotá</option>
+            <option value="medellin">Medellín</option>
+            <option value="cartagena">Cartagena</option>
+          </optgroup>
+          <optgroup label="México">
+            <option value="cdmx">Ciudad de México</option>
+            <option value="guadalajara">Guadalajara</option>
+            <option value="monterrey">Monterrey</option>
+          </optgroup>
+          <optgroup label="USA">
+            <option value="miami">Miami</option>
+            <option value="new_york">Nueva York</option>
+          </optgroup>
+          <optgroup label="Sudamérica">
+            <option value="buenos_aires">Buenos Aires</option>
+            <option value="lima">Lima</option>
+            <option value="santiago_cl">Santiago de Chile</option>
+            <option value="quito">Quito</option>
+          </optgroup>
+          <optgroup label="Centroamérica">
+            <option value="san_jose_cr">San José (Costa Rica)</option>
+          </optgroup>
+          <optgroup label="España">
+            <option value="madrid">Madrid</option>
+            <option value="barcelona">Barcelona</option>
+          </optgroup>
+        </select>
+        <p class="auth-ref" id="auth-ref-note" hidden></p>
+        <button type="submit" class="btn-primary auth-submit" id="auth-signup-submit">Entrar al Semáforo →</button>
+        <p class="auth-note" id="auth-signup-status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Main app: upload screen (shown after auth) -->
   <!-- SECTION 1: Entry / Hero (full-width, fondo negro) -->
-  <section id="upload-section" class="hero-screen">
+  <section id="upload-section" class="hero-screen" hidden>
     <div class="hero-screen__inner">
+      <div class="user-topbar" id="user-topbar" hidden>
+        <span class="user-topbar__city" id="user-topbar-city">—</span>
+        <span class="user-topbar__uses" id="user-topbar-uses">—</span>
+        <button class="user-topbar__invite" id="user-invite-btn" type="button">Invitar +</button>
+        <button class="user-topbar__logout" id="user-logout-btn" type="button" title="Cerrar sesión">Salir</button>
+      </div>
       <span class="badge">NUEVO · BETA</span>
       <h1>Te ayudo a elegir <span class="hl">qué pedir</span></h1>
       <p class="subtitle">Busca tu restaurante en nuestra biblioteca o escanea el menú. El análisis llega en segundos, plato por plato.</p>
@@ -148,6 +220,7 @@
     <p class="copyright">© 2026 ReBoot Lifestyle · Arie Schwartz. Todos los derechos reservados. Prohibida la reproducción total o parcial sin autorización escrita previa.</p>
   </footer>
 
+  <script type="module" src="/auth-client.js"></script>
   <script type="module" src="/app.js"></script>
   <script>
     if ('serviceWorker' in navigator) {

@@ -67,6 +67,136 @@ main {
 }
 .section { padding: 40px 0; }
 
+/* --- Auth screens (login + signup) --- */
+.auth-inner {
+  max-width: 460px;
+}
+.auth-form {
+  margin: 24px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+}
+.auth-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--c-turquoise);
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: -6px;
+}
+.auth-form input[type="email"],
+.auth-form select {
+  padding: 14px 16px;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.auth-form input[type="email"]::placeholder { color: #888; }
+.auth-form input[type="email"]:focus,
+.auth-form select:focus {
+  border-color: var(--c-turquoise);
+  background: rgba(255, 255, 255, 0.08);
+}
+.auth-form select option {
+  background: #1a1a1a;
+  color: #fff;
+}
+.auth-submit {
+  margin-top: 4px;
+  padding: 16px 24px;
+  font-size: 17px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.auth-note {
+  min-height: 20px;
+  font-size: 13px;
+  margin: 6px 0 0;
+  text-align: center;
+  color: #ccc;
+}
+.auth-note[data-kind="error"] { color: #ff8e8e; }
+.auth-note[data-kind="success"] { color: var(--c-green); }
+.auth-ref {
+  margin: -4px 0 0;
+  padding: 10px 14px;
+  font-size: 13px;
+  background: rgba(250, 230, 43, 0.1);
+  border-left: 3px solid var(--c-yellow);
+  border-radius: var(--r-sm);
+  color: #ddd;
+}
+.auth-footer {
+  margin-top: 28px;
+  font-size: 13px;
+  color: #888;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+/* --- User top bar (shown after login) --- */
+.user-topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto 20px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  max-width: fit-content;
+  font-size: 12px;
+}
+.user-topbar__city {
+  color: var(--c-turquoise);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.user-topbar__uses {
+  color: #ccc;
+  padding-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+.user-topbar__invite,
+.user-topbar__logout {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 100px;
+  cursor: pointer;
+  min-height: 32px;
+  transition: background 0.15s ease;
+}
+.user-topbar__invite {
+  border-color: var(--c-yellow);
+  color: var(--c-yellow);
+}
+.user-topbar__invite:hover {
+  background: var(--c-yellow);
+  color: var(--c-black);
+}
+.user-topbar__logout:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 /* --- Hero screen (pantalla inicial negra, full-width) --- */
 .hero-screen {
   background: var(--c-black);

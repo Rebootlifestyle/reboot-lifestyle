@@ -1,21 +1,26 @@
 import { getSupabase } from '../lib/supabase.js';
+import { getAuthUser } from '../lib/auth.js';
+import { getAppUser } from '../lib/appUsers.js';
 
 /**
  * GET /api/menu?id=<analysisId>
- * Devuelve un análisis guardado específico con todo su detalle.
- * Solo expone data "pública": nombre del restaurante y el análisis JSON.
- * NO expone user-agent, IP hash ni ubicación precisa.
+ * Returns a saved analysis by id. Requires auth.
  */
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'GET') return res.status(405).json({ error: 'method_not_allowed' });
 
   if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
     return res.status(503).json({ error: 'db_unavailable' });
   }
+
+  const authUser = await getAuthUser(req);
+  if (!authUser) return res.status(401).json({ error: 'unauthorized' });
+  const appUser = await getAppUser(authUser.id);
+  if (!appUser) return res.status(403).json({ error: 'profile_incomplete' });
 
   const idRaw = req.query?.id;
   const id = parseInt(idRaw, 10);
@@ -27,18 +32,17 @@ export default async function handler(req, res) {
     const client = getSupabase();
     const { data, error } = await client
       .from('menu_analyses')
-      .select('id, restaurant_name, analysis_json, created_at, is_menu')
+      .select('id, restaurant_name, analysis_json, created_at, is_menu, city_code')
       .eq('id', id)
       .eq('is_menu', true)
       .single();
 
-    if (error || !data) {
-      return res.status(404).json({ error: 'not_found' });
-    }
+    if (error || !data) return res.status(404).json({ error: 'not_found' });
 
     return res.status(200).json({
       id: data.id,
       name: data.restaurant_name,
+      city: data.city_code,
       createdAt: data.created_at,
       analysis: data.analysis_json,
     });
@@ -48,6 +52,4 @@ export default async function handler(req, res) {
   }
 }
 
-export const config = {
-  api: { bodyParser: false },
-};
+export const config = { api: { bodyParser: false } };
