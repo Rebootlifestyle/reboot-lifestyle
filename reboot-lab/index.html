@@ -3,8 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reboot Lab · Mi Programa de 30 días</title>
-<meta name="description" content="Tu programa personal Reboot 30. Meal plans, tracking, recetas.">
+<title>ReBoot Lab · Mi Programa de 30 días</title>
+<meta name="description" content="Tu programa personal ReBoot 30. Meal plans, tracking, recetas.">
+<meta name="theme-color" content="#0f0f0f">
+
+<!-- PWA -->
+<link rel="manifest" href="./manifest.json">
+
+<!-- iOS Apple Touch Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="152x152" href="./icons/apple-touch-icon-152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="./icons/apple-touch-icon-120.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ReBoot Lab">
+
+<!-- Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="ReBoot Lab">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16.png">
+
+<!-- Open Graph -->
+<meta property="og:title" content="ReBoot Lab · Mi Programa de 30 días">
+<meta property="og:description" content="Meal plans, tracking, recetas. Tu programa personal Reboot 30.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="./icons/icon-512.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -251,8 +278,8 @@
 <main class="gateway">
 
   <div class="brand">
-    <div class="brand-mark">Reboot Lab</div>
-    <div class="brand-name">Reboot <span>30</span></div>
+    <div class="brand-mark">ReBoot Lab</div>
+    <div class="brand-name">ReBoot <span>30</span></div>
     <div class="brand-sub">by @ariereboot</div>
   </div>
 
@@ -266,10 +293,17 @@
       <div class="choice-group">
         <button class="choice-btn primary" onclick="goToStep('new')">
           <div>
-            <div class="choice-btn-title">Empezar mi Reboot 30</div>
+            <div class="choice-btn-title">Empezar mi ReBoot 30</div>
             <div class="choice-btn-desc">Configuramos tu fecha de inicio en 20 segundos</div>
           </div>
           <span class="arrow">→</span>
+        </button>
+        <button class="choice-btn" id="installBtn" style="display:none;" onclick="triggerInstall()">
+          <div>
+            <div class="choice-btn-title">📲 Instalar como app</div>
+            <div class="choice-btn-desc">Ícono en tu pantalla de inicio, abre sin navegador</div>
+          </div>
+          <span class="arrow">↓</span>
         </button>
         <button class="choice-btn" onclick="goToStep('returning')">
           <div>
@@ -283,7 +317,7 @@
 
     <!-- STEP 2: Nuevo -->
     <div class="step" id="step-new">
-      <h1>Configurá tu <span>Reboot</span>.</h1>
+      <h1>Configurá tu <span>ReBoot</span>.</h1>
       <p class="lead">Todos iniciamos juntos el <strong style="color:var(--arie-yellow);">4 de mayo de 2026</strong>. Solo necesito tu nombre para saludarte bien cada día.</p>
 
       <form onsubmit="saveAndStart(event)">
@@ -395,6 +429,35 @@
     };
     localStorage.setItem('reboot30_user', JSON.stringify(data));
     location.href = './dashboard.html';
+  }
+
+  // PWA: Register service worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW error:', err));
+    });
+  }
+
+  // PWA: Custom install prompt
+  let deferredPrompt = null;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const btn = document.getElementById('installBtn');
+    if (btn) btn.style.display = 'flex';
+  });
+
+  function triggerInstall() {
+    if (!deferredPrompt) {
+      alert('En iPhone: Comparte → "Añadir a pantalla de inicio" 📲\n\nEn Android: Menú del navegador → "Instalar app"');
+      return;
+    }
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(() => {
+      deferredPrompt = null;
+      const btn = document.getElementById('installBtn');
+      if (btn) btn.style.display = 'none';
+    });
   }
 
   // Migration: si el usuario ya tenía otra fecha guardada, la corregimos

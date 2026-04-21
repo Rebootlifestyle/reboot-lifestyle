@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Semana · Reboot Lab</title>
+<title>Mi Semana · ReBoot Lab</title>
+<meta name="theme-color" content="#0f0f0f">
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ReBoot Lab">
+<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -323,7 +330,7 @@
 <body>
 
 <header class="topbar">
-  <div class="topbar-brand"><span class="dot"></span>Reboot <span>30</span></div>
+  <div class="topbar-brand"><span class="dot"></span>ReBoot <span>30</span></div>
   <a href="./dashboard.html" class="topbar-back">← Dashboard</a>
 </header>
 
@@ -342,6 +349,12 @@
 <script>
   const urlParams = new URLSearchParams(window.location.search);
   const weekParam = parseInt(urlParams.get('n')) || 1;
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    });
+  }
 
   const PROGRAM_START_DATE = '2026-05-04';
 

@@ -1,0 +1,55 @@
+{
+  "name": "ReBoot Lab",
+  "short_name": "ReBoot Lab",
+  "description": "Tu programa personal Reboot 30. Meal plans, recetas, tracking de 30 días.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f0f0f",
+  "theme_color": "#0f0f0f",
+  "lang": "es-PA",
+  "categories": ["health", "lifestyle", "food"],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Mi dashboard",
+      "short_name": "Dashboard",
+      "description": "Ver tu día del programa",
+      "url": "./dashboard.html",
+      "icons": [{"src": "./icons/icon-192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "Esta semana",
+      "short_name": "Semana",
+      "description": "Ver el meal plan de la semana",
+      "url": "./semana.html",
+      "icons": [{"src": "./icons/icon-192.png", "sizes": "192x192"}]
+    }
+  ]
+}
