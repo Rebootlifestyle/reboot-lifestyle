@@ -341,7 +341,9 @@ for slug, data in LANDINGS.items():
     # Twitter (same title/desc as OG, different strings in file)
     html = html.replace(CAFE['twitter_title'], data['og_title'])
     html = html.replace(CAFE['twitter_desc'], data['og_desc'])
-    # og_image and twitter_image: keep pointing to og-cafe.jpg for now (same image)
+    # og_image and twitter_image: custom per landing
+    custom_og = f'https://rebootlifestyle.github.io/reboot-lifestyle/og-images/og-{slug}.jpg'
+    html = html.replace('https://rebootlifestyle.github.io/reboot-lifestyle/og-cafe.jpg', custom_og)
 
     # Hero
     html = html.replace(CAFE['h1'], data['hero_h1'])
