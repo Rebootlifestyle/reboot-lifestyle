@@ -15,6 +15,19 @@ def make_wa_url(message, url):
     text = urllib.parse.quote(message + '\n\n' + url)
     return f'https://wa.me/?text={text}'
 
+# Pixel identifiers per landing (for Meta analytics segmentation)
+PIXEL_NAMES = {
+    'azucar': 'Recurso Azúcar - 10 Nombres Tramposos',
+    'desayuno': 'Recurso Desayuno - 3 Desayunos Salados',
+    'antojos': 'Recurso Antojos - Protocolo 3 Minutos',
+    'energia': 'Recurso Energía - 3 Hacks sin Café',
+    'etiquetas': 'Recurso Etiquetas - 3 Reglas 30 Segundos',
+    'prep': 'Recurso Prep - Meal Prep Dominguero',
+    'snacks': 'Recurso Snacks - 5 Snacks Reales',
+    'agua': 'Recurso Agua - Guía Completa',
+    'programa': 'Recurso Programa - Reboot 30 Completo'
+}
+
 LANDINGS = {
     'azucar': {
         'title': 'Los 10 Nombres Más Tramposos del Azúcar Oculta | Reboot Lifestyle',
@@ -309,6 +322,14 @@ CAFE = {
 for slug, data in LANDINGS.items():
     html = CAFE_HTML
     base_url = f'https://rebootlifestyle.github.io/reboot-lifestyle/{data["page_url"]}'
+
+    # Meta Pixel content_name + content_ids per landing
+    pixel_name = PIXEL_NAMES.get(slug, f'Recurso {slug.capitalize()}')
+    pixel_id = f'landing_{slug}'
+    html = html.replace("'Recurso Café - 3 Errores del Café'", f"'{pixel_name}'")
+    html = html.replace("['landing_cafe']", f"['{pixel_id}']")
+    html = html.replace("'content_name': 'Recurso Café'", f"'content_name': 'Recurso {slug.capitalize()}'")
+    html = html.replace("content_name: 'Recurso Café'", f"content_name: 'Recurso {slug.capitalize()}'")
 
     # META tags
     html = html.replace(CAFE['title'], data['title'])
