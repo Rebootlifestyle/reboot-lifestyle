@@ -293,12 +293,41 @@ Con tu respuesta afino los próximos. Es todo lo que necesito.
    - Tag `inscrito_reboot30` cuando completen el formulario
    - Tag `re_engagement` cuando cumplen 72h sin inscribirse
 
-### Integración con FluentCRM (WordPress)
+### Integración con Supabase (via Reboot Master API)
 
-Cuando alguien completa el formulario en reboot30.html, el endpoint `reboot-master-api` ya registra el lead.
-Para sincronizar con ManyChat:
-- Opción A (recomendada): En FluentCRM, cuando se crea un contacto con tag `reboot_30`, disparar webhook a ManyChat API
-- Opción B: Zapier entre el endpoint y ManyChat
+**Arquitectura real (confirmada):**
+```
+Landing → Formulario reboot30.html
+        → POST https://reboot-master-api.vercel.app/api/register
+        → Supabase (base de datos)
+```
+
+Tabla en Supabase (schema maestro) que recibe:
+- `email`, `name`, `last_name`, `phone`, `country`
+- `product_slug: 'reboot_30'`
+- `source`, `source_campaign`, `utm_data` (JSON)
+- `form_data` (JSON: retos, codigo_telefono, telefono_raw)
+- `consent_data_processing`, `consent_text`, `consent_version`
+- `consent_marketing`, `consent_whatsapp`
+
+**Para sincronizar con ManyChat hay 3 caminos:**
+
+#### Opción A (recomendada): Webhook desde Supabase
+1. En Supabase Dashboard → Database → Webhooks
+2. Crear webhook en la tabla `registrations` (o como se llame)
+3. Trigger: `INSERT` donde `product_slug = 'reboot_30'`
+4. URL target: endpoint de ManyChat API `https://api.manychat.com/fb/subscriber/createSubscriber`
+5. Headers: `Authorization: Bearer {MANYCHAT_API_TOKEN}`
+
+Esto dispara automático cada nuevo registro.
+
+#### Opción B: Webhook desde el Master API (Vercel)
+Agregar una línea al endpoint `/api/register` de Vercel para que, después del insert en Supabase, dispare un POST a ManyChat. Requiere modificar el código del Master API en el repo correspondiente.
+
+#### Opción C: Zapier / n8n entre medio
+Zapier escucha Supabase via Postgres trigger → Crea subscriber en ManyChat. Más fácil de configurar pero suma costo mensual.
+
+**Mi voto:** Opción A — es nativa, gratis, directo entre las dos plataformas.
 
 ---
 
