@@ -56,6 +56,38 @@
     <!-- End Meta Pixel -->
     <!-- ============================================= -->
 
+    <!-- ============================================= -->
+    <!-- Google Analytics 4 · Reboot Lifestyle Web (ID G-G0Y7BFP5PK) -->
+    <!-- ============================================= -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0Y7BFP5PK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-G0Y7BFP5PK', {
+        page_title: 'Landing Antojos',
+        page_path: '/antojos.html',
+        funnel_step: 'resource_landing',
+        resource: 'antojos'
+      });
+      gtag('event', 'view_resource', { resource: 'antojos', resource_name: 'Recurso Antojos' });
+    </script>
+
+    <!-- ============================================= -->
+    <!-- Microsoft Clarity · Reboot Lifestyle (ID wfhwti8zjj) -->
+    <!-- ============================================= -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wfhwti8zjj");
+      if (typeof clarity !== 'undefined') {
+        clarity('set', 'resource', 'antojos');
+        clarity('set', 'funnel_step', 'resource_landing');
+      }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -1000,7 +1032,11 @@
         // Track evento Meta Pixel
         if (typeof fbq !== 'undefined') {
             fbq('track', 'Share', { method: 'copy_link', content_name: 'Recurso Antojos' });
+            if (typeof gtag !== 'undefined') gtag('event', 'share', { method: 'copy_link', resource: 'antojos' });
+            if (typeof clarity !== 'undefined') clarity('event', 'share_copy_link');
         }
+        if (typeof gtag !== 'undefined') gtag('event', 'share', { method: 'copy_link', resource: 'antojos' });
+        if (typeof clarity !== 'undefined') clarity('event', 'share_copy_link');
     }
 
     // TRACKING META PIXEL - eventos clave
@@ -1008,13 +1044,26 @@
         btn.addEventListener('click', () => {
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead', {
-                    content_name: 'Click CTA Guardar Cupo - Landing Café',
+                    content_name: 'Click CTA Guardar Cupo - Landing Antojos',
                     content_category: 'CTA',
+                    resource: 'antojos',
                     value: 0.00,
                     currency: 'USD'
                 });
             }
-            console.log('CTA click: Guardar mi cupo');
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click_cta_guardar_cupo', {
+                    resource: 'antojos',
+                    resource_name: 'Recurso Antojos',
+                    cta_destination: 'reboot30.html'
+                });
+                gtag('event', 'generate_lead', { resource: 'antojos' });
+            }
+            if (typeof clarity !== 'undefined') {
+                clarity('event', 'click_cta_guardar_cupo');
+                clarity('upgrade', 'cta_clicked');
+            }
+            console.log('CTA click: Guardar mi cupo (antojos)');
         });
     });
     document.querySelectorAll('.share-wa').forEach(btn => {
@@ -1025,6 +1074,8 @@
                     content_name: 'Recurso Antojos'
                 });
             }
+                        if (typeof gtag !== 'undefined') gtag('event', 'share', { method: 'whatsapp', resource: 'antojos' });
+            if (typeof clarity !== 'undefined') clarity('event', 'share_whatsapp');
             console.log('Share: WhatsApp');
         });
     });
