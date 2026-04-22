@@ -612,17 +612,17 @@
                 <h1 id="user-greeting">Hola</h1>
             </div>
 
-            <!-- Escáner Invite Banner (solo si tiene invites disponibles) -->
+            <!-- Semáforo Invite Banner (solo si tiene invites disponibles) -->
             <div id="invite-banner" class="invite-banner" hidden>
                 <div class="invite-banner__header">
-                    <div class="invite-banner__icon">🎟️</div>
+                    <div class="invite-banner__icon">🚦</div>
                     <div>
-                        <div class="invite-banner__eyebrow">TIENES <span id="invite-count">1</span> INVITACIÓN AL ESCÁNER</div>
+                        <div class="invite-banner__eyebrow">TIENES <span id="invite-count">1</span> INVITACIÓN AL SEMÁFORO</div>
                         <h3 class="invite-banner__title">Invita a <span id="invite-count-text">1 amigo</span></h3>
                     </div>
                 </div>
                 <p class="invite-banner__desc">
-                    Quien uses tu código se inscribe al Reboot 30 y recibe acceso al Escáner. Ganas karma, amigos, y cuando validen ellos — tú recibes otra invitación.
+                    Quien use tu código se inscribe al Reboot 30 y recibe acceso al Semáforo Reboot. Cuando valide su registro, ganas otra invitación para compartir.
                 </p>
                 <div class="invite-codes" id="invite-codes">
                     <!-- injected dynamically -->
@@ -757,8 +757,8 @@ const PRODUCT_ACCESS = {
     agua_resource: { url: 'agua.html', label: 'Ver el recurso', available: false, note: 'Disponible 1 May' },
 
     // Apps
-    escaner: { url: 'https://reboot-lab.vercel.app', label: 'Abrir Escáner', external: true, available: true },
-    semaforo: { url: 'https://reboot-lifestyle-semaforo.vercel.app', label: 'Abrir Semáforo', external: true, available: true },
+    escaner: { url: 'https://reboot-lab.vercel.app', label: 'Abrir Semáforo Reboot', external: true, available: true },
+    semaforo: { url: 'https://reboot-lab.vercel.app', label: 'Abrir Semáforo Reboot', external: true, available: true },
     recetas_app: { url: '#', label: 'Próximamente', available: false, note: 'En desarrollo' },
     gamification: { url: '#', label: 'Próximamente', available: false, note: 'V2 · Post-lanzamiento' },
 
@@ -915,7 +915,7 @@ function renderInvites(invites) {
     codesEl.querySelectorAll('.copy-btn').forEach(btn => {
         btn.addEventListener('click', async () => {
             const url = btn.dataset.url;
-            const text = `Hey, te invito al Reboot 30. Te regalo mi invitación al Escáner (beta): ${url}`;
+            const text = `Hey, te invito al Reboot 30. Te regalo mi invitación al Semáforo Reboot (beta): ${url}`;
             try {
                 await navigator.clipboard.writeText(text);
                 const orig = btn.textContent;
