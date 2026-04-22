@@ -279,8 +279,11 @@
             box-shadow: none;
         }
         .product-card .cat {
-            display: inline-block;
-            padding: 4px 10px;
+            display: inline-flex;
+            align-items: center;
+            width: fit-content;
+            max-width: max-content;
+            padding: 4px 12px;
             background: var(--pure-reset);
             border-radius: 100px;
             font-size: 10px;
@@ -289,7 +292,8 @@
             text-transform: uppercase;
             color: var(--text-light);
             margin-bottom: 14px;
-            align-self: flex-start;
+            white-space: nowrap;
+            line-height: 1.4;
         }
         .product-card .cat.program { background: rgba(250,230,43,0.15); color: #8b7a00; }
         .product-card .cat.resource { background: rgba(118,211,209,0.2); color: #0d6a66; }
