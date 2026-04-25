@@ -1062,7 +1062,31 @@
                 clarity('event', 'click_cta_guardar_cupo');
                 clarity('upgrade', 'cta_clicked');
             }
-            console.log('CTA click: Guardar mi cupo');
+            console.log('CTA click: Guardar mi cupo (cafe)');
+            // Beacon to Supabase /api/events (powers live dashboard)
+            try {
+                const _beaconBody = JSON.stringify({
+                    event_name: 'click_cta_guardar_cupo',
+                    product_slug: 'reboot_30',
+                    properties: {
+                        resource: 'cafe',
+                        cta_destination: 'reboot30.html'
+                    }
+                });
+                if (navigator.sendBeacon) {
+                    navigator.sendBeacon(
+                        'https://reboot-master-api.vercel.app/api/events',
+                        new Blob([_beaconBody], { type: 'application/json' })
+                    );
+                } else {
+                    fetch('https://reboot-master-api.vercel.app/api/events', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: _beaconBody,
+                        keepalive: true
+                    }).catch(() => {});
+                }
+            } catch(e) {}
         });
     });
     document.querySelectorAll('.share-wa').forEach(btn => {
