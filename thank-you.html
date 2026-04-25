@@ -476,6 +476,9 @@
         </a>
 
         <p class="wa-hint">Tu cupo se confirma cuando entres al grupo</p>
+        <p id="auto-redirect-msg" class="wa-hint" style="margin-top:8px;color:var(--oxygen-blue);font-weight:600;font-size:13px;letter-spacing:.3px">
+            Te llevamos al WhatsApp en <span id="redirect-counter">8</span>s…
+        </p>
 
         <!-- Firma personal de Arie -->
         <div class="signature-block">
@@ -596,14 +599,100 @@
         });
     }
 
-    // Track si el usuario llegó pero NO hizo click al WhatsApp en 15 segundos
-    setTimeout(function(){
+    // ====================================================================
+    // AUTO-REDIRECT TO WHATSAPP (8 second countdown)
+    // Critical for conversion — guarantees user lands in the WhatsApp group
+    // even if they don't click the button manually.
+    // ====================================================================
+    const REDIRECT_SECONDS = 8;
+    let secondsLeft = REDIRECT_SECONDS;
+    let userInteracted = false;
+    const counterEl = document.getElementById('redirect-counter');
+    const msgEl = document.getElementById('auto-redirect-msg');
+
+    function fireWhatsAppEvents(autoRedirect) {
+        const eventParams = {
+            content_name: 'Click WhatsApp Group Join',
+            content_category: esPanama ? 'WhatsApp Panama' : 'WhatsApp Internacional',
+            group_region: esPanama ? 'panama' : 'internacional',
+            group_url: linkCorrecto,
+            pais: pais || 'unknown',
+            auto_redirect: !!autoRedirect
+        };
+        try {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Contact', eventParams);
+                fbq('trackCustom', 'click_whatsapp_group', eventParams);
+            }
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click_whatsapp_group', eventParams);
+                gtag('event', 'join_group', eventParams);
+            }
+            if (typeof clarity !== 'undefined') {
+                clarity('event', autoRedirect ? 'auto_redirect_whatsapp' : 'click_whatsapp_group');
+                clarity('upgrade', 'whatsapp_joined');
+            }
+            if (navigator.sendBeacon) {
+                const beaconBody = JSON.stringify({
+                    event_name: 'click_whatsapp_group',
+                    product_slug: 'reboot_30',
+                    properties: {
+                        group_region: esPanama ? 'panama' : 'internacional',
+                        pais: pais || 'unknown',
+                        auto_redirect: !!autoRedirect
+                    }
+                });
+                navigator.sendBeacon(
+                    'https://reboot-master-api.vercel.app/api/events',
+                    new Blob([beaconBody], { type: 'application/json' })
+                );
+            }
+        } catch (err) {}
+    }
+
+    const redirectTimer = setInterval(function () {
+        if (userInteracted) {
+            clearInterval(redirectTimer);
+            if (msgEl) msgEl.style.display = 'none';
+            return;
+        }
+        secondsLeft--;
+        if (counterEl) counterEl.textContent = String(Math.max(0, secondsLeft));
+        if (secondsLeft <= 0) {
+            clearInterval(redirectTimer);
+            console.log('Auto-redirect to WhatsApp triggered');
+            fireWhatsAppEvents(true);
+            if (msgEl) {
+                msgEl.textContent = 'Abriendo WhatsApp…';
+            }
+            // Tiny delay so beacons fire before navigation
+            setTimeout(function () {
+                window.location.href = linkCorrecto;
+            }, 250);
+        }
+    }, 1000);
+
+    // If user interacts with the page (scroll, click anywhere), pause auto-redirect
+    // so they don't get yanked while reading the thank-you page.
+    // BUT — only pause for first 3 seconds. After that auto-redirect always fires.
+    function pauseAutoRedirect() {
+        if (secondsLeft >= REDIRECT_SECONDS - 3) return; // ignore early activity
+        userInteracted = true;
+    }
+    document.addEventListener('scroll', pauseAutoRedirect, { passive: true, once: true });
+
+    // Track if the user reached thank-you but didn't end up in WhatsApp
+    setTimeout(function () {
         if (!waLink || !waLink.dataset.clicked) {
             if (typeof fbq !== 'undefined') fbq('trackCustom', 'thank_you_no_whatsapp_15s', { pais: pais || 'unknown' });
             if (typeof gtag !== 'undefined') gtag('event', 'thank_you_no_whatsapp_15s', { pais: pais || 'unknown' });
         }
     }, 15000);
-    if (waLink) waLink.addEventListener('click', function(){ waLink.dataset.clicked = '1'; });
+    if (waLink) waLink.addEventListener('click', function () {
+        waLink.dataset.clicked = '1';
+        clearInterval(redirectTimer);
+        if (msgEl) msgEl.style.display = 'none';
+    });
 })();
 </script>
 
