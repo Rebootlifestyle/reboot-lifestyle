@@ -393,6 +393,14 @@
             letter-spacing: 1.3px;
             text-transform: uppercase;
             margin-bottom: 28px;
+        
+                        text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        a.cta-eyebrow:hover {
+            transform: scale(1.06);
+            box-shadow: 0 6px 16px rgba(250,230,43,0.45);
         }
         .cta-section h2 {
             font-size: clamp(34px, 5.5vw, 56px);
@@ -565,6 +573,14 @@
             border: 2px solid var(--arie-yellow);
             position: relative;
             text-align: center;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        a.transition-date:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 32px rgba(250,230,43,0.32);
         }
         .transition-date::before {
             content: "";
@@ -875,11 +891,11 @@
             <p class="transition-sub">
                 Creé un programa para enseñarte <strong>todos mis hacks en 30 días</strong>. Gratis.
             </p>
-            <div class="transition-date">
+            <a href="reboot30.html?utm_source=landing_etiquetas&utm_content=date_box" class="transition-date" aria-label="Inscribirme al Reboot 30 · 4 de mayo 2026">
                 <div class="date-label">Inicio</div>
                 <div class="date-big">4<span class="date-sep">·</span>MAYO</div>
                 <div class="date-year">2026</div>
-            </div>
+            </a>
             <div class="transition-arrow">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
             </div>
@@ -887,7 +903,7 @@
 
         <div class="cta-section">
             <div class="cta-content">
-                <div class="cta-eyebrow">Reboot 30 · Programa de 30 días</div>
+                <a href="reboot30.html?utm_source=landing_etiquetas&utm_content=eyebrow_yellow" class="cta-eyebrow" aria-label="Inscribirme al Reboot 30">Reboot 30 · Programa de 30 días</a>
                 <h2>En 30 días vas a sentir<br>que vives en <span class="cta-highlight">otro cuerpo</span></h2>
                 <p class="cta-subhead">
                     No es dieta. No es contar calorías. Es aprender a comer diferente para siempre.
@@ -1040,7 +1056,8 @@
     }
 
     // TRACKING META PIXEL - eventos clave
-    document.querySelectorAll('.cta-button').forEach(btn => {
+    // Includes: main CTA + transition-date box + cta-eyebrow yellow pill
+    document.querySelectorAll('.cta-button, a.transition-date, a.cta-eyebrow').forEach(btn => {
         btn.addEventListener('click', (e) => {
             // Don't intercept modified clicks (cmd/ctrl/shift/middle-click)
             if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button === 1) return;
