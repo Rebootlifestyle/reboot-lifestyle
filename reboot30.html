@@ -921,6 +921,19 @@ form.addEventListener('submit', async (e) => {
     if (typeof fbq !== 'undefined') fbq('trackCustom', ev, p);
     if (typeof gtag !== 'undefined') gtag('event', ev, p);
     if (typeof clarity !== 'undefined') clarity('event', ev);
+    // Beacon to Supabase /api/events so dashboard funnel updates in real-time
+    try {
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(
+          'https://reboot-master-api.vercel.app/api/events',
+          new Blob([JSON.stringify({
+            event_name: ev,
+            product_slug: 'reboot_30',
+            properties: p
+          })], { type: 'application/json' })
+        );
+      }
+    } catch(e) {}
   }
   document.addEventListener('DOMContentLoaded', function(){
     var form = document.getElementById('reboot30-form');

@@ -230,27 +230,38 @@ function render(d) {
 
   const leads = d.leads || {};
   const events = d.events || {};
+  const funnel = d.funnel || {};
   const sources = d.top_sources || [];
   const countries = d.top_countries || [];
+  const campaigns = d.top_campaigns || [];
+  const retos = d.retos_breakdown || [];
+  const retosMeta = d.retos_meta || {};
   const hourly = d.hourly_last_24h || [];
+  const daily = d.daily_last_7d || [];
+  const recent = d.recent_leads || [];
 
-  const peak = Math.max(...hourly.map(b => b.count), 1);
+  const hourlyPeak = Math.max(...hourly.map(b => b.count), 1);
+  const dailyPeak = Math.max(...daily.map(b => b.count), 1);
+  const retosPeak = Math.max(...retos.map(r => r.count), 1);
 
   const html = `
     <!-- North star metric -->
     <div class="hero-metric">
       <div class="hero-label">⭐ North star · Click WhatsApp = conversión final</div>
       <div class="hero-number">${fmtNum(events.click_whatsapp_group)}</div>
-      <div class="hero-sub">personas cruzaron del email/landing al grupo WhatsApp.</div>
+      <div class="hero-sub">
+        ${fmtNum(events.click_whatsapp_manual)} manual · ${fmtNum(events.click_whatsapp_auto)} auto-redirect
+        ${funnel.leads_to_whatsapp_pct !== null ? `· ${funnel.leads_to_whatsapp_pct}% de los leads totales llegaron al grupo` : ''}
+      </div>
     </div>
 
     <!-- Lead stats -->
-    <h2>Registros (formulario completado)</h2>
+    <h2>Registros (form completado)</h2>
     <div class="stat-grid">
       <div class="stat-card accent">
         <div class="stat-label">Última hora</div>
         <div class="stat-value orange">${fmtNum(leads.last_hour)}</div>
-        <div class="stat-sub">momentum del reel</div>
+        <div class="stat-sub">momentum</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">Hoy (Panamá)</div>
@@ -268,23 +279,79 @@ function render(d) {
       <div class="stat-card">
         <div class="stat-label">Total Reboot 30</div>
         <div class="stat-value yellow">${fmtNum(leads.reboot_30)}</div>
-        <div class="stat-sub">de ${fmtNum(leads.total)} registros totales</div>
+        <div class="stat-sub">de ${fmtNum(leads.total)} totales</div>
       </div>
     </div>
 
-    <!-- Funnel -->
+    <!-- Recent leads (no PII) -->
+    <h2>Últimos ${recent.length} registros</h2>
+    <div class="breakdown">
+      ${recent.length === 0 ? '<div class="empty">Aún sin registros</div>' :
+        recent.map(r => `
+          <div class="row" style="grid-template-columns:60px 1fr auto auto;display:grid;gap:14px;align-items:center">
+            <span style="font-size:11px;color:var(--text-soft);font-feature-settings:'tnum';white-space:nowrap">
+              ${r.ago_minutes < 60 ? r.ago_minutes + 'm' : Math.floor(r.ago_minutes/60) + 'h'}
+            </span>
+            <span class="label" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHtml(r.country)}</span>
+            <span class="label mono" style="font-size:10.5px;color:var(--text-soft);text-align:right">${escapeHtml(r.source)}</span>
+            <span class="count" style="font-size:10.5px">${escapeHtml(r.campaign || '')}</span>
+          </div>
+        `).join('')}
+    </div>
+
+    <!-- Funnel with rates -->
     <h2>Funnel de conversión</h2>
     <div class="funnel">
-      ${renderFunnel(events, leads)}
+      ${renderFunnel(events, leads, funnel)}
+    </div>
+
+    <!-- ⭐ Retos breakdown — what people want most -->
+    <h2>¿Qué quiere la gente del programa? (${fmtNum(retosMeta.leads_who_picked_retos || 0)} leads marcaron retos)</h2>
+    <div class="breakdown">
+      ${retos.length === 0 || retos.every(r => r.count === 0) ? '<div class="empty">Aún sin datos. Aparecerá cuando los leads marquen sus retos en el form.</div>' :
+        retos.map(r => `
+          <div style="margin:10px 0">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <span style="font-size:13px;font-weight:600;color:#fff">${escapeHtml(r.label)}</span>
+              <span style="font-size:13px;font-weight:700;color:var(--oxygen-blue);font-feature-settings:'tnum'">
+                ${fmtNum(r.count)} <span style="font-weight:400;color:var(--text-soft);font-size:11px">(${r.pct_of_leads_with_retos}%)</span>
+              </span>
+            </div>
+            <div style="height:8px;background:#000;border-radius:4px;overflow:hidden">
+              <div style="height:100%;width:${(r.count / retosPeak) * 100}%;background:linear-gradient(90deg,var(--oxygen-blue),var(--earth-carrot));transition:width 0.6s"></div>
+            </div>
+          </div>
+        `).join('')}
+    </div>
+
+    <!-- Daily breakdown -->
+    <h2>Registros últimos 7 días</h2>
+    <div class="chart">
+      <div class="chart-bars" style="height:160px">
+        ${daily.map(b => {
+          const h = (b.count / dailyPeak) * 100;
+          const isPeak = b.count === dailyPeak && b.count > 0;
+          const dayLabel = new Date(b.date + 'T12:00:00').toLocaleDateString('es-PA',{weekday:'short',day:'2-digit'});
+          return `<div class="chart-bar ${isPeak?'peak':''}" style="height:${h}%">
+            <div class="tooltip">${b.count} · ${escapeHtml(dayLabel)}</div>
+          </div>`;
+        }).join('')}
+      </div>
+      <div class="chart-axis">
+        ${daily.map(b => {
+          const dayLabel = new Date(b.date + 'T12:00:00').toLocaleDateString('es-PA',{weekday:'short'}).slice(0,3);
+          return `<span>${escapeHtml(dayLabel)}</span>`;
+        }).join('')}
+      </div>
     </div>
 
     <!-- Hourly chart -->
-    <h2>Registros por hora (últimas 24h)</h2>
+    <h2>Por hora (últimas 24h)</h2>
     <div class="chart">
       <div class="chart-bars">
         ${hourly.map(b => {
-          const height = (b.count / peak) * 100;
-          const isPeak = b.count === peak && b.count > 0;
+          const height = (b.count / hourlyPeak) * 100;
+          const isPeak = b.count === hourlyPeak && b.count > 0;
           const localHour = new Date(b.hour).toLocaleString('es-PA', {hour:'2-digit',minute:'2-digit',hour12:false,timeZone:'America/Panama'});
           return `<div class="chart-bar ${isPeak?'peak':''}" style="height:${height}%">
             <div class="tooltip">${b.count} a las ${escapeHtml(localHour)}</div>
@@ -298,27 +365,69 @@ function render(d) {
       </div>
     </div>
 
-    <!-- Breakdowns -->
-    <div class="two-col">
+    <!-- 3 column breakdown -->
+    <h2>Geografía + Fuentes + Campañas</h2>
+    <div class="three-col" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:24px">
       <div class="breakdown">
-        <h2 style="margin-top:0">Top fuentes (últimos 7d)</h2>
-        ${sources.length === 0 ? '<div class="empty">Sin datos aún</div>' :
-          sources.map(s => `
-            <div class="row">
-              <span class="label mono">${escapeHtml(s.source)}</span>
-              <span class="count">${fmtNum(s.count)}</span>
-            </div>
-          `).join('')}
-      </div>
-      <div class="breakdown">
-        <h2 style="margin-top:0">Top países (últimos 7d)</h2>
+        <h2 style="margin-top:0">🌍 Top países (7d)</h2>
         ${countries.length === 0 ? '<div class="empty">Sin datos aún</div>' :
           countries.map(c => `
             <div class="row">
               <span class="label">${escapeHtml(c.country)}</span>
+              <span class="count">${fmtNum(c.count)} <span style="font-weight:400;color:var(--text-soft);font-size:11px">(${c.pct}%)</span></span>
+            </div>
+          `).join('')}
+      </div>
+      <div class="breakdown">
+        <h2 style="margin-top:0">🎯 Top fuentes (7d)</h2>
+        ${sources.length === 0 ? '<div class="empty">Sin datos aún</div>' :
+          sources.map(s => `
+            <div class="row">
+              <span class="label mono">${escapeHtml(s.source)}</span>
+              <span class="count">${fmtNum(s.count)} <span style="font-weight:400;color:var(--text-soft);font-size:11px">(${s.pct}%)</span></span>
+            </div>
+          `).join('')}
+      </div>
+      <div class="breakdown">
+        <h2 style="margin-top:0">📣 Top campañas (7d)</h2>
+        ${campaigns.length === 0 ? '<div class="empty">Sin datos aún</div>' :
+          campaigns.map(c => `
+            <div class="row">
+              <span class="label mono">${escapeHtml(c.campaign)}</span>
               <span class="count">${fmtNum(c.count)}</span>
             </div>
           `).join('')}
+      </div>
+    </div>
+
+    <!-- Events summary -->
+    <h2>Eventos totales</h2>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">View resource</div>
+        <div class="stat-value" style="font-size:24px">${fmtNum(events.view_resource)}</div>
+        <div class="stat-sub">visitas a landings</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Click CTA</div>
+        <div class="stat-value" style="font-size:24px">${fmtNum(events.click_cta_total)}</div>
+        <div class="stat-sub">"Guardar mi cupo"</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Form start</div>
+        <div class="stat-value" style="font-size:24px">${fmtNum(events.form_start)}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Form complete</div>
+        <div class="stat-value turquoise" style="font-size:24px">${fmtNum(events.form_submit_success)}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Form errors</div>
+        <div class="stat-value" style="font-size:24px;color:#fca5a5">${fmtNum(events.form_submit_error)}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">A/B asignaciones</div>
+        <div class="stat-value" style="font-size:24px">${fmtNum(events.ab_test_assigned)}</div>
       </div>
     </div>
   `;
@@ -326,26 +435,29 @@ function render(d) {
   document.getElementById('content').innerHTML = html;
 }
 
-function renderFunnel(events, leads) {
+function renderFunnel(events, leads, funnel) {
   const cta = events.click_cta_total || 0;
   const formStart = events.form_start || 0;
-  const formSubmit = events.form_submit_success || 0;
+  const formSubmit = events.form_submit_success || leads.reboot_30 || 0;
   const wa = events.click_whatsapp_group || 0;
 
   const stages = [
-    { name: 'Click "Guardar mi cupo"', count: cta, color: 'oxygen-blue' },
-    { name: 'Empezó el form', count: formStart, color: 'oxygen-blue' },
-    { name: 'Form completo', count: formSubmit || leads.reboot_30, color: 'oxygen-blue' },
-    { name: 'Click WhatsApp ⭐', count: wa, color: 'earth-carrot' },
+    { name: 'Click "Guardar mi cupo"', count: cta, rate: null },
+    { name: 'Empezó el form', count: formStart, rate: funnel?.cta_to_form_pct },
+    { name: 'Form completo', count: formSubmit, rate: funnel?.form_completion_pct },
+    { name: 'Click WhatsApp ⭐', count: wa, rate: funnel?.form_to_whatsapp_pct },
   ];
 
   const max = Math.max(...stages.map(s => s.count), 1);
 
   return stages.map(s => {
     const pct = (s.count / max) * 100;
+    const rateText = (s.rate !== null && s.rate !== undefined)
+      ? `<span style="font-size:11px;color:var(--text-soft);font-weight:400;margin-left:8px">↓ ${s.rate}%</span>`
+      : '';
     return `
       <div class="funnel-row">
-        <div class="funnel-name">${escapeHtml(s.name)}</div>
+        <div class="funnel-name">${escapeHtml(s.name)}${rateText}</div>
         <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:${pct}%"></div></div>
         <div class="funnel-count">${fmtNum(s.count)}</div>
       </div>
