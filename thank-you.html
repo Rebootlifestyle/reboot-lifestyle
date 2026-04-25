@@ -523,17 +523,32 @@
     const nombre = (params.get('nombre') || '').trim();
     const pais = (params.get('pais') || params.get('ciudad') || '').trim();
 
-    // Solo 2 grupos: Panamá + Internacional
-    const GRUPO_PANAMA = 'https://chat.whatsapp.com/BDyfETT46SX3AP0GteTYiD';
-    const GRUPO_INTERNACIONAL = 'https://chat.whatsapp.com/D5P0bmaM9YvCb1kGyiCaPh';
+    // Fallback links (used if /api/whatsapp-link is unreachable)
+    const GRUPO_PANAMA_FALLBACK = 'https://chat.whatsapp.com/BDyfETT46SX3AP0GteTYiD';
+    const GRUPO_INTERNACIONAL_FALLBACK = 'https://chat.whatsapp.com/D5P0bmaM9YvCb1kGyiCaPh';
 
-    // Lógica: si el país es Panamá → grupo 1. Cualquier otro país → grupo 2.
     const esPanama = pais.toLowerCase() === 'panamá' || pais.toLowerCase() === 'panama';
-    const linkCorrecto = esPanama ? GRUPO_PANAMA : GRUPO_INTERNACIONAL;
 
-    // Asignar link al botón
+    // Mutable: starts with fallback, gets replaced with API response
+    let linkCorrecto = esPanama ? GRUPO_PANAMA_FALLBACK : GRUPO_INTERNACIONAL_FALLBACK;
+
     const waLink = document.getElementById('wa-link');
     if (waLink) waLink.href = linkCorrecto;
+
+    // Async fetch the LIVE link from API (handles rotation logic 300+ → backup group).
+    // Runs in background — auto-redirect uses whatever value linkCorrecto has at fire time.
+    fetch('https://reboot-master-api.vercel.app/api/whatsapp-link?country=' + encodeURIComponent(pais || ''))
+        .then(r => r.json())
+        .then(data => {
+            if (data && data.link) {
+                linkCorrecto = data.link;
+                if (waLink) waLink.href = data.link;
+                console.log('WhatsApp router:', data.region, '· using_backup:', data.using_backup, '· count:', data.count_since_baseline);
+            }
+        })
+        .catch(err => {
+            console.warn('WhatsApp router failed, using fallback:', err);
+        });
 
     // Si viene nombre, personalizar (reemplaza "dentro" por el nombre en el H1)
     if (nombre) {
