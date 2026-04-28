@@ -706,6 +706,96 @@
             max-width: 560px; margin: 0 auto;
         }
 
+        /* ===========================================
+           STICKY CTA BAR — siempre visible para conversión
+           =========================================== */
+        .sticky-cta {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: var(--black-seed);
+            border-top: 2px solid var(--arie-yellow);
+            color: white;
+            padding: 14px 20px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 14px;
+            z-index: 999;
+            box-shadow: 0 -8px 24px rgba(0,0,0,0.25);
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .sticky-cta.visible { transform: translateY(0); }
+        .sticky-cta__info {
+            display: flex; flex-direction: column; gap: 2px;
+            min-width: 0;
+        }
+        .sticky-cta__line1 {
+            font-size: 11px; font-weight: 800; letter-spacing: 2px;
+            color: var(--arie-yellow); text-transform: uppercase;
+        }
+        .sticky-cta__line2 {
+            font-size: 14px; font-weight: 700; color: white;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .sticky-cta__btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--arie-yellow); color: var(--black-seed);
+            font-weight: 900; font-size: 13px;
+            padding: 12px 22px; border-radius: 100px;
+            text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
+            white-space: nowrap;
+            transition: transform 0.15s, box-shadow 0.15s;
+            flex-shrink: 0;
+        }
+        .sticky-cta__btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(250,230,43,0.4); }
+        .sticky-cta__close {
+            background: none; border: none; color: rgba(255,255,255,0.4);
+            font-size: 18px; cursor: pointer; padding: 4px 8px;
+            margin-left: -4px;
+        }
+        .sticky-cta__close:hover { color: white; }
+        @media (max-width: 480px) {
+            .sticky-cta { padding: 10px 14px; gap: 10px; }
+            .sticky-cta__line1 { font-size: 9px; letter-spacing: 1.5px; }
+            .sticky-cta__line2 { font-size: 12px; }
+            .sticky-cta__btn { font-size: 11px; padding: 10px 16px; letter-spacing: 0.5px; }
+            .sticky-cta__close { display: none; }
+        }
+        /* Spacer for the body so the sticky doesn't cover content */
+        body { padding-bottom: 80px; }
+
+        /* ===========================================
+           INLINE CTA BLOCKS — entre secciones
+           =========================================== */
+        .inline-cta {
+            text-align: center;
+            margin: 56px auto 0;
+            max-width: 640px;
+        }
+        .inline-cta__btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--earth-carrot); color: white;
+            font-weight: 900; font-size: 16px;
+            padding: 18px 36px; border-radius: 100px;
+            text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
+            transition: transform 0.15s, box-shadow 0.15s;
+            box-shadow: 0 6px 18px rgba(232,92,38,0.25);
+        }
+        .inline-cta__btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(232,92,38,0.35); }
+        .inline-cta__btn--yellow {
+            background: var(--arie-yellow); color: var(--black-seed);
+            box-shadow: 0 6px 18px rgba(250,230,43,0.3);
+        }
+        .inline-cta__btn--yellow:hover { box-shadow: 0 10px 24px rgba(250,230,43,0.4); }
+        .inline-cta__hint {
+            display: block;
+            font-size: 13px; color: var(--text-light);
+            margin-top: 14px; letter-spacing: 0.3px;
+        }
+        .inline-cta__hint strong { color: var(--earth-carrot); font-weight: 700; }
+
+        /* Inverted variant for dark sections */
+        .inline-cta--dark .inline-cta__hint { color: rgba(255,255,255,0.55); }
+        .inline-cta--dark .inline-cta__hint strong { color: var(--arie-yellow); }
+
         /* RESPONSIVE */
         @media (max-width: 760px) {
             .mega-hero h1 { font-size: 38px; }
@@ -716,6 +806,8 @@
             .week__title, .week__desc { flex: unset; }
             .bridge-cta__title { font-size: 26px; }
             .program__highlight { padding: 24px 24px; font-size: 16px; }
+            .inline-cta { margin: 40px auto 0; }
+            .inline-cta__btn { font-size: 14px; padding: 16px 28px; }
         }
     </style>
 </head>
@@ -768,6 +860,10 @@
         <p class="pain__closer">
             Eso no es <em>falta de voluntad.</em><br>Es tu cuerpo enviándote señales que aún no sabes leer.
         </p>
+        <div class="inline-cta">
+            <a href="#form" class="inline-cta__btn">Aprender el método →</a>
+            <span class="inline-cta__hint">Es <strong>100% gratis</strong>. Inicia el 4 de mayo.</span>
+        </div>
     </div>
 </section>
 
@@ -813,6 +909,10 @@
                 <div class="feature__desc">App que escanea cualquier producto del súper o foto del menú y te dice si va contigo: verde, amarillo o rojo.</div>
             </div>
         </div>
+        <div class="inline-cta">
+            <a href="#form" class="inline-cta__btn inline-cta__btn--yellow">Reservar mi cupo gratis →</a>
+            <span class="inline-cta__hint">Cupos limitados. <strong>Inicia 4 mayo · 30 días gratis.</strong></span>
+        </div>
     </div>
 </section>
 
@@ -843,6 +943,10 @@
                 <div class="week__desc">Cómo seguir solo después del programa. Comer fuera, viajes, cumpleaños, eventos. El cambio que se queda — para siempre.</div>
             </div>
         </div>
+        <div class="inline-cta">
+            <a href="#form" class="inline-cta__btn">Empezar mi Reboot →</a>
+            <span class="inline-cta__hint">30 segundos. Sin compromiso. <strong>100% gratis.</strong></span>
+        </div>
     </div>
 </section>
 
@@ -854,6 +958,10 @@
         <p class="arie-bio__text">
             Llevo años ayudando a panameños, latinos y a mi gente alrededor del mundo a transformar su relación con la comida — sin dieta, sin sufrir, sin restricciones absurdas. Reboot 30 es <strong>el programa que ojalá hubiera tenido yo</strong> cuando empecé. Lo abro gratis, por una vez, para que <strong>mi gente</strong> lo viva conmigo.
         </p>
+        <div class="inline-cta inline-cta--dark">
+            <a href="#form" class="inline-cta__btn inline-cta__btn--yellow">Quiero entrar al Reboot 30 →</a>
+            <span class="inline-cta__hint">30 días <strong>gratis</strong>. Sin letra chica.</span>
+        </div>
     </div>
 </section>
 
@@ -1281,6 +1389,60 @@ form.addEventListener('submit', async (e) => {
       track('form_validation_error', { field: (e.target && e.target.name) || 'unknown' });
     }, true);
   });
+})();
+</script>
+
+<!-- ============ STICKY CTA BAR (always-on conversion bar) ============ -->
+<div class="sticky-cta" id="stickyCTA" role="region" aria-label="Reservar cupo">
+    <button class="sticky-cta__close" id="stickyCTAClose" aria-label="Ocultar barra">×</button>
+    <div class="sticky-cta__info">
+        <span class="sticky-cta__line1">Inicia 4 mayo · GRATIS</span>
+        <span class="sticky-cta__line2">Reserva tu cupo en 30 segundos</span>
+    </div>
+    <a href="#form" class="sticky-cta__btn">Reservar →</a>
+</div>
+
+<script>
+// Sticky CTA: appear after user scrolls past the mega-hero, hide if they're already in the form area, allow dismissal.
+(function(){
+    var bar = document.getElementById('stickyCTA');
+    var closeBtn = document.getElementById('stickyCTAClose');
+    var formSection = document.getElementById('form');
+    if (!bar || !formSection) return;
+
+    var dismissed = false;
+    try { dismissed = sessionStorage.getItem('reboot30_sticky_dismissed') === '1'; } catch(e){}
+    if (dismissed) return;
+
+    // Show only when user has scrolled past the first 600px AND form is not already in view
+    function update() {
+        if (dismissed) return;
+        var formTop = formSection.getBoundingClientRect().top;
+        var formInView = formTop < window.innerHeight && formTop > -formSection.offsetHeight;
+        var pastHero = window.scrollY > 500;
+        if (pastHero && !formInView) {
+            bar.classList.add('visible');
+            document.body.style.paddingBottom = '';
+        } else {
+            bar.classList.remove('visible');
+        }
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+
+    closeBtn.addEventListener('click', function() {
+        dismissed = true;
+        bar.classList.remove('visible');
+        document.body.style.paddingBottom = '0';
+        try { sessionStorage.setItem('reboot30_sticky_dismissed', '1'); } catch(e){}
+    });
+
+    // Click on the CTA → smooth scroll to form
+    bar.querySelector('.sticky-cta__btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 })();
 </script>
 

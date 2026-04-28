@@ -540,9 +540,11 @@
         semaforoLink.href = url.toString();
     }
 
-    // Fallback links (used if /api/whatsapp-link is unreachable)
-    const GRUPO_PANAMA_FALLBACK = 'https://chat.whatsapp.com/BDyfETT46SX3AP0GteTYiD';
-    const GRUPO_INTERNACIONAL_FALLBACK = 'https://chat.whatsapp.com/D5P0bmaM9YvCb1kGyiCaPh';
+    // Fallback links (used if /api/whatsapp-link is unreachable).
+    // Updated 27 abr: groups 2 (BDyfET) and 3 (D5P0bm) RETIRED — new traffic goes
+    // to groups 4 (FENCThu) and 5 (KZinKr).
+    const GRUPO_PANAMA_FALLBACK = 'https://chat.whatsapp.com/FENCThuS5qaDRaKV94k5oA';
+    const GRUPO_INTERNACIONAL_FALLBACK = 'https://chat.whatsapp.com/KZinKrAsjvY0ifRPiU7bJU';
 
     const esPanama = pais.toLowerCase() === 'panamá' || pais.toLowerCase() === 'panama';
 
