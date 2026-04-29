@@ -102,9 +102,9 @@
               "photo_prompt": "oat bread toast spread with creamy hummus topped with sauteed mushrooms and fresh thyme, morning natural light, casual food photography"
             },
             "almuerzo": {
-              "slug": "costillas-res-horno-ensalada",
-              "name": "Costillas de res al horno con ensalada fresca",
-              "photo_prompt": "oven roasted beef short ribs with fresh mixed green salad cherry tomatoes on white plate, natural lunch light, rustic home cooking"
+              "slug": "carne-horneada-vegetales",
+              "name": "Carne horneada con vegetales",
+              "photo_prompt": "thick grilled beef tenderloin steak with deep crosshatch grill marks topped with thyme on top of white cauliflower mash with brown demi-glace sauce around plate edge, garnished with fresh parsley, white plate, restaurant style"
             },
             "cena": {
               "slug": "berenjenas-horneadas-pollo-plancha",

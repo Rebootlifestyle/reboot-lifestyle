@@ -736,44 +736,41 @@
     ]
   },
 
-  "costillas-res-horno-ensalada": {
-    "id": "costillas-res-horno-ensalada",
-    "nombre": "Costillas de res al horno con ensalada fresca",
-    "subtitulo": "Fin de semana proteína pesada.",
+  "carne-horneada-vegetales": {
+    "id": "carne-horneada-vegetales",
+    "nombre": "Carne horneada con vegetales",
+    "subtitulo": "Una bandeja, sabor concentrado, fin de semana resuelto.",
     "categoria": "almuerzo",
     "fase": "mes_1",
-    "tiempo_min": 120,
+    "tiempo_min": 75,
     "dificultad": "fácil",
     "porciones_base": 2,
-    "etiquetas": ["alta proteína", "comfort", "sin gluten"],
-    "macros_fijos": {"kcal": 140, "prot": 1, "fiber": 2, "fat": 13, "carbs": 5},
+    "etiquetas": ["alta proteína", "one-pan", "sin gluten"],
+    "macros_fijos": {"kcal": 130, "prot": 1, "fiber": 4, "fat": 12, "carbs": 9},
     "ingredientes": [
-      {"slot": "protein", "amount_base": 600, "unit": "g", "descripcion": "de costillas de res (short ribs)", "macros": {"kcal": 220, "prot": 22, "fiber": 0, "fat": 15, "carbs": 0}},
-      {"slot": null, "amount_base": 2, "unit": "cdas", "descripcion": "de aceite de oliva"},
+      {"slot": "protein", "amount_base": 500, "unit": "g", "descripcion": "de lomo de res, posta o falda en una pieza", "macros": {"kcal": 200, "prot": 28, "fiber": 0, "fat": 10, "carbs": 0}},
+      {"slot": "veg", "amount_base": 2, "unit": "tazas", "descripcion": "de mix de vegetales (zucchini, pimentón, cebolla, brócoli, zanahoria)", "macros": {"kcal": 60, "prot": 3, "fiber": 4, "fat": 0.5, "carbs": 12}},
+      {"slot": null, "amount_base": 3, "unit": "cdas", "descripcion": "de aceite de oliva"},
       {"slot": null, "amount_base": 4, "unit": "dientes", "descripcion": "de ajo picados"},
       {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de mostaza dijon"},
-      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de romero seco y tomillo"},
-      {"slot": null, "amount_base": 1, "unit": "taza", "descripcion": "de caldo de res o agua"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal y pimienta abundante"},
-      {"slot": "greens", "amount_base": 4, "unit": "tazas", "descripcion": "de mix de hojas verdes (lechuga, arúgula, espinaca baby)", "macros": {"kcal": 20, "prot": 2, "fiber": 1.5, "fat": 0.2, "carbs": 3}},
-      {"slot": null, "amount_base": 10, "unit": "", "descripcion": "tomates cherry"},
-      {"slot": null, "amount_base": 0.25, "unit": "", "descripcion": "cebolla morada en rodajas finas"},
-      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón (jugo)"}
+      {"slot": null, "amount_base": 1, "unit": "cdta", "descripcion": "de romero, tomillo y orégano"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal y pimienta al gusto"},
+      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "limón"}
     ],
     "pasos": [
-      {"texto": "Precalienta horno a <strong>160°C</strong> (cocción lenta)."},
-      {"step_slot": "protein-prep", "texto": "Masajea las <strong>costillas</strong> con aceite, ajo, mostaza, romero, tomillo, sal y pimienta."},
-      {"step_slot": "protein-cook", "texto": "Colócalas en bandeja con el caldo, tapa con papel aluminio. Hornea <strong>1h45 min</strong> hasta que la carne se desprenda fácilmente."},
-      {"texto": "Al final, destapa y sube a 220°C por 10 min para dorar la superficie."},
-      {"texto": "Mientras, arma la ensalada: hojas verdes, tomates, cebolla morada. Aliña con aceite de oliva, limón, sal."},
-      {"step_slot": "final", "texto": "Sirve las <strong class='final-protein'>costillas</strong> con la ensalada fresca al lado. El contraste hace la comida."}
+      {"texto": "Precalienta el horno a <strong>200°C</strong>."},
+      {"step_slot": "protein-prep", "texto": "Masajea la <strong>carne</strong> con 1 cda de aceite, ajo, mostaza, romero, tomillo, sal y pimienta. Reposa 15 min."},
+      {"texto": "Corta los <strong>vegetales</strong> en trozos parejos. Mezcla en bandeja con 2 cdas de aceite, sal, pimienta y orégano."},
+      {"step_slot": "protein-cook", "texto": "Coloca la carne en el centro de la bandeja con los vegetales alrededor. Hornea <strong>40-45 min</strong> para término medio (50-55 min para bien cocido)."},
+      {"step_slot": "protein-rest", "texto": "Retira y deja reposar la carne <strong>5 minutos</strong> antes de cortarla en lonjas finas contra la fibra."},
+      {"step_slot": "final", "texto": "Sirve la <strong class='final-protein'>carne</strong> en lonjas con los vegetales asados al lado. Termina con jugo de limón fresco encima."}
     ],
-    "hack": "El bajo y lento (1h45 a 160°C) es el secreto. No corras con temperatura alta — la costilla se endurece. Quieres la colágena derretida.",
-    "por_que_funciona": "Proteína completa + grasa buena de la costilla, fibra y micronutrientes de la ensalada fresca. El contraste de temperatura y textura (caliente y denso vs frío y crujiente) hace que la comida se sienta completa sin carbo.",
+    "hack": "Cortar la carne CONTRA la fibra es el cambio que la hace tierna. Si la cortas a favor de la fibra queda chiclosa por más bien que la hayas cocinado.",
+    "por_que_funciona": "Proteína magra alta + fibra concentrada en los vegetales asados + grasa buena del aceite de oliva. Una sola bandeja, mínimo trasteo, balance completo del programa.",
     "sustituciones": [
-      {"from_label": "costillas de res", "slot": "protein", "options": [
-        {"name": "Osobuco de res", "descripcion": "osobuco de res", "amount": 600, "unit": "g", "macros": {"kcal": 200, "prot": 25, "fiber": 0, "fat": 11, "carbs": 0}, "protein_name": "osobuco"},
-        {"name": "Muslos de pollo", "descripcion": "muslos de pollo con hueso", "amount": 600, "unit": "g", "macros": {"kcal": 175, "prot": 25, "fiber": 0, "fat": 8, "carbs": 0}, "protein_name": "muslos de pollo"}
+      {"from_label": "lomo de res", "slot": "protein", "options": [
+        {"name": "Pollo entero", "descripcion": "muslos de pollo con hueso", "amount": 600, "unit": "g", "macros": {"kcal": 175, "prot": 25, "fiber": 0, "fat": 8, "carbs": 0}, "protein_name": "muslos de pollo"},
+        {"name": "Pavo", "descripcion": "pechuga de pavo", "amount": 500, "unit": "g", "macros": {"kcal": 135, "prot": 30, "fiber": 0, "fat": 1, "carbs": 0}, "protein_name": "pavo"}
       ]}
     ]
   },
