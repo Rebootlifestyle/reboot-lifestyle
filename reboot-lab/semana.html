@@ -338,6 +338,7 @@
   <div class="hero-label" id="heroLabel">Semana —</div>
   <h1 id="heroTitle">Mi semana</h1>
   <p id="heroSub"></p>
+  <a id="pdfDownloadBtn" href="#" download style="display:none; align-items:center; gap:8px; margin: 22px auto 0; padding: 11px 20px; background: var(--arie-yellow); color: var(--black-seed); border-radius: 100px; font-family: inherit; font-size: 13px; font-weight: 800; letter-spacing: 0.3px; cursor: pointer; text-decoration: none; box-shadow: 0 8px 24px rgba(250,230,43,0.25); position: relative; z-index: 1; width: fit-content;">📥 Descargar PDF para guardar</a>
 </section>
 
 <nav class="week-nav" id="weekNav"></nav>
@@ -388,6 +389,21 @@
     document.getElementById('heroLabel').textContent = `Semana ${week.week}`;
     document.getElementById('heroTitle').innerHTML = week.title.replace(`Semana ${week.week} · `, '<span>') + '</span>';
     document.getElementById('heroSub').textContent = week.subtitle;
+
+    // PDFs disponibles por semana (cuando se generan)
+    const pdfsAvailable = {
+      1: '../pdfs/meal-plan-semana-1-reboot.pdf',
+      // 2: '../pdfs/meal-plan-semana-2-reboot.pdf',
+      // 3: '../pdfs/meal-plan-semana-3-reboot.pdf',
+      // 4: '../pdfs/meal-plan-semana-4-reboot.pdf',
+    };
+    const btn = document.getElementById('pdfDownloadBtn');
+    if (pdfsAvailable[week.week]) {
+      btn.href = pdfsAvailable[week.week];
+      btn.style.display = 'inline-flex';
+    } else {
+      btn.style.display = 'none';
+    }
   }
 
   function renderWeekNav(weeks) {

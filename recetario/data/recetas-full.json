@@ -218,32 +218,32 @@
     "etiquetas": ["alta proteína", "sin gluten", "rica en fibra"],
     "macros_fijos": {"kcal": 30, "prot": 0, "fiber": 0, "fat": 3, "carbs": 0},
     "ingredientes": [
-      {"slot": "carb", "amount_base": 1, "unit": "taza", "descripcion": "de calabaza (zapallo) rallada cruda", "macros": {"kcal": 30, "prot": 1, "fiber": 2, "fat": 0, "carbs": 7}},
-      {"slot": "flour", "amount_base": 0.5, "unit": "taza", "descripcion": "de harina de avena integral", "macros": {"kcal": 190, "prot": 7, "fiber": 5, "fat": 3.5, "carbs": 32}},
-      {"slot": null, "amount_base": 1, "unit": "", "descripcion": "huevo (para unir la masa)"},
+      {"slot": "carb", "amount_base": 1, "unit": "taza", "descripcion": "de calabaza cocida y triturada", "macros": {"kcal": 50, "prot": 2, "fiber": 2, "fat": 0.2, "carbs": 12}},
+      {"slot": "flour", "amount_base": 0.25, "unit": "taza", "descripcion": "de harina de avena sin gluten", "macros": {"kcal": 95, "prot": 3.5, "fiber": 2.5, "fat": 1.7, "carbs": 16}},
       {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal al gusto"},
-      {"slot": "protein", "amount_base": 200, "unit": "g", "descripcion": "de pollo cocido desmenuzado", "macros": {"kcal": 165, "prot": 31, "fiber": 0, "fat": 3.6, "carbs": 0}},
-      {"slot": "fat", "amount_base": 0.5, "unit": "", "descripcion": "aguacate maduro triturado", "macros": {"kcal": 60, "prot": 0.8, "fiber": 2.5, "fat": 5.5, "carbs": 3}},
-      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de yogurt griego natural"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "jugo de limón, sal y pimienta al gusto"},
-      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "cilantro fresco para decorar"}
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "agua si es necesario"},
+      {"slot": "protein", "amount_base": 90, "unit": "g", "descripcion": "de pechuga de pollo desmenuzada", "macros": {"kcal": 150, "prot": 28, "fiber": 0, "fat": 3.2, "carbs": 0}},
+      {"slot": "fat", "amount_base": 0.5, "unit": "", "descripcion": "aguacate maduro triturado", "macros": {"kcal": 120, "prot": 1.5, "fiber": 5, "fat": 11, "carbs": 6}},
+      {"slot": null, "amount_base": 1, "unit": "diente", "descripcion": "de ajo finamente picado"},
+      {"slot": null, "amount_base": 0.25, "unit": "", "descripcion": "cebolla finamente picada"},
+      {"slot": null, "amount_base": 1, "unit": "cda", "descripcion": "de yogurt griego natural (opcional, para más cremosidad)"},
+      {"slot": null, "amount_base": 0, "unit": "", "descripcion": "sal al gusto"}
     ],
     "pasos": [
-      {"texto": "En un bowl, mezcla la <strong>calabaza rallada</strong>, la harina de avena, el huevo y la sal hasta formar una masa que se pueda moldear."},
-      {"texto": "Forma 2 arepas medianas (1.5 cm de grosor). Si la masa está muy húmeda, agrega un poco más de harina."},
-      {"texto": "Cocina en sartén antiadherente con un chorrito de aceite, <strong>4-5 min por lado</strong> hasta que estén doradas."},
-      {"texto": "Mientras, mezcla el <strong>pollo desmenuzado</strong> con el aguacate, yogurt griego, limón, sal, pimienta y cilantro."},
-      {"step_slot": "final", "texto": "Abre cada arepa por la mitad y rellénala con la mezcla de <strong class='final-protein'>pollo</strong>. Sirve caliente."}
+      {"texto": "En un bowl, mezcla <strong>1 taza de calabaza cocida y triturada</strong> con <strong>1/4 taza de harina de avena sin gluten</strong>, sal y agua si es necesario hasta formar una masa que se pueda moldear."},
+      {"texto": "Forma las arepas y cocina a la plancha hasta que estén doradas por ambos lados."},
+      {"texto": "Para el <strong>relleno</strong>: mezcla los <strong>90 g de pollo desmenuzado</strong> con el aguacate, sal, ajo y cebolla finamente picada."},
+      {"texto": "Para un extra de cremosidad puedes agregarle <strong>una cucharada de yogurt griego natural</strong>."},
+      {"step_slot": "final", "texto": "Abre cada arepa y rellénala con la mezcla de <strong class='final-protein'>pollo reina pepiada</strong>. Sirve caliente."}
     ],
-    "hack": "No licues la calabaza — rállala cruda. La textura de la fibra es lo que hace que la arepa quede con cuerpo y no aguada.",
+    "hack": "Puedes sustituir la calabaza por zanahoria, y el pollo por atún. Misma técnica, sabores distintos.",
     "por_que_funciona": "La calabaza aporta fibra y carbos lentos; la avena integral es harina permitida mes 1; el pollo da proteína completa; el aguacate cierra con grasa buena. Un desayuno completo que te sostiene hasta el almuerzo.",
     "sustituciones": [
       {"from_label": "pollo", "slot": "protein", "options": [
-        {"name": "Atún en lata", "descripcion": "atún en agua escurrido", "amount": 160, "unit": "g", "macros": {"kcal": 185, "prot": 40, "fiber": 0, "fat": 1.5, "carbs": 0}, "protein_name": "atún"},
-        {"name": "Huevos revueltos", "descripcion": "huevos revueltos", "amount": 3, "unit": "", "macros": {"kcal": 210, "prot": 18, "fiber": 0, "fat": 15, "carbs": 2}, "protein_name": "huevos"}
+        {"name": "Atún en lata", "descripcion": "atún en agua escurrido", "amount": 90, "unit": "g", "macros": {"kcal": 105, "prot": 22, "fiber": 0, "fat": 0.8, "carbs": 0}, "protein_name": "atún"}
       ]},
       {"from_label": "calabaza", "slot": "carb", "options": [
-        {"name": "Zanahoria rallada", "descripcion": "zanahoria rallada cruda", "amount": 1, "unit": "taza", "macros": {"kcal": 40, "prot": 0.9, "fiber": 2.8, "fat": 0.2, "carbs": 10}}
+        {"name": "Zanahoria", "descripcion": "zanahoria cocida y triturada", "amount": 1, "unit": "taza", "macros": {"kcal": 55, "prot": 1.2, "fiber": 3.6, "fat": 0.3, "carbs": 13}}
       ]}
     ]
   },
