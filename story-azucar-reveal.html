@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Story · Reveal Azúcar · Reboot 30</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --ink: #0f0f0f;
+    --cream: #EFEAD8;
+    --cream-light: #F5F1E2;
+    --accent: #e85c26;
+    --accent-soft: #f47844;
+    --yellow: #fae62b;
+    --teal: #76d3d1;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { background: #1a1a1a; font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+.wrap { display:flex; justify-content:center; padding: 30px 16px; }
+
+.story {
+    width: 1080px; height: 1920px;
+    position: relative; overflow: hidden;
+    background: var(--ink);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    color: white;
+}
+@media (max-width: 1160px) {
+    .story {
+        transform-origin: top center;
+        transform: scale(calc((100vw - 32px) / 1080));
+        margin-bottom: calc(1920px * ((100vw - 32px) / 1080) - 1920px);
+    }
+}
+
+.story::before {
+    content:''; position:absolute; inset:0; pointer-events:none; z-index:1;
+    background:
+        radial-gradient(ellipse 600px 400px at 80% 18%, rgba(232,92,38,0.18), transparent 60%),
+        radial-gradient(ellipse 500px 360px at 10% 82%, rgba(250,230,43,0.10), transparent 60%);
+}
+.frame {
+    position:absolute; left:60px; right:60px; top:60px; bottom:60px;
+    border:1px solid rgba(255,255,255,0.18); z-index:2; pointer-events:none;
+}
+.inner {
+    position:absolute; inset:0; z-index:3;
+    padding: 160px 110px 200px;
+    display:flex; flex-direction:column;
+    text-align: center;
+}
+
+.brand {
+    font-family: 'Inter'; font-size: 18px; letter-spacing: 7px;
+    text-transform: uppercase; font-weight: 800; color: white;
+    margin-bottom: 30px;
+}
+
+.eyebrow {
+    font-family: 'Inter'; font-size: 16px; letter-spacing: 6px;
+    text-transform: uppercase; font-weight: 700;
+    color: var(--accent-soft);
+    margin-bottom: 60px;
+}
+
+.spoiler {
+    font-family: 'Playfair Display'; font-style: italic;
+    font-size: 38px; color: rgba(255,255,255,0.7);
+    margin-bottom: 30px; font-weight: 500;
+}
+
+.big-number {
+    font-family: 'Playfair Display';
+    font-weight: 900; font-size: 480px;
+    line-height: 0.9; letter-spacing: -16px;
+    color: var(--yellow);
+    margin: 30px 0 10px;
+    position: relative;
+}
+.big-number .dot {
+    color: var(--accent);
+    font-style: italic; font-weight: 700;
+}
+
+.unit {
+    font-family: 'Playfair Display'; font-style: italic;
+    font-weight: 500; font-size: 70px;
+    line-height: 1; color: white;
+    margin-bottom: 24px;
+}
+
+.subline {
+    font-family: 'Inter'; font-size: 26px; line-height: 1.5;
+    color: rgba(255,255,255,0.78); font-weight: 400;
+    margin-bottom: 56px;
+    max-width: 760px; margin-left: auto; margin-right: auto;
+}
+.subline strong { color: var(--yellow); font-weight: 700; }
+
+/* The "link-zone" — where Arie places the IG link sticker on top */
+.link-zone {
+    margin: 0 auto;
+    width: 720px;
+    background: rgba(232, 92, 38, 0.18);
+    border: 2px dashed rgba(244, 120, 68, 0.6);
+    border-radius: 28px;
+    padding: 32px 24px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.link-zone .lz-eyebrow {
+    font-family: 'Inter'; font-size: 14px; letter-spacing: 4px;
+    text-transform: uppercase; font-weight: 700;
+    color: var(--accent-soft); margin-bottom: 10px;
+    opacity: 0.8;
+}
+.link-zone .lz-text {
+    font-family: 'Inter'; font-size: 18px; line-height: 1.5;
+    color: rgba(255,255,255,0.85); font-weight: 500;
+}
+.link-zone .lz-text strong {
+    color: white; font-weight: 700;
+}
+
+.bottom {
+    margin-top: auto;
+    text-align: center;
+}
+.bottom .footer-line {
+    font-family: 'Playfair Display'; font-style: italic;
+    font-weight: 500; font-size: 30px; color: rgba(255,255,255,0.6);
+    margin-bottom: 12px;
+}
+.bottom .by {
+    font-family: 'Inter'; font-size: 13px; letter-spacing: 4px;
+    text-transform: uppercase; font-weight: 600;
+    color: rgba(255,255,255,0.45);
+}
+
+.deco-star {
+    position: absolute;
+    font-family: 'Playfair Display'; font-style: italic;
+    color: var(--accent-soft); opacity: 0.5;
+    pointer-events: none; line-height: 1;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="story">
+    <div class="frame"></div>
+    <div class="deco-star" style="top: 240px; left: 130px; font-size: 80px;">✦</div>
+    <div class="deco-star" style="top: 280px; right: 150px; font-size: 60px;">✦</div>
+    <div class="deco-star" style="bottom: 460px; left: 140px; font-size: 50px;">✦</div>
+    <div class="deco-star" style="bottom: 500px; right: 130px; font-size: 70px;">✦</div>
+    <div class="inner">
+        <div class="brand">REBOOT · LIFESTYLE</div>
+        <div class="eyebrow">— La respuesta —</div>
+
+        <div class="spoiler">Es esto</div>
+
+        <div class="big-number">22</div>
+        <div class="unit">cucharaditas</div>
+
+        <div class="subline">
+            Al <strong>día</strong>. Sin que te enteres.<br>
+            Está escondida en el yogur, el pan, la salsa, los snacks "saludables".
+        </div>
+
+        <div class="link-zone">
+            <div class="lz-eyebrow">↓ Pon aquí el Link Sticker ↓</div>
+            <div class="lz-text">Apunta a <strong>reboot30.html</strong> o el reel de azúcar</div>
+        </div>
+
+        <div class="bottom">
+            <div class="footer-line">Cambiar todo en 30 días.<br>Gratis. Empieza el 4 de mayo.</div>
+            <div class="by">@ariereboot · #reboot30</div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
