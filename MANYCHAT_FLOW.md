@@ -61,7 +61,7 @@ Y oye, si esto te sirvió... espera a ver el programa completo 😉
 *Delay 2 minutos*
 
 ```
-Por cierto, el 4 de mayo arranca mi Programa Reboot de 30 días.
+Por cierto, el 11 de mayo arranca mi Programa Reboot de 30 días.
 
 30 errores como este (en alimentación, energía, sueño, estrés) y cómo corregirlos.
 
@@ -100,7 +100,7 @@ Me encanta cuando la gente aplica lo que comparto. Muchos me escriben después d
 
 Y te acuerdas del programa de 30 días que te mencioné? Mira:
 
-🗓️ Arranca el 4 de mayo
+🗓️ Arranca el 11 de mayo
 👥 Más de [X] panameños ya inscritos
 ⚡ 30 días, 1 hack por día
 💙 Completamente GRATIS
@@ -120,7 +120,7 @@ Aquí va el link para registrarte. Llena el formulario (toma 30 segundos) y list
 
 [LINK: https://rebootlifestyle.com/inscribirme-30dias]
 
-Una vez te inscribas, te agrego automáticamente al grupo de WhatsApp donde arrancamos el 4 de mayo.
+Una vez te inscribas, te agrego automáticamente al grupo de WhatsApp donde arrancamos el 11 de mayo.
 
 Nos vemos ahí 💙
 ```
@@ -130,7 +130,7 @@ Nos vemos ahí 💙
 ```
 Entendido 🙏
 
-Si cambias de opinión antes del 4 de mayo, solo escríbeme "QUIERO" y te mando el link.
+Si cambias de opinión antes del 11 de mayo, solo escríbeme "QUIERO" y te mando el link.
 
 Mientras tanto, sigo compartiendo hacks gratis en mi cuenta.
 Nos vemos por allá 💙
@@ -159,7 +159,7 @@ Nos vemos por allá 💙
 
 Los contactos que comentan MÁS de 1 palabra clave son los "hot leads":
 - Si alguien comenta CAFÉ + AZÚCAR + DESAYUNO en la misma semana = muy interesado
-- Estos reciben un mensaje directo de Arie ofreciendo entrar al programa PRIMERO (antes del 4 de mayo)
+- Estos reciben un mensaje directo de Arie ofreciendo entrar al programa PRIMERO (antes del 11 de mayo)
 
 ## Integraciones recomendadas
 
@@ -208,7 +208,7 @@ Para que Arie pueda responder manualmente cuando alguien escriba directo:
 ```
 Hola! Gracias por escribir 💙
 
-El programa arranca el 4 de mayo. Son 30 días, uno por día, cubriendo alimentación, energía, sueño y mentalidad.
+El programa arranca el 11 de mayo. Son 30 días, uno por día, cubriendo alimentación, energía, sueño y mentalidad.
 
 Esta vez es GRATIS para Panamá. Aquí el link para reservar:
 [LINK]

@@ -77,7 +77,7 @@ Fluent Forms captura automáticamente estos parámetros y los guarda en el campo
 Tu cupo está reservado oficialmente.
 
 El programa arranca el
-4 DE MAYO 2026
+11 DE MAYO 2026
 
 Último paso importante:
 Únete al grupo de WhatsApp donde vamos a empezar.
@@ -178,12 +178,12 @@ Hacer 3 registros de prueba y verificar que aparecen en el Google Sheet en segun
 4. Enviar email: "¿Ya te uniste al grupo de WhatsApp?" (recordatorio si no hizo click)
 
 **A las 72 horas:**
-5. Enviar email: "Prepárate: 3 cosas antes del 4 de mayo"
+5. Enviar email: "Prepárate: 3 cosas antes del 11 de mayo"
 
 **El 1 de mayo:**
 6. Enviar email: "Faltan 3 días - checklist final"
 
-**El 4 de mayo:**
+**El 11 de mayo:**
 7. Enviar email: "Hoy arrancamos 🚀"
 
 ### Plantilla email de bienvenida
@@ -196,7 +196,7 @@ Hola [Nombre],
 
 Tu cupo en el Programa Reboot 30 está confirmado oficialmente.
 
-El 4 de mayo arrancamos 30 días para transformar tu relación con la comida, tu energía y tu cuerpo. Sin dietas. Sin restricciones extremas. Solo hábitos inteligentes que funcionan.
+El 11 de mayo arrancamos 30 días para transformar tu relación con la comida, tu energía y tu cuerpo. Sin dietas. Sin restricciones extremas. Solo hábitos inteligentes que funcionan.
 
 Lo que viene:
 • 30 lecciones diarias (una por día)
@@ -209,7 +209,7 @@ Lo que viene:
 Si aún no entraste al grupo de WhatsApp, entra aquí:
 [Botón con link dinámico según ciudad]
 
-Nos vemos el 4 de mayo.
+Nos vemos el 11 de mayo.
 
 Arie
 
@@ -225,7 +225,7 @@ PD: Si conoces a alguien a quien le serviría, compártele este link: rebootlife
 ```
 ¡Panamá!
 
-Recta final antes del 4 de mayo 🚀
+Recta final antes del 11 de mayo 🚀
 
 Para asegurar tu cupo oficial al Programa Reboot 30 y que recibas:
 ✅ Tu lugar confirmado
@@ -238,7 +238,7 @@ Completa tu registro aquí (solo 20 segundos):
 
 Los que se registren primero tienen prioridad en cupos limitados para experiencias adicionales que estoy preparando.
 
-Nos vemos el 4 de mayo 💙
+Nos vemos el 11 de mayo 💙
 — Arie
 ```
 
@@ -292,7 +292,7 @@ Con este flujo, puedes trackear:
 
 ---
 
-## 8. Timeline de implementación (qué hacer antes del 4 de mayo)
+## 8. Timeline de implementación (qué hacer antes del 11 de mayo)
 
 ### Esta semana (17-20 abril)
 - [ ] Crear el formulario en Fluent Forms (1-2 horas)

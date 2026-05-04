@@ -259,7 +259,7 @@ def draw_cover(c, data):
     c.setFont('Helvetica', 9)
     c.drawString(50, 90, 'Compatible con el programa Reboot 30 · Mes 1')
     c.setFillColor(ARIE_YELLOW)
-    c.drawRightString(W - 50, 90, 'INICIA · 4 MAYO 2026')
+    c.drawRightString(W - 50, 90, 'INICIA · 11 MAYO 2026')
 
     c.showPage()
 
@@ -510,7 +510,7 @@ def draw_cta(c, data):
     # CTA small label inside box (no button — button goes OUTSIDE)
     c.setFont('Helvetica-Bold', 10)
     c.setFillColor(HexColor('#333333'))
-    c.drawString(72, BOX_TOP - 185, '100% GRATUITO · CUPOS LIMITADOS · INICIA 4 MAYO 2026')
+    c.drawString(72, BOX_TOP - 185, '100% GRATUITO · CUPOS LIMITADOS · INICIA 11 MAYO 2026')
 
     # ========== CTA BUTTON (outside/below the yellow box) ==========
     btn_w = 260
@@ -543,7 +543,7 @@ def draw_cta(c, data):
         '1.  Entra a rebootlifestyle.github.io/reboot-lifestyle/reboot30.html',
         '2.  Completa el formulario en 30 segundos',
         '3.  Te llegará el link al WhatsApp de la comunidad',
-        '4.  El 4 de mayo arrancamos todos juntos',
+        '4.  El 11 de mayo arrancamos todos juntos',
     ]
     y = instr_y - 30
     for line in steps:

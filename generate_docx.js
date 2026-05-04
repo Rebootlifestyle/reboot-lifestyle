@@ -169,7 +169,7 @@ const transicion = () => [
   pBold("Eyebrow: NO PARES AQUÍ"),
   p("Headline: Si estos 3 hacks te abrieron los ojos…"),
   p("Subtítulo: Creé un programa para enseñarte todos mis hacks en 30 días. Gratis."),
-  pBold("Fecha destacada: 4 · MAYO · 2026 (ARRANCA)"),
+  pBold("Fecha destacada: 11 · MAYO · 2026 (ARRANCA)"),
   new Paragraph({ spacing: { before: 80 }, children: [] })
 ];
 
@@ -188,7 +188,7 @@ const ctaSection = (highlight = "otro cuerpo") => [
   ...beneficios(),
   new Paragraph({ spacing: { before: 200 }, children: [] }),
   pBold("Botón CTA: \"Guardar mi cupo →\" (naranja #E85C26)"),
-  p("Texto debajo: 100% gratuito · Cupos limitados · Arranca el 4 de mayo", { size: 20, italics: true, color: COLORS.textGray })
+  p("Texto debajo: 100% gratuito · Cupos limitados · Arranca el 11 de mayo", { size: 20, italics: true, color: COLORS.textGray })
 ];
 
 // Mensaje inspiracional + Share
@@ -610,7 +610,7 @@ const landings = [
         hack: "Aprendes a comer fuera, en reuniones, en viajes, sin culpa. Sales del programa con una relación nueva con la comida. Para siempre."
       }
     ],
-    shareMsg: "El programa Reboot 30 arranca el 4 de mayo. Es gratis. Mira esto 🚀 [link]"
+    shareMsg: "El programa Reboot 30 arranca el 11 de mayo. Es gratis. Mira esto 🚀 [link]"
   }
 ];
 
@@ -635,7 +635,7 @@ const portada = [
     spacing: { after: 240 }
   }),
   new Paragraph({
-    children: [new TextRun({ text: "Lanzamiento: 4 de Mayo 2026", color: COLORS.oxygenBlue, bold: true, size: 24 })],
+    children: [new TextRun({ text: "Lanzamiento: 11 de Mayo 2026", color: COLORS.oxygenBlue, bold: true, size: 24 })],
     alignment: AlignmentType.CENTER,
     spacing: { after: 2400 }
   }),
@@ -654,7 +654,7 @@ const portada = [
 const instrucciones = [
   h1("CÓMO REVISAR ESTE DOCUMENTO"),
   p("Hola querido equipo 💚", { size: 22 }),
-  p("Este documento contiene el copy completo de las 10 landings que voy a publicar para el lanzamiento del programa Reboot 30 (4 de mayo).", { size: 22 }),
+  p("Este documento contiene el copy completo de las 10 landings que voy a publicar para el lanzamiento del programa Reboot 30 (11 de mayo).", { size: 22 }),
   p("Cada landing funciona como un recurso gratuito (\"lead magnet\") para atraer gente al programa. Alguien ve un reel mío, comenta una palabra clave, y recibe un DM con el link a la landing correspondiente.", { size: 22 }),
 
   h2("Qué necesito que revisen:", COLORS.earthCarrot),
@@ -703,7 +703,7 @@ const instrucciones = [
   new Paragraph({
     numbering: { reference: "nolist", level: 0 },
     children: [
-      new TextRun({ text: "Los CTAs ni la fecha de lanzamiento (4 de mayo 2026)." })
+      new TextRun({ text: "Los CTAs ni la fecha de lanzamiento (11 de mayo 2026)." })
     ]
   }),
 
@@ -764,7 +764,7 @@ const notasFinales = [
   p("• Landing 8 (Snacks): Miércoles 30 de abril"),
   p("• Landing 9 (Agua): Jueves 1 de mayo"),
   p("• Landing 10 (Resultados/Programa): Viernes 2 de mayo"),
-  p("• Lanzamiento oficial del Programa Reboot 30: Domingo 4 de mayo 2026", { bold: true }),
+  p("• Lanzamiento oficial del Programa Reboot 30: Domingo 11 de mayo 2026", { bold: true }),
 
   h2("Meta de cada landing:", COLORS.oxygenBlue),
   p("• Dar valor real en 2 minutos de lectura."),

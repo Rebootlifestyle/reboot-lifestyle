@@ -105,7 +105,7 @@ export default async function handler(req, res) {
   if (remaining <= 0) {
     return res.status(429).json({
       error: 'quota_exhausted',
-      message: 'Usaste todos tus análisis. Invita amigos para ganar más, o espera al 4 de mayo cuando arranca Reboot 30.',
+      message: 'Usaste todos tus análisis. Invita amigos para ganar más, o espera al 11 de mayo cuando arranca Reboot 30.',
       user: {
         referralCode: appUser.referral_code,
         usesRemaining: 0,

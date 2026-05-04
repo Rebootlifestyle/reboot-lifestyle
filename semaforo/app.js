@@ -350,7 +350,7 @@ function renderQuotaExhausted(errBody) {
     <section class="beta-gate">
       <p class="beta-gate__eyebrow">CUOTA AGOTADA</p>
       <h2 class="beta-gate__title">Usaste tus <span class="hl">análisis</span></h2>
-      <p class="beta-gate__copy">Invita amigos con tu link: por cada uno que entre, ganas <strong>+1 análisis</strong>. O regístrate al Reboot 30 y se libera el acceso completo el 4 de mayo.</p>
+      <p class="beta-gate__copy">Invita amigos con tu link: por cada uno que entre, ganas <strong>+1 análisis</strong>. O regístrate al Reboot 30 y se libera el acceso completo el 11 de mayo.</p>
       ${inviteUrl ? `<button type="button" class="btn-primary beta-gate__cta" id="quota-invite-btn">Invitar amigos →</button>` : ''}
       <a class="btn-secondary beta-gate__cta" href="${escapeHtml(ctaUrl)}" target="_blank" rel="noopener" style="margin-top:10px">Ir al Reboot 30</a>
       <p class="beta-gate__date">4 · MAYO · 2026</p>

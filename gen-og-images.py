@@ -139,7 +139,7 @@ def make_og(data):
 
     # 5. Badge inferior (amarillo · fecha)
     font_badge = get_font(20)
-    badge_text = 'REBOOT 30 · INICIA 4 MAYO 2026'
+    badge_text = 'REBOOT 30 · INICIA 11 MAYO 2026'
     bbox = draw.textbbox((0, 0), badge_text, font=font_badge)
     tw = bbox[2] - bbox[0]
     th = bbox[3] - bbox[1]

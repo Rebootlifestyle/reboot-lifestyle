@@ -1,5 +1,5 @@
 # Brief para Programador: Setup Fluent Forms + CRM + Google Sheets
-## Proyecto: Reboot 30 · Lanzamiento 4 mayo 2026
+## Proyecto: Reboot 30 · Lanzamiento 11 mayo 2026
 
 ---
 
@@ -150,7 +150,7 @@ Esto pasa el nombre y el país a la página de bienvenida.
 4. Wait: hasta 1 Mayo 2026
    Action: Send Email → Template "Reboot30 Cuenta regresiva 3 días"
 
-5. Wait: hasta 4 Mayo 2026 (7:00 AM)
+5. Wait: hasta 11 Mayo 2026 (7:00 AM)
    Action: Send Email → Template "Reboot30 Día 1 - Arrancamos"
 ```
 
@@ -215,7 +215,7 @@ Tu cupo está reservado oficialmente.
 
 [Caja con fondo negro y borde amarillo #fae62b]
 ARRANCA
-4 · MAYO
+11 · MAYO
 2026
 
 [Botón verde WhatsApp, gigante, centrado]
@@ -355,5 +355,5 @@ fbq('track', 'CompleteRegistration');
 ## Contacto
 
 - Cliente: Arie Schwartz (arie@arieschwartz.com)
-- Urgencia: Lanzamiento 4 de mayo 2026 (18 días)
+- Urgencia: Lanzamiento 11 de mayo 2026 (18 días)
 - Comunicación: WhatsApp directo o según prefiera el programador

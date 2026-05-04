@@ -92,7 +92,7 @@ Sube las landings **en el orden que vas a publicar los reels**:
 | 7 | Prep | 29 abril | rebootlifestyle.com/prep |
 | 8 | Snacks | 30 abril | rebootlifestyle.com/snacks |
 | 9 | Agua | 1 mayo | rebootlifestyle.com/agua |
-| 10 | Programa | 4 mayo | rebootlifestyle.com/programa-30-dias |
+| 10 | Programa | 11 mayo | rebootlifestyle.com/programa-30-dias |
 
 ---
 

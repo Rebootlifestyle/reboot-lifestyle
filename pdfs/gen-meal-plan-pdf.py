@@ -113,7 +113,7 @@ def draw_cover(c):
     c.setFont('Helvetica', 9)
     c.drawString(50, 90, 'Programa gratuito Reboot 30')
     c.setFillColor(ARIE_YELLOW)
-    c.drawRightString(W - 50, 90, 'INICIA · 4 MAYO 2026')
+    c.drawRightString(W - 50, 90, 'INICIA · 11 MAYO 2026')
 
     c.showPage()
 
@@ -352,7 +352,7 @@ def draw_cta(c):
     c.setFont('Helvetica', 12)
     steps = [
         '1.  Entra a rebootlifestyle.github.io/reboot-lifestyle/reboot-lab/',
-        '2.  Pon tu nombre (la fecha de inicio ya está fija al 4 mayo)',
+        '2.  Pon tu nombre (la fecha de inicio ya está fija al 11 mayo)',
         '3.  En iPhone: Compartir → "Añadir a pantalla de inicio"',
         '4.  Tendrás el app con dashboard diario, semanas y todas las recetas',
     ]

@@ -100,9 +100,9 @@ export function renderBetaBanner(beta) {
   if (!beta || typeof beta.remaining !== 'number') return '';
   const r = beta.remaining;
   let msg;
-  if (r > 1) msg = `Beta: te quedan <strong>${r} análisis</strong> antes del 4 de mayo.`;
-  else if (r === 1) msg = `Beta: te queda <strong>1 análisis</strong>. El 4 de mayo arranca Reboot 30 y se libera todo.`;
-  else msg = `Beta: usaste tus 3 análisis. El 4 de mayo arranca Reboot 30 y se libera el acceso completo.`;
+  if (r > 1) msg = `Beta: te quedan <strong>${r} análisis</strong> antes del 11 de mayo.`;
+  else if (r === 1) msg = `Beta: te queda <strong>1 análisis</strong>. El 11 de mayo arranca Reboot 30 y se libera todo.`;
+  else msg = `Beta: usaste tus 3 análisis. El 11 de mayo arranca Reboot 30 y se libera el acceso completo.`;
   return `
     <div class="beta-banner" role="note">
       <span class="beta-banner__dot" aria-hidden="true"></span>
@@ -122,7 +122,7 @@ export function renderBetaLimitReached(betaInfo) {
     <section class="beta-gate" aria-live="polite">
       <p class="beta-gate__eyebrow">BETA · GRACIAS POR PROBAR</p>
       <h2 class="beta-gate__title">Usaste tus <span class="hl">3 análisis</span></h2>
-      <p class="beta-gate__copy">El 4 de mayo arranca <strong>Reboot 30</strong> — 30 días gratis para cambiar tu relación con la comida. Al entrar se libera el acceso completo al Semáforo, sin límite de consultas.</p>
+      <p class="beta-gate__copy">El 11 de mayo arranca <strong>Reboot 30</strong> — 30 días gratis para cambiar tu relación con la comida. Al entrar se libera el acceso completo al Semáforo, sin límite de consultas.</p>
       <a class="btn-primary beta-gate__cta" href="${escapeHtml(ctaUrl)}" target="_blank" rel="noopener">Guardar mi cupo →</a>
       <p class="beta-gate__date">4 · MAYO · 2026</p>
     </section>

@@ -79,7 +79,7 @@ Responde con una palabra o frase.
 ```
 {{first_name}}, si te abrí los ojos con 3 hacks, imagínate con 30 días completos.
 
-El 4 de mayo arrancamos el Programa Reboot 30. 100% gratis.
+El 11 de mayo arrancamos el Programa Reboot 30. 100% gratis.
 
 Si quieres entrar, guardas tu cupo aquí:
 👉 https://rebootlifestyle.github.io/reboot-lifestyle/reboot30.html
@@ -117,7 +117,7 @@ https://rebootlifestyle.github.io/reboot-lifestyle/pdfs/10-desayunos-salados-reb
 ```
 {{first_name}}, el PDF es una probada de lo que verás en el Programa Reboot 30.
 
-4 de mayo arrancamos. Gratis.
+11 de mayo arrancamos. Gratis.
 Guardas tu cupo acá:
 👉 https://rebootlifestyle.github.io/reboot-lifestyle/reboot30.html
 ```
@@ -142,7 +142,7 @@ https://rebootlifestyle.github.io/reboot-lifestyle/pdfs/meal-prep-domingo-reboot
 ```
 {{first_name}}, este PDF resuelve una semana. El Programa Reboot 30 resuelve 30 días.
 
-4 mayo. Gratis.
+11 mayo. Gratis.
 👉 https://rebootlifestyle.github.io/reboot-lifestyle/reboot30.html
 ```
 
@@ -168,7 +168,7 @@ https://rebootlifestyle.github.io/reboot-lifestyle/pdfs/10-snacks-corta-antojo-r
 
 En el Programa Reboot 30 te enseño a hackearlos todos los días con comida real.
 
-4 mayo. Gratis.
+11 mayo. Gratis.
 👉 https://rebootlifestyle.github.io/reboot-lifestyle/reboot30.html
 ```
 
@@ -192,7 +192,7 @@ El tag `ACCOUNT_UPDATE` se configura en ManyChat al momento de crear el flow.
 ```
 {{first_name}}, bienvenido al Reboot 30 🎉
 
-Tu cupo está confirmado para el 4 de mayo.
+Tu cupo está confirmado para el 11 de mayo.
 
 Entra al grupo de WhatsApp para no perderte nada:
 {{WA_LINK}}
@@ -217,7 +217,7 @@ Checklist del domingo:
 — Arie
 ```
 
-### Mensaje 3 (4 mayo, 7am · Día 1, tag ACCOUNT_UPDATE)
+### Mensaje 3 (11 mayo, 7am · Día 1, tag ACCOUNT_UPDATE)
 
 ```
 {{first_name}}, DÍA 1 🚀

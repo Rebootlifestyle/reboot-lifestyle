@@ -24,7 +24,7 @@ Dar valor MASIVO en el carrusel (que la gente lo guarde y comparta), pero dejar 
 >
 > ¿Quieres la lista completa de los 10 nombres disfrazados + la guía para leer cualquier etiqueta en 15 segundos + 3 swaps que usas desde mañana?
 >
-> 👉 **Comenta "AZÚCAR"** y te mando todo por DM. Gratis. Es el primero de una serie que estoy soltando antes del Programa Reboot 30 que arranca el 4 de mayo.
+> 👉 **Comenta "AZÚCAR"** y te mando todo por DM. Gratis. Es el primero de una serie que estoy soltando antes del Programa Reboot 30 que arranca el 11 de mayo.
 >
 > #ReBootLifestyle #AzucarOculta #LeerEtiquetas #EnergíaEstable #HabitosSaludables #ComidaReal #SaludConsciente
 
@@ -139,7 +139,7 @@ Dar valor MASIVO en el carrusel (que la gente lo guarde y comparta), pero dejar 
 > ✅ Guía: leer etiquetas en 15 seg
 > ✅ 3 swaps para tu día
 >
-> Es el primer drop antes del **Programa Reboot 30** (arranca 4 de mayo, gratis).
+> Es el primer drop antes del **Programa Reboot 30** (arranca 11 de mayo, gratis).
 
 **Logo:** @ariereboot
 
@@ -163,4 +163,4 @@ Dar valor MASIVO en el carrusel (que la gente lo guarde y comparta), pero dejar 
 - **Story 1 (AM):** Captura del post con sticker "comenta AZÚCAR"
 - **Story 2 (mediodía):** Foto genérica de una etiqueta del super (tapando la marca o en primer plano solo la lista de ingredientes) con las palabras disfrazadas marcadas con círculo
 - **Story 3 (PM):** Screenshot anónimo de un DM agradeciendo + "ya van X comentarios"
-- **Story 4 (noche):** Recordatorio del programa 4 de mayo con link en bio
+- **Story 4 (noche):** Recordatorio del programa 11 de mayo con link en bio

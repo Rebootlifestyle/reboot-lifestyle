@@ -183,7 +183,7 @@ Cualquier pregunta, escríbela aquí. El equipo te responde.
 — Arie
 ```
 
-### Mensaje 2 — Día 1 del programa (4 mayo)
+### Mensaje 2 — Día 1 del programa (11 mayo)
 
 ```
 Buenos días equipo 🌱
@@ -215,4 +215,4 @@ Vamos.
 
 ---
 
-**Última actualización:** 29 abril 2026 · Funnel definitivo previo al lanzamiento del 4 de mayo.
+**Última actualización:** 29 abril 2026 · Funnel definitivo previo al lanzamiento del 11 de mayo.

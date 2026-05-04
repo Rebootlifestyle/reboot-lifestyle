@@ -1,5 +1,5 @@
 # BRIEF: Recursos descargables @ariereboot
-## Lanzamiento programa 30 días - 4 de mayo 2026
+## Lanzamiento programa 30 días - 11 de mayo 2026
 
 ---
 
@@ -18,7 +18,7 @@
 Cada PDF tiene que cumplir 3 cosas:
 1. Resolver un problema específico en 1-2 páginas
 2. Verse TAN bonito que la gente lo comparta con amigos
-3. Terminar invitando al programa de 30 días del 4 de mayo
+3. Terminar invitando al programa de 30 días del 11 de mayo
 
 ---
 
@@ -86,7 +86,7 @@ Cada PDF tiene que cumplir 3 cosas:
 - Fondo oscuro (`#0A0A0A`)
 - Texto blanco
 - "Esto es solo el 1%. Imagina las otras 30 cosas."
-- Badge dorado: "4 DE MAYO - PANAMÁ - GRATIS"
+- Badge dorado: "11 DE MAYO - PANAMÁ - GRATIS"
 - QR code o link a la landing de inscripción
 - "@ariereboot · ReBoot Lifestyle"
 

@@ -263,10 +263,10 @@ LANDINGS = {
     },
     'programa': {
         'title': 'El Programa Reboot 30 — Transformación Alimentaria Completa | Reboot Lifestyle',
-        'description': 'En 30 días vas a sentir que vives en otro cuerpo. Programa gratuito, 4 de mayo 2026. Por Arie Reboot.',
+        'description': 'En 30 días vas a sentir que vives en otro cuerpo. Programa gratuito, 11 de mayo 2026. Por Arie Reboot.',
         'keywords': 'programa reboot 30, transformación 30 días, dejar azúcar, Arie Reboot, Panamá, programa gratis',
         'og_title': 'En 30 días vas a sentir que vives en otro cuerpo',
-        'og_desc': 'El programa Reboot 30 arranca el 4 de mayo. Es gratis. Así funciona.',
+        'og_desc': 'El programa Reboot 30 arranca el 11 de mayo. Es gratis. Así funciona.',
         'page_url': 'programa.html',
         'hero_h1': 'En 30 días vas a sentir<br>que vives en<br><span class="highlight">otro cuerpo</span>',
         'hero_subtitle': 'No es dieta. No es contar calorías. Es aprender a comer diferente para siempre. Aquí cómo funciona el programa Reboot 30.',
@@ -288,7 +288,7 @@ LANDINGS = {
                 'hack': 'Aprendes a comer fuera, en reuniones, en viajes, sin culpa. Sales del programa con una relación nueva con la comida. Para siempre.'
             }
         ],
-        'share_msg': 'El programa Reboot 30 arranca el 4 de mayo. Es gratis. Mira esto 🚀'
+        'share_msg': 'El programa Reboot 30 arranca el 11 de mayo. Es gratis. Mira esto 🚀'
     }
 }
 

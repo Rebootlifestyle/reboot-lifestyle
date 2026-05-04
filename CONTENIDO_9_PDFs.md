@@ -203,14 +203,14 @@ Durante la noche pierdes ~500ml de agua solo respirando. Empezar el día deshidr
 ### Estructura común por PDF
 - **Página 1:** Cover con título grande + promesa
 - **Páginas intermedias:** Cada punto en su sección
-- **Última página:** CTA al programa de 30 días del 4 de mayo
+- **Última página:** CTA al programa de 30 días del 11 de mayo
 
 ### CTA final (misma para todos los PDFs)
 > **Esto es solo el 1%.**
 >
 > Si estos hacks te abrieron los ojos, imagina las otras 30 cosas que probablemente estás haciendo mal.
 >
-> **El 4 de mayo arranca el Programa Reboot de 30 días.**
+> **El 11 de mayo arranca el Programa Reboot de 30 días.**
 > Gratis. Solo para Panamá. Cupos limitados.
 >
 > **[BOTÓN / QR: Reserva tu cupo →]**
