@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="facebook-domain-verification" content="4makziuo4jna8hf4zka4hbf2xdnb0r" />
-    <title>¡Un paso más! · Reboot 30</title>
-    <meta name="description" content="Estás a un paso de confirmar tu cupo en el Programa Reboot 30. Entra al WhatsApp de la comunidad.">
+    <title>¡Casi estás dentro! · Reboot 30</title>
+    <meta name="description" content="Te faltan 2 pasos para confirmar tu cupo en el Programa Reboot 30: entrar al WhatsApp e instalar el App.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,12 +32,11 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Container principal 1080x1080 */
+        /* Container principal — flex height para acomodar 3 pasos + 2 CTAs */
         .thank-you-card {
             width: 1080px;
-            height: 1080px;
+            min-height: 1080px;
             max-width: 100vw;
-            max-height: 100vh;
             margin: 0 auto;
             background: var(--black-seed);
             color: white;
@@ -45,7 +44,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 72px 64px;
+            padding: 72px 64px 120px;
             position: relative;
             overflow: hidden;
             text-align: center;
@@ -191,6 +190,61 @@
             margin-top: 6px;
         }
 
+        /* Steps checklist — los 2 pasos que faltan */
+        .steps {
+            list-style: none;
+            margin: 0 auto 32px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 460px;
+            text-align: left;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 18px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.92);
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .step--done {
+            background: rgba(250,230,43,0.08);
+            border-color: rgba(250,230,43,0.35);
+        }
+        .step__check {
+            width: 26px; height: 26px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            font-size: 14px;
+            font-weight: 800;
+        }
+        .step--done .step__check {
+            background: var(--arie-yellow);
+            color: var(--black-seed);
+        }
+        .step--pending .step__check {
+            background: rgba(255,255,255,0.06);
+            border: 2px solid rgba(255,255,255,0.25);
+            color: rgba(255,255,255,0.45);
+        }
+
+        /* CTA buttons — pile of 2 */
+        .cta-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
         /* CTA WhatsApp — prominente pero no grotesco */
         .wa-button {
             display: inline-flex;
@@ -220,6 +274,50 @@
             font-weight: 500;
             font-style: italic;
         }
+
+        /* CTA App ReBoot Lab — secundario, amarillo */
+        .app-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--arie-yellow);
+            color: var(--black-seed);
+            padding: 18px 36px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 16px;
+            letter-spacing: 0.3px;
+            transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 22px rgba(250,230,43,0.3);
+        }
+        .app-button:hover {
+            transform: translateY(-2px);
+            background: #f0d80f;
+            box-shadow: 0 12px 28px rgba(250,230,43,0.4);
+        }
+        .app-hint {
+            color: rgba(255,255,255,0.55);
+            font-size: 13px;
+            font-weight: 500;
+            margin-top: 6px;
+            line-height: 1.4;
+            max-width: 460px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .app-hint code {
+            font-family: 'Montserrat', monospace;
+            background: rgba(255,255,255,0.08);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--oxygen-blue);
+            font-size: 12px;
+            word-break: break-all;
+        }
+        .app-desktop-only { display: none; }
+        body.is-desktop .app-desktop-only { display: block; }
+        body.is-desktop .app-mobile-only { display: none; }
 
         /* FIRMA PERSONAL DE ARIE */
         .signature-block {
@@ -447,37 +545,67 @@
         </div>
 
         <!-- Eyebrow -->
-        <div class="eyebrow">Falta un paso</div>
+        <div class="eyebrow">Faltan 2 pasos</div>
 
         <!-- Título principal -->
         <h1>
-            Ya casi estás<br>
+            Casi estás<br>
             <span class="highlight" id="nombre-display">dentro</span>
         </h1>
 
-        <!-- Subtítulo con el mensaje clave -->
+        <!-- Subtítulo limpio -->
         <p class="subtitle">
-            Ya estás a un paso de confirmar tu cupo. <strong>Entra al WhatsApp de la comunidad</strong> para asegurar tu lugar y no perderte el arranque.
+            Tu cupo está reservado. Te faltan <strong>2 pasos cortos</strong> para que estés listo.
         </p>
 
-        <!-- Fecha (tamaño contenido) -->
+        <!-- Step indicator -->
+        <ul class="steps" aria-label="Tu progreso">
+            <li class="step step--done">
+                <span class="step__check" aria-hidden="true">✓</span>
+                <span>Reservaste tu cupo</span>
+            </li>
+            <li class="step step--pending" id="step-whatsapp">
+                <span class="step__check" aria-hidden="true">1</span>
+                <span>Únete al WhatsApp</span>
+            </li>
+            <li class="step step--pending" id="step-app">
+                <span class="step__check" aria-hidden="true">2</span>
+                <span>Instala el App del programa</span>
+            </li>
+        </ul>
+
+        <!-- Fecha -->
         <div class="date-box">
-            <div class="date-label">Inicio</div>
-            <div class="date-big">4<span class="date-sep">·</span>MAYO</div>
+            <div class="date-label">Arrancamos</div>
+            <div class="date-big">11<span class="date-sep">·</span>MAYO</div>
             <div class="date-year">2026</div>
         </div>
 
-        <!-- Botón WhatsApp (link dinámico según país) -->
-        <a href="#" id="wa-link" class="wa-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-            Entrar al WhatsApp
-        </a>
+        <!-- CTAs apilados -->
+        <div class="cta-stack">
+            <a href="#" id="wa-link" class="wa-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                1 · Entrar al WhatsApp
+            </a>
 
-        <p class="wa-hint">Tu cupo se confirma cuando entres al grupo</p>
-        <p id="auto-redirect-msg" class="wa-hint" style="margin-top:8px;color:var(--oxygen-blue);font-weight:600;font-size:13px;letter-spacing:.3px">
-            Te llevamos al WhatsApp en <span id="redirect-counter">8</span>s…
+            <a href="https://rebootlifestyle.github.io/reboot-lifestyle/reboot-lab/?utm_source=thank_you&utm_medium=app_install" id="app-link" class="app-button" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2.5" ry="2.5"/>
+                    <line x1="12" y1="18" x2="12.01" y2="18"/>
+                </svg>
+                2 · Instalar el App
+            </a>
+        </div>
+
+        <p class="wa-hint app-mobile-only">Haz los 2 pasos para quedar 100% listo</p>
+        <p class="app-hint app-desktop-only">
+            ¿Estás en laptop? Para instalar el App, ábrelo en tu cel:<br>
+            <code>rebootlifestyle.github.io/reboot-lifestyle/reboot-lab/</code>
+        </p>
+        <p id="auto-redirect-msg" class="wa-hint" style="margin-top:14px;color:var(--oxygen-blue);font-weight:600;font-size:13px;letter-spacing:.3px">
+            Te llevamos al WhatsApp en <span id="redirect-counter">15</span>s…
         </p>
 
         <!-- Firma personal de Arie -->
@@ -506,10 +634,10 @@
         <span class="semaforo-bridge__light yellow"></span>
         <span class="semaforo-bridge__light green"></span>
     </div>
-    <div class="semaforo-bridge__eyebrow">Mientras llega el 11 de mayo</div>
+    <div class="semaforo-bridge__eyebrow">Bonus · disponible ya</div>
     <h2 class="semaforo-bridge__title">Prueba el Semáforo Reboot</h2>
     <p class="semaforo-bridge__desc">
-        El app que escanea la etiqueta de cualquier producto del súper o la foto del menú de un restaurante y te dice si es <strong>verde, amarillo o rojo</strong>. Eres de los primeros en probarlo.
+        Escanea la etiqueta de cualquier producto del súper o la foto del menú de un restaurante y te dice si es <strong>verde, amarillo o rojo</strong>. Es nuestra herramienta beta — eres de los primeros en probarla.
     </p>
     <a href="https://semaforo-reboot.vercel.app/redeem" target="_blank" rel="noopener" class="semaforo-bridge__cta" id="semaforo-link">
         Abrir Semáforo Reboot →
@@ -525,6 +653,56 @@
     const email = (params.get('email') || '').trim();
     const apellido = (params.get('apellido') || '').trim();
     const phone = (params.get('phone') || '').trim();
+
+    // Device detection — mobile vs desktop UX adapts
+    const ua = navigator.userAgent || '';
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(ua) || (window.matchMedia && window.matchMedia('(max-width: 900px)').matches);
+    if (!isMobile) document.body.classList.add('is-desktop');
+
+    // App install link tracking + step completion UX
+    const appLink = document.getElementById('app-link');
+    const stepApp = document.getElementById('step-app');
+    if (appLink) {
+        appLink.addEventListener('click', function () {
+            try {
+                const eventParams = {
+                    content_name: 'Click Install ReBoot Lab App',
+                    content_category: 'App Install',
+                    pais: pais || 'unknown',
+                    is_mobile: isMobile
+                };
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'click_install_app', eventParams);
+                }
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click_install_app', eventParams);
+                }
+                if (typeof clarity !== 'undefined') {
+                    clarity('event', 'click_install_app');
+                    clarity('set', 'app_clicked', 'true');
+                    clarity('upgrade', 'app_install_started');
+                }
+                if (navigator.sendBeacon) {
+                    navigator.sendBeacon(
+                        'https://reboot-master-api.vercel.app/api/events',
+                        new Blob([JSON.stringify({
+                            event_name: 'click_install_app',
+                            product_slug: 'reboot_30',
+                            properties: { pais: pais || 'unknown', is_mobile: isMobile }
+                        })], { type: 'application/json' })
+                    );
+                }
+            } catch(err) {}
+
+            // Mark step as done visually (returns from new tab to find it ✓)
+            if (stepApp) {
+                stepApp.classList.remove('step--pending');
+                stepApp.classList.add('step--done');
+                const check = stepApp.querySelector('.step__check');
+                if (check) check.textContent = '✓';
+            }
+        });
+    }
 
     // Append known-user params to the Semáforo Reboot CTA so redeem.html can
     // pre-fill (or skip) the form. We're unifying DBs — once they registered
@@ -638,7 +816,7 @@
     // Critical for conversion — guarantees user lands in the WhatsApp group
     // even if they don't click the button manually.
     // ====================================================================
-    const REDIRECT_SECONDS = 8;
+    const REDIRECT_SECONDS = 15;
     let secondsLeft = REDIRECT_SECONDS;
     let userInteracted = false;
     const counterEl = document.getElementById('redirect-counter');
@@ -726,6 +904,14 @@
         waLink.dataset.clicked = '1';
         clearInterval(redirectTimer);
         if (msgEl) msgEl.style.display = 'none';
+        // Mark WhatsApp step as completed
+        const stepWa = document.getElementById('step-whatsapp');
+        if (stepWa) {
+            stepWa.classList.remove('step--pending');
+            stepWa.classList.add('step--done');
+            const check = stepWa.querySelector('.step__check');
+            if (check) check.textContent = '✓';
+        }
     });
 })();
 </script>
