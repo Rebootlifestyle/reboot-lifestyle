@@ -103,6 +103,134 @@ DIAS = {
             ),
         },
     },
+    2: {
+        'fecha_label': '05 MAY',
+        'dia_titulo': 'MAR · Día 2',
+        'subtitle': 'Inventario consciente',
+        'quien': 'Marle (sube audio Arie + texto)',
+        'hora': '10am-1pm',
+        'tipo': 'Audio Arie 2:30min + texto',
+        'texto_acompana': (
+            "Buenos días, familia.<br/><br/>"
+            "Día 2 del calentamiento. Ayer limpiamos. Hoy <b>hacemos inventario</b> "
+            "de lo que sí nos sirve. Audio corto de Arie abajo.<br/><br/>"
+            "— Arie + Marle"
+        ),
+        'script_titulo': 'SCRIPT del audio de Arie (2:30 min)',
+        'script': (
+            "Hola, familia. Soy Arie.<br/><br/>"
+            "Día 2. Ayer limpiamos. Hoy toca lo opuesto: <b>hacer inventario</b> "
+            "de lo que sí tenemos.<br/><br/>"
+            "Suena obvio, pero les juro que la mitad de la gente compra cosas "
+            "que ya tiene. O peor: no usa lo que tiene porque ni se acuerda que "
+            "está ahí. Hoy resolvemos eso.<br/><br/>"
+            "Saquen un cuaderno. O las notas del cel. Da igual.<br/><br/>"
+            "Y anoten lo que tienen, por categorías:<br/><br/>"
+            "<b>Granos y carbos buenos</b> — arroz integral, quinoa, avena, "
+            "pasta integral, harinas de almendra o coco, tortillas integrales.<br/><br/>"
+            "<b>Legumbres y proteínas vegetales</b> — frijoles, lentejas, "
+            "garbanzos, tofu si comen, edamame.<br/><br/>"
+            "<b>Proteínas animales</b> — huevos, pollo, pescado, carne, atún en "
+            "lata. Lo que tengan en la nevera o el congelador.<br/><br/>"
+            "<b>Vegetales y frutas</b> — los frescos primero, los congelados "
+            "después.<br/><br/>"
+            "<b>Frutos secos y semillas</b> — almendras, nueces, chía, lino, "
+            "maní, mantequilla de maní sin azúcar.<br/><br/>"
+            "<b>Aceites y especias</b> — aceite de oliva, aceite de coco, sal, "
+            "pimienta, ajo, jengibre, todo lo que tengan.<br/><br/>"
+            "Esto no es para hacer la lista de compras todavía. Es solo para "
+            "<b>saber</b>. Mañana, con el inventario en mano, hacemos la lista.<br/><br/>"
+            "Una cosa más: si encuentran algo que no saben qué es, o que es "
+            "amarillo o rojo, déjenlo por ahora. Mañana les voy a enseñar una "
+            "herramienta para que ustedes mismos sepan distinguir qué es verde, "
+            "amarillo o rojo. Ya van a ver.<br/><br/>"
+            "Veinte minutos hoy. No más.<br/><br/>"
+            "Nos vemos mañana.<br/><br/>"
+            "— Arie"
+        ),
+        'notas': (
+            "Tono caballero, mismo registro que ayer. Las categorías van con "
+            "ritmo: pausa pequeña entre cada una para que el oyente respire y "
+            "pueda anotar. La línea final 'mañana les voy a enseñar una "
+            "herramienta' tiene un toque de teaser — no spoileees el Semáforo, "
+            "que sea sorpresa mañana."
+        ),
+        'accion_extra': {
+            'titulo': 'Acción extra del día (opcional)',
+            'body': (
+                "Mandar foto del inventario (cuaderno o nota del cel) al "
+                "<b>privado de Marle</b>. Ella revisa rápido y te da feedback "
+                "si ve algo que ajustar. No al grupo — al privado de Marle."
+            ),
+        },
+    },
+    3: {
+        'fecha_label': '06 MAY',
+        'dia_titulo': 'MIÉ · Día 3',
+        'subtitle': 'Te presento el Semáforo Reboot',
+        'quien': 'Marle (sube audio Arie + texto + link)',
+        'hora': '10am-1pm',
+        'tipo': 'Audio Arie 3min + texto + link app',
+        'texto_acompana': (
+            "Día 3 del calentamiento.<br/><br/>"
+            "Hoy les presento una herramienta nuestra: el <b>Semáforo Reboot</b>. "
+            "Escanean cualquier etiqueta o menú y les dice si es verde, amarillo "
+            "o rojo. Audio de Arie abajo + el link.<br/><br/>"
+            "🚦 <b>semaforo-reboot.vercel.app</b><br/><br/>"
+            "— Arie + Marle"
+        ),
+        'script_titulo': 'SCRIPT del audio de Arie (3 min)',
+        'script': (
+            "Hola, familia. Soy Arie.<br/><br/>"
+            "Hoy les voy a presentar algo nuestro. Una herramienta que armé "
+            "para que cada uno de ustedes pueda saber, sin depender de mí ni de "
+            "Marle, si algo es verde, amarillo o rojo.<br/><br/>"
+            "Se llama <b>Semáforo Reboot</b>.<br/><br/>"
+            "Funciona así: abren la app, le toman foto a la etiqueta de "
+            "cualquier producto del súper, o a la foto del menú de un "
+            "restaurante. Y la app les dice — verde, amarillo, rojo. Y por qué.<br/><br/>"
+            "<b>Verde</b> es comida real, sin trampas. Pueden comerlo tranquilos.<br/><br/>"
+            "<b>Amarillo</b> es 'ok pero con criterio'. No todos los días, no "
+            "en porción grande, pero no es veneno. Sirve.<br/><br/>"
+            "<b>Rojo</b> es lo que les saca del juego. Lo que les apaga la "
+            "energía, les confunde el hambre, les empuja al antojo. No es que "
+            "no lo puedan comer nunca — es que sepan qué están comiendo "
+            "cuando lo comen.<br/><br/>"
+            "Esto no es una app para que les diga qué hacer. Es una app para "
+            "que <b>ustedes aprendan</b>. Cada vez que escanean algo y lo ven "
+            "amarillo o rojo, se les queda el patrón. A los 30 días ya no la "
+            "van a necesitar — van a leer las etiquetas con sus propios ojos.<br/><br/>"
+            "Hoy quiero que hagan dos cosas:<br/><br/>"
+            "<b>Una.</b> Abran el link que les manda Marle abajo. Es la app. "
+            "Entren con su email — el mismo con el que se registraron al "
+            "programa. Te ahorra pasos.<br/><br/>"
+            "<b>Dos.</b> Escojan <b>una</b> cosa de su inventario de ayer. Una "
+            "etiqueta de algo que tengan en la despensa. Tómenle foto en la "
+            "app. Y vean qué color sale.<br/><br/>"
+            "Va a haber sorpresas. Cosas que ustedes pensaban que eran verdes "
+            "y son amarillas. Cosas que pensaban malas y resultan más limpias "
+            "de lo que creían. Esa es la idea — que se calibren el ojo.<br/><br/>"
+            "Una sola etiqueta hoy. No se obsesionen.<br/><br/>"
+            "Nos vemos mañana.<br/><br/>"
+            "— Arie"
+        ),
+        'notas': (
+            "Tono entusiasta pero contenido — están presentando algo propio. "
+            "Pausa fuerte antes de 'Semáforo Reboot' para que el nombre pegue. "
+            "Las definiciones de verde/amarillo/rojo van pausadas, casi "
+            "didácticas. La línea 'a los 30 días ya no la van a necesitar' es "
+            "clave — venden que la app es un puente, no una muleta."
+        ),
+        'accion_extra': {
+            'titulo': 'Link del Semáforo (Marle: copia este link al grupo después del audio)',
+            'body': (
+                "🚦 <b>semaforo-reboot.vercel.app</b><br/><br/>"
+                "Entra con el mismo email del programa.<br/>"
+                "Tienes 3 análisis gratis durante el calentamiento. "
+                "El 11 de mayo se libera todo, sin límite."
+            ),
+        },
+    },
 }
 
 

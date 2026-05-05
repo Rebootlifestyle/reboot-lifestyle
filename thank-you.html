@@ -627,24 +627,6 @@
     </div>
 </div>
 
-<!-- ============ BRIDGE AL SEMÁFORO REBOOT ============ -->
-<section class="semaforo-bridge">
-    <div class="semaforo-bridge__lights" aria-hidden="true">
-        <span class="semaforo-bridge__light red"></span>
-        <span class="semaforo-bridge__light yellow"></span>
-        <span class="semaforo-bridge__light green"></span>
-    </div>
-    <div class="semaforo-bridge__eyebrow">Bonus · disponible ya</div>
-    <h2 class="semaforo-bridge__title">Prueba el Semáforo Reboot</h2>
-    <p class="semaforo-bridge__desc">
-        Escanea la etiqueta de cualquier producto del súper o la foto del menú de un restaurante y te dice si es <strong>verde, amarillo o rojo</strong>. Es nuestra herramienta beta — eres de los primeros en probarla.
-    </p>
-    <a href="https://semaforo-reboot.vercel.app/redeem" target="_blank" rel="noopener" class="semaforo-bridge__cta" id="semaforo-link">
-        Abrir Semáforo Reboot →
-    </a>
-    <span class="semaforo-bridge__hint">Beta 1.0 · Tu feedback nos ayuda a mejorarlo</span>
-</section>
-
 <script>
 (function() {
     const params = new URLSearchParams(window.location.search);
@@ -702,20 +684,6 @@
                 if (check) check.textContent = '✓';
             }
         });
-    }
-
-    // Append known-user params to the Semáforo Reboot CTA so redeem.html can
-    // pre-fill (or skip) the form. We're unifying DBs — once they registered
-    // in Reboot 30, the Semáforo flow MUST recognize them.
-    const semaforoLink = document.getElementById('semaforo-link');
-    if (semaforoLink && email) {
-        const url = new URL(semaforoLink.href);
-        url.searchParams.set('email', email);
-        if (nombre) url.searchParams.set('name', apellido ? `${nombre} ${apellido}` : nombre);
-        if (pais) url.searchParams.set('country', pais);
-        if (phone) url.searchParams.set('phone', phone);
-        url.searchParams.set('from', 'reboot30_thankyou');
-        semaforoLink.href = url.toString();
     }
 
     // Fallback links (used if /api/whatsapp-link is unreachable).
